@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>katex-editor</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>katex-editor</h1>
+      <p>A self-contained chromium-based katex editor</p>
+      <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog code.</p>
+      <br/>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Articles</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="posts">
+      <article id="article-1" class="post">
+        <h3>Adding "Save As" feature</h3>
+        <p class="meta">I cannot currently save the contents of a katex-editor session and restore them later.</p>
+        <p class="meta">2025-05-15 10:37 (UTC-7) by Daniel</p>
+        <p>I used ChatGPT's Code GPT feature to generate Save As and Open code for Chromium.  <a href="../save-restore-html-experiments/Prompt for location to save to.html" target="_blank">Here is its answer as a standalone HTML file.</a></p>
+        <p>I also had ChatGPT generate code to download part of the DOM. It's <a href="../save-restore-html-experiments/Download%20HTML.html" target="_blank">here as another standalone html file.</a></p>
+        <p>I then had ChatGPT generate code to display a given directory's contents. It requires nodejs to run. It's <a href="../folder-browser/public/index.html/?path=./" target="_blank">here</a></p>
+        <!--ul style="margin-left: 2em;">
+          <li>1) be able to navigate it with a video viewer which allows me to easily move forward and backward in little chunks</li>
+          <li>2) find start and end times</li>
+          <li>3) be able to navigate quickly to those start and end times</li>
+          <li>4) refine those times with numeric values</li>
+          <li>5) extract a transcript from the video</li>
+          <li>6) be able to navigate to any point in the video by clicking on a word or phrase from the transcript</li>
+          <li>7) unambiguously represent the content of the transcript in cases where the language is ambiguous.</li></ul>
+        <p>1-4 sound like requirements for a new or existing tool. Perhaps I should do a search for such a tool.</p>
+        <p>5-7 sound like requirements for another tool, or perhaps requirements of new new tool. Perhaps I should do a search for such a tool.</p>
+        <form style="margin-left: 2em;" action="">
+          <input type="checkbox" id="search-1-4" name="vehicle1" value="Bike">
+          <label for="search-1-4">Search for an existing tool for requirements 1-4</label><br>
+          <input type="checkbox" id="search-5-7" name="vehicle2" value="Car">
+          <label for="search-5-7">Search for an existing tool for requirements 5-7</label><br>
+          <!--input type="submit" value="Submit"->
+        </form>
+        <form style="margin-left: 2em;" action="">
+          <input type="checkbox" id="design-1-4" name="vehicle1" value="Bike">
+          <label for="design-1-4">Design a new tool for requirements 1-4</label><br>
+          <input type="checkbox" id="design-5-7" name="vehicle2" value="Car">
+          <label for="design-5-7">Design a new tool for requirements 5-7</label><br>
+          <!--input type="submit" value="Submit"->
+        </form>
+        <br>
+        <p>Meanwhile, let's see if I can extract a transcript using <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a>.</p>
+        <p>I downloaded and added it as a repo to my <a href="not implemented yet" target="_blank">investing activity repository</a>.</p>
+
+        <script>
+          const article = document.getElementById("article-1");
+          console.log("Article parsed.");
+          const search_1_4 = document.getElementById("search-1-4");
+          const search_5_7 = document.getElementById("search-5-7");
+          const design_1_4 = document.getElementById("design-1-4");
+          const design_5_7 = document.getElementById("design-5-7");
+          search_1_4.onclick = function() {
+            console.log("search_1_4.onclick() was executed")
+          }
+          search_5_7.onclick = function() {
+            console.log("search_5_7.onclick() was executed")
+          }
+          design_1_4.onclick = function() {
+            console.log("design_1_4.onclick() was executed")
+          }
+          design_5_7.onclick = function() {
+            console.log("design_5_7.onclick() was executed")
+          }
+            </script-->
+      </article>
+
+      <article class="post">
+        <h3>That was brutal, but it kind of works.</h3>
+        <p class="meta">After many hours of fiddling, I have the ability to <em>Save As</em> and <em>Open</em> in katex-editor, but gawd.</p>
+        <p class="meta">25-05-15 14:52 (UTC-7) by Daniel</p>
+        <p>It is insane that it took that long and was that fiddly.</p>
+        <p>I still have next to no confidence in what I've done, and no record of the details of the implementation which I'm sure to need the next time I want to make a change.</p>
+        <p>I definitely should try to save my development state, but how?</p>
+        <p>Object oriented design would have helped, but javascript is very much NOT THAT by default.</p>
+        <p>I'd need to identify a bunch of objects and get them into my head.</p>
+        <p>For example, what are the visual extents of the &lt;html&gt; element?</p>
+        <p>How do I even describe that?</p>
+        <p>It's like I have to start with the browser window and model/demonstrate its behavior when resizing, clicking, maximizing, minimizing and so on.</p>
+        <p>I'd need a complete set of "operations" along with a definition for each.</p>
+        <p>For example, the "resizing" operation has "extents" which go from the minimum possible resizing horizontally and vertically using all the possible resizing methods.</p>
+        <p>Resizing methods include resize by dragging top of window, resize by dragging lower right corner of window, resize by dragging upper left corner of window, etc.</p>
+        <p>In my mind, I see a small web page or image that has a window with representative screen elements displayed and labelled so that the programmer will know what's what, but how to do this is a little iffy.</p>
+        <p>Some options:</p>
+        <ul style="margin-left: 2em;">
+          <li>1) Take a screenshot of a couple actual katex editor sessions and then mark it up somehow.</li>
+          <li>2) Draw a sort of schematic screen design and mark that up</li>
+          <li>3) Use the CanvasAPI or SVG api to draw a schematic screen design including markups.</li>
+          <li>4) Use inkscape to draw a schematic OR to mark up the screenshot from 1 OR use inkscape to do 2</li>
+          <li>5) Use <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to draw a schematic and mark it up, then somehow render the Excalidraw as a local web page (maybe captured with Chromium Save As or SingleFile)</li>
+          <li>6) Use hover-overs in katex editor's HTML to tell about each of its elements whilst highlighting them a) when the user hovers, or b) as some kind of dynamic mark-up displayable via some magic keystroke or javascript</li>
+        </ul><br>
+        <p>I should probably also make explicit classes for each of the screen elements, because the current code sucks.</p>
+        <p>I kind of like the idea of the mark-up being a sort of hidden code feature.</p>
+      </article>
+
+
+      <!--      <article class="post">-->
+<!--        <h3><a href="#">Semantic HTML Explained</a></h3>-->
+<!--        <p class="meta">Posted on March 20, 2025 by Cody</p>-->
+<!--        <p>Semantic HTML brings meaning to your markup, making it more accessible and SEO-friendly...</p>-->
+<!--      </article>-->
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+  </script>
+</body>
+</html>
