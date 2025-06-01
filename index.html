@@ -31,6 +31,40 @@
       });
     });
   </script>
+  <style>
+    ol {
+      margin-left: 3rem;
+      margin-bottom: 0.7rem;
+    }
+
+    pre {
+      margin-bottom: 0.7rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: none;
+      margin-bottom: 1rem;
+    }
+
+    td, th {
+      padding: 0;
+      font-family: inherit;
+      border: none;
+      text-align: left;
+    }
+
+    .narrow-column {
+      width: 20%;
+      min-width: 20%;
+    }
+
+    .wide-column {
+      width: 80%;
+      min-width: 80%;
+    }
+  </style>
 
 </head>
 <body>
@@ -53,7 +87,7 @@
 
   <main class="container">
     <section class="posts">
-      <article id="article-1" class="post">
+      <article class="post">
         <h3>Adding "Save As" feature</h3>
         <p class="meta">I cannot currently save the contents of a katex-editor session and restore them later.</p>
         <p class="meta">2025-05-15 10:37 (UTC-7) by Daniel</p>
@@ -154,6 +188,80 @@
     </div>
   </footer>
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const articles = document.querySelectorAll("article");
+
+      articles.forEach((article, index) => {
+        const articleId = article.id || `article-${index}`;
+        article.id = articleId;
+
+        const contentChildren = Array.from(article.children);
+
+        if (contentChildren.length < 1) return;
+
+        // Inject toggle span into first child
+        const toggleSpan = document.createElement("span");
+        toggleSpan.className = "toggle-control";
+        contentChildren[0].appendChild(toggleSpan);
+
+        const getHeightForFirstN = (n) => {
+          article.style.height = 'auto';
+          void article.offsetHeight;
+
+          let total = 0;
+          for (let i = 0; i < Math.min(n, contentChildren.length); i++) {
+            const el = contentChildren[i];
+            const style = getComputedStyle(el);
+            total += el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+          }
+
+          return total;
+        };
+
+        const getFullHeight = () => {
+          article.style.height = 'auto';
+          void article.offsetHeight;
+
+          return contentChildren.reduce((acc, el) => {
+            const style = getComputedStyle(el);
+            return acc + el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+          }, 0);
+        };
+
+        const storedState = localStorage.getItem(articleId);
+        let isCollapsed;
+
+        if (storedState === null) {
+          // First-time load: collapse all except the first article
+          isCollapsed = index !== 0;
+        } else {
+          isCollapsed = storedState === "collapsed";
+        }
+
+        const applyState = (collapsed) => {
+          const targetHeight = collapsed ? getHeightForFirstN(3) : getFullHeight();
+          article.style.height = targetHeight + "px";
+          toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
+          localStorage.setItem(articleId, collapsed ? "collapsed" : "expanded");
+
+          if (!collapsed) {
+            article.addEventListener('transitionend', () => {
+              article.style.height = 'auto';
+            }, { once: true });
+          }
+        };
+
+        applyState(isCollapsed);
+
+        toggleSpan.addEventListener("click", () => {
+          const collapsed = toggleSpan.textContent.includes("Expand");
+          article.style.height = article.offsetHeight + 'px';
+          requestAnimationFrame(() => {
+            applyState(!collapsed);
+          });
+        });
+      });
+    });
   </script>
 </body>
 </html>

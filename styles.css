@@ -16,6 +16,13 @@ code {
   font-size: 1.20em;
 }
 
+pre {
+  font-size: 1.165em;
+  background-color: #777777;
+  color: white;
+  padding: 1rem;
+}
+
 .container {
   width: 90%;
   max-width: 960px;
@@ -109,4 +116,59 @@ td:first-child, th:first-child {
 
 td:nth-child(2), th:nth-child(2) {
   text-align: left;
+}
+
+article {
+  overflow: hidden;
+  transition: height 0.4s ease;
+  border: 1px solid #ccc;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 8px;
+  position: relative;
+}
+
+article:hover {
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.toggle-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.4em 0.8em;
+  border-radius: 5px;
+  font-size: 0.9em;
+  cursor: pointer;
+  margin-bottom: 1em;
+  transition: background-color 0.3s;
+}
+
+.toggle-btn:hover {
+  background-color: #0056b3;
+}
+
+.toggle-control {
+  font-size: 0.85em;
+  color: #007bff;
+  cursor: pointer;
+  margin-left: 1em;
+  user-select: none;
+  float: right;
+}
+
+.toggle-control:hover {
+  text-decoration: underline;
+}
+
+.collapsed-child {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.expanded-child {
+  max-height: 200px; /* enough to show */
+  opacity: 1;
 }
