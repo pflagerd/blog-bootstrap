@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>blog-bootstrap (changeme)</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>youtube-to-text Blog</title>
+  <link rel="stylesheet" href="blog.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 
@@ -31,46 +31,13 @@
       });
     });
   </script>
-  <style>
-    ol {
-      margin-left: 3rem;
-      margin-bottom: 0.7rem;
-    }
 
-    pre {
-      margin-bottom: 0.7rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      border: none;
-      margin-bottom: 1rem;
-    }
-
-    td, th {
-      padding: 0;
-      font-family: inherit;
-      border: none;
-      text-align: left;
-    }
-
-    .narrow-column {
-      width: 20%;
-      min-width: 20%;
-    }
-
-    .wide-column {
-      width: 80%;
-      min-width: 80%;
-    }
-  </style>
-
+  <script src="blog.js" defer></script>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>blog-bootstrap (changeme)</h1>
+      <h1>youtube-to-text</h1>
       <p>A chromium-only blog</p>
       <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog code.</p>
       <br/>
@@ -87,98 +54,45 @@
 
   <main class="container">
     <section class="posts">
-      <article class="post">
-        <h3>Adding "Save As" feature</h3>
-        <p class="meta">I cannot currently save the contents of a katex-editor session and restore them later.</p>
-        <p class="meta">2025-05-15 10:37 (UTC-7) by Daniel</p>
-        <p>I used ChatGPT's Code GPT feature to generate Save As and Open code for Chromium.  <a href="../save-restore-html-experiments/Prompt for location to save to.html" target="_blank">Here is its answer as a standalone HTML file.</a></p>
-        <p>I also had ChatGPT generate code to download part of the DOM. It's <a href="../save-restore-html-experiments/Download%20HTML.html" target="_blank">here as another standalone html file.</a></p>
-        <p>I then had ChatGPT generate code to display a given directory's contents. It requires nodejs to run. It's <a href="../folder-browser/public/index.html/?path=./" target="_blank">here</a></p>
-        <!--ul style="margin-left: 2em;">
-          <li>1) be able to navigate it with a video viewer which allows me to easily move forward and backward in little chunks</li>
-          <li>2) find start and end times</li>
-          <li>3) be able to navigate quickly to those start and end times</li>
-          <li>4) refine those times with numeric values</li>
-          <li>5) extract a transcript from the video</li>
-          <li>6) be able to navigate to any point in the video by clicking on a word or phrase from the transcript</li>
-          <li>7) unambiguously represent the content of the transcript in cases where the language is ambiguous.</li></ul>
-        <p>1-4 sound like requirements for a new or existing tool. Perhaps I should do a search for such a tool.</p>
-        <p>5-7 sound like requirements for another tool, or perhaps requirements of new new tool. Perhaps I should do a search for such a tool.</p>
-        <form style="margin-left: 2em;" action="">
-          <input type="checkbox" id="search-1-4" name="vehicle1" value="Bike">
-          <label for="search-1-4">Search for an existing tool for requirements 1-4</label><br>
-          <input type="checkbox" id="search-5-7" name="vehicle2" value="Car">
-          <label for="search-5-7">Search for an existing tool for requirements 5-7</label><br>
-          <!--input type="submit" value="Submit"->
-        </form>
-        <form style="margin-left: 2em;" action="">
-          <input type="checkbox" id="design-1-4" name="vehicle1" value="Bike">
-          <label for="design-1-4">Design a new tool for requirements 1-4</label><br>
-          <input type="checkbox" id="design-5-7" name="vehicle2" value="Car">
-          <label for="design-5-7">Design a new tool for requirements 5-7</label><br>
-          <!--input type="submit" value="Submit"->
-        </form>
-        <br>
-        <p>Meanwhile, let's see if I can extract a transcript using <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a>.</p>
-        <p>I downloaded and added it as a repo to my <a href="not implemented yet" target="_blank">investing activity repository</a>.</p>
 
-        <script>
-          const article = document.getElementById("article-1");
-          console.log("Article parsed.");
-          const search_1_4 = document.getElementById("search-1-4");
-          const search_5_7 = document.getElementById("search-5-7");
-          const design_1_4 = document.getElementById("design-1-4");
-          const design_5_7 = document.getElementById("design-5-7");
-          search_1_4.onclick = function() {
-            console.log("search_1_4.onclick() was executed")
-          }
-          search_5_7.onclick = function() {
-            console.log("search_5_7.onclick() was executed")
-          }
-          design_1_4.onclick = function() {
-            console.log("design_1_4.onclick() was executed")
-          }
-          design_5_7.onclick = function() {
-            console.log("design_5_7.onclick() was executed")
-          }
-            </script-->
-      </article>
-
-      <article class="post">
-        <h3>That was brutal, but it kind of works.</h3>
-        <p class="meta">After many hours of fiddling, I have the ability to <em>Save As</em> and <em>Open</em> in katex-editor, but gawd.</p>
-        <p class="meta">25-05-15 14:52 (UTC-7) by Daniel</p>
-        <p>It is insane that it took that long and was that fiddly.</p>
-        <p>I still have next to no confidence in what I've done, and no record of the details of the implementation which I'm sure to need the next time I want to make a change.</p>
-        <p>I definitely should try to save my development state, but how?</p>
-        <p>Object oriented design would have helped, but javascript is very much NOT THAT by default.</p>
-        <p>I'd need to identify a bunch of objects and get them into my head.</p>
-        <p>For example, what are the visual extents of the &lt;html&gt; element?</p>
-        <p>How do I even describe that?</p>
-        <p>It's like I have to start with the browser window and model/demonstrate its behavior when resizing, clicking, maximizing, minimizing and so on.</p>
-        <p>I'd need a complete set of "operations" along with a definition for each.</p>
-        <p>For example, the "resizing" operation has "extents" which go from the minimum possible resizing horizontally and vertically using all the possible resizing methods.</p>
-        <p>Resizing methods include resize by dragging top of window, resize by dragging lower right corner of window, resize by dragging upper left corner of window, etc.</p>
-        <p>In my mind, I see a small web page or image that has a window with representative screen elements displayed and labelled so that the programmer will know what's what, but how to do this is a little iffy.</p>
-        <p>Some options:</p>
-        <ul style="margin-left: 2em;">
-          <li>1) Take a screenshot of a couple actual katex editor sessions and then mark it up somehow.</li>
-          <li>2) Draw a sort of schematic screen design and mark that up</li>
-          <li>3) Use the CanvasAPI or SVG api to draw a schematic screen design including markups.</li>
-          <li>4) Use inkscape to draw a schematic OR to mark up the screenshot from 1 OR use inkscape to do 2</li>
-          <li>5) Use <a href="https://excalidraw.com/" target="_blank">Excalidraw</a> to draw a schematic and mark it up, then somehow render the Excalidraw as a local web page (maybe captured with Chromium Save As or SingleFile)</li>
-          <li>6) Use hover-overs in katex editor's HTML to tell about each of its elements whilst highlighting them a) when the user hovers, or b) as some kind of dynamic mark-up displayable via some magic keystroke or javascript</li>
-        </ul><br>
-        <p>I should probably also make explicit classes for each of the screen elements, because the current code sucks.</p>
-        <p>I kind of like the idea of the mark-up being a sort of hidden code feature.</p>
-      </article>
-
-
-      <!--      <article class="post">-->
+<!--      <article class="post">-->
 <!--        <h3><a href="#">Semantic HTML Explained</a></h3>-->
 <!--        <p class="meta">Posted on March 20, 2025 by Cody</p>-->
 <!--        <p>Semantic HTML brings meaning to your markup, making it more accessible and SEO-friendly...</p>-->
 <!--      </article>-->
+
+      <article class="post">
+        <h3>Figuring out what's in here</h3>
+        <p class="meta">I did a buncha work here but I don't remember all what I did or what was left to do.</p>
+        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
+        <p>I did a .fork of <a href="https://github.com/pflagerd/python-venv-bootstrap" target="_blank">https://github.com/pflagerd/python-venv-bootstrap</a></p>
+        <p>Note that .fork refers to a manual forking process involving hidden files .fork and .forks in this repository and its parent's repository respectively.</p>
+        <p>I also did a clone of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> and renamed it blog/</p>
+        <p>This was added to <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a> via the .gitrepo mechanism, and as far as <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> is concerned is a branch called <code>youtube-to-text</code> which was added at the branch <code>youtube-to-text-begin</code>.</p>
+        <p>.gitrepos doesn't currently record the sha1 of <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a> when the other repository was added, but you can deduce it from the revision of the .gitrepos and the addition of the directive to ignore <code>blog/</code> in .gitignore.</p>
+        <p>I deduced that <code>extract-audio-from-video.py</code> and <code>download-from-youtube.py</code> were added as projects to experiment with these two operations prior to merging them into something else.</p>
+        <p>So I <code>.venv/bin/pip install</code>ed their python package dependencies to the .venv created by <code>SETMEUP</code>, namely ffmpeg and yt-dlp.</p>
+        <p>I'm currently working on creating a transcript from <a href="https://www.youtube.com/watch?v=qtxkZcpnxcA" target="_blank">Government Report Reveals A LOT of People Are About to Lose Their Jobs</a>.</p>
+        <p>So firstly, I want to download that video from https://www.youtube.com/watch?v=qtxkZcpnxcA</p>
+        <p>So I created a launcher called download-from-youtube which suceeded thus:</p>
+        <img style="width: 100%;" src="img/Screenshot_20250601_214424.png" alt="shows successful execution of download-from-youtube.py">
+        <p>which resulted in creation of the following file:</p>
+        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c 39M May 18 13:41 qtxkZcpnxcA.mp4</pre>
+        <p>I opened that file in Haruna and it played just fine.</p>
+        <p>I then created another launcher extract-audio-from-video, passed it the name of the mp4, and it ran successfully thus:</p>
+        <img style="width: 100%;" src="img/Screenshot_20250601_220631.png" alt="shows successful execution of extract-audio-from-video.py">
+        <p>which produced the following file:</p>
+        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c 19M Jun  1 22:04 qtxkZcpnxcA.mp3</pre>
+        <p>Opened this file in vlc player and it worked just fine. the default player associated with .mp3s did not want to play this file, but played another one. Weird.</p>
+        <p>Next I created another launcher called youtube-audio-to-text, which failed due to a missing API_KEY environment variable.</p>
+        <p>Got an api key from openai and created the environment variable and voila:</p>
+        <img style="width: 80%;" src="img/Screenshot_20250601_221927.png" alt="shows successful execution of youtube-audio-to-text.py">-rw-rw-r-- 1 oy753c oy753c  22K Jun  1 22:18  qtxkZcpnxcA.mp3.txt
+        <p>And after about 30 seconds:</p>
+        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c  22K Jun  1 22:18  qtxkZcpnxcA.mp3.txt</pre>
+        <p>Incredible.</p>
+        <p>Okay, tomorrow I'll want to proof-read the text.</p>
+      </article>
+
     </section>
   </main>
 
@@ -187,81 +101,5 @@
       <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
     </div>
   </footer>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const articles = document.querySelectorAll("article");
-
-      articles.forEach((article, index) => {
-        const articleId = article.id || `article-${index}`;
-        article.id = articleId;
-
-        const contentChildren = Array.from(article.children);
-
-        if (contentChildren.length < 1) return;
-
-        // Inject toggle span into first child
-        const toggleSpan = document.createElement("span");
-        toggleSpan.className = "toggle-control";
-        contentChildren[0].appendChild(toggleSpan);
-
-        const getHeightForFirstN = (n) => {
-          article.style.height = 'auto';
-          void article.offsetHeight;
-
-          let total = 0;
-          for (let i = 0; i < Math.min(n, contentChildren.length); i++) {
-            const el = contentChildren[i];
-            const style = getComputedStyle(el);
-            total += el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-          }
-
-          return total;
-        };
-
-        const getFullHeight = () => {
-          article.style.height = 'auto';
-          void article.offsetHeight;
-
-          return contentChildren.reduce((acc, el) => {
-            const style = getComputedStyle(el);
-            return acc + el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-          }, 0);
-        };
-
-        const storedState = localStorage.getItem(articleId);
-        let isCollapsed;
-
-        if (storedState === null) {
-          // First-time load: collapse all except the first article
-          isCollapsed = index !== 0;
-        } else {
-          isCollapsed = storedState === "collapsed";
-        }
-
-        const applyState = (collapsed) => {
-          const targetHeight = collapsed ? getHeightForFirstN(3) : getFullHeight();
-          article.style.height = targetHeight + "px";
-          toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
-          localStorage.setItem(articleId, collapsed ? "collapsed" : "expanded");
-
-          if (!collapsed) {
-            article.addEventListener('transitionend', () => {
-              article.style.height = 'auto';
-            }, { once: true });
-          }
-        };
-
-        applyState(isCollapsed);
-
-        toggleSpan.addEventListener("click", () => {
-          const collapsed = toggleSpan.textContent.includes("Expand");
-          article.style.height = article.offsetHeight + 'px';
-          requestAnimationFrame(() => {
-            applyState(!collapsed);
-          });
-        });
-      });
-    });
-  </script>
 </body>
 </html>
