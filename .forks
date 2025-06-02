@@ -2,9 +2,11 @@
 # First field is the sha-1 of the this repository at the time of the fork
 # Second field is the forked child repository and @sha-1 at the time the child was forked from the parent repository
 # The second field may contain an @directory after the @sha-1. That @directory is the subdirectory within the child repository where the fork was put.
+# If @directory is missing, it means that the forked directory is being based at the root of the child repository.
 # These branches would have had the same contents in both repositories as at these two sha-1s.
 # If branch names exist in the repositories, they may be used instead of sha-1s
 # These fields must be url encoded so that they contain no spaces within each field
 # There is a file in each child repository called .fork which contains the same information, but in the opposite order.
 # There may be more than one child repository forked from this repo. That is allowed.
 133596b2c4edf92f21ab6c986d816f79f0c14d91 ssh://pflagerd@git.code.sf.net/p/algorithms/algorithms@902e80ad2577f2a6aee4dd7c0ad3b0bffcc3aa7e@blog
+7f06271ba70462e447ee1d5a2155e33f2201c8b7 git@github.com:pflagerd/investing.git@88d554c3b4f4d3a916a220c953a410b48f15ec2a
