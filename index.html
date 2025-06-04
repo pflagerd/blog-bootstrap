@@ -55,42 +55,124 @@
   <main class="container">
     <section class="posts">
 
-<!--      <article class="post">-->
-<!--        <h3><a href="#">Semantic HTML Explained</a></h3>-->
-<!--        <p class="meta">Posted on March 20, 2025 by Cody</p>-->
-<!--        <p>Semantic HTML brings meaning to your markup, making it more accessible and SEO-friendly...</p>-->
-<!--      </article>-->
+      <article class="post">
+        <h3>TODO</h3>
+        <p class="meta">What I'll do next time.</p>
+        <p class="meta">2025-05-?? ??:?? (UTC-7) by Daniel</p>
+        <p><label>
+          <input type="checkbox">
+          Create an express server with placeholder handling of button press (adding email to a file after checking for validity of format and possible duplication).
+        </label></p>
+      </article>
 
       <article class="post">
-        <h3>Figuring out what's in here</h3>
-        <p class="meta">I did a buncha work here but I don't remember all what I did or what was left to do.</p>
-        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/python-venv-bootstrap" target="_blank">https://github.com/pflagerd/python-venv-bootstrap</a></p>
-        <p>Note that .fork refers to a manual forking process involving hidden files .fork and .forks in this repository and its parent's repository respectively.</p>
-        <p>I also did a clone of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> and renamed it blog/</p>
-        <p>This was added to <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a> via the .gitrepo mechanism, and as far as <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> is concerned is a branch called <code>youtube-to-text</code> which was added at the branch <code>youtube-to-text-begin</code>.</p>
-        <p>.gitrepos doesn't currently record the sha1 of <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a> when the other repository was added, but you can deduce it from the revision of the .gitrepos and the addition of the directive to ignore <code>blog/</code> in .gitignore.</p>
-        <p>I deduced that <code>extract-audio-from-video.py</code> and <code>download-from-youtube.py</code> were added as projects to experiment with these two operations prior to merging them into something else.</p>
-        <p>So I <code>.venv/bin/pip install</code>ed their python package dependencies to the .venv created by <code>SETMEUP</code>, namely ffmpeg and yt-dlp.</p>
-        <p>I'm currently working on creating a transcript from <a href="https://www.youtube.com/watch?v=qtxkZcpnxcA" target="_blank">Government Report Reveals A LOT of People Are About to Lose Their Jobs</a>.</p>
-        <p>So firstly, I want to download that video from https://www.youtube.com/watch?v=qtxkZcpnxcA</p>
-        <p>So I created a launcher called download-from-youtube which suceeded thus:</p>
-        <img style="width: 100%;" src="img/Screenshot_20250601_214424.png" alt="shows successful execution of download-from-youtube.py">
-        <p>which resulted in creation of the following file:</p>
-        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c 39M May 18 13:41 qtxkZcpnxcA.mp4</pre>
-        <p>I opened that file in Haruna and it played just fine.</p>
-        <p>I then created another launcher extract-audio-from-video, passed it the name of the mp4, and it ran successfully thus:</p>
-        <img style="width: 100%;" src="img/Screenshot_20250601_220631.png" alt="shows successful execution of extract-audio-from-video.py">
-        <p>which produced the following file:</p>
-        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c 19M Jun  1 22:04 qtxkZcpnxcA.mp3</pre>
-        <p>Opened this file in vlc player and it worked just fine. the default player associated with .mp3s did not want to play this file, but played another one. Weird.</p>
-        <p>Next I created another launcher called youtube-audio-to-text, which failed due to a missing API_KEY environment variable.</p>
-        <p>Got an api key from openai and created the environment variable and voila:</p>
-        <img style="width: 80%;" src="img/Screenshot_20250601_221927.png" alt="shows successful execution of youtube-audio-to-text.py">-rw-rw-r-- 1 oy753c oy753c  22K Jun  1 22:18  qtxkZcpnxcA.mp3.txt
-        <p>And after about 30 seconds:</p>
-        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c  22K Jun  1 22:18  qtxkZcpnxcA.mp3.txt</pre>
-        <p>Incredible.</p>
-        <p>Okay, tomorrow I'll want to proof-read the text.</p>
+        <h3>Took a lousy placeholder photo</h3>
+        <p class="meta">It's supposed to resemble what the final product will look like.</p>
+        <p class="meta">2025-05-30 07:19 (UTC-7) by Daniel</p>
+        <p>I used ChatGPT Sora to generate a logo</p>
+        <img style="width: 20%;" src="../sleepz/website/img/logo.sora.1.webp" alt="image generated by Sora">
+        <p>I also took a lousy product photo for a placeholder.</p>
+        <p>I'll put it into the website to see the effect.</p>
+        <img style="width: 50%;" src="img/Screenshot_20250530_072648.png" alt="snapshot of website progress">
+        <p>Puts all the attention on the CPAP.  That's not quite what I'm going for.</p>
+        <br>
+      </article>
+
+      <article class="post">
+        <h3>Created a passable logo</h3>
+        <p class="meta">Used ChatGPT's Sora to generate a logo.</p>
+        <p class="meta">2025-05-27 07:21 (UTC-7) by Daniel</p>
+        <p>Added the new logo to the current page.  Result is pretty good.</p>
+        <img style="width: 50%;" src="img/Screenshot_20250527_072253.png" alt="snapshot of website progress">
+        <p>It is positioned too high. It would be better if it were lower. Maybe it should be absolute positioned with a high z-index.</p>
+        <p>The shaded overlay doesn't seem to resize with the rest of the window.  It should resize in such a way as to keep the whole viewable area covered.</p>
+        <p>I figured it out. Because I translated the overlay upwards to get the text positioning right (by -10%), I need to make the overlay at least 10% bigger.</p>
+        <p>112% seemed to work.</p>
+        <p>Also, the overlay letters don't resize when the page resizes.</p>
+        <p>Changing the font size to 24vw did the trick.</p>
+        <p>Also adjusted front-page-image to occupy 85% of width. Looks more balanced.</p>
+        <img style="width: 50%;" src="img/Screenshot_20250527_075530.png" alt="snapshot of website progress">
+        <br>
+      </article>
+
+      <article class="post">
+        <h3>Work on the email field and the button</h3>
+        <p class="meta">The original wasn't great, but it would be a good exercise to get something like it working in any case.</p>
+        <p class="meta">2025-05-23 07:30 (UTC-7) by Daniel</p>
+        <p>The <a href="https://saltless-demo.squarespace.com/" target="_blank">original squarespace.com demo page</a> had the email field and the button styled like this:</p>
+        <img style="width: 30%;" src="img/Screenshot_20250523_072922.png" alt="snapshot of website progress">
+        <p>I dislike a lot about it, except for the grouping and positions of the three elements relative to one another ("Sign up to receive news and updates", the email text box, and the button), and the right justification of the three elements together.</p>
+        <p>I figured out (with ClaudeAI's help) how to group and style these three together and right-justify them.</p>
+        <p>I also added overlayed stencil "COMING SOON!" text.</p>
+        <p>Now the most glaring issue is the logo.  It looks pathetic.<p>  I think I should try to use AI to generate some logos.  Might also do some image searches for inspiration.</p>
+        <br>
+      </article>
+
+      <article class="post">
+        <h3>Experiment with a couple of visual elements on the website.</h3>
+        <p class="meta">The placeholder website itself is roughed in.</p>
+        <p class="meta">2025-05-22 06:40 (UTC-7) by Daniel</p>
+        <p>Added img/logo.from-harry.png to the website for grins:</p>
+        <img style="width: 90%;" src="img/Screenshot_20250522_064132.png" alt="snapshot of website progress">
+        <p>Next, I captured the image from the old sleepz.eu site and displayed it in the &lt;figure&gt; element.</p>
+        <p>I got some advice from ClaudeAI on how to right justify it.</p>
+        <p>Then I surfed the old site with Chrome and used its Developer Tools to look for the background color so I could match it.</p>
+        <p>Turned out all I could find was a default color which was very close to white (not the same as the background color I could see) for the &lt;body&gt; element</p>
+        <p>All the other elements' Computed background color was transparent: <code>background-color: rgb(0, 0, 0);</code>.</p>
+        <p>After some more surfing I found that the color was actually being set with a different property:</p>
+        <img style="width: 50%;" src="img/Screenshot_20250522_075254.png" alt="image of --siteBackgroundColor">
+        <p>So I used that property on the sleepz website.  It looks like this now:</p>
+        <img style="width: 90%;" src="img/Screenshot_20250522_075646.png" alt="website with image aligned and the captured background color">
+        <p>Incidentally, here's the original site that I'm trying to emulate:</p>
+        <img style="width: 90%;" src="img/Screenshot_20250522_075823.png" alt="original sleepz.eu website">
+        <br>
+      </article>
+
+      <article class="post">
+        <h3>Recover state on <a href="https://github.com/pflagerd/sleepz/issues/4" target="_blank">Build a "Coming Soon" website from scratch #4</a></h3>
+        <p class="meta">How do I know which server is serving this demo?</p>
+        <p class="meta">2025-05-21 07:21 (UTC-7) by Daniel</p>
+        <p>Putting information into the blog is a good idea.</p>
+        <p>Figuring out what all the features and workflows of this project are and documenting it is going to be important.</p>
+        <p>For now though, I need to focus on getting sleepz/website operational.</p>
+        <p>It's not very compelling visually just yet, but it has been redesigned to be semantic HTML which should help with SEO.</p>
+        <img style="width: 60%;" src="img/Screenshot_20250521_072409.png" alt="image of sleepz/website running in a browser">
+        <p>As I mentioned before, I was working through <a href="https://members.codewithmosh.com/courses/the-ultimate-html-css-part1-1/lectures/28672347" target="_blank">The Ultimate Html5 Css3 Course Part 1</a> to learn things usable for this issue.</p>
+        <p>The course has been useful, and I should continue the learning, but I'm not getting a chance to rehearse what I've learned, so it's faded from memory.</p>
+        <p>What if I made a bunch of code fiddles to rehearse that?</p>
+        <p>Or what if I made a bunch of little html/css/javascript pages which are themselves self-contained fiddles.</p>
+        <p>The goal is to make the sleepz/website look like the following, but adapted to a "Coming Soon" single page format.</p>
+        <img style="width: 60%;" src="img/Screenshot_20250521_073438.png" alt="image of what we want sleepz/website to resemble.">
+        <p>So we need to style and populate the various parts of the web-page which are missing.</p>
+        <p>The logo might be a good place to start.</p>
+        <p>We have an issue on this: <a href="https://github.com/pflagerd/sleepz/issues/77" target="_blank">We need a logo (#77)</a>.</p>
+        <p>Harry proposed a logo in an email a while back, but it doesn't look like the logo made it into te issue.</p>
+        <p>I'll have to search my email history for it. I did some searching, but I couldn't find it.</p>
+        <p>I'll email Harry.</p>
+        <br>
+      </article>
+
+      <article class="post">
+        <h3>Where is <a href="http://localhost:8080/saltless-demo/" target="_blank">http://localhost:8080/saltless-demo/ running?</a></h3>
+        <p class="meta">How do I know which server is serving this demo?</p>
+        <p class="meta">2025-05-21 07:04 (UTC-7) by Daniel</p>
+        <p>I reloaded the browser tab to make sure it wasn't just a stale session, and sure enough it's still running.</p>
+        <p>Doing a ps -ef from a console window reveals the following:</p>
+        <img style="width: 100%;" src="img/Screenshot_20250521_070759.png" alt="image of sleepz/nginx-dev running">
+        <p>Seems nginx-dev is running.</p>
+        <p>Does nginx-dev know how to restart itself, because I'm sure I've rebooted several times.  How is nginx-dev starting?</p>
+        <p>I closed issue <a href="https://github.com/pflagerd/sleepz/issues/119" target="_blank">Order a DCS20 from Shenzhen Haineng Xinrong Technology Co. Ltd. #119</a> since the order arrived.</p>
+        <br>
+      </article>
+
+      <article class="post">
+        <h3>New blog</h3>
+        <p class="meta">Hard to keep momentum on projects.  Easier when it's a habit.  Easier still when you can easily pick up from where you left off.</p>
+        <p class="meta">2025-05-19 19:45 (UTC-7) by Daniel</p>
+        <p><a href="../sleepz/README.md" target="_blank">sleepz/README</a> is usually up-to-date with the general plan.</p>
+        <p>Current top priority is issue <a href="https://github.com/pflagerd/sleepz/issues/4">#4</a> to build a "Coming Soon" website from scratch.</p>
+        <p>This issue involves working on sleepz/website, and working through the course <a href="https://members.codewithmosh.com/courses/the-ultimate-html-css-part1-1/lectures/28672347" target="_blank">The Ultimate Html5 Css3 Course Part 1</a></p>
+        <br>
       </article>
 
     </section>
