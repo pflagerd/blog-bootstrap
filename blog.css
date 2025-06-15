@@ -113,6 +113,23 @@ pre {
     margin-bottom: 0.7rem;
 }
 
+.strikethrough {
+    text-decoration: line-through;
+    color: #888;
+    position: relative;
+    cursor: help;
+    transition: color 0.3s ease;
+}
+
+.strikethrough:hover {
+    color: #666;
+}
+
+.strikethrough:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
 
 table {
     border-collapse: collapse;
@@ -178,12 +195,33 @@ thead {
     text-decoration: underline;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    border: none;
-    margin-bottom: 1rem;
+.tooltip {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 13px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(-50%) translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: #667eea;
+}
+
 
 .wide-column {
     width: 80%;
