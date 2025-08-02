@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>youtube-to-text Blog</title>
+  <title>blog-bootstrap</title>
   <link rel="stylesheet" href="blog.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
@@ -37,9 +37,9 @@
 <body>
   <header>
     <div class="container">
-      <h1>youtube-to-text</h1>
-      <p>A chromium-only blog</p>
-      <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog code.</p>
+      <h1>blog-bootstrap</h1>
+      <p>A chromium-centric file-only (server-not-needed) blog</p>
+      <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's code.</p>
       <br/>
       <nav>
         <ul>
@@ -55,42 +55,19 @@
   <main class="container">
     <section class="posts">
 
-<!--      <article class="post">-->
-<!--        <h3><a href="#">Semantic HTML Explained</a></h3>-->
-<!--        <p class="meta">Posted on March 20, 2025 by Cody</p>-->
-<!--        <p>Semantic HTML brings meaning to your markup, making it more accessible and SEO-friendly...</p>-->
-<!--      </article>-->
+      <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
+      <article class="post" style="display: none;">
+        <h3>My first blog entry</h3>
+        <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
+        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
+        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
+      </article>
 
       <article class="post">
-        <h3>Figuring out what's in here</h3>
-        <p class="meta">I did a buncha work here but I don't remember all what I did or what was left to do.</p>
+        <h3>My first blog entry</h3>
+        <p class="meta">Put a headline/comment/summary of what this blog entry is about here.</p>
         <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/python-venv-bootstrap" target="_blank">https://github.com/pflagerd/python-venv-bootstrap</a></p>
-        <p>Note that .fork refers to a manual forking process involving hidden files .fork and .forks in this repository and its parent's repository respectively.</p>
-        <p>I also did a clone of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> and renamed it blog/</p>
-        <p>This was added to <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a> via the .gitrepo mechanism, and as far as <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> is concerned is a branch called <code>youtube-to-text</code> which was added at the branch <code>youtube-to-text-begin</code>.</p>
-        <p>.gitrepos doesn't currently record the sha1 of <a href="https://github.com/pflagerd/youtube-to-text" target="_blank">https://github.com/pflagerd/youtube-to-text</a> when the other repository was added, but you can deduce it from the revision of the .gitrepos and the addition of the directive to ignore <code>blog/</code> in .gitignore.</p>
-        <p>I deduced that <code>extract-audio-from-video.py</code> and <code>download-from-youtube.py</code> were added as projects to experiment with these two operations prior to merging them into something else.</p>
-        <p>So I <code>.venv/bin/pip install</code>ed their python package dependencies to the .venv created by <code>SETMEUP</code>, namely ffmpeg and yt-dlp.</p>
-        <p>I'm currently working on creating a transcript from <a href="https://www.youtube.com/watch?v=qtxkZcpnxcA" target="_blank">Government Report Reveals A LOT of People Are About to Lose Their Jobs</a>.</p>
-        <p>So firstly, I want to download that video from https://www.youtube.com/watch?v=qtxkZcpnxcA</p>
-        <p>So I created a launcher called download-from-youtube which suceeded thus:</p>
-        <img style="width: 100%;" src="img/Screenshot_20250601_214424.png" alt="shows successful execution of download-from-youtube.py">
-        <p>which resulted in creation of the following file:</p>
-        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c 39M May 18 13:41 qtxkZcpnxcA.mp4</pre>
-        <p>I opened that file in Haruna and it played just fine.</p>
-        <p>I then created another launcher extract-audio-from-video, passed it the name of the mp4, and it ran successfully thus:</p>
-        <img style="width: 100%;" src="img/Screenshot_20250601_220631.png" alt="shows successful execution of extract-audio-from-video.py">
-        <p>which produced the following file:</p>
-        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c 19M Jun  1 22:04 qtxkZcpnxcA.mp3</pre>
-        <p>Opened this file in vlc player and it worked just fine. the default player associated with .mp3s did not want to play this file, but played another one. Weird.</p>
-        <p>Next I created another launcher called youtube-audio-to-text, which failed due to a missing API_KEY environment variable.</p>
-        <p>Got an api key from openai and created the environment variable and voila:</p>
-        <img style="width: 80%;" src="img/Screenshot_20250601_221927.png" alt="shows successful execution of youtube-audio-to-text.py">-rw-rw-r-- 1 oy753c oy753c  22K Jun  1 22:18  qtxkZcpnxcA.mp3.txt
-        <p>And after about 30 seconds:</p>
-        <pre style="width: 50%; background-color: #222222;">-rw-rw-r-- 1 oy753c oy753c  22K Jun  1 22:18  qtxkZcpnxcA.mp3.txt</pre>
-        <p>Incredible.</p>
-        <p>Okay, tomorrow I'll want to proof-read the text.</p>
+        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
       </article>
 
     </section>
