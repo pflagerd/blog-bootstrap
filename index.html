@@ -76,8 +76,74 @@
         </article>
 
         <article class="post">
+            <h3><a href="#">Use ChatGPT 5 to translate David's Newton's Method for Square Root FORTRAN code.</a></h3>
+            <p class="meta">2025-08-27 9:07 (UTC-7) by Daniel</p>
+            <p>We try something a little more challenging.</p>
+            <p>Here's David's prompt:</p>
+            <pre>## D: Thank you.  Now I would like you to translate a more complex Fortran program
+into Python.  Here it is:
+
+```fortran
+
+C Test sqrt alg efficiency
+C On laptop / cygwin, compile with 'gfortran tester.f' and
+C     run by './a.exe'
+C
+      PROGRAM Sqrts
+      INTEGER MAXVAL
+      PARAMETER (MAXVAL = 1000000)
+      INTEGER SETS
+      PARAMETER (SETS = 100)
+      INTEGER values(MAXVAL)
+      INTEGER i, set
+      INTEGER nsqrt
+C     --- loop index
+C     --- get inputs and initialize
+      PRINT *, "MAXVAL = ", MAXVAL, ", SETS = ", SETS
+      PRINT *, "Start looping..."
+      DO 20 set = 1, SETS
+C         PRINT *, "."
+          DO 10 i = 1, MAXVAL
+              values(i) = nsqrt(i)
+C             PRINT *, "nsqrt(", i, ") is", values(i)
+10        CONTINUE
+20    CONTINUE
+      PRINT *, "Done looping."
+      END
+C ----------------------------------------------------------------------
+      INTEGER FUNCTION nsqrt(s)
+      INTEGER s
+      INTEGER ratio
+      INTEGER x0
+      INTEGER x1
+      INTEGER x2
+      x0 = 1
+      x1 = 1
+      x2 = (1 + s) / 2
+10    CONTINUE
+      IF ((x2 .EQ. X1) .OR. (x2 .EQ. x0)) GOTO 20
+C         PRINT *, "x0, x1, x2:", x0, x1, x2
+          x0 = x1
+          x1 = x2
+          x2 = (x2 + s / x2) / 2
+          GOTO 10
+20    CONTINUE
+      IF (x2 * x2 .GT. s) THEN
+          nsqrt = x1
+      ELSE
+          nsqrt = x2
+      ENDIF
+      END
+```
+</pre>
+            <p>I copy and paste the markdown above into a ChatGPT 5 window, and get the following output:</p>
+            <iframe style="border: none; width: 100%; height: 55em;" src="html/Fortran%20to%20Python%20translation%20(8_27_2025%209：40：40%20AM).html"></iframe>
+            <p></p>
+        </article>
+
+        <article class="post">
             <h3>Create a FORTRAN Hello World.</h3>
-            <p class="meta">Supply a Fortran "Hello World" and have ChatGPT translate it into Python, C, C++ and D.</p>
+            <p class="meta">Supply a Fortran "Hello World" and have ChatGPT 5 translate it into Python, C, C++ and D.</p>
             <p class="meta">2025-07-31 9:09 (UTC-7) by Daniel</p>
             <p>Here is the prompt (yes, it's in markdown)</p>
             <pre>## D: I've written a Fortran program that I would like you to translate into working
