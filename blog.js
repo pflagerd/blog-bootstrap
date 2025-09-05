@@ -1,75 +1,166 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const articles = document.querySelectorAll("article");
+class Article {
+    constructor(element, index) {
+        this.element = element;
+        this.index = index;
+        this.articleId = this.element.id || `article-${index}`;
+        this.element.id = this.articleId;
 
-    articles.forEach((article, index) => {
-        const articleId = article.id || `article-${index}`;
-        article.id = articleId;
+        this.contentChildren = Array.from(this.element.children);
+        this.toggleSpan = null;
+        this.isCollapsed = null;
 
-        const contentChildren = Array.from(article.children);
+        this.init();
+    }
 
-        if (contentChildren.length < 1) return;
+    init() {
+        if (this.contentChildren.length < 1) return;
 
-        // Inject toggle span into first child
-        const toggleSpan = document.createElement("span");
-        toggleSpan.className = "toggle-control";
-        contentChildren[0].appendChild(toggleSpan);
+        this.createToggleControl();
+        this.loadInitialState();
+        this.applyState(this.isCollapsed);
+        this.attachEventListeners();
+    }
 
-        const getHeightForFirstN = (n) => {
-            article.style.height = 'auto';
-            void article.offsetHeight;
+    createToggleControl() {
+        this.toggleSpan = document.createElement("span");
+        this.toggleSpan.className = "toggle-control";
+        this.contentChildren[0].appendChild(this.toggleSpan);
+    }
 
-            let total = 0;
-            for (let i = 0; i < Math.min(n, contentChildren.length); i++) {
-                const el = contentChildren[i];
-                const style = getComputedStyle(el);
-                total += el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            }
-            return total + parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em of body for artificial final margin.
-        };
-
-        const getFullHeight = () => {
-            article.style.height = 'auto';
-            void article.offsetHeight;
-
-            let height = contentChildren.reduce((acc, el) => {
-                const style = getComputedStyle(el);
-                return acc + el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            }, 0);
-            height += parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em of body for artificial final margin.
-            return height;
-        };
-
-        const storedState = localStorage.getItem(articleId);
-        let isCollapsed;
+    loadInitialState() {
+        const storedState = localStorage.getItem(this.articleId);
 
         if (storedState === null) {
             // First-time load: collapse all except the first article
-            isCollapsed = index !== 0;
+            this.isCollapsed = this.index !== 0;
         } else {
-            isCollapsed = storedState === "collapsed";
+            this.isCollapsed = storedState === "collapsed";
         }
+    }
 
-        const applyState = (collapsed) => {
-            const targetHeight = collapsed ? getHeightForFirstN(3) : getFullHeight();
-            article.style.height = targetHeight + "px";
-            toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
-            localStorage.setItem(articleId, collapsed ? "collapsed" : "expanded");
+    getHeightForFirstN(n) {
+        this.element.style.height = 'auto';
+        void this.element.offsetHeight; // Force layout recalculation
 
-            if (!collapsed) {
-                article.addEventListener('transitionend', () => {
-                    article.style.height = 'auto';
-                }, {once: true});
-            }
-        };
+        let total = 0;
+        for (let i = 0; i < Math.min(n, this.contentChildren.length); i++) {
+            const el = this.contentChildren[i];
+            const style = getComputedStyle(el);
+            total += el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+        }
+        return total + parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em
+    }
 
-        applyState(isCollapsed);
+    getFullHeight() {
+        this.element.style.height = 'auto';
+        void this.element.offsetHeight; // Force layout recalculation
 
-        toggleSpan.addEventListener("click", () => {
-            const collapsed = toggleSpan.textContent.includes("Expand");
-            article.style.height = article.offsetHeight + 'px';
-            requestAnimationFrame(() => {
-                applyState(!collapsed);
-            });
+        let height = this.contentChildren.reduce((acc, el) => {
+            const style = getComputedStyle(el);
+            return acc + el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
+        }, 0);
+        height += parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em
+        return height;
+    }
+
+    applyState(collapsed) {
+        this.isCollapsed = collapsed;
+        const targetHeight = collapsed ? this.getHeightForFirstN(3) : this.getFullHeight();
+
+        this.element.style.height = targetHeight + "px";
+        this.toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
+        this.saveState();
+
+        if (!collapsed) {
+            this.element.addEventListener('transitionend', () => {
+                this.element.style.height = 'auto';
+            }, { once: true });
+        }
+    }
+
+    saveState() {
+        localStorage.setItem(this.articleId, this.isCollapsed ? "collapsed" : "expanded");
+    }
+
+    toggle() {
+        const collapsed = this.toggleSpan.textContent.includes("Expand");
+        this.element.style.height = this.element.offsetHeight + 'px';
+
+        requestAnimationFrame(() => {
+            this.applyState(!collapsed);
         });
-    });
-});
+    }
+
+    attachEventListeners() {
+        this.toggleSpan.addEventListener("click", () => {
+            this.toggle();
+        });
+    }
+
+    // Public API methods for external control
+    expand() {
+        if (this.isCollapsed) {
+            this.toggle();
+        }
+    }
+
+    collapse() {
+        if (!this.isCollapsed) {
+            this.toggle();
+        }
+    }
+
+    getState() {
+        return {
+            id: this.articleId,
+            isCollapsed: this.isCollapsed,
+            index: this.index
+        };
+    }
+}
+
+class ArticleManager {
+    constructor() {
+        this.articles = [];
+        this.init();
+    }
+
+    init() {
+        document.addEventListener("DOMContentLoaded", () => {
+            this.initializeArticles();
+        });
+    }
+
+    initializeArticles() {
+        const articleElements = document.querySelectorAll("article");
+
+        articleElements.forEach((element, index) => {
+            const article = new Article(element, index);
+            this.articles.push(article);
+        });
+    }
+
+    // Public API for managing all articles
+    expandAll() {
+        this.articles.forEach(article => article.expand());
+    }
+
+    collapseAll() {
+        this.articles.forEach(article => article.collapse());
+    }
+
+    getArticleById(id) {
+        return this.articles.find(article => article.articleId === id);
+    }
+
+    getAllStates() {
+        return this.articles.map(article => article.getState());
+    }
+
+    getArticleCount() {
+        return this.articles.length;
+    }
+}
+
+// Initialize the article system
+const articleManager = new ArticleManager();
