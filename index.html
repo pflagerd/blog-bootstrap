@@ -1,82 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>blog-bootstrap</title>
-  <link rel="stylesheet" href="blog.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The BOK blog</title>
+    <link rel="stylesheet" href="blog.css"/>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-          onload="renderMathInElement(document.body);"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        // customised options
-        // • auto-render specific keys, e.g.:
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ],
-        // • rendering keys, e.g.:
-        throwOnError : false
-      });
-    });
-  </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
 
-  <script src="blog.js" defer></script>
+    <script src="blog.js" defer></script>
 </head>
 <body>
-  <header>
+<header>
     <div class="container">
-      <h1>blog-bootstrap</h1>
-      <p>A chromium-centric file-only (server-not-needed) blog</p>
-      <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
-      <br/>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Articles</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+        <h1>The BOK (Body of Knowledge) Blog</h1>
+        <p>A chromium-centric file-only (server-not-needed) blog</p>
+        <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
+        <br/>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main class="container">
+<main class="container">
     <section class="posts">
 
-      <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
-      <article class="post" style="display: none;">
-        <h3>My first blog entry</h3>
-        <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
-        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
-      </article>
+        <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
+        <article class="post" style="display: none;">
+            <h3>My first blog entry</h3>
+            <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
+            <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
+            <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
+        </article>
 
-      <article class="post">
-        <h3>My first blog entry</h3>
-        <p class="meta">Put a headline/comment/summary of what this blog entry is about here.</p>
-        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
-      </article>
+        <article class="post">
+            <h3>This is the everything blog</h3>
+            <p class="meta">It is the top-level blog referring to all the other activities and blogs</p>
+            <p class="meta">2025-09-12 18:14 (UTC-7) by Daniel</p>
+            <p>There's a lot of catching up needed.</p>
+            <p>There are many tasks and project on all kinds of platforms including Google Calendar, github.com, and zillions of other places.</p>
+            <p>One important initiative is to get everything centralized here somehow.  Not sure what "everything" is just yet.</p>
+            <p>I guess a kind of master task list would be a good thing.  Perhaps this starts with an <code>index.html</code> in this repository.</p>
+        </article>
 
     </section>
-  </main>
+</main>
 
-  <footer>
+<footer>
     <div class="container">
-      <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
+        <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
     </div>
-  </footer>
+</footer>
 </body>
 </html>
