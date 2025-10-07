@@ -1,67 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>systems Blog</title>
-  <link rel="stylesheet" href="blog.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>systems Blog</title>
+    <link rel="stylesheet" href="blog.css"/>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-          onload="renderMathInElement(document.body);"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        // customised options
-        // • auto-render specific keys, e.g.:
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ],
-        // • rendering keys, e.g.:
-        throwOnError : false
-      });
-    });
-  </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
 
-  <script src="blog.js" defer></script>
+    <script src="blog.js" defer></script>
 </head>
 <body>
-  <header>
+<header>
     <div class="container">
-      <h1>systems Blog</h1>
-      <p>A chromium-centric file-only (server-not-needed) blog about all the pflager.net systems.</p>
-      <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
-      <br/>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Articles</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+        <h1>systems Blog</h1>
+        <p>A chromium-centric file-only (server-not-needed) blog about all the pflager.net systems.</p>
+        <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
+        <br/>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main class="container">
+<main class="container">
     <section class="posts">
 
-      <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
-      <article class="post" style="display: none;">
-        <h3>My first blog entry</h3>
-        <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
-        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
-      </article>
+        <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
+        <article class="post" style="display: none;">
+            <h3>My first blog entry</h3>
+            <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
+            <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
+            <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
+        </article>
 
         <article class="post">
             <h3>TODO</h3>
@@ -72,7 +72,7 @@
             <p><label><input type="checkbox"> </label>gitlab instance is not responding to https: or to push requests. Migrate it to R710b.</p>
             <p><label><input type="checkbox"> </label><a href=""></a>Working on a utility called <code>~/bashrc.d/hosts</code> which will update /etc/hosts with a set of known ip addresses derived from router settings.</p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem;"><label><input type="checkbox"> </label><a href=""></a>Working on getting tigervnc working on all linux systems. Not easy. I have some of the beginnings of that in a directory <code>~/bashrc/others/.vnc</code> which contains some of the things needed to set up a tigervnc server. Also the startup script <code>bashrc.d/tigervncserver</code></p>
-            <p style="margin-left: 1.1rem; text-indent: -1.1rem;"><label><input type="checkbox"> </label><a href=""></a>Ordered hdmi adaptors which allow screen contents to be displayed by tapping into the hdmi signal.  This so I can record what screens look like when configuring things on computers directly.</p>
+            <p style="margin-left: 1.1rem; text-indent: -1.1rem;"><label><input type="checkbox"> </label><a href=""></a>Ordered hdmi adaptors which allow screen contents to be displayed by tapping into the hdmi signal. This so I can record what screens look like when configuring things on computers directly.</p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem;"><label><input type="checkbox"> </label><a href=""></a>Ordered a drive enclosure to allow testing various drives which I've dissected out of their external drive bay cases.</p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem;"><label><input type="checkbox"> </label><a href=""></a>Write down what OS/version is on each computer in <code>systems</code></p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem;"><label><input type="checkbox"> </label><a href=""></a>Somehow on the treadmill desk computer I get 2g on speedtest.net, but not on my dell7750 which shows a link speed of 100Mb/s</p>
@@ -82,24 +82,113 @@
             <p><label><input type="checkbox"> </label><a href=""></a>need to fix bashrc.d/python and the rest</p>
             <p><label><input type="checkbox"> </label><a href=""></a>check bashrc.d/* for <code>which</code> and other commands generating output not being redirected to <code>/dev/null 2>&1</code></a></p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label><a href=""></a>I want the new KVM switch above the r910a.</p>
-            <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label><a href=""></a>Ordered a new KVM switch that will use hdmi rather than vga.  Want to figure out how to control it with an arduino instead of a manual switch pad. Also ordered some adaptors to convert VGA to hdmi for those computers which only produce vga.</p>
+            <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label><a href=""></a>Ordered a new KVM switch that will use hdmi rather than vga. Want to figure out how to control it with an arduino instead of a manual switch pad. Also ordered some adaptors to convert VGA to hdmi for those computers which only produce vga.</p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label>guppy is on Fedora 36. I updated guppy and zax both manually with much fiddling to 42.</p>
         </article>
 
+
         <article class="post">
-        <h3>My first blog entry</h3>
-        <p class="meta">Put a headline/comment/summary of what this blog entry is about here.</p>
-        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> to <code>systems/blog</code>, where <code>systems</code> is a git repository: git@zax.pflager.net:systems/systems.git</code></p>
-      </article>
+            <h3>Setting up sherri@pflager.com and dan@pflager.com continued.</h3>
+            <p class="meta">Installing postfix package on pflager.com</p>
+            <p class="meta">2025-10-07 14:02 (UTC-7) by Daniel</p>
+            <p>ubuntu asked me several questions about how to set up the default configuration.  I recorded my responses here: dell7750:/home/oy753c/Videos/2025-10-07 13-49-06.mkv</p>
+            <img src="img/Screenshot_20251007_140613.png" alt="img/Screenshot_20251007_140613.png">
+            <p></p>
+            <img src="img/Screenshot_20251007_140717.png" alt="img/Screenshot_20251007_140717.png">
+            <p>The installation proceeded and the following is the resulting output:</p>
+        <pre>srv447782:~> sudo apt install postfix
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  ssl-cert
+Suggested packages:
+  procmail postfix-mysql postfix-pgsql postfix-ldap postfix-pcre postfix-lmdb postfix-sqlite sasl2-bin | dovecot-common resolvconf postfix-cdb mail-reader postfix-mta-sts-resolver postfix-doc
+The following NEW packages will be installed:
+  postfix ssl-cert
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,265 kB of archives.
+After this operation, 4,248 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://us.archive.ubuntu.com/ubuntu jammy/main amd64 ssl-cert all 1.1.2 [17.4 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu jammy-updates/main amd64 postfix amd64 3.6.4-1ubuntu1.3 [1,248 kB]
+Fetched 1,265 kB in 1s (1,369 kB/s)
+Preconfiguring packages ...
+Selecting previously unselected package ssl-cert.
+(Reading database ... 101188 files and directories currently installed.)
+Preparing to unpack .../ssl-cert_1.1.2_all.deb ...
+Unpacking ssl-cert (1.1.2) ...
+Selecting previously unselected package postfix.
+Preparing to unpack .../postfix_3.6.4-1ubuntu1.3_amd64.deb ...
+Unpacking postfix (3.6.4-1ubuntu1.3) ...
+Setting up ssl-cert (1.1.2) ...
+Setting up postfix (3.6.4-1ubuntu1.3) ...
+Adding group `postfix' (GID 122) ...
+Done.
+Adding system user `postfix' (UID 113) ...
+Adding new user `postfix' (UID 113) with group `postfix' ...
+Not creating home directory `/var/spool/postfix'.
+Creating /etc/postfix/dynamicmaps.cf
+Adding group `postdrop' (GID 123) ...
+Done.
+setting myhostname: srv447782.hstgr.cloud
+setting alias maps
+setting alias database
+changing /etc/mailname to pflager.com
+setting myorigin
+setting destinations: $myhostname, pflager.com, srv447782.hstgr.cloud, localhost.hstgr.cloud, localhost
+setting relayhost:
+setting mynetworks: 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+setting mailbox_size_limit: 0
+setting recipient_delimiter: +
+setting inet_interfaces: all
+setting inet_protocols: all
+/etc/aliases does not exist, creating it.
+WARNING: /etc/aliases exists, but does not have a root alias.
+
+Postfix (main.cf) is now set up with a default configuration.  If you need to
+make changes, edit /etc/postfix/main.cf (and others) as needed.  To view
+Postfix configuration values, see postconf(1).
+
+After modifying main.cf, be sure to run 'systemctl reload postfix'.
+
+Running newaliases
+Created symlink /etc/systemd/system/multi-user.target.wants/postfix.service → /lib/systemd/system/postfix.service.
+Processing triggers for ufw (0.36.1-4ubuntu0.1) ...
+Processing triggers for man-db (2.10.2-1) ...
+Processing triggers for rsyslog (8.2112.0-2ubuntu2.2) ...
+Scanning processes...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+</pre>
+            <p>All I think I know for sure is that postfix is now installed, but I'm not sure about its configuration.</p>
+        </article>
+
+
+        <article class="post">
+            <h3>Set up sherri@pflager.com and dan@pflager.com</h3>
+            <p class="meta">Enable email receiving on pflager.com.</p>
+            <p class="meta">2025-10-07 13:30 (UTC-7) by Daniel</p>
+            <p>I used DeepSeek to get some advice:</p>
+            <iframe src="html/Set%20Up%20Receive-Only%20Email%20Server%20Guide%20-%20DeepSeek%20(10_7_2025%201：45：12%20PM).html" width="100%" height="500px"></iframe>
+        </article>
 
     </section>
-  </main>
+</main>
 
-  <footer> cx
+<footer> cx
     <div class="container">
-      <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
+        <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
     </div>
-  </footer>
+</footer>
 </body>
 </html>
