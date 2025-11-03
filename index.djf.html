@@ -114,7 +114,7 @@
                 <br>
                 <hr>
                 <p></p>
-                <p style="margin-left: 1.5rem;">Algebraic (Deductive) Solution</p>
+                <p style="margin-left: 1.5rem;">Algebraic Solution</p>
 
                 <style>
                     table {
@@ -145,166 +145,36 @@
                     <tbody>
                     <tr>
                         <td>1.</td>
-                        <td>$x + y = 10$ and ${1 \over x} + {1 \over y} = \frac{5}{12}$</td>
-                        <td>$x$ and $y$ are integers.</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>$2 \ge n \text{ and } 2n \ge 4$</td>
-                        <td>Re-arrange the first term</td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>$2 \ge n \text{ and } n \ge 2$</td>
-                        <td>Scale the second term</td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>$2 \ge n \ge 2$</td>
-                        <td>Collapse the two terms into one.</td>
-                    </tr>
-                    <tr>
-                        <td>5.</td>
-                        <td>$n = 2$</td>
-                        <td>the "greater than"s here are irrelevant.</td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <br>
-                <hr>
-                <p></p>
-                <p style="margin-left: 1.5rem;">Logical (Deductive) Solution</p>
-
-                <style>
-                    table {
-                        border: 0;
-                        border-collapse: collapse;
-                        width: 100%;
-                        margin: 0;
-                    }
-                    th, td {
-                        border: 0;
-                        padding: 8px;
-                        text-align: left;
-                    }
-                </style>
-                <table style="margin-left: 1rem;">
-                    <colgroup>
-                        <col style="width: 1%;">
-                        <col style="width: 40%;">
-                        <col style="width: 59%;">
-                    </colgroup>
-                    <!--                    <thead>-->
-                    <!--                    <tr>-->
-                    <!--                        <th>Column 1 (20%)</th>-->
-                    <!--                        <th>Column 2 (40%)</th>-->
-                    <!--                        <th>Column 3 (40%)</th>-->
-                    <!--                    </tr>-->
-                    <!--                    </thead>-->
-                    <tbody>
-                    <tr>
-                        <td>1.</td>
-                        <!-- Colspan hint given here: https://chatgpt.com/share/68f64e72-3fa0-8006-ae0f-31f3e432270e -->
-
-                        <td colspan="2" style="width: auto;">$[x + y = 10]$ and $[{1 \over x} + {1 \over y} = \frac{5}{12}]$ and $x > y$ and $\{x : x \in \{2, 4, 6, 8\}\}$</td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>$[2 + y = 10]$ and $[{1 \over 2} + {1 \over y} = \frac{5}{12}]$</td>
-                        <td>Try the first possible answer from the set of answers: x := 2</td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>$2 \ge n \text{ and } n \ge 2$</td>
-                        <td>Scale the second term</td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>$2 \ge n \ge 2$</td>
-                        <td>Collapse the two terms into one.</td>
-                    </tr>
-                    <tr>
-                        <td>5.</td>
-                        <td>$n = 2$</td>
-                        <td>the "greater than"s here are irrelevant.</td>
-                    </tr>
-                    </tbody>
-                </table>
-
-                <br>
-                <hr>
-                <p></p>
-                <p style="margin-left: 1.5rem;">Algebraic (Procedural) Solution</p>
-
-                <style>
-                    table {
-                        border: 0;
-                        border-collapse: collapse;
-                        width: 100%;
-                        margin: 0;
-                    }
-                    th, td {
-                        border: 0;
-                        padding: 8px;
-                        text-align: left;
-                    }
-                </style>
-                <table style="margin-left: 1rem;">
-                    <colgroup>
-                        <col style="width: 1%;">
-                        <col style="width: 40%;">
-                        <col style="width: 59%;">
-                    </colgroup>
-                    <!--                    <thead>-->
-                    <!--                    <tr>-->
-                    <!--                        <th>Column 1 (20%)</th>-->
-                    <!--                        <th>Column 2 (40%)</th>-->
-                    <!--                        <th>Column 3 (40%)</th>-->
-                    <!--                    </tr>-->
-                    <!--                    </thead>-->
-                    <tbody>
-                    <tr>
-                        <td>1.</td>
-                        <!-- Colspan hint given here: https://chatgpt.com/share/68f64e72-3fa0-8006-ae0f-31f3e432270e -->
-
-                        <td>a. $x + y = 10$                                <br>
-                            b. $\frac{1}{x} + \frac{1}{y} = \frac{5}{12}$  <br></td>
-                        <td>Let $x$ and $y$ denote the two integers.</td>
+                        <td>Let $x$ and $y$ denote the two integers.    <br>
+                            a. $x + y = 10$                                <br>
+                            b. $\frac{1}{x} + \frac{1}{y} = \frac{5}{12}$  <br>
                     </tr>
                     <tr>
                         <td>2.</td>
                         <td>Consider the possible answers.</td>
-                        <td></td>
                     </tr>
                     <tr>
                         <td>3.</td>
                         <td>Try each answer in Equation 1a. and ask whether the given answer could be the larger number.</td>
-                        <td></td>
                     </tr>
                     <tr>
                         <td>3a.</td>
-                        <td>Note that for answer (a), we have 2 and 8, so 2 is not the larger. Remove this possibility.</td>
-                        <td></td>
+                        <td>Note that for answer (a), we have 2 and 8, so 2 is not the larger. Remove this possibility.
                     </tr>
                     <tr>
                         <td>3b.</td>
-                        <td>Note that for answer (b), we have 4 and 6.  Remove this possibility b/c 4 is not the larger.</td>
-                        <td></td>
+                        <td>Note that for answer (b), we have 4 and 6.  Remove this possibility b/c 4 is not the larger.
                     </tr>
                     <tr>
                         <td>3c.</td>
-                        <td>For answer (c) we have 6 and 4, and 6 is the larger.  Okay!</td>
-                        <td></td>
+                        <td>For answer (c) we have 6 and 4, and 6 is the larger.  Okay!
                     </tr>
                     <tr>
                         <td>3d.</td>
-                        <td>For answer (d), we have 8 and 2, and 8 is the larger.  Okay!</td>
+                        <td>For answer (d), we have 8 and 2, and 8 is the larger.  Okay!
                     </tr>
                     <tr>
-                        <td>3e.</td>
-                        <td>We have eliminated half the possible answers!</td>
-                        <td></td>
+                        <td>We have eliminated half the possible answers!
                     </tr>
                     <tr>
                         <td>4.</td>
@@ -313,9 +183,7 @@
                     </tbody>
                 </table>
 
-
-
-                <!--                <br>-->
+<!--                <br>-->
 <!--                <hr>-->
 <!--                <p></p>-->
 <!--                <p style="margin-left: 1.5rem;">Number Line Solution</p>-->
