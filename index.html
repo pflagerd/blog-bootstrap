@@ -69,12 +69,29 @@
             <h3>TODO</h3>
             <p class="meta">What we'll do next</p>
             <p class="meta">2025-12-03 9:55 (UTC-8) by Daniel</p>
-            <p>We decided to continue with <a href="../Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=56" target="_blank">Examples and Exercises on p45</a>, by scrolling through the examples just far enough to see the example, but not far enough to see the answer.</p>
+            <p>We decided to continue reading Example 12 in <a href="../Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=62" target="_blank">Examples and Exercises</a>, scrolling through each example just far enough to see the example, but not far enough to see its answer.</p>
+            <p>We also decided to implement the code of Example 12 with some sample input data so we could execute the code to help us understand what the code is doing.</p>
+        </article>
+
+        <article class="post">
+            <h3>Continued with <a href="../Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=56" target="_blank">Examples and Exercises on p45</a></h3>
+            <p class="meta">We scrolled through the examples just far enough to see each example, but not far enough to see its answer.</p>
+            <p class="meta">2025-12-08 10:21 (UTC-8) by Daniel</p>
+            <p>Example 1 and 2 gave us no pause.</p>
+            <p>In Example 3, Daniel recognized the code as a kind of implementation similar to computing "triangular numbers":</p>
+            <img style="width: 25%;" src="img/Screenshot_20251208_102807.png" alt="Example 3 code">
+            <p><a href="https://www.mathsisfun.com/algebra/triangular-numbers.html" target="_blank">Triangular numbers are fun</a> because there is a formula for computing them: $\frac{n(n+1)}{2}$</p>
+            <p>Example 4 gave Daniel some new data, because he was unused to thinking of the time complexity of a nested loop in two independent variables as O(AB).</p>
+            <p>After doing some quick research on Chat GPT, we concluded that using O(AB) was at a minimum "more correct", and that we were unfamiliar with it probably because in GeeksForGeeks and Sedgewick and other sources we have been learning from such algorithms were often just considered O($N^2$).</p>
+            <p>Example 8 really fobbed us up because it involved two variables, which we didn't recognize.  One variable for the length of the strings in the array, and another length for the number of elements in the array itself.  We correctly reasoned that sorting each string was likely O(s log s) complexity (s stands for string length), but we did not
+            account for the fact that there were a strings to sort (a stands for array length) for a total of O(a(s log s)), nor did we realize that sorting the array itself also involved both comparing strings O(s) and sorting array elements O(a log a) (one comparison per sort operation) for a total of O(s(a log a)).</p>
+            <p>Thus the grand total would have been O(a(s log s)) + O(s(a log a)) = O(a(s log s) + s(a log a)) = O(as(log s + log a))</p>
+            <p></p>
         </article>
 
         <article class="post">
             <h3>We continued with <a href="../Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=15" target="_blank">The Interview Process</a>.</h3>
-            <p class="meta">We finished II Behind the Scenes(</p>
+            <p class="meta">We finished II Behind the Scenes.</p>
             <p class="meta">2025-12-03 08:47 (UTC-8) by Daniel</p>
             <p>We looked ahead a bit and found that chapters III, IV and V were more information about interviewing.</p>
             <p>Chapter VI seems to be the first chapter concerned with data structures and algorithms.</p>
