@@ -86,7 +86,8 @@
             <p>Example 8 really fobbed us up because it involved two variables, which we didn't recognize.  One variable for the length of the strings in the array, and another length for the number of elements in the array itself.  We correctly reasoned that sorting each string was likely O(s log s) complexity (s stands for string length), but we did not
             account for the fact that there were a strings to sort (a stands for array length) for a total of O(a(s log s)), nor did we realize that sorting the array itself also involved both comparing strings O(s) and sorting array elements O(a log a) (one comparison per sort operation) for a total of O(s(a log a)).</p>
             <p>Thus the grand total would have been O(a(s log s)) + O(s(a log a)) = O(a(s log s) + s(a log a)) = O(as(log s + log a))</p>
-            <p></p>
+            <p>Example 10 had an interesting nuance.  In the case of this prime number algorithm, we ended up with O($\sqrt N$) complexity, because the algorithm was only checking up to the square root of N for factors.  In such a case, $\sqrt N$ is the dominant term, so we use it as the argument in O($\sqrt N$).</p>
+            <p>This brings us to Example 12.  It involves permutations of a string, but neither of us can visualize what's really happening with it, so we decided we should code it up by next time and be ready to run it with some test cases to see if we can get a better sense of what it's doing during our next session.</p>
         </article>
 
         <article class="post">
