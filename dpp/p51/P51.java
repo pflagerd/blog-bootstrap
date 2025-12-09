@@ -13,21 +13,19 @@ public class P51 {
     // Production Code
     // ---------------------------------------------------
 
-    public int add(int a, int b) {
-        return a + b;
+    void permutation(String str) {
+        permutation(str, "");
     }
 
-    public int subtract(int a, int b) {
-        return a - b;
-    }
-
-    public int multiply(int a, int b) {
-        return a * b;
-    }
-
-    public double divide(int a, int b) {
-        if (b == 0) throw new IllegalArgumentException("Division by zero is not allowed.");
-        return (double) a / b;
+    void permutation(String str, String prefix) {
+        if (str.isEmpty()) {
+            System.out.println(prefix);
+        } else {
+            for (int i = 0; i < str.length(); i++) {
+                String rem = str.substring(0, i) + str.substring(i + 1);
+                permutation(rem, prefix + str.charAt(i));
+            }
+        }
     }
 
     // ---------------------------------------------------
@@ -48,38 +46,38 @@ public class P51 {
     // ---------------------------------------------------
 
     @Test
-    @DisplayName("Addition should return correct result")
-    void testAddition() {
-        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+    @DisplayName("Permutation of empty string")
+    void testEmptyString() {
+        permutation("");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
     }
 
     @Test
-    @DisplayName("Subtraction should return correct result")
-    void testSubtraction() {
-        assertEqual(2, subtract(5, 3), "5 - 3 should equal 2");
+    @DisplayName("Permutation of single character string")
+    void testSingleCharacterString() {
+        permutation("a");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
     }
 
     @Test
-    @DisplayName("Multiplication should return correct result")
-    void testMultiplication() {
-        assertEqual(15, multiply(3, 5), "3 * 5 should equal 15");
+    @DisplayName("Permutations of two-character string")
+    void testTwoCharacterString() {
+        permutation("ab");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
     }
 
     @Test
-    @DisplayName("Division should return correct result")
-    void testDivision() {
-        assertAlmostEqual(2.5, divide(5, 2), 0.001, "5 / 2 should equal 2.5");
+    @DisplayName("Permutations of three-character string")
+    void testThreeCharacterString() {
+        permutation("abc");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
     }
 
     @Test
-    @DisplayName("Division by zero should throw exception")
-    void testDivideByZero() {
-        try {
-            divide(10, 0);
-            throw new AssertionError("Expected IllegalArgumentException for division by zero.");
-        } catch (IllegalArgumentException e) {
-            assertEqual("Division by zero is not allowed.", e.getMessage(), "Exception message should match");
-        }
+    @DisplayName("Permutations of four-character string")
+    void testFourCharacterString() {
+        permutation("abcd");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
     }
 
     // Assertion Helpers
