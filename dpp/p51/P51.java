@@ -17,16 +17,20 @@ public class P51 {
     // Production Code
     // ---------------------------------------------------
 
+    static int j = 0;
+
     void permutation(String str) {
         permutation(str, "");
+        System.out.println(j);
     }
 
     void permutation(String input, String output) {
         if (input.isEmpty()) {
-            System.out.println(output);
+            ; // System.out.println(output);
         } else {
             for (int i = 0; i < input.length(); i++) {
                 permutation(removeCharAt(input, i), output + input.charAt(i));
+                j++;
             }
         }
     }
@@ -80,6 +84,27 @@ public class P51 {
     @DisplayName("Permutations of four-character string")
     void testFourCharacterString() {
         permutation("abcd");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+    }
+
+    @Test
+    @DisplayName("Permutations of five-character string")
+    void testFiveCharacterString() {
+        permutation("abcde");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+    }
+
+    @Test
+    @DisplayName("Permutations of six-character string")
+    void testSixCharacterString() {
+        permutation("abcdef");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+    }
+
+    @Test
+    @DisplayName("Permutations of seven-character string")
+    void testSevenCharacterString() {
+        permutation("abcdefg");
 //        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
     }
 
