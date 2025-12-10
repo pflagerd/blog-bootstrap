@@ -69,9 +69,21 @@
             <h3>TODO</h3>
             <p class="meta">What we'll do next</p>
             <p class="meta">2025-12-03 9:55 (UTC-8) by Daniel</p>
-            <p>We decided to continue reading Example 12 in <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=62" target="_blank">Examples and Exercises</a>, scrolling through each example just far enough to see the example, but not far enough to see its answer.</p>
-            <p>We also decided to implement the code of Example 12 with some sample input data so we could execute the code to help us understand what the code is doing.</p>
-            <p>Daniel created a directory <code>/dpp</code> to contain a java file P51 containing the code, a minimal test framework, and a few tests. All can be run in IntelliJ IDEA.</p>
+            <p>We decided to re-read Example 12 in <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=62" target="_blank">Examples and Exercises</a>, scrolling through each example just far enough to see the example, but not far enough to see its answer.</p>
+            <p>We also decided to see if we understood things any better.</p>
+            <p>Assuming we do, we decided to continue reading through the remaining examples.</p>
+        </article>
+
+        <article class="post">
+            <h3>Thought through Example 12 <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=62" target="_blank">Examples and Exercises on p51.</a></h3>
+            <p class="meta">It was hard.</p>
+            <p class="meta">2025-12-10 10:00 (UTC-8) by Daniel</p>
+            <p>Example 12s explanation finally became a little clear to us after running Daniel's <code>dpp/p51/</code> code implemented in Linux using IntelliJ IDEA with a no-jar unit test framework.</p>
+            <p>We decided that the choice of variable names was creating cognitive dissonance for us so we renamed some.</p>
+            <p><code>string</code> and <code>prefix</code> became <code>input</code> and <code>output</code>.  <code>rem</code>, which we though might be short for "remainder" became <code>residue</code>.</p>
+            <p>We also decided to extract a function <code>removeCharAt(String, int)</code> to make the code more understandable.</p>
+            <p>We realized that the <code>System.out.println(prefix);</code> line would be called exactly N! times.</p>
+            <p>We put in a counter <code>j</code> to see how many times the overloaded <code>permutation()</code> was called.  That produced an interesting sequence: </p>
         </article>
 
         <article class="post">
