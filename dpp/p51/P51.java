@@ -9,6 +9,10 @@ import java.util.*;
  */
 public class P51 {
 
+    String removeCharAt(String input, int i) {
+        return input.substring(0, i) + input.substring(i + 1);
+    }
+
     // ---------------------------------------------------
     // Production Code
     // ---------------------------------------------------
@@ -17,13 +21,12 @@ public class P51 {
         permutation(str, "");
     }
 
-    void permutation(String str, String prefix) {
-        if (str.isEmpty()) {
-            System.out.println(prefix);
+    void permutation(String input, String output) {
+        if (input.isEmpty()) {
+            System.out.println(output);
         } else {
-            for (int i = 0; i < str.length(); i++) {
-                String rem = str.substring(0, i) + str.substring(i + 1);
-                permutation(rem, prefix + str.charAt(i));
+            for (int i = 0; i < input.length(); i++) {
+                permutation(removeCharAt(input, i), output + input.charAt(i));
             }
         }
     }
