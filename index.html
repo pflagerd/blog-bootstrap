@@ -72,6 +72,7 @@
             <p>We decided to re-read Example 12 in <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=62" target="_blank">Examples and Exercises</a>, scrolling through each example just far enough to see the example, but not far enough to see its answer.</p>
             <p>We also decided to see if we understood things any better.</p>
             <p>Assuming we do, we decided to continue reading through the remaining examples.</p>
+            <p>As a stretch goal, Daniel will try to come up with a formula for the sequence.</p>
         </article>
 
         <article class="post">
@@ -79,11 +80,15 @@
             <p class="meta">It was hard.</p>
             <p class="meta">2025-12-10 10:00 (UTC-8) by Daniel</p>
             <p>Example 12s explanation finally became a little clear to us after running Daniel's <code>dpp/p51/</code> code implemented in Linux using IntelliJ IDEA with a no-jar unit test framework.</p>
-            <p>We decided that the choice of variable names was creating cognitive dissonance for us so we renamed some.</p>
-            <p><code>string</code> and <code>prefix</code> became <code>input</code> and <code>output</code>.  <code>rem</code>, which we though might be short for "remainder" became <code>residue</code>.</p>
+            <p>Daniel felt quite disturbed that he made so many logic mistakes when reading through the code even though he was using the debugger.</p>
+            <p>We decided that the choice of variable names was creating cognitive dissonance for us so we renamed some to see if that might help aid understanding.</p>
+            <p><code>string</code> and <code>prefix</code> became <code>input</code> and <code>output</code>.  <code>rem</code>, which we though might be short for "remainder", became <code>residue</code>.</p>
             <p>We also decided to extract a function <code>removeCharAt(String, int)</code> to make the code more understandable.</p>
-            <p>We realized that the <code>System.out.println(prefix);</code> line would be called exactly N! times.</p>
-            <p>We put in a counter <code>j</code> to see how many times the overloaded <code>permutation()</code> was called.  That produced an interesting sequence: </p>
+            <p>Daniel still didn't feel as if he had a visual for what was going on, although the notion of removing a character had become clear.</p>
+            <p>After a bit of throught, we also realized that the <code>System.out.println(prefix);</code> line would be called exactly N! times.</p>
+            <p>We put in a counter <code>j</code> to see how many times the overloaded <code>permutation(String input, String output)</code> was called.  This produced an interesting sequence based on the number of characters in the <code>input</code> string: (0, 1, 5, 20, 84, 409, 2365, 16064, ...)</p>
+            <p>We decided to see if ChatGPT 5 could come up with a formula for the sequence. It <a href="https://chatgpt.com/share/6939cc5c-0e7c-8006-a736-180c65c84c13" target="_blank">didn't do a great job.</a></p>
+            <p>It was a bit better than Daniel expected, and not as good as David had hoped. It came up with a very specific (and wrong) answer.</p>
         </article>
 
         <article class="post">
