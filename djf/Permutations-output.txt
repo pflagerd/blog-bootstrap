@@ -1,0 +1,42 @@
+Linux - 01:43:33 ~/cracking-the-code-interview
+-> java Permutations
+permutation( abc ):
+   permutation( abc,  )
+   ...moving <a from 'str' to 'prefix'
+      permutation( bc, a )
+      ...moving <b from 'str' to 'prefix'
+         permutation( c, ab )
+         ...moving <c from 'str' to 'prefix'
+            permutation( , abc )
+abc
+      ...moving <c from 'str' to 'prefix'
+         permutation( b, ac )
+         ...moving <b from 'str' to 'prefix'
+            permutation( , acb )
+acb
+   ...moving <b from 'str' to 'prefix'
+      permutation( ac, b )
+      ...moving <a from 'str' to 'prefix'
+         permutation( c, ba )
+         ...moving <c from 'str' to 'prefix'
+            permutation( , bac )
+bac
+      ...moving <c from 'str' to 'prefix'
+         permutation( a, bc )
+         ...moving <a from 'str' to 'prefix'
+            permutation( , bca )
+bca
+   ...moving <c from 'str' to 'prefix'
+      permutation( ab, c )
+      ...moving <a from 'str' to 'prefix'
+         permutation( b, ca )
+         ...moving <b from 'str' to 'prefix'
+            permutation( , cab )
+cab
+      ...moving <b from 'str' to 'prefix'
+         permutation( a, cb )
+         ...moving <a from 'str' to 'prefix'
+            permutation( , cba )
+cba
+
+
