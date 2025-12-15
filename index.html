@@ -62,7 +62,7 @@
             <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
             <p><label><input type="checkbox"> </label><a href="https://www.educative.io/courses/grokking-coding-interview/sort-colors" target="_blank">Work through Grokking</a></p>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label><a href="https://www.educative.io/courses/grokking-coding-interview/sort-colors" target="_blank">Work on Sort Colors (Dutch National Flag) problem.</a></p>
-        </article>
+                    </article>
 
         <!-- LEAVE THIS article HERE -->
         <article class="post">
@@ -73,6 +73,199 @@
             <p>We also decided to see if we understood things any better.</p>
             <p>Assuming we do, we decided to continue reading through the remaining examples.</p>
             <p>As a stretch goal, Daniel will try to come up with a formula for the sequence.</p>
+        </article>
+
+        <article class="post">
+            <h3>We spent some time trying to come up with our own formula for the sequence.</h3>
+            <p class="meta">Even running the code in a debugger, following the code step-by-step, it was really hard to figure things out.</p>
+            <p class="meta">2025-12-15 12:20 (UTC-8) by Daniel</p>
+            <p>Formally, we define $f(n)$ as the number of calls to <code>permutation()</code> for an input string of length n.</p>
+            <p>Before we could come up with a formula, we needed to understand the pattern in the sequence, so we came up with this instrumented test code:</p>
+            <img style="width: 80%;" src="img/Screenshot_20251215_122110.png" alt="Test code">
+            <p>A single test for which looks like the following:</p>
+            <img style="width: 55%;" src="img/Screenshot_20251215_122430.png" alt="Test code">
+            <p>We then ran such a test and tabulated the results thus:</p>
+            <table style="text-align: center; table-layout: fixed; width: 100%;">
+                <colgroup>
+                    <col style="width: 15%;">
+                    <col style="width: 15%; text-align: center;">
+                    <col style="width: 70%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th style="vertical-align: top; text-align: center;">Number of calls to<br> <code>permutation()</code></th>
+                    <th style="vertical-align: top; text-align: center;">Stack Depth</th>
+                    <th style="text-align: left; vertical-align: top;">Call with arguments</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: left;"><code>permutation("ab", "")</code></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: left;"><code>permutation("b", "a")</code></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">3</td>
+                    <td style="text-align: center;">3</td>
+                    <td style="text-align: left;"><code>permutation("", "ab")</code></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">4</td>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: left;"><code>permutation("a", "b")</code></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">5</td>
+                    <td style="text-align: center;">3</td>
+                    <td style="text-align: left;"><code>permutation("", "ba")</code></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">5</td>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: left;"><code>permutation("a", "b")</code></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">5</td>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: left;"><code>permutation("ab", "")</code></td>
+                </tr>
+                </tbody>
+            </table>
+            <p>In this way, we were able to predict how many calls to <code>permutation()</code> there would be.  The answer was 5 in this case.</p>
+            <p>This also gave us the insight that whenever we encountered a call like <code>permutation("b", "a")</code> we could be certain it would be followed by another like <code>permutation("", "ab")</code></p>
+            <p>Since there would also be a print statement associated with each call like <code>permutation("", "ba")</code>, we had the intuition that there would be 2! such calls, one for each permutation of the string "ab".</p>
+            <p>So we know factorials are going to be involved in $f(n)$.</p>
+            <p>Using the test program, we built up some notions of how to define specific instances of $f(n)$ as follows:</p>
+
+            <table style="text-align: center; table-layout: fixed; width: 100%;">
+                <colgroup>
+                    <col style="width: 10%;">
+                    <col style="width: 30%;">
+                    <col style="width: 60%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th style="vertical-align: top; text-align: center;">n</th>
+                    <th style="text-align: left; vertical-align: top;">f(n)</th>
+                    <th style="text-align: left; vertical-align: top;">Commentary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="text-align: center;">0</td>
+                    <td style="text-align: left;">$ f(0) = 1 $</td>
+                    <td style="text-align: left;">There's always at least one call to <code>permutation()</code>, even if the contents are empty. That is the call which prints the empty permutation.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">1</td>
+                    <td style="text-align: left;">$ f(1) = f(0) + 1 = 2 $</td>
+                    <td style="text-align: left;">Since f(0) always happens, it is the first term.  The second term is the recursive call to <code>permutation()</code> called within the for loop.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">2</td>
+                    <td style="text-align: left;">$ f(2) = f(0) + 2f(1) = 5 $</td>
+                    <td style="text-align: left;">f(0) is as above the first term.  In this case the second term consists of two $f(1)$ terms resulting from two calls to <code>permutation()</code> (i.e. two loops through the <code>for</code> loop).  Each call to <code>permutation()</code> results in a recursive call to <code>permutation()</code> within the for loop, leading to a total of 4 recursive calls.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">3</td>
+                    <td style="text-align: left;">$ f(3) = f(0) + 3f(2) = 16 $</td>
+                    <td style="text-align: left;">f(0) is as above the first term.  In this case the second term consists of three $f(2)$ terms resulting from three calls to <code>permutation()</code> (i.e. three loops through the <code>for</code> loop).  Each call to <code>permutation()</code> results in a recursive call to <code>permutation()</code> within the for loop, leading to a total of 15 recursive calls.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">4</td>
+                    <td style="text-align: left;">$ f(4) = f(0) + 4f(3) = 65 $</td>
+                    <td style="text-align: left;">The pattern continues as before, So we now have a way to define f(n) as a recurrence relation. We confirmed the sums by running the software.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">5</td>
+                    <td style="text-align: left;">$ f(5) = f(0) + 5f(4) = 326 $</td>
+                    <td style="text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">6</td>
+                    <td style="text-align: left;">$ f(6) = f(0) + 6f(5) = 1957 $</td>
+                    <td style="text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">7</td>
+                    <td style="text-align: left;">$ f(7) = f(0) + 7f(6) = 13700 $</td>
+                    <td style="text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">8</td>
+                    <td style="text-align: left;">$ f(8) = f(0) + 8f(7) = 109601 $</td>
+                    <td style="text-align: left;"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: center;">n</td>
+                    <td style="text-align: left;">$ f(n) = f(0) + nf(n - 1)$</td>
+                    <td style="text-align: left;">So this is our generalized recurrence relation.</td>
+                </tr>
+                </tbody>
+            </table>
+            <p></p>
+            <p>This puts us in a good position to come up with a non-recurrence relational equivalent.</p>
+            <table style="text-align: center; table-layout: fixed; width: 100%;">
+                <colgroup>
+                    <col style="width: 50%;">
+                    <col style="width: 50%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th style="text-align: left; vertical-align: top;">f(n)</th>
+                    <th style="text-align: left; vertical-align: top;">Commentary</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td style="text-align: left;">$f(5) = f(0) + 5f(4)$</td>
+                    <td style="text-align: left;">Good a place as any to start, I suppose.</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = f(0) + 5(f(0) + 4f(3))$</td>
+                    <td style="text-align: left;">Substitute $f(0) + 4f(3)$ for $f(4)$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = f(0) + 5(f(0) + 4(f(0) + 3f(2)))$</td>
+                    <td style="text-align: left;">Substitute $(f(0) + 3f(2))$ for $f(3)$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = f(0) + 5(f(0) + 4(f(0) + 3(f(0) + 2f(1))))$</td>
+                    <td style="text-align: left;">Substitute $f(0) + 2f(1)$ for $f(2)$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = f(0) + 5(f(0) + 4(f(0) + 3(f(0) + 2(f(0) + 1))))$</td>
+                    <td style="text-align: left;">Substitute $f(0) + 1$ for $f(1)$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = 1 + 5(1 + 4(1 + 3(1 + 2(1 + 1))))$</td>
+                    <td style="text-align: left;">Substitute $1$ for $f(0)$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4(1 + 3(1 + 2(1 + 1)))$</td>
+                    <td style="text-align: left;">Distribute $5$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3(1 + 2(1 + 1))$</td>
+                    <td style="text-align: left;">Distribute $5\cdot4$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3 + 5\cdot4\cdot3\cdot2(1 + 1)$</td>
+                    <td style="text-align: left;">Distribute $5\cdot4\cdot3$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3 + 5\cdot4\cdot3\cdot2 + 5\cdot4\cdot3\cdot2\cdot1$</td>
+                    <td style="text-align: left;">Distribute $5\cdot4\cdot3\cdot2$</td>
+                </tr>
+                </tbody>
+            </table>
+            <p></p>
+
         </article>
 
         <article class="post">

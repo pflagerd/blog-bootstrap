@@ -57,12 +57,12 @@ public class P51 {
     // Inline Test Cases
     // ---------------------------------------------------
 
-//    @Test
-//    @DisplayName("Permutation of empty string")
-//    void testEmptyString() {
-//        permutation("");
-////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-//    }
+    @Test
+    @DisplayName("Permutation of empty string")
+    void testEmptyString() {
+        permutation("");
+//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+    }
 
 //    @Test
 //    @DisplayName("Permutation of single character string")
@@ -70,20 +70,18 @@ public class P51 {
 //        permutation("a");
 ////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
 //    }
-
+//
 //    @Test
 //    @DisplayName("Permutations of two-character string")
 //    void testTwoCharacterString() {
 //        permutation("ab");
-////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
 //    }
 //
-    @Test
-    @DisplayName("Permutations of three-character string")
-    void testThreeCharacterString() {
-        permutation("abc");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
+//    @Test
+//    @DisplayName("Permutations of three-character string")
+//    void testThreeCharacterString() {
+//        permutation("abc");
+//    }
 //
 //    @Test
 //    @DisplayName("Permutations of four-character string")
