@@ -18,19 +18,24 @@ public class P51 {
     // ---------------------------------------------------
 
     static int j = 0;
+    static int stackDepth = 0;
 
     void permutation(String str) {
+        stackDepth++;
         permutation(str, "");
+        stackDepth--;
         System.out.println(j);
     }
 
     void permutation(String input, String output) {
+        j++;
         if (input.isEmpty()) {
-            ; // System.out.println(output);
+            System.out.println("output == \"" + output + "\"");
         } else {
             for (int i = 0; i < input.length(); i++) {
+                stackDepth++;
                 permutation(removeCharAt(input, i), output + input.charAt(i));
-                j++;
+                stackDepth--;
             }
         }
     }
@@ -52,61 +57,67 @@ public class P51 {
     // Inline Test Cases
     // ---------------------------------------------------
 
-    @Test
-    @DisplayName("Permutation of empty string")
-    void testEmptyString() {
-        permutation("");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
+//    @Test
+//    @DisplayName("Permutation of empty string")
+//    void testEmptyString() {
+//        permutation("");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//    }
 
-    @Test
-    @DisplayName("Permutation of single character string")
-    void testSingleCharacterString() {
-        permutation("a");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
+//    @Test
+//    @DisplayName("Permutation of single character string")
+//    void testSingleCharacterString() {
+//        permutation("a");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//    }
 
-    @Test
-    @DisplayName("Permutations of two-character string")
-    void testTwoCharacterString() {
-        permutation("ab");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
-
+//    @Test
+//    @DisplayName("Permutations of two-character string")
+//    void testTwoCharacterString() {
+//        permutation("ab");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//    }
+//
     @Test
     @DisplayName("Permutations of three-character string")
     void testThreeCharacterString() {
         permutation("abc");
 //        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
     }
-
-    @Test
-    @DisplayName("Permutations of four-character string")
-    void testFourCharacterString() {
-        permutation("abcd");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
-
-    @Test
-    @DisplayName("Permutations of five-character string")
-    void testFiveCharacterString() {
-        permutation("abcde");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
-
-    @Test
-    @DisplayName("Permutations of six-character string")
-    void testSixCharacterString() {
-        permutation("abcdef");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
-
-    @Test
-    @DisplayName("Permutations of seven-character string")
-    void testSevenCharacterString() {
-        permutation("abcdefg");
-//        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
-    }
+//
+//    @Test
+//    @DisplayName("Permutations of four-character string")
+//    void testFourCharacterString() {
+//        permutation("abcd");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//    }
+//
+//    @Test
+//    @DisplayName("Permutations of five-character string")
+//    void testFiveCharacterString() {
+//        permutation("abcde");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//    }
+//
+//    @Test
+//    @DisplayName("Permutations of six-character string")
+//    void testSixCharacterString() {
+//        permutation("abcdef");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//    }
+//
+//    @Test
+//    @DisplayName("Permutations of seven-character string")
+//    void testSevenCharacterString() {
+//        permutation("abcdefg");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//    }
+//@Test
+//@DisplayName("Permutations of eight-character string")
+//void testSevenCharacterString() {
+//    permutation("abcdefgh");
+////        assertEqual(7, add(3, 4), "3 + 4 should equal 7");
+//}
 
     // Assertion Helpers
     private void assertEqual(Object expected, Object actual, String message) {
