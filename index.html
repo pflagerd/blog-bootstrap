@@ -212,8 +212,8 @@
             <p>This puts us in a good position to come up with a non-recurrence relational equivalent.</p>
             <table style="text-align: center; table-layout: fixed; width: 100%;">
                 <colgroup>
-                    <col style="width: 50%;">
-                    <col style="width: 50%;">
+                    <col style="width: 40%;">
+                    <col style="width: 60%;">
                 </colgroup>
                 <thead>
                 <tr>
@@ -261,6 +261,26 @@
                 <tr>
                     <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3 + 5\cdot4\cdot3\cdot2 + 5\cdot4\cdot3\cdot2\cdot1$</td>
                     <td style="text-align: left;">Distribute $5\cdot4\cdot3\cdot2$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3 + 5\cdot4\cdot3\cdot2 + 5\cdot4\cdot3\cdot2\cdot1$</td>
+                    <td style="text-align: left;">Distribute $5\cdot4\cdot3\cdot2$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = \frac{5!}{5!} + \frac{5!}{4!} + \frac{5!}{3!} + \frac{5!}{2!} + \frac{5}{1!} + \frac{5!}{0!}$</td>
+                    <td style="text-align: left;">Look at this as if it were a series of factorials</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = \sum\limits_{i=0}^{5} \frac{5!}{i!}$</td>
+                    <td style="text-align: left;">Look at this as if it were a series of factorials</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(5) = \sum\limits_{i=0}^{5} \frac{5!}{(5-i)!}$</td>
+                    <td style="text-align: left;">Look at this as if it were a series of permutations of m objects taken n at a time: $^mP_n = P_n^m=\frac{m!}{(m-n)!}$</td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">$f(n) = \sum\limits_{i=0}^n \frac{n!}{(n-i)!} = \sum\limits_{i=0}^n {^n}P_i = \sum\limits_{i=0}^n P_i^n $</td>
+                    <td style="text-align: left;">Or more generally: $^mP_n = P_n^m=\frac{m!}{(m-n)!}$</td>
                 </tr>
                 </tbody>
             </table>
