@@ -1,134 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>rebel-economist</title>
-  <link rel="stylesheet" href="blog.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>rebel-economist</title>
+    <link rel="stylesheet" href="blog.css"/>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
 
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
 
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
-          onload="renderMathInElement(document.body);"></script>
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      renderMathInElement(document.body, {
-        // customised options
-        // • auto-render specific keys, e.g.:
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ],
-        // • rendering keys, e.g.:
-        throwOnError : false
-      });
-    });
-  </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            renderMathInElement(document.body, {
+                // customised options
+                // • auto-render specific keys, e.g.:
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true}
+                ],
+                // • rendering keys, e.g.:
+                throwOnError: false
+            });
+        });
+    </script>
 
-  <script src="blog.js" defer></script>
+    <script src="blog.js" defer></script>
 </head>
 <body>
-  <header>
+<header>
     <div class="container">
-      <h1>rebel-economist</h1>
-      <p>A chromium-centric file-only (server-not-needed) blog</p>
-      <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
-      <br/>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Articles</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+        <h1>rebel-economist</h1>
+        <p>A chromium-centric file-only (server-not-needed) blog</p>
+        <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
+        <br/>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
     </div>
-  </header>
+</header>
 
-  <main class="container">
+<main class="container">
     <section class="posts">
 
-      <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
-      <article class="post" style="display: none;">
-        <h3>My first blog entry</h3>
-        <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
-        <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
-      </article>
+        <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
+        <article class="post" style="display: none;">
+            <h3>My first blog entry</h3>
+            <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
+            <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
+            <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
+        </article>
 
-      <article class="post">
-        <h3>TODO</h3>
-        <p class="meta">What needs doing everywhere ...</p>
-        <p class="meta">2025-09-14 11:40 (UTC-8) by Daniel</p>
+        <article class="post">
+            <h3>TODO</h3>
+            <p class="meta">What needs doing everywhere ...</p>
+            <p class="meta">2025-09-14 11:40 (UTC-8) by Daniel</p>
 
-        <p title=""><label><input type="checkbox"> </label><a href="https://www.skool.com/rebel-economists-mastermind-4713/classroom/141a2cde?md=9592531b5be5441b8a840d9b7d125fbf" target="_blank">Work Through the Course</a></p>
-        <p title=""><label><input type="checkbox"> </label><a href="https://www.skool.com/rebel-economists-mastermind-4713/calendar" target="_blank">Check the Calendar</a></p>
-        <p title=""><label><input type="checkbox"> </label><a href="https://www.skool.com/rebel-economists-mastermind-4713/classroom/3dde7008?md=f20025088db840f5845a9eb4ae070f4d" target="_blank">Surf some live call recordings</a></p>
-<!--        <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">A task</a></p>-->
-<!--        <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subtask</a></p>-->
-<!--        <p style="margin-left: 2rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subsubtask</a></p>-->
-      </article>
+            <p title=""><label><input type="checkbox"> </label><a href="https://www.skool.com/rebel-economists-mastermind-4713/classroom/141a2cde?md=9592531b5be5441b8a840d9b7d125fbf" target="_blank">Work Through the Course</a></p>
+            <p title=""><label><input type="checkbox"> </label><a href="https://www.skool.com/rebel-economists-mastermind-4713/calendar" target="_blank">Check the Calendar</a></p>
+            <p title=""><label><input type="checkbox"> </label><a href="https://www.skool.com/rebel-economists-mastermind-4713/classroom/3dde7008?md=f20025088db840f5845a9eb4ae070f4d" target="_blank">Surf some live call recordings</a></p>
+            <!--        <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">A task</a></p>-->
+            <!--        <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subtask</a></p>-->
+            <!--        <p style="margin-left: 2rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subsubtask</a></p>-->
+        </article>
 
-      <article class="post">
-        <h3>Watch "Why Listen to Me?"</h3>
-        <p class="meta"><a href="https://www.skool.com/stevekeen/classroom/141a2cde?md=951043b9068d4372b9b0d0f80a5d3eb0" target="_blank">Rebel Economist Challenge</a> <a href="html/Why%20Listen%20to%20Me？%20-%207-Week%20Rebel%20Economist%20Challenge%20·%20Rebel%20Economist%20Challenge%20(12_18_2025%203：09：15%20PM).html" target="_blank">(static local snapshot)</a> </p>
-        <p class="meta">2025-12-18 14:54 (UTC-8) by Daniel</p>
-        <p>I watched this</p>
-        <iframe width="944" height="590" src="https://www.youtube.com/embed/7zvuReAMDiE" title="Lecture01A Introduction EmbeddedWebcam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </article>
+        <article class="post">
+            <h3>Watch "Where Economics Went Wrong"</h3>
+            <p class="meta"><a href="https://www.skool.com/stevekeen/classroom/141a2cde?md=891df1bc6e6642eeb42e1f810992fe95" target="_blank">Rebel Economist Challenge</a> <a href="html/Where%20Economics%20Went%20Wrong%20-%207-Week%20Rebel%20Economist%20Challenge%20·%20Rebel%20Economist%20Challenge%20(12_18_2025%206：46：17%20PM).html" target="_blank">(static local snapshot)</a></p>
+            <p class="meta">2025-12-18 14:54 (UTC-8) by Daniel</p>
+            <p>I watched this next:</p>
+            <iframe width="659" height="372" src="https://www.youtube.com/embed/TBRdunhqr8A" title="Lecture01B WhereEconomicsWentWrong" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p></p>
+        </article>
 
+        <article class="post">
+            <h3>pdfs that came with "Why Listen to Me?"</h3>
+            <p class="meta">There were two pdfs to read.</p>
+            <p class="meta">2025-12-18 18:41 (UTC-8) by Daniel</p>
+            <p><a href="pdf/Solow2003DumbDumberMacroeconomics_Stig-Solow.pdf" target="_blank">Robert Solow's "Dumb and Dumber"</a></p>
+            <p><a href="pdf/Romer2000TroublewithMacroeconomics_Stig-Romer.pdf" target="_blank">Paul Romer's "Trouble with Macro"</a></p>
+        </article>
 
-      <article class="post">
-        <h3>SECOND: How to use Skool.</h3>
-        <p class="meta"><a href="https://www.skool.com/stevekeen/classroom/141a2cde?md=26e4d4d266754225a017639c7feb73c8" target="_blank">Rebel Economist Challenge</a> <a href="html/SECOND：%20How%20to%20use%20Skool%20-%207-Week%20Rebel%20Economist%20Challenge%20·%20Rebel%20Economist%20Challenge%20(12_18_2025%203：17：04%20PM).html" target="_blank">(static local snapshot)</a> </p>
-        <p class="meta">2025-12-18 13:29 (UTC-8) by Daniel</p>
-        <p>I went to the calendar and signed up for an onboarding meeting:</p>
-        <p></p>
-        <img style="width: 60%;" src="img/Screenshot_20251218_152028.png" alt="Screenshot of skool.com">
-      </article>
+        <article class="post">
+            <h3>Watch "Why Listen to Me?"</h3>
+            <p class="meta"><a href="https://www.skool.com/stevekeen/classroom/141a2cde?md=951043b9068d4372b9b0d0f80a5d3eb0" target="_blank">Rebel Economist Challenge</a> <a href="html/Why%20Listen%20to%20Me？%20-%207-Week%20Rebel%20Economist%20Challenge%20·%20Rebel%20Economist%20Challenge%20(12_18_2025%203：09：15%20PM).html" target="_blank">(static local snapshot)</a></p>
+            <p class="meta">2025-12-18 14:54 (UTC-8) by Daniel</p>
+            <p>I watched this:</p>
+            <iframe width="944" height="590" src="https://www.youtube.com/embed/7zvuReAMDiE" title="Lecture01A Introduction EmbeddedWebcam" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </article>
 
-      <article class="post">
-        <h3>I create a Windows Server VM and install Ravel there</h3>
-        <p class="meta">Ravel appears to be Minsky</p>
-        <p class="meta">2025-12-18 14:31 (UTC-8) by Daniel</p>
-        <img style="width: 50%;" src="img/Screenshot_20251218_130129.png" alt="Screenshot of skool.com">
-        <p>I found <a href="https://sourceforge.net/projects/minsky/" target="_blank">https://sourceforge.net/projects/minsky/</a></p>
-        <p>I found <a href="https://github.com/highperformancecoder/minsky" target="_blank">https://github.com/highperformancecoder/minsky</a></p>
-        <p>I created a VM called win2k16a-ravel</p>
-        <img style="width: 50%;" src="img/Screenshot_20251218_143435.png" alt="babbling with Steve Keen">
-        <p></p>
-        <p></p>
-        <p></p>
-      </article>
+        <article class="post">
+            <h3>SECOND: How to use Skool.</h3>
+            <p class="meta"><a href="https://www.skool.com/stevekeen/classroom/141a2cde?md=26e4d4d266754225a017639c7feb73c8" target="_blank">Rebel Economist Challenge</a> <a href="html/SECOND：%20How%20to%20use%20Skool%20-%207-Week%20Rebel%20Economist%20Challenge%20·%20Rebel%20Economist%20Challenge%20(12_18_2025%203：17：04%20PM).html" target="_blank">(static local snapshot)</a></p>
+            <p class="meta">2025-12-18 13:29 (UTC-8) by Daniel</p>
+            <p>I went to the calendar and signed up for an onboarding meeting:</p>
+            <p></p>
+            <img style="width: 60%;" src="img/Screenshot_20251218_152028.png" alt="Screenshot of skool.com">
+        </article>
 
-      <article class="post">
-        <h3>FIRST: Introduce Yourself.</h3>
-        <p class="meta"><a href="https://www.skool.com/stevekeen/classroom/141a2cde?md=9592531b5be5441b8a840d9b7d125fbf" target="_blank">Rebel Economist Challenge</a> <a href="html/FIRST：%20Introduce%20Yourself!%20-%207-Week%20Rebel%20Economist%20Challenge%20·%20Rebel%20Economist%20Challenge%20(12_18_2025%203：14：54%20PM).html" target="_blank">(static local snapshot)</a> </p>
-        <p class="meta">2025-12-18 13:29 (UTC-8) by Daniel</p>
-        <img style="width: 50%;" src="img/Screenshot_20251218_130129.png" alt="Screenshot of skool.com">
-      </article>
+        <article class="post">
+            <h3>I create a Windows Server VM and install Ravel there</h3>
+            <p class="meta">Ravel appears to be Minsky</p>
+            <p class="meta">2025-12-18 14:31 (UTC-8) by Daniel</p>
+            <img style="width: 50%;" src="img/Screenshot_20251218_130129.png" alt="Screenshot of skool.com">
+            <p>I found <a href="https://sourceforge.net/projects/minsky/" target="_blank">https://sourceforge.net/projects/minsky/</a></p>
+            <p>I found <a href="https://github.com/highperformancecoder/minsky" target="_blank">https://github.com/highperformancecoder/minsky</a></p>
+            <p>I created a VM called win2k16a-ravel</p>
+            <img style="width: 50%;" src="img/Screenshot_20251218_143435.png" alt="babbling with Steve Keen">
+            <p></p>
+            <p></p>
+            <p></p>
+        </article>
 
-      <article class="post">
-        <h3>My first blog entry</h3>
-        <p class="meta">Put a headline/comment/summary of what this blog entry is about here.</p>
-        <p class="meta">2025-12-18 13:00:22 (UTC-8) by Daniel</p>
-        <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
-      </article>
+        <article class="post">
+            <h3>FIRST: Introduce Yourself.</h3>
+            <p class="meta"><a href="https://www.skool.com/stevekeen/classroom/141a2cde?md=9592531b5be5441b8a840d9b7d125fbf" target="_blank">Rebel Economist Challenge</a> <a href="html/FIRST：%20Introduce%20Yourself!%20-%207-Week%20Rebel%20Economist%20Challenge%20·%20Rebel%20Economist%20Challenge%20(12_18_2025%203：14：54%20PM).html" target="_blank">(static local snapshot)</a></p>
+            <p class="meta">2025-12-18 13:29 (UTC-8) by Daniel</p>
+            <img style="width: 50%;" src="img/Screenshot_20251218_130129.png" alt="Screenshot of skool.com">
+        </article>
+
+        <article class="post">
+            <h3>My first blog entry</h3>
+            <p class="meta">Put a headline/comment/summary of what this blog entry is about here.</p>
+            <p class="meta">2025-12-18 13:00:22 (UTC-8) by Daniel</p>
+            <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
+        </article>
 
     </section>
-  </main>
+</main>
 
-  <footer>
+<footer>
     <div class="container">
-      <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
+        <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
     </div>
-  </footer>
+</footer>
 </body>
 </html>
