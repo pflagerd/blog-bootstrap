@@ -68,7 +68,7 @@
         <article class="post">
             <h3>TODO</h3>
             <p class="meta">What we'll do next</p>
-            <p class="meta">2025-12-03 9:55 (UTC-8) by Daniel</p>
+            <p class="meta">2025-12-15 9:55 (UTC-8) by Daniel</p>
             <p>We decided to re-read Example 12 in <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=62" target="_blank">Examples and Exercises</a>, scrolling through each example just far enough to see the example, but not far enough to see its answer.</p>
             <p>We also decided to see if we understood things any better.</p>
             <p>Assuming we do, we decided to continue reading through the remaining examples.</p>
@@ -81,7 +81,7 @@
             <p class="meta">2025-12-15 12:20 (UTC-8) by Daniel</p>
             <p>Formally, we define $f(n)$ as the number of calls to <code>permutation()</code> for an input string of length n.</p>
             <p>Before we could come up with a formula, we needed to understand the pattern in the sequence, so we came up with this instrumented test code:</p>
-            <img style="width: 80%;" src="img/Screenshot_20251215_122110.png" alt="Test code">
+            <img style="width: 60%;" src="img/Screenshot_20251215_122110.png" alt="Test code">
             <p>A single test for which looks like the following:</p>
             <img style="width: 55%;" src="img/Screenshot_20251215_122430.png" alt="Test code">
             <p>We then ran such a test and tabulated the results thus:</p>
@@ -257,10 +257,6 @@
                 <tr>
                     <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3 + 5\cdot4\cdot3\cdot2(1 + 1)$</td>
                     <td style="text-align: left;">Distribute $5\cdot4\cdot3$</td>
-                </tr>
-                <tr>
-                    <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3 + 5\cdot4\cdot3\cdot2 + 5\cdot4\cdot3\cdot2\cdot1$</td>
-                    <td style="text-align: left;">Distribute $5\cdot4\cdot3\cdot2$</td>
                 </tr>
                 <tr>
                     <td style="text-align: left;">$f(5) = 1 + 5 + 5\cdot4 + 5\cdot4\cdot3 + 5\cdot4\cdot3\cdot2 + 5\cdot4\cdot3\cdot2\cdot1$</td>
