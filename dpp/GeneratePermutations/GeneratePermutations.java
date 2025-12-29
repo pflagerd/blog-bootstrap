@@ -21,7 +21,6 @@ public class GeneratePermutations {
         return "";
     }
 
-
     static String generatePermutations(String input) {
         StringBuilder [] output = new StringBuilder[factorial(input.length())]; // Is StringBuffer or StringBuilder better?
 
