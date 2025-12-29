@@ -1,0 +1,6 @@
+the problem is that the choice for each digit must depend on the digits that
+remain after the previous choices!
+
+So the choices ... how do we do this?
+
+
