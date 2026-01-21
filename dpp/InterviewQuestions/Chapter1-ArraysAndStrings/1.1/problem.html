@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>https://practice.geeksforgeeks.org/problems/equalize-the-towers2804/1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <!--script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script-->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"></script>
+            
+	<script>
+	    document.addEventListener("DOMContentLoaded", function() {
+	        renderMathInElement(document.body, {
+	          // customised options
+	          // • auto-render specific keys, e.g.:
+	          delimiters: [
+	              {left: '$$', right: '$$', display: true},
+	              {left: '$', right: '$', display: false},
+	              {left: '\\(', right: '\\)', display: false},
+	              {left: '\\[', right: '\\]', display: true}
+	          ],
+	          // • rendering keys, e.g.:
+	          throwOnError : false
+	        });
+	    });
+	</script>
+
+	<!-- Load c3.css -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.css" rel="stylesheet">
+	
+	<!-- Load d3.js and c3.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.16.0/d3.min.js" charset="utf-8"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.20/c3.min.js"></script>
+
+    <style>
+        html body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.0vmin;
+            margin: 5vmin;
+        }
+    </style>
+</head>
+<body>
+<h2 style="text-align: center;"><a href="https://practice.geeksforgeeks.org/problems/equalize-the-towers2804/1">https://practice.geeksforgeeks.org/problems/equalize-the-towers2804/1</a></h2>
+<br>
+<div>The problem statement is:<blockquote>Given heights <b>h[]</b> of <b>N</b> towers, the task is to bring every tower to the same height by either adding or removing blocks in a tower. Every addition or removal operation costs <b>cost[]</b> a particular value for the respective tower. Find out the <b>Minimum cost to Equalize the Towers</b>.</blockquote></div>
+<br>
+<div>Expressing this in mathy notation:</div>
+<br>
+<div style="text-align: center;">Let <b>cost[]</b> be rewritten as \(c_i\)</div>
+<div style="text-align: center;">Let <b>h[]</b> be rewritten as \(h_i\)</div>
+<div>$$i, c, c_i, h, h_i, N \in \mathbb{N} \tag{1.0}$$</div>
+<div style="text-align: center;">\(i, c, c_i, h, h_i, N\) are natural (non-negative) numbers</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">Let \(c(h)\) represent the cost of using a given value of \(h\) to equalize the towers, thus:</div>
+<div>$$c(h) = \sum\limits_{i=0}^{N - 1} |h_i - h| \times c_i \tag{2.0}$$</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">Let \(c_i(h)\) represent the cost for one particular tower as a function of \(h\), thus:</div>
+<div>$$C_i(h) = |h_i - h| \times c_i \tag{3.0}$$</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">Does \(c(h)\) have a unique minimum value for all \(h_i, c_i, N\) ?</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">A sequence is <i>monotonic</i> if it consists of \({a_n}\) such that either (1) \(a_{i+1}>=a_i\) for every \(i>=1\), or (2) \(a_{i+1}=a_i\) for every \(i>=1\).</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">A sequence is <i>bitonic</i> if \(x_{0} \leq \cdots \leq x_{k} \geq \cdots \geq x_{n-1}\) for some \(k\) where \(0 \leq k < n \), or a circular shift of such a sequence.</div>
+<br>
+<br>
+<br>
+<div id="chart"></div>
+<script>
+
+let h = "3 7 8 14 17 21 23 31 38 39 40 43 46 50 51 54 57 63 64 65 73 77 81 84 85 92";
+let c = "207 453 254 590 540 480 22 701 47 219 731 822 500 919 490 138 908 732 829 942 107 819 180 374 936 149";
+
+h = h.split(" ");
+c = c.split(" ");
+
+let data = [];
+
+h.map(parseInt);
+c.map(parseInt);
+
+let min = Math.min(...h);
+let max = Math.max(...h);
+
+function C(H) {
+	let value = 0;
+	for (let i = 0; i < h.length; i++) {
+		value += Math.abs(h[i] - H) * c[i];
+	}
+	return value;
+}
+
+chartSeries = ['data1'];;
+
+for (let i = min; i <= max; i++) {
+	chartSeries.push(C(i));	
+}
+
+let chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        chartSeries
+      ]
+    }
+});
+</script>
+<!--
+<div style="text-align: center;">Find the cardinality \(c\) of the set of numbers, \(n\), where the value of (n minus (the sum of n's digits)) is between \(D\) and \(N\) incslusive.</div>
+<br>
+<br>
+<br>
+<div>$$f(n) := n - \sum\limits_{i=0}^{log_{10}n}n_i \tag{4.0}$$</div>
+<div style="text-align: center;">Let's propose a function \(f(n)\) defined to be the value of \(n\) minus the sum of \(n\)'s digits.</div>
+<br>
+<br>
+<br>
+<div>$$f(n) = (n_0+10^1n_1+10^2n_2+10^3n_3\space...) - (n_0+n_1+n_2+n_3\space...)\tag{5.0}$$</div>
+<div style="text-align: center;">Let's write out \(f(n)\) in terms of \(n\) and \(\sum\limits_{i=0}^{log_{10}n}n_i\) expanded into their respective long forms.  You can see that the terms within the first set of parentheses express \(n\) as defined in \(3.0\).  The terms within the second set of parentheses express the sum of n's digits.</div>
+<br>
+<br>
+<br>
+<div>$$f(n) = (n_0 - n_0) + (10^1n_1 - n_1) + (10^2n_2 - n_2) + (10^3n_3 - n_3)\space... \tag{6.0}$$</div>
+<div style="text-align: center;">Let's group terms involving each \(n_i\) </div>
+<br>
+<br>
+<br>
+<div>$$f(n) = 9n_1 + 99n_2 + 999n_3\space... \tag{7.0}$$</div>
+<div style="text-align: center;">Simplifying a little.  Notice that \(n_0\) is gone, so \(f(n)\) loses some information (and is therefore probably not invertible).</div>
+<br>
+<br>
+<br>
+<div>$$f(n) = 9(n_1 + 11n_2 + 111n_3 + 1111n_4\space...) \tag{8.0}$$</div>
+<div style="text-align: center;">Factor out a 9.</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">Suppose \(n = 7\), then \(f(7) = 0\).  Suppose \(n = 8\), then \(f(8) = 0\). So here is a counter-example against \(f(a) = f(b) \to a = b\), so \(f(n)\) is not injective, and is therefore not invertible.</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">However, we can define a kind of inverse function \(g(f(n))\) to yield the lowest value of n that produces the value \(f(n)\).</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">Example.  Given \(f(5) = 0, g(0) = 0\). In fact for \(0 \leq m \leq 9, f(m) = 0\), therefore \(g(f(m)) = 0\).</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">Keeping in mind that \(0 \leq n_i \leq 9\), if \(x\) is in the co-domain of \(f(n)\), we can probably compute \(g(x)\).</div>
+<br>
+<br>
+<br>
+<div style="text-align: center;">But what if \(x\) is NOT the co-domain of \(f(n)\)?</div>
+<br>
+<br>
+<br>
+<table id="the-table" style="width: 100vw;"></table>
+-->
+<script>
+      
+/*
+	renderMathInElement(
+	    document.body,
+	    {
+	        delimiters: [
+	            {left: "$$", right: "$$", display: true},
+	            {left: "\\[", right: "\\]", display: true},
+	            {left: "$", right: "$", display: true},
+	            {left: "\\(", right: "\\)", display: true}
+	        ]
+	    }
+	);
+      
+    function sumDigits(n) {
+        let sum = 0;
+        while (n !== 0) {
+            sum += n % 10;
+            n = ~~(n / 10);
+        }
+
+        return sum;
+    }
+
+    function f(n) {
+        return n - sumDigits(n);
+    }
+
+    function g(x) {
+        let i = 0;
+        let j = x;
+        while (j > 0) {
+            i *= 10;
+            i += 9;
+            j = ~~(j / 10);
+        }
+
+        let remainder = x;
+        let quotient = 0;
+        while (i > 0) {
+            let q = ~~(remainder / i);
+            remainder -= q * i;
+            i = ~~(i / 10);
+            quotient *= 10;
+            quotient += q;
+        }
+        return quotient * 10;
+    }
+
+    let the_table = document.getElementById("the-table");
+    let tr = document.createElement("tr");
+    let th = document.createElement("th");
+    th.textContent = "\\(n\\)";
+    tr.appendChild(th);
+    th = document.createElement("th");
+    th.style.width = "20%;"
+    th.textContent = "\\(f(n)\\)";
+    tr.appendChild(th);
+    th = document.createElement("th");
+    th.style.width = "20%;"
+    th.textContent = "\\(g(f(n))\\)";
+    tr.appendChild(th);
+
+    the_table.appendChild(tr);
+    let last_tr = tr;
+
+    for (let i = 0; i < 100001; i++) {
+        tr = document.createElement("tr");
+        let td = document.createElement("td");
+        td.textContent = i.toString();
+        td.style.textAlign = "center";
+        tr.appendChild(td);
+        td = document.createElement("td");
+        td.textContent = f(i).toString();
+        td.style.textAlign = "center";
+        tr.appendChild(td);
+        td = document.createElement("td");
+        td.textContent = g(f(i)).toString();
+        td.style.textAlign = "center";
+        tr.appendChild(td);
+
+        last_tr.after(tr);
+        last_tr = tr;
+    } */
+</script>
+</body>
+</html>

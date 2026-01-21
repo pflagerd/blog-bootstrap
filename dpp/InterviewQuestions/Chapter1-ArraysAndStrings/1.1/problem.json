@@ -1,0 +1,30 @@
+{
+    "title": "Is Unique",
+    "statement": "Implement an algorithm to determine if a string has all unique characters.  What if you cannot use additional data structures?",
+    "hints": [
+        { "#1": "Describe what it means for two strings to be permutations of each other. Now, look at that definition you provided. Can you check the strings against that definition? "},
+        { "#84": "There is one solution that is 0( N log N) time. Another solution uses some space, but isO(N) time. "},
+        { "#122": "Could a hash table be useful?"},
+        { "#131": "Two strings that are permutations should have the same characters, but in different
+orders. Can you make the orders the same?"},
+    ]
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "examples": [
+        {"array": [-1, 1, 5, 7], "target": 6, "expectedResult": [], "explanation": "There are 6 such pairs."},
+        {"array": [1, 2], "target:": 3, "expectedResult": [], "explanation": "There are 6 pairs here. All the same."},
+        {"array": [-1, 10, 12, 15], "target": 125, "expectedResult": [], "explanation": "There are NO pairs here"}
+    ],
+    "constraints": [
+        "-10<sup>5</sup> &le; <code>target</code> &le; 10<sup>5</sup>",
+        "<code>len(array)</code> &le; 10<sup>5</sup>",
+        "-10<sup>5</sup> &le; <code>array[i]</code> &le; 10<sup>5</sup>",
+        "Pairs should have elements with distinct indices"
+    ],
+    "tests": [
+        {"array": [-1, 1, 5, 7], "target": 6, "expectedResult": [], "explanation": "There are 6 such pairs."},
+        {"array": [1, 2], "target:": 3, "expectedResult": [], "explanation": "There are 6 pairs here. All the same."},
+        {"array": [-1, 10, 12, 15], "target": 125, "expectedResult": [], "explanation": "There are NO pairs here"}
+    ],
+    "urls": ["https://www.geeksforgeeks.org/problems/pair-with-given-sum-in-a-sorted-array4940/1"]
+}
