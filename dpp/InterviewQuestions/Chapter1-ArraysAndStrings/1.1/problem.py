@@ -1,18 +1,18 @@
 
 import unittest
 
-def reverseTheArray(array):
+def isUnique(array, target):
     pass
     
-class ReverseTheArray(unittest.TestCase):
+class IsUnique(unittest.TestCase):
     def test_1(self):
-       self.assertEqual(reverseTheArray([1, 4, 3, 2, 6, 5]), [5, 6, 2, 3, 4, 1])
+       self.assertEqual(isUnique([-1, 1, 5, 7], 6), [])
 
     def test_2(self):
-       self.assertEqual(reverseTheArray([4, 5, 2]), [2, 5, 4])
+       self.assertEqual(isUnique([1, 2], 3), [])
 
     def test_3(self):
-       self.assertEqual(reverseTheArray([1]), [1])
+       self.assertEqual(isUnique([-1, 10, 12, 15], 125), [])
 
 
 if __name__ == "__main__":
