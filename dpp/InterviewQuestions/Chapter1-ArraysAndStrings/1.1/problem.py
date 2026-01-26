@@ -1,6 +1,10 @@
 
 import unittest
 
+#
+# Narrowing the scope of the problem to include just ascii characters, as proposed by the solution on #page=96
+#
+
 def isASCII(string):
     for c in string:
         if ord(c) > 127:
