@@ -97,11 +97,37 @@
         <article class="post">
             <h3>IX - Interview Questions</h3>
             <h4>1 - Arrays and Strings</h4>
+            <h5>1.1 Is Unique</h5>
+            <p class="meta">We started here <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.1 " on page 90</a></p>
+            <p class="meta">2025-01-26 11:30 (UTC-8) by Daniel</p>
+            <p></p>
+            <p>Following Gayle's advice, we first discussed the problem statement.  We recognized that Python characters are Unicode, so if we're using Python as the coding language we've got $2^32$ characters to worry about.</p>
+            <p>We realized that might not be practical, but we'd consider using a set to track the unicode characters by their <code>ord(c)</code> value.</p>
+            <p>We also realized that if we were dealing with ASCII characters, our solution space would be more manageable and we might propose solving this problem instead.</p>
+            <p>Around this time se decided to look at the solution on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=203" target="_blank">page 192</a></p>
+            <p>We were pleased to have identified the same general concerns that Gayle had, and decided to base our implementation on ASCII characters.</p>
+            <p>We did NOT realize that one of our solutions could be based upon the length of the string.  Since ASCII has exactly 128 characters, any string longer than 128 MUST have duplicates in it.</p>
+            <p>Daniel implemented his solution (in the <code>algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.1/python.py</code> file, but didn't know how to modify the test case to test for expected <code>ValueError</code> exceptions.</p>
+            <p>Having looked that up, Daniel decided to use a <code>with</code> expression.</p>
+
+            <p>We got as far as <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.1 " on page 90</a>, where we'll resume next time.</p>
+            <p>We manually copied <code>algorithms/practice/python/dsa/Template/</code> to algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.1</p>
+            <p>Then we manually edited problem.json to match the problem statement.</p>
+            <p>We also created a few test cases based on a lowercase alphabetic characters, realizing this was just a preliminary.</p>
+            <p>We then ran <code>algorithms/practice/python/generate-problem-html-from-problem-json</code> to generate <code>problem.html</code> from <code>problem.json</code></p>
+            <p>And then ran <code>algorithms/practice/python/generate-problem-py-from-problem-json</code> to generate <code>python.py</code> from <code>problem.json</code></p>
+            <p>Daniel then created a unit-test launcher for PyCharm to run the stubbed code.</p>
+            <p>We also looked at a couple of the hints - which may be found in the book starting at <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">page 652</a></p>
+        </article>
+
+        <article class="post">
+            <h3>IX - Interview Questions</h3>
+            <h4>1 - Arrays and Strings</h4>
             <p class="meta">We moved on to <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=98" target="_blank">Interview Questions on p87.</a></p>
             <p class="meta">2025-01-21 8:24 (UTC-8) by Daniel</p>
             <p></p>
             <p>We got as far as <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.1 " on page 90</a>, where we'll resume next time.</p>
-            <p>We manually copied <code>algorithms/practice/python/dsa/Template/</code> to algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.1</p>
+            <p>We manually copied <code>algorithms/practice/python/dsa/Template/</code> to <code>algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.1</code></p>
             <p>Then we manually edited problem.json to match the problem statement.</p>
             <p>We then ran <code>algorithms/practice/python/generate-problem-html-from-problem-json</code> to generate <code>problem.html</code> from <code>problem.json</code></p>
             <p>And then ran <code>algorithms/practice/python/generate-problem-py-from-problem-json</code> to generate <code>python.py</code> from <code>problem.json</code></p>
