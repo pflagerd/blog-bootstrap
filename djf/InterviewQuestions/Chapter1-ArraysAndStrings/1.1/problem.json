@@ -1,0 +1,30 @@
+{
+    "title": "Is Unique",
+    "statement": "Implement an algorithm to determine if a string has all unique characters.  What if you cannot use additional data structures?",
+    "hints": [
+        { "#1": "Describe what it means for two strings to be permutations of each other. Now, look at that definition you provided. Can you check the strings against that definition? "},
+        { "#84": "There is one solution that is 0( N log N) time. Another solution uses some space, but isO(N) time. "},
+        { "#122": "Could a hash table be useful?"},
+        { "#131": "Two strings that are permutations should have the same characters, but in different orders. Can you make the orders the same?"}
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(n)",
+    "examples": [
+        {"string": "", "expectedResult": "Indeterminate", "explanation": "There are are no characters in the string, so it's impossible to answer the question."},
+        {"string": "a", "expectedResult": "True", "explanation": "There is one character in the string."},
+        {"string": "ab", "expectedResult": "True", "explanation": "Both characters are different"},
+        {"string": "aa", "expectedResult": "False", "explanation": "Both characters are the same"},
+        {"string": "the quick brown fox jumps over the lazy dog", "expectedResult": "False", "explanation": "t, h, e, u, r, o, ' ' are duplicated."}
+    ],
+    "constraints": [
+        "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
+    ],
+    "tests": [
+        {"string": "", "expectedResult": "Indeterminate", "explanation": "There are are no characters in the string, so it's impossible to answer the question."},
+        {"string": "a", "expectedResult": "True", "explanation": "There is one character in the string."},
+        {"string": "ab", "expectedResult": "True", "explanation": "Both characters are different"},
+        {"string": "aa", "expectedResult": "False", "explanation": "Both characters are the same"},
+        {"string": "the quick brown fox jumps over the lazy dog", "expectedResult": "False", "explanation": "t, h, e, u, r, o, ' ' are duplicated."}
+    ],
+    "urls": ["http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=96"]
+}
