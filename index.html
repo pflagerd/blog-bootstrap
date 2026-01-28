@@ -105,7 +105,7 @@
             <p>We realized solving the problem for all Unicode might not be practical in an interview context, but if we had to solve it, we'd consider using a set to track the unicode characters by their <code>ord(c)</code> value.</p>
             <p>We also realized that if we were dealing with ASCII characters, our solution space would be more manageable and we might propose solving this problem instead.</p>
             <p>Extended ASCII came into the discussion as well, which was also manageable.</p>
-            <p>Around this time se decided to look at the solution on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=203" target="_blank">page 192</a></p>
+            <p>Around this time we decided to look at the solution on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=203" target="_blank">page 192</a></p>
             <p>We were pleased to have identified the same general concerns that Gayle had, and decided to base our implementation on ASCII characters.</p>
             <p>We did NOT realize that one of our solutions could be based upon the length of the string.  Since ASCII has exactly 128 characters, any string longer than 128 MUST have duplicates in it.</p>
             <p>Daniel implemented his solution (in the <code>algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.1/python.py</code> file, but didn't know how to modify the test case to test for expected <code>ValueError</code> exceptions.</p>

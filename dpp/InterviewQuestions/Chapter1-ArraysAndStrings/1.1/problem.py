@@ -49,6 +49,24 @@ class IsUnique(unittest.TestCase):
     def test_5(self):
        self.assertEqual(isUnique("the quick brown fox jumps over the lazy dog"), False)
 
+    all_ascii = (
+        '\x00\x01\x02\x03\x04\x05\x06\x07\x08\t\n\x0b\x0c\r\x0e\x0f'
+        '\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f'
+        ' !"#$%&\'()*+,-./'
+        '0123456789:;<=>?'
+        '@ABCDEFGHIJKLMNO'
+        'PQRSTUVWXYZ[\\]^_'
+        '`abcdefghijklmno'
+        'pqrstuvwxyz{|}~\x7f'
+    )
+
+    def test_6(self):
+        self.assertEqual(isUnique(self.all_ascii), True)
+
+    def test_7(self):
+        all_ascii_with_duplicate = self.all_ascii + "z"
+        self.assertEqual(isUnique(all_ascii_with_duplicate), False)
+
 
 if __name__ == "__main__":
     unittest.main()
