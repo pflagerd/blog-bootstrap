@@ -1,0 +1,6 @@
+index.html "This list of files"
+problem.json "An attempt to capture the content of the problem so that in future, code might be generated from it."
+problem.py "Python program to be modified to include solution. Has tests."
+RUNME "Execute problem.py"
+SETMEUP "Used by RUNME, but may also be run by itself to set up the environment (venv, generated code etc.)"
+problem.html "A description of the problem and an analysis/tutorial of the solution".
