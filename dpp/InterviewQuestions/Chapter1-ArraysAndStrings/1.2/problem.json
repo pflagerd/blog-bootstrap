@@ -1,7 +1,7 @@
 {
     "title": "Check Permutation",
     "statement": "Given two strings, write a method to decide if one is a permutation of the other. ",
-        "hints": [
+    "hints": [
         { "#1": "Describe what it means for two strings to be permutations of each other. Now, look at that definition you provided. Can you check the strings against that definition? "},
         { "#84": "There is one solution that is 0( N log N) time. Another solution uses some space, but isO(N) time. "},
         { "#122": "Could a hash table be useful?"},
