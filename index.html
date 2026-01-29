@@ -97,6 +97,40 @@
         <article class="post">
             <h3>IX - Interview Questions</h3>
             <h4>1 - Arrays and Strings</h4>
+            <p class="meta">We continue working on Interview Questions starting on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=98" target="_blank">p87.</a></p>
+            <p class="meta">2025-01-28 8:25 (UTC-8) by Daniel</p>
+            <p></p>
+            <p>We started with <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.2 " on page 90</a>.</p>
+            <p>We started by discussing the problem statement.</p>
+            <p>We noticed the same Unicode vs ASCII vs Extended ASCII aspect as in 1.1</p>
+            <p>David asked "Is an empty string a permutation of an empty string?"</p>
+            <p>Reminded Daniel of Wittgenstein's attempts to categorize statements.  David's questions might fall into the category of having "violated" grammatische Regeln (grammatical rules), if permutation requires something to permute in order to be meaningful</p>
+            <p>We agreed that David's question and the question "Is a single character a permutation of another identical character?" are more like <em>semantic</em> rule violations.</p>
+            <p>What does one do with test cases that implement such statements?  Gayle kind of suggests we should accommodate silly inputs.</p>
+            <p>David proposes such questions may be best represented in Python by <code>ValueError</code>s.</p>
+            <p>To implement this perhaps we can use a Python function which takes two string arguments.</p>
+            <p>The function could returns True or False OR it could raise a <code>ValueError</code>.</p>
+
+
+
+            <p>We manually copied <code>algorithms/practice/python/dsa/Template/</code> to <code>algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.1</code></p>
+            <p>Then we manually edited problem.json to match the problem statement.</p>
+
+            <p>We then ran <code>algorithms/practice/python/generate-problem-html-from-problem-json</code> to generate <code>problem.html</code> from <code>problem.json</code></p>
+            <p><pre>cd algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2
+../../../../../../practice/python/generate-problem-html-from-problem-json/RUNME</pre></p>
+            <p>which resulted in this being displayed in the terminal:</p>
+            <p><code>Rendered template saved to /home/oy753c/desktops/algorithms/algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2/problem.html</code></p>
+            <p></p>
+            <p>And then ran <code>algorithms/practice/python/generate-problem-py-from-problem-json</code> to generate <code>python.py</code> from <code>problem.json</code></p>
+            <p><pre>dell7750:~/desktops/algorithms/algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2> ../../../../../../practice/python/generate-problem-py-from-problem-json/RUNME ./problem.json
+generate-problem-py-from-problem-json.py &lt;directory containing problem.json&gt;</pre></p>
+            <p>Daniel then used the unit-test launcher for PyCharm to run the stubbed code.</p>
+        </article>
+
+        <article class="post">
+            <h3>IX - Interview Questions</h3>
+            <h4>1 - Arrays and Strings</h4>
             <h5>1.1 Is Unique</h5>
             <p class="meta">We started here <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.1 " on page 90</a></p>
             <p class="meta">2025-01-26 11:30 (UTC-8) by Daniel</p>
