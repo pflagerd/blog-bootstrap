@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+        .info {
+            margin: 10px 0 20px 0;
+            color: #666;
+            font-size: 14px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        .loading {
+            color: #007bff;
+            font-style: italic;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="info" id="fileInfo">Loading...</div>
+
+    <pre id="fileContent"><span class="loading">Loading file...</span></pre>
+
+    <script>
+        // *** CONFIGURE YOUR FILENAME HERE ***
+        const FILENAME = 'dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2/problem.json';  // Change this to your file path
+        
+        const fileContent = document.getElementById('fileContent');
+        const fileInfo = document.getElementById('fileInfo');
+        const reloadBtn = document.getElementById('reloadBtn');
+
+        function loadFile() {
+            fileContent.innerHTML = '<span class="loading">Loading file...</span>';
+            fileInfo.textContent = 'Loading...';
+
+            fetch(FILENAME)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    // Get content length if available
+                    const contentLength = response.headers.get('content-length');
+                    let sizeInfo = '';
+                    if (contentLength) {
+                        const sizeKB = (contentLength / 1024).toFixed(2);
+                        const sizeMB = (contentLength / (1024 * 1024)).toFixed(2);
+                        sizeInfo = ` | Size: ${contentLength > 1024 * 1024 ? sizeMB + ' MB' : sizeKB + ' KB'}`;
+                    }
+                    
+                    fileInfo.textContent = `File: ${FILENAME}${sizeInfo}`;
+                    
+                    return response.text();
+                })
+                .then(text => {
+                    fileContent.textContent = text;
+                })
+                .catch(error => {
+                    fileContent.innerHTML = `<span class="error">Error loading file: ${error.message}</span>`;
+                    fileInfo.innerHTML = `<span class="error">Failed to load: ${FILENAME}</span>`;
+                });
+        }
+
+        // Load file on page load
+        loadFile();
+
+        // Reload button
+        reloadBtn.addEventListener('click', loadFile);
+    </script>
+</body>
+</html>

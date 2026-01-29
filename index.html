@@ -71,6 +71,8 @@
             <p class="meta">What we'll do next</p>
             <p class="meta">2025-01-28 16:48 (UTC-8) by Daniel</p>
             <h4>Next Time</h4>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Article sizing is broken by the file loading thing. See <code>const FILENAME = ...</code> in this file (index.html).</p>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>File loading needs horizontal scrolling</p>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Can we consciously exercise exploration over exploitation in our activities?</p>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Continue working on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.2 " on page 90</a></p>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Go back to 1.1 and solve it for all Unicode.</p>
@@ -117,16 +119,61 @@
             <p>The function could return True or False OR it could raise a <code>ValueError</code>.</p>
 
             <p>From the directory <code>algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings</code>, we manually copied <code>../../../../../practice/python/dsa/Template/</code> to create <code>.../algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2</code></p>
-            <p><pre>cd algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings
+            <pre>cd algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings
 cp -r ../../../../../practice/python/dsa/Template .
-mv Template 1.2</pre></p>
+mv Template 1.2</pre>
             <p>Then we manually edited <code>problem.json</code> to match the problem statement.</p>
             <p>This included reordering <code>problem.json</code> to put the test before the examples, reasoning that we'd choose a couple of the tests to serve as examples.</p>
             <p>It involved populating the <code>"hints": []</code> array with content found in the book's Hints section starting on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=664" target="_blank">page 653</a>.</p>
+            <p>Here's the current progress:</p>
+            <div style="font-size: small;" id="fileInfo">Loading...</div>
 
+            <pre style="overflow-x: scroll;" id="fileContent"><span class="loading">Loading file...</span></pre>
+
+            <script>
+                const FILENAME = 'dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2/problem.json';  // Change this to your file path
+
+                const fileContent = document.getElementById('fileContent');
+                const fileInfo = document.getElementById('fileInfo');
+
+                function loadFile() {
+                    fileContent.innerHTML = '<span class="loading">Loading file...</span>';
+                    fileInfo.textContent = 'Loading...';
+
+                    fetch(FILENAME)
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error(`HTTP error! status: ${response.status}`);
+                            }
+
+                            // Get content length if available
+                            const contentLength = response.headers.get('content-length');
+                            let sizeInfo = '';
+                            if (contentLength) {
+                                const sizeKB = (contentLength / 1024).toFixed(2);
+                                const sizeMB = (contentLength / (1024 * 1024)).toFixed(2);
+                                sizeInfo = ` | Size: ${contentLength > 1024 * 1024 ? sizeMB + ' MB' : sizeKB + ' KB'}`;
+                            }
+
+                            fileInfo.textContent = `File: ${FILENAME}${sizeInfo}`;
+
+                            return response.text();
+                        })
+                        .then(text => {
+                            fileContent.textContent = text;
+                        })
+                        .catch(error => {
+                            fileContent.innerHTML = `<span style="color: #dc3545; font-weight: bold;">Error loading file: ${error.message}</span>`;
+                            fileInfo.innerHTML = `<span style="color: #dc3545; font-weight: bold;">Failed to load: ${FILENAME}</span>`;
+                        });
+                }
+
+                // Load file on page load
+                loadFile();
+            </script>
             <p>We then ran <code>algorithms/practice/python/generate-problem-html-from-problem-json</code> to generate <code>problem.html</code> from <code>problem.json</code></p>
-            <p><pre>cd algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2
-../../../../../../practice/python/generate-problem-html-from-problem-json/RUNME</pre></p>
+            <pre>cd algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2
+../../../../../../practice/python/generate-problem-html-from-problem-json/RUNME</pre>
             <p>which resulted in this being displayed in the terminal:</p>
             <p><code>Rendered template saved to /home/oy753c/desktops/algorithms/algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2/problem.html</code></p>
             <p></p>
@@ -136,6 +183,98 @@ generate-problem-py-from-problem-json.py &lt;directory containing problem.json&g
             <p>Daniel then used the unit-test launcher for PyCharm to run the stubbed code. As expected all 9 stub tests failed:</p>
             <img style="width: 100%;" src="img/Screenshot_20260128_164356.png" alt="img/Screenshot_20260128_164356.png">
             <p>Next time, we should write the code for a solution (or maybe a couple solutions).</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
         </article>
 
         <article class="post">
