@@ -69,9 +69,13 @@
         <article class="post">
             <h3>TODO</h3>
             <p class="meta">What we'll do next</p>
-            <p class="meta">2025-01-27 15:10 (UTC-8) by Daniel</p>
-            <p>Next Time: Continue with <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.2 " on page 90</a></p>
-            <p><label><input type="checkbox"> </label><a href="" target="_blank">Can we consciously exercise exploration over exploitation in our activities?</a></p>
+            <p class="meta">2025-01-28 16:48 (UTC-8) by Daniel</p>
+            <h4>Next Time</h4>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Can we consciously exercise exploration over exploitation in our activities?</p>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Continue working on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.2 " on page 90</a></p>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Go back to 1.1 and solve it for all Unicode.</p>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Go back to 1.1 and solve it for ASCII using integer bit twiddling.</p>
+
             <br>
             <h4>Other</h4>
             <p><label><input type="checkbox"> </label><a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=56" target="_blank">Find the formula for the exact number of calls for each Example and Additional Problem in VI - Big O and compare that with Gayle's analysis of O(n) for each.</a></p>
@@ -97,6 +101,7 @@
         <article class="post">
             <h3>IX - Interview Questions</h3>
             <h4>1 - Arrays and Strings</h4>
+            <h5>1.2 Check Permutation</h5>
             <p class="meta">We continue working on Interview Questions starting on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=98" target="_blank">p87.</a></p>
             <p class="meta">2025-01-28 8:25 (UTC-8) by Daniel</p>
             <p></p>
@@ -109,12 +114,15 @@
             <p>What does one do with test cases that implement such statements?  Gayle kind of suggests we should accommodate silly inputs.</p>
             <p>David proposes such questions may be best represented in Python by <code>ValueError</code>s.</p>
             <p>To implement this perhaps we can use a Python function which takes two string arguments.</p>
-            <p>The function could returns True or False OR it could raise a <code>ValueError</code>.</p>
+            <p>The function could return True or False OR it could raise a <code>ValueError</code>.</p>
 
-
-
-            <p>We manually copied <code>algorithms/practice/python/dsa/Template/</code> to <code>algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.1</code></p>
-            <p>Then we manually edited problem.json to match the problem statement.</p>
+            <p>From the directory <code>algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings</code>, we manually copied <code>../../../../../practice/python/dsa/Template/</code> to create <code>.../algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2</code></p>
+            <p><pre>cd algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings
+cp -r ../../../../../practice/python/dsa/Template .
+mv Template 1.2</pre></p>
+            <p>Then we manually edited <code>problem.json</code> to match the problem statement.</p>
+            <p>This included reordering <code>problem.json</code> to put the test before the examples, reasoning that we'd choose a couple of the tests to serve as examples.</p>
+            <p>It involved populating the <code>"hints": []</code> array with content found in the book's Hints section starting on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=664" target="_blank">page 653</a>.</p>
 
             <p>We then ran <code>algorithms/practice/python/generate-problem-html-from-problem-json</code> to generate <code>problem.html</code> from <code>problem.json</code></p>
             <p><pre>cd algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2
@@ -123,9 +131,11 @@
             <p><code>Rendered template saved to /home/oy753c/desktops/algorithms/algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2/problem.html</code></p>
             <p></p>
             <p>And then ran <code>algorithms/practice/python/generate-problem-py-from-problem-json</code> to generate <code>python.py</code> from <code>problem.json</code></p>
-            <p><pre>dell7750:~/desktops/algorithms/algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2> ../../../../../../practice/python/generate-problem-py-from-problem-json/RUNME ./problem.json
-generate-problem-py-from-problem-json.py &lt;directory containing problem.json&gt;</pre></p>
-            <p>Daniel then used the unit-test launcher for PyCharm to run the stubbed code.</p>
+            <pre>dell7750:~/desktops/algorithms/algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings/1.2> ../../../../../../practice/python/generate-problem-py-from-problem-json/RUNME ./problem.json
+generate-problem-py-from-problem-json.py &lt;directory containing problem.json&gt;</pre>
+            <p>Daniel then used the unit-test launcher for PyCharm to run the stubbed code. As expected all 9 stub tests failed:</p>
+            <img style="width: 100%;" src="img/Screenshot_20260128_164356.png" alt="img/Screenshot_20260128_164356.png">
+            <p>Next time, we should write the code for a solution (or maybe a couple solutions).</p>
         </article>
 
         <article class="post">
