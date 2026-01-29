@@ -2,10 +2,9 @@
     "title": "Is Unique",
     "statement": "Implement an algorithm to determine if a string has all unique characters.  What if you cannot use additional data structures?",
     "hints": [
-        { "#1": "Describe what it means for two strings to be permutations of each other. Now, look at that definition you provided. Can you check the strings against that definition? "},
-        { "#84": "There is one solution that is 0( N log N) time. Another solution uses some space, but isO(N) time. "},
-        { "#122": "Could a hash table be useful?"},
-        { "#131": "Two strings that are permutations should have the same characters, but in different orders. Can you make the orders the same?"}
+        { "#44": "Try a hash table."},
+        { "#117": "Could a bit vector be useful?"},
+        { "#132": "Can you solve it in O(N log N) time? What might a solution like that look like? "}
     ],
     "timeComplexity": "O(n)",
     "spaceComplexity": "O(n)",
