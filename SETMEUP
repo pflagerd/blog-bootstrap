@@ -1,2 +1,4 @@
 #!/bin/bash
-which python >/dev/null 2>&1 || (echo "python 3 must be installed to use this script" && exit 1)
+which node >/dev/null 2>&1 || (echo "node must be installed to use this script" && return 1)
+which npm >/dev/null 2>&1 || (echo "npm must be installed to use this script" && return 1)
+npm ci
