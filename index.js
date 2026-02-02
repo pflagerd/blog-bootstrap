@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const chokidar = require('chokidar');
 
 const configPath = path.join(__dirname, 'window-size.json');
 
@@ -24,7 +25,6 @@ function loadWindowSize() {
     });
 
     const windowSize = loadWindowSize();
-
     const browser = await puppeteer.launch({
         headless: false,
         args: [
@@ -38,17 +38,14 @@ function loadWindowSize() {
     const pages = await browser.pages();
     const page = pages[0];
 
-    // Create browser-level CDP session for getting window bounds
     const client = await browser.target().createCDPSession();
 
-    // Expose function to save window size
     await page.exposeFunction('saveWindowSize', async () => {
         try {
             const { windowId } = await client.send('Browser.getWindowForTarget', {
                 targetId: page.target()._targetId
             });
             const { bounds } = await client.send('Browser.getWindowBounds', { windowId });
-
             fs.writeFileSync(configPath, JSON.stringify({
                 width: bounds.width,
                 height: bounds.height
@@ -58,20 +55,60 @@ function loadWindowSize() {
         }
     });
 
-    // Inject resize listener
     await page.evaluateOnNewDocument(() => {
         let resizeTimeout;
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
                 window.saveWindowSize();
-            }, 500); // Debounce for 500ms
+            }, 500);
         });
     });
 
     await page.goto('http://localhost:3000/index.html');
 
+    // File watching with better debugging
+    console.log('Setting up file watcher...');
+    console.log('Watching directory:', __dirname);
+
+    const watcher = chokidar.watch(__dirname, {
+        ignored: [
+            /(^|[\/\\])\../,  // dotfiles
+            /node_modules/,
+            /window-size\.json$/,
+            path.basename(__filename)  // ignore the main script itself
+        ],
+        persistent: true,
+        ignoreInitial: true,
+        awaitWriteFinish: {
+            stabilityThreshold: 100,
+            pollInterval: 100
+        }
+    });
+
+    watcher
+        .on('ready', () => {
+            console.log('File watcher ready');
+            const watched = watcher.getWatched();
+            console.log('Watching files:', Object.keys(watched).map(dir =>
+                watched[dir].map(file => path.join(dir, file))
+            ).flat());
+        })
+        .on('change', async (filepath) => {
+            console.log(`\n[${new Date().toLocaleTimeString()}] File changed: ${filepath}`);
+            console.log('Reloading page...');
+            try {
+                await page.reload({ waitUntil: 'networkidle0' });
+                console.log('Page reloaded successfully');
+            } catch (err) {
+                console.error('Error reloading page:', err);
+            }
+        })
+        .on('error', error => console.error('Watcher error:', error));
+
     browser.on('disconnected', () => {
+        console.log('Browser disconnected, cleaning up...');
+        watcher.close();
         server.close();
     });
 })();
