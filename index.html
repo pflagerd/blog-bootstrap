@@ -72,9 +72,53 @@
         </article>
 
         <article class="post">
+            <h3>How I set up a development environment for kubuntu-jamie-game</h3>
+            <p class="meta">Having got a workable kubuntu environment, I'm ready to configure some development tools.</p>
+            <p class="meta">2026-02-03 11:22 (UTC-7) by Daniel</p>
+            <p>Jamie recommends installing vscode.</p>
+            <p>Here's how I did it.</p>
+            <pre style="overflow-x: auto;"># Step 1: Install the .deb package directly
+wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O ./vscode.deb
+sudo apt install ./vscode.deb
+
+# Step 2: Add the Microsoft repository for future updates
+wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+sudo install -D -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/packages.microsoft.gpg
+
+echo "deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo tee /etc/apt/sources.list.d/vscode.list
+
+# Step 3: Update apt cache
+sudo apt update</pre>
+            <p>When I ran this I got:</p>
+            <pre style="overflow-x: auto;">deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main
+Error: Conflicting values set for option Signed-By regarding source https://packages.microsoft.com/repos/code/ stable: /usr/share/keyrings/packages.microsoft.gpg != /usr/share/keyrings/microsoft.gpg
+Error: The list of sources could not be read.</pre>
+            <p>After futzing with Claude AI, I did this:</p>
+            <pre>grep -r "packages.microsoft.com/repos/code" /etc/apt/sources.list.d/
+grep "packages.microsoft.com/repos/code" /etc/apt/sources.list
+</pre>
+            <p>Which produced these two files:</p>
+            <pre style="overflow-x: auto;">/etc/apt/sources.list.d/vscode.list:deb [arch=amd64,arm64,armhf signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main
+/etc/apt/sources.list.d/vscode.sources:URIs: https://packages.microsoft.com/repos/code</pre>
+            <p>which I deleted:</p>
+            <pre style="overflow-x: auto;">sudo rm /etc/apt/sources.list.d/vscode.list
+sudo rm /etc/apt/sources.list.d/vscode.sources</pre>
+            <p>At least that's the advice Claude offered.</p>
+            <p>Where did vscode get installed?</p>
+            <pre style="overflow-x: auto;">kubuntu-jamie-game:~/desktops/Default> which code
+/usr/bin/code</pre>
+            <p>I created a quicklaunch launcher.</p>
+            <p>I ran up code using the new launcher, and changed the theme to Solarized Light.</p>
+            <p>I then searched for the plugin "Flutter" which I found:</p>
+            <img style="width: 100%;" src="img/Screenshot_20260203_114650.png"/>
+            <p>I installed it, and found that it had automatically installed Dart support also:</p>
+            <img style="width: 100%;" src="img/Screenshot_20260203_114650.png"/
+        </article>
+
+        <article class="post">
             <h3>How I set up kubuntu25-10-template to become kubuntu-jamie-game</h3>
             <p class="meta">I started with kubuntu25-10-ootb which was transformed into kubuntu25-10-template which became kubuntu-jamie-game</p>
-            <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
+            <p class="meta">2026-02-02 14:48 (UTC-7) by Daniel</p>
             <p>I created a new public key</p>
             <pre>ssh-keygen &lt;return&gt;
 &lt;return&gt;
