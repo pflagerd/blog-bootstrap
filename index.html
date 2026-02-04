@@ -56,24 +56,19 @@
 <main class="container">
     <section class="posts">
 
-        <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
-        <article class="post" style="display: none;">
-            <h3>My first blog entry</h3>
-            <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
-            <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
-            <p><label><input type="checkbox"> </label><a href="https://www.educative.io/courses/grokking-coding-interview/sort-colors" target="_blank">Work through Grokking</a></p>
-            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label><a href="https://www.educative.io/courses/grokking-coding-interview/sort-colors" target="_blank">Work on Sort Colors (Dutch National Flag) problem.</a></p>
-        </article>
-
         <!-- LEAVE THIS article HERE -->
         <article class="post">
             <h3>TODO</h3>
             <p class="meta">What we'll do next</p>
             <p class="meta">2025-01-28 16:48 (UTC-8) by Daniel</p>
             <h4>Next Time</h4>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Continue working on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.3 " on page 90</a></p>
+
+            <br>
+            <h4>In the Future</h4>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Article sizing is broken by the file loading thing. See <code>const FILENAME = ...</code> in this file (index.html).</p>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Can we consciously exercise exploration over exploitation in our activities?</p>
-            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Continue working on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101" target="_blank">"Interview Questions - 1.2 " on page 90</a></p>
+            <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Go back to 1.2 and try creating both dictionaries in a single <code>for</code> loop. Is it any faster? Can we even tell?</p>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Go back to 1.1 and solve it for all Unicode.</p>
             <p style="margin-left: 1rem;"><label><input type="checkbox"> </label>Go back to 1.1 and solve it for ASCII using integer bit twiddling.</p>
 
@@ -114,7 +109,9 @@
             <p>A <noun style="font-style: italic; color: red;">Unicode character</noun> is an integer in the range $0$ to $2^{32}-1$ inclusive.</p>
             <p>Similarly to the situation in Interview Question 1.1, we have a choice of implementing a solution for all Unicode, or choose a definition based on a subset of Unicode, such as all ASCII characters or Extended ASCII characters.</p>
             <p>We decide to solve the problem for all Unicode.</p>
-            <p></p>
+            <p>Having produced a workable solution using Python dictionaries, we decided to look at Gayle's solution on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=204" target="_blank">p193</a>.</p>
+            <p>We noticed that in her first solution, she proposed what David had proposed which was to sort each string and compare the two sorted strings. The sorted string solution's time complexity would be O(2 len(string1) + log(len(string1)))</p>
+            <p>We both realize that the strings must be identical in length, so there is a potential optimization to our dictionary solution to pass though both strings simultaneously in one for loop, but is that really any better?</p>
         </article>
 
         <article class="post">
