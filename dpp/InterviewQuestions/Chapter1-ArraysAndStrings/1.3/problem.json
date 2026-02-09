@@ -17,7 +17,7 @@
         {"string":  "Mr John Smith    ", "length": "-1", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is negative, so it's impossible to answer the question."},
         {"string":  "Mr John Smith    ", "length": "3", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is shorter than the string, so it's impossible to answer the question."},
         {"string":  "Mr John Smith    ", "length": "12", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is too short to accommodate the necessary new characters, so it's impossible to answer the question."},
-        {"string":  "Mr John Smith    ", "length": "14", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is more than long enough to accommodate SOME of the necessary new characters, so it's impossible to answer the question."},
+        {"string":  "Mr John Smith    ", "length": "14", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is more than long enough to accommodate SOME of the necessary new characters, so it's impossible to answer the question."}
     ],
     "constraints": [
         "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
