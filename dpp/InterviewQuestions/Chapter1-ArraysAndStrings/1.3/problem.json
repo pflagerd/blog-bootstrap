@@ -1,31 +1,29 @@
 {
-    "title": "Check Permutation",
-    "statement": "Given two strings, write a method to decide if one is a permutation of the other. ",
+    "title": "URLify",
+    "statement": "Write a method to replace all spaces in a string with '%20'. You may assume that the string\nhas sufficient space at the end to hold the additional characters, and that you are given the \"true\"\nlength of the string. (Note: If implementing in Java, please use a character array so that you can\nperform this operation in place.) ",
     "hints": [
-        { "#1": "Describe what it means for two strings to be permutations of each other. Now, look at that definition you provided. Can you check the strings against that definition? "},
-        { "#84": "There is one solution that is 0( N log N) time. Another solution uses some space, but isO(N) time. "},
-        { "#122": "Could a hash table be useful?"},
-        { "#131": "Two strings that are permutations should have the same characters, but in different orders. Can you make the orders the same?"}
+        { "#53": "It's often easiest to modify strings by going from the end of the string to the beginning. "},
+        { "#118": "Try using a hash table that maps from a runningSum value to he number of elements\nwith this runningSum."}
     ],
     "timeComplexity": "O(n)",
-    "spaceComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
     "tests": [
-        {"string1":  "",   "string2": "", "expectedResult": "Raise <code>ValueError</code>", "explanation": "There are are no characters in either string, so it's impossible to answer the question."},
-        {"string1":  "",   "string2": "abcd", "expectedResult": "Raise <code>ValueError</code>", "explanation": "There are are no characters in one of the strings, while the other is a permutable string, so it's impossible to answer the question."},
-        {"string1": "ab",  "string2": "bc", "expectedResult": "False", "explanation": "All characters must match in both strings to be permutations of each other."},
-        {"string1": "ab",  "string2": "aba", "expectedResult": "False", "explanation": "All characters must match in both strings AND must occur the same number of times for the strings to be permutations of each other. In other words, the two strings must have the same length."},
-        {"string1": "ab",  "string2": "ab", "expectedResult": "True", "explanation": "Identical strings of more than one character ARE permutations of one another. Convention holds that two strings need NOT be different to be permutations of one another."},
-        {"string1": "ab",  "string2": "ba", "expectedResult": "True", "explanation": "Both strings have the same frequency of characters (and the same characters)."},
-        {"string1": "The quick brown fox jumps over the lazy dog",  "string2": "The quick brown fox jumps over the lazy dog", "expectedResult": "True", "explanation": "Both strings have the same frequency of characters (and the same characters)."},
-        {"string1": "The quick brown fox jumps over the lazy dog",  "string2": "the quick brown fox jumps over the lazy dog", "expectedResult": "False", "explanation": "Both strings have the same frequency of characters (and the same characters)."},
-        {"string1": "The quick brown fox springs over the lazy dog",  "string2": "the quick brown fox jumps over the lazy dog", "expectedResult": "False", "explanation": "Both strings have the same frequency of characters (and the same characters)."}
+        {"string":  "Mr John Smith    ", "length": "13", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is more than long enough to accommodate SOME of the necessary new characters, so it's impossible to answer the question."},
+        {"string":  "None",   "length": "13", "expectedResult": "Raise <code>ValueError</code>", "explanation": "There is no content in the first argument, so it's impossible to answer the question."},
+        {"string":  "Mr John Smith    ", "length": "None", "expectedResult": "Raise <code>ValueError</code>", "explanation": "There is no content in the second argument, so it's impossible to answer the question."},
+        {"string":  "None", "length": "None", "expectedResult": "Raise <code>ValueError</code>", "explanation": "There is no content in either argument, so it's impossible to answer the question."},
+        {"string":  "",   "length": "13", "expectedResult": "", "explanation": "There is an empty string in the first argument, so the second argument is ignored, but we can have an answer. An empty string."},
+        {"string":  "Mr John Smith    ", "length": "", "expectedResult": "Raise <code>ValueError</code>", "explanation": "There is no integer value in the second argument, so it's impossible to answer the question."},
+        {"string":  "Mr John Smith    ", "length": "-1", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is negative, so it's impossible to answer the question."},
+        {"string":  "Mr John Smith    ", "length": "3", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is shorter than the string, so it's impossible to answer the question."},
+        {"string":  "Mr John Smith    ", "length": "12", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is too short to accommodate the necessary new characters, so it's impossible to answer the question."},
+        {"string":  "Mr John Smith    ", "length": "14", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is more than long enough to accommodate SOME of the necessary new characters, so it's impossible to answer the question."},
     ],
     "constraints": [
         "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
     ],
     "examples": [
-        {"string1": "The quick brown fox jumps over the lazy dog",  "string2": "The quick brown fox jumps over the lazy dog", "expectedResult": "True", "explanation": "Both strings have the same frequency of characters (and the same characters)."},
-        {"string1": "The quick brown fox jumps over the lazy dog",  "string2": "the quick brown fox jumps over the lazy dog", "expectedResult": "False", "explanation": "Both strings have the same frequency of characters (and the same characters)."}
+        {"string":  "Mr John Smith    ", "length": "14", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is more than long enough to accommodate SOME of the necessary new characters, so it's impossible to answer the question."}
     ],
-    "urls": ["http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=96"]
+    "urls": ["http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101"]
 }
