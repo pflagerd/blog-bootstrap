@@ -131,7 +131,7 @@ Launching lib/main.dart on Linux in debug mode...
 CMake Error:
   Error evaluating generator expression:
 
-    $<TARGET_FILE:flutter_sound_plugin>
+    $&lt;TARGET_FILE:flutter_sound_plugin&gt;
 
   No target "flutter_sound_plugin"
 
@@ -200,6 +200,305 @@ build_resolvers
 build_runner_core
     Package build_runner_core has been discontinued. See https://dart.dev/go/package-discontinue
 kubuntu-jamie-game:~/Desktop/playback></pre>
+            <p>Still has some inconsistencies.</p>
+            <p>I ask Jamie.</p>
+            <p>While waiting, I try running again:</p>
+            <pre>kubuntu-jamie-game:~/Desktop/playback> flutter run
+Connected devices:
+Linux (desktop) • linux  • linux-x64      • Ubuntu 25.10 6.17.0-14-generic
+Chrome (web)    • chrome • web-javascript • Google Chrome 145.0.7632.45
+[1]: Linux (linux)
+[2]: Chrome (chrome)
+Please choose one (or "q" to quit): 1
+Resolving dependencies...
+
+Downloading packages...
+  _fe_analyzer_shared 67.0.0 (94.0.0 available)
+  analyzer 6.4.1 (10.0.2 available)
+  analyzer_plugin 0.11.3 (0.14.2 available)
+  audio_session 0.1.25 (0.2.2 available)
+  build 2.4.1 (4.0.4 available)
+  build_config 1.1.2 (1.2.0 available)
+  build_resolvers 2.4.2 (3.0.4 available)
+  build_runner 2.4.13 (2.11.1 available)
+  build_runner_core 7.3.2 (9.3.2 available)
+  characters 1.4.0 (1.4.1 available)
+  dart_mappable 3.3.1 (4.6.1 available)
+  dart_mappable_builder 3.3.0 (4.6.4 available)
+  dart_style 2.3.6 (3.1.5 available)
+  drift 2.21.0 (2.31.0 available)
+  drift_dev 2.21.2 (2.31.0 available)
+  drift_flutter 0.2.7 (0.2.8 available)
+  ffi 2.1.5 (2.2.0 available)
+  file 6.1.4 (7.0.1 available)
+  flutter_lints 2.0.3 (6.0.0 available)
+  flutter_sound_platform_interface 9.30.0 (10.3.8 available)
+  flutter_sound_web 9.30.0 (10.3.8 available)
+  lints 2.1.1 (6.1.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.1 available)
+  shelf_web_socket 2.0.1 (3.0.0 available)
+  source_gen 1.5.0 (4.2.0 available)
+  sqlite3 2.9.4 (3.1.5 available)
+  sqlparser 0.39.2 (0.43.1 available)
+  test 1.26.3 (1.29.0 available)
+  test_api 0.7.7 (0.7.9 available)
+  test_core 0.6.12 (0.6.15 available)
+  type_plus 1.1.0 (2.1.1 available)
+  uuid 3.0.7 (4.5.2 available)
+Got dependencies!
+34 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Launching lib/main.dart on Linux in debug mode...
+CMake Error:
+  Error evaluating generator expression:
+
+    $&lt;TARGET_FILE:flutter_sound_plugin&gt;
+
+  No target "flutter_sound_plugin"
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+Building Linux application...
+Error: Unable to generate build files
+</pre>
+            <p>I guess I'll try another <code>flutter pub upgrade</code></p>
+            <pre>kubuntu-jamie-game:~/Desktop/playback> flutter pub upgrade
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 67.0.0 (94.0.0 available)
+  analyzer 6.4.1 (10.0.2 available)
+  analyzer_plugin 0.11.3 (0.14.2 available)
+  audio_session 0.1.25 (0.2.2 available)
+  build 2.4.1 (4.0.4 available)
+  build_config 1.1.2 (1.2.0 available)
+  build_resolvers 2.4.2 (3.0.4 available)
+  build_runner 2.4.13 (2.11.1 available)
+  build_runner_core 7.3.2 (9.3.2 available)
+  characters 1.4.0 (1.4.1 available)
+  dart_mappable 3.3.1 (4.6.1 available)
+  dart_mappable_builder 3.3.0 (4.6.4 available)
+  dart_style 2.3.6 (3.1.5 available)
+  drift 2.21.0 (2.31.0 available)
+  drift_dev 2.21.2 (2.31.0 available)
+  drift_flutter 0.2.7 (0.2.8 available)
+> ffi 2.2.0 (was 2.1.5)
+  file 6.1.4 (7.0.1 available)
+  flutter_lints 2.0.3 (6.0.0 available)
+  flutter_sound_platform_interface 9.30.0 (10.3.8 available)
+  flutter_sound_web 9.30.0 (10.3.8 available)
+  lints 2.1.1 (6.1.0 available)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.1 available)
+  shelf_web_socket 2.0.1 (3.0.0 available)
+  source_gen 1.5.0 (4.2.0 available)
+  sqlite3 2.9.4 (3.1.5 available)
+  sqlparser 0.39.2 (0.43.1 available)
+  test 1.26.3 (1.29.0 available)
+  test_api 0.7.7 (0.7.9 available)
+  test_core 0.6.12 (0.6.15 available)
+  type_plus 1.1.0 (2.1.1 available)
+  uuid 3.0.7 (4.5.2 available)
+Changed 1 dependency!
+33 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+kubuntu-jamie-game:~/Desktop/playback> flutter pub outdated
+Showing outdated packages.
+[*] indicates versions that are not the latest available.
+
+Package Name                      Current   Upgradable  Resolvable  Latest
+
+direct dependencies:
+audio_session                     *0.1.25   *0.1.25     0.2.2       0.2.2
+dart_mappable                     *3.3.1    *3.3.1      4.6.1       4.6.1
+drift                             *2.21.0   *2.21.0     2.31.0      2.31.0
+drift_flutter                     *0.2.7    *0.2.7      0.2.8       0.2.8
+file                              *6.1.4    *6.1.4      7.0.1       7.0.1
+flutter_sound_platform_interface  *9.30.0   *9.30.0     *9.30.0     10.3.8
+uuid                              *3.0.7    *3.0.7      4.5.2       4.5.2
+
+dev_dependencies:
+build_runner                      *2.4.13   *2.4.13     2.11.1      2.11.1
+dart_mappable_builder             *3.3.0    *3.3.0      4.6.4       4.6.4
+drift_dev                         *2.21.2   *2.21.2     2.31.0      2.31.0
+flutter_lints                     *2.0.3    *2.0.3      6.0.0       6.0.0
+
+transitive dependencies:
+characters                        *1.4.0    *1.4.0      *1.4.0      1.4.1
+flutter_sound_web                 *9.30.0   *9.30.0     *9.30.0     10.3.8
+material_color_utilities          *0.11.1   *0.11.1     *0.11.1     0.13.0
+meta                              *1.17.0   *1.17.0     *1.17.0     1.18.1
+sqlite3                           *2.9.4    *2.9.4      *2.9.4      3.1.5
+type_plus                         *1.1.0    *1.1.0      2.1.1       2.1.1
+
+transitive dev_dependencies:
+_fe_analyzer_shared               *67.0.0   *67.0.0     *91.0.0     94.0.0
+analyzer                          *6.4.1    *6.4.1      *8.4.1      10.0.2
+analyzer_plugin                   *0.11.3   *0.11.3     -           0.14.2
+build                             *2.4.1    *2.4.1      4.0.4       4.0.4
+build_config                      *1.1.2    *1.1.2      1.2.0       1.2.0
+build_resolvers                   *2.4.2    *2.4.2      -           3.0.4    (discontinued)
+build_runner_core                 *7.3.2    *7.3.2      -           9.3.2    (discontinued)
+dart_style                        *2.3.6    *2.3.6      *3.1.3      3.1.5
+lints                             *2.1.1    *2.1.1      6.1.0       6.1.0
+matcher                           *0.12.17  *0.12.17    *0.12.17    0.12.18
+shelf_web_socket                  *2.0.1    *2.0.1      3.0.0       3.0.0
+source_gen                        *1.5.0    *1.5.0      4.2.0       4.2.0
+sqlparser                         *0.39.2   *0.39.2     0.43.1      0.43.1
+test                              *1.26.3   *1.26.3     *1.26.3     1.29.0
+test_api                          *0.7.7    *0.7.7      *0.7.7      0.7.9
+test_core                         *0.6.12   *0.6.12     *0.6.12     0.6.15
+
+20  dependencies are constrained to versions that are older than a resolvable version.
+To update these dependencies, edit pubspec.yaml, or run `flutter pub upgrade --major-versions`.
+
+build_resolvers
+    Package build_resolvers has been discontinued. See https://dart.dev/go/package-discontinue
+build_runner_core
+    Package build_runner_core has been discontinued. See https://dart.dev/go/package-discontinue
+kubuntu-jamie-game:~/Desktop/playback> flutter pub outdated --major-versions
+Could not find an option named "--major-versions".
+
+Usage: dart pub outdated [options]
+-h, --help                         Print this usage information.
+    --[no-]dependency-overrides    Show resolutions with `dependency_overrides`.
+                                   (defaults to on)
+    --[no-]dev-dependencies        Take dev dependencies into account.
+                                   (defaults to on)
+    --json                         Output the results using a json format.
+    --[no-]prereleases             Include prereleases in latest version.
+    --[no-]show-all                Include dependencies that are already fulfilling --mode.
+    --[no-]transitive              Show transitive dependencies.
+                                   (defaults to on)
+-C, --directory=&lt;dir&gt;              Run this in the directory &lt;dir&gt;.
+
+Run "dart help" to see global options.
+See https://dart.dev/tools/pub/cmd/pub-outdated for detailed documentation.
+Failed to update packages.
+kubuntu-jamie-game:~/Desktop/playback> flutter pub upgrade --major-versions
+Resolving dependencies...
+Changed 6 constraints in pubspec.yaml:
+  audio_session: ^0.1.10 -> ^0.2.2
+  dart_mappable: ^3.0.1 -> ^4.6.1
+  file: ^6.1.4 -> ^7.0.1
+  uuid: ^3.0.6 -> ^4.5.2
+  flutter_lints: ^2.0.0 -> ^6.0.0
+  dart_mappable_builder: ^3.0.2 -> ^4.6.4
+Resolving dependencies...
+Downloading packages... (1.5s)
+> _fe_analyzer_shared 91.0.0 (was 67.0.0) (94.0.0 available)
+> analyzer 8.4.1 (was 6.4.1) (10.0.2 available)
+> audio_session 0.2.2 (was 0.1.25)
+> build 4.0.4 (was 2.4.1)
+> build_config 1.2.0 (was 1.1.2)
+> build_runner 2.11.1 (was 2.4.13)
+  characters 1.4.0 (1.4.1 available)
+> dart_mappable 4.6.1 (was 3.3.1)
+> dart_mappable_builder 4.6.4 (was 3.3.0)
+> dart_style 3.1.3 (was 2.3.6) (3.1.5 available)
+> drift 2.31.0 (was 2.21.0)
+> drift_dev 2.31.0 (was 2.21.2)
+> drift_flutter 0.2.8 (was 0.2.7)
+> file 7.0.1 (was 6.1.4)
+> flutter_lints 6.0.0 (was 2.0.3)
+  flutter_sound_platform_interface 9.30.0 (10.3.8 available)
+  flutter_sound_web 9.30.0 (10.3.8 available)
+> lints 6.1.0 (was 2.1.1)
+  matcher 0.12.17 (0.12.18 available)
+  material_color_utilities 0.11.1 (0.13.0 available)
+  meta 1.17.0 (1.18.1 available)
+> shelf_web_socket 3.0.0 (was 2.0.1)
+> source_gen 4.2.0 (was 1.5.0)
+  sqlite3 2.9.4 (3.1.5 available)
+> sqlparser 0.43.1 (was 0.39.2)
+  test 1.26.3 (1.29.0 available)
+  test_api 0.7.7 (0.7.9 available)
+  test_core 0.6.12 (0.6.15 available)
+> type_plus 2.1.1 (was 1.1.0)
+> uuid 4.5.2 (was 3.0.7)
+These packages are no longer being depended on:
+- analyzer_plugin 0.11.3
+- build_resolvers 2.4.2
+- build_runner_core 7.3.2
+- timing 1.0.2
+Changed 24 dependencies!
+13 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+kubuntu-jamie-game:~/Desktop/playback> flutter pub outdated --major-versions
+Could not find an option named "--major-versions".
+
+Usage: dart pub outdated [options]
+-h, --help                         Print this usage information.
+    --[no-]dependency-overrides    Show resolutions with `dependency_overrides`.
+                                   (defaults to on)
+    --[no-]dev-dependencies        Take dev dependencies into account.
+                                   (defaults to on)
+    --json                         Output the results using a json format.
+    --[no-]prereleases             Include prereleases in latest version.
+    --[no-]show-all                Include dependencies that are already fulfilling --mode.
+    --[no-]transitive              Show transitive dependencies.
+                                   (defaults to on)
+-C, --directory=&lt;dir&gt;              Run this in the directory &lt;dir&gt.
+
+Run "dart help" to see global options.
+See https://dart.dev/tools/pub/cmd/pub-outdated for detailed documentation.
+Failed to update packages.
+kubuntu-jamie-game:~/Desktop/playback> flutter pub outdated
+Showing outdated packages.
+[*] indicates versions that are not the latest available.
+
+Package Name                      Current   Upgradable  Resolvable  Latest
+
+direct dependencies:
+flutter_sound_platform_interface  *9.30.0   *9.30.0     *9.30.0     10.3.8
+
+dev_dependencies: all up-to-date.
+
+transitive dependencies:
+characters                        *1.4.0    *1.4.0      *1.4.0      1.4.1
+flutter_sound_web                 *9.30.0   *9.30.0     *9.30.0     10.3.8
+material_color_utilities          *0.11.1   *0.11.1     *0.11.1     0.13.0
+meta                              *1.17.0   *1.17.0     *1.17.0     1.18.1
+sqlite3                           *2.9.4    *2.9.4      *2.9.4      3.1.5
+
+transitive dev_dependencies:
+_fe_analyzer_shared               *91.0.0   *91.0.0     *91.0.0     94.0.0
+analyzer                          *8.4.1    *8.4.1      *8.4.1      10.0.2
+dart_style                        *3.1.3    *3.1.3      *3.1.3      3.1.5
+matcher                           *0.12.17  *0.12.17    *0.12.17    0.12.18
+test                              *1.26.3   *1.26.3     *1.26.3     1.29.0
+test_api                          *0.7.7    *0.7.7      *0.7.7      0.7.9
+test_core                         *0.6.12   *0.6.12     *0.6.12     0.6.15
+You are already using the newest resolvable versions listed in the 'Resolvable' column.
+Newer versions, listed in 'Latest', may not be mutually compatible.
+</pre>
+            <p>I don't think I can upgrade any further.</p>
+            <p>Try running up again:</p>
+            <pre>kubuntu-jamie-game:~/Desktop/playback> flutter run
+Connected devices:
+Linux (desktop) • linux  • linux-x64      • Ubuntu 25.10 6.17.0-14-generic
+Chrome (web)    • chrome • web-javascript • Google Chrome 145.0.7632.45
+[1]: Linux (linux)
+[2]: Chrome (chrome)
+Please choose one (or "q" to quit): 1
+
+Launching lib/main.dart on Linux in debug mode...
+CMake Error:
+  Error evaluating generator expression:
+
+    $&lt;TARGET_FILE:flutter_sound_plugin&gt;
+
+  No target "flutter_sound_plugin"
+
+
+CMake Generate step failed.  Build files cannot be regenerated correctly.
+Building Linux application...
+Error: Unable to generate build files
+kubuntu-jamie-game:~/Desktop/playback>
+</pre>
+            <p>Still no good.</p>
         </article>
 
         <article class="post">
