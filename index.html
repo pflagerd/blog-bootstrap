@@ -61,12 +61,30 @@
             <p class="meta">2026-02-03 13:22 (UTC-7) by Daniel</p>
 
             <!-- Get Development environment set up. -->
-            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Set up Android Studio</a></p>
+            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Get Playback building.</a></p>
 
 
 <!--            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">A task</a></p>-->
 <!--            <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subtask</a></p>-->
 <!--            <p style="margin-left: 2rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subsubtask</a></p>-->
+        </article>
+
+        <article class="post">
+            <h3>Can we get Playback to build?</h3>
+            <p class="meta">Last time, on branch <code>fix-dependencies</code>, Daniel was unable to get a clean build.</p>
+            <p class="meta">2026-02-10 15:38 (UTC-7) by Daniel</p>
+            <p>Jamie replaced isr with Drift (See <a href="https://github.com/ShirtNerson/playback/issues/15" target="_blank">https://github.com/ShirtNerson/playback/issues/15</a>)</p>
+            <p>I was working on my fork, but it didn't have all Jamie's branches, so I trashed it on github.com and recreated it to include all branches.</p>
+            <p>The url is the same <a href="https://github.com/pflagerd/playback" target="_blank">https://github.com/pflagerd/playback</a></p>
+            <p>But now all Jamie's branches show up:</p>
+            <img style="width: 25%" src="img/Screenshot_20260210_155517.png" alt="img/Screenshot_20260210_155517.png"/>
+            <p>So now I can attempt to reproduce his build results by building from within Android Studio (on Linux):</p>
+            <img style="width: 100%" src="img/Screenshot_20260210_155835.png" alt="img/Screenshot_20260210_155835.png"/>
+            <p>It appears I need another argument after <code>flutter build</code>.</p>
+            <p>I guess I'll try an apk, which I believe is APK (Android Package Kit). Essentially a .zip file with everything needed for Android deployment.</p>
+            <img style="width: 100%" src="img/Screenshot_20260210" alt="img/Screenshot_20260210"/>
+            <p>This took a long time.  </p>
+            <p></p>
         </article>
 
         <article class="post">
