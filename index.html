@@ -499,6 +499,60 @@ Error: Unable to generate build files
 kubuntu-jamie-game:~/Desktop/playback>
 </pre>
             <p>Still no good.</p>
+            <p>I try running up the emulator</p>
+            <img style="width: 30%" src="img/Screenshot_20260211_144836.png" alt="img/Screenshot_20260207_103419.png"/>
+            <p>And then running <code>flutter run</code>:</p>
+            <pre>kubuntu-jamie-game:~/Desktop/playback> flutter run
+Launching lib/main.dart on sdk gphone64 x86 64 in debug mode...
+lib/domain/models/tasks/record_guess_task.mapper.dart:379:34: Error: The argument type 'List&lt;dynamic&gt;' can't be assigned to the parameter type 'List&lt;Type&gt; Function()?'.
+ - 'List' is from 'dart:core'.
+ - 'Type' is from 'dart:core'.
+    return context.inherit(args: []);
+                                 ^
+lib/domain/models/tasks/record_guesses_composite_task.mapper.dart:541:34: Error: The argument type 'List&lt;dynamic&gt;' can't be assigned to the parameter type 'List&lt;Type&gt; Function()?'.
+ - 'List' is from 'dart:core'.
+ - 'Type' is from 'dart:core'.
+    return context.inherit(args: []);
+                                 ^
+lib/domain/models/tasks/record_original_task.mapper.dart:354:34: Error: The argument type 'List&lt;dynamic&gt;' can't be assigned to the parameter type 'List&lt;Type&gt; Function()?'.
+ - 'List' is from 'dart:core'.
+ - 'Type' is from 'dart:core'.
+    return context.inherit(args: []);
+                                 ^
+lib/domain/models/tasks/review_game_scores_task.mapper.dart:315:34: Error: The argument type 'List&lt;dynamic&gt;' can't be assigned to the parameter type 'List&lt;Type&gt; Function()?'.
+ - 'List' is from 'dart:core'.
+ - 'Type' is from 'dart:core'.
+    return context.inherit(args: []);
+                                 ^
+lib/domain/models/tasks/review_scores_task.mapper.dart:371:34: Error: The argument type 'List&lt;dynamic&gt;' can't be assigned to the parameter type 'List&lt;Type&gt; Function()?'.
+ - 'List' is from 'dart:core'.
+ - 'Type' is from 'dart:core'.
+    return context.inherit(args: []);
+                                 ^
+lib/domain/models/tasks/score_guesses_task.mapper.dart:371:34: Error: The argument type 'List&lt;dynamic&gt;' can't be assigned to the parameter type 'List&lt;Type&gt; Function()?'.
+ - 'List' is from 'dart:core'.
+ - 'Type' is from 'dart:core'.
+    return context.inherit(args: []);
+                                 ^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildDebug'.
+> Process 'command '/home/oy753c/snap/flutter/common/flutter/bin/flutter'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 2m 28s
+Running Gradle task 'assembleDebug'...                            149.7s
+Error: Gradle task assembleDebug failed with exit code 1
+kubuntu-jamie-game:~/Desktop/playback></pre>
         </article>
 
         <article class="post">
