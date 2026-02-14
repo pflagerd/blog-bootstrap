@@ -70,7 +70,399 @@
         </article>
 
         <article class="post">
-            <h3>Can we get Playback to build?</h3>
+            <h3>Can we get Playback to build 3?</h3>
+            <p class="meta">Last time, on branch <code>fix-dependencies</code>, Daniel was unable to get a clean build.</p>
+            <p class="meta">2026-02-11 14:18 (UTC-8) by Daniel</p>
+            <p>Jamie suggests we try this:</p>
+            <pre>kubuntu-jamie-game:~/Desktop/playback> dart run build_runner build
+The Dart CLI developer tool uses Google Analytics to report usage and diagnostic
+data along with package dependencies, and crash reporting to send basic crash
+reports. This data is used to help improve the Dart platform, Flutter framework,
+and related tools.
+
+Telemetry is not sent on the very first run. To disable reporting of telemetry,
+run this terminal command:
+
+    dart --disable-analytics
+
+If you opt out of telemetry, an opt-out event will be sent, and then no further
+information will be sent. This data is collected in accordance with the Google
+Privacy Policy (https://policies.google.com/privacy).
+
+Building package executable... (6.3s)
+Built build_runner:build_runner.
+7s compiling builders/jit
+46s drift_dev on 740 inputs: 9 skipped, 346 output, 33 no-op; spent 26s analyzing, 10s sdk, 5s resolving, 2s reading, 2s building; lib/bloc/cubit/game_task_cubit.dart
+0s source_gen:combining_builder on 370 inputs
+0s dart_mappable_builder on 740 inputs
+
+lib/app.dart drift_dev
+W The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+lib/bloc/cubit/add_new_player_cubit.dart drift_dev
+W The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+lib/bloc/cubit/audio_player_cubit.dart drift_dev
+W The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+lib/bloc/cubit/audio_recorder_cubit.dart drift_dev
+W The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+lib/bloc/cubit/current_games_cubit.dart drift_dev
+W The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+lib/bloc/cubit/game_task_cubit.dart drift_dev
+W The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+Log overflowed the console, switching to line-by-line logging.
+W drift_dev on lib/bloc/cubit/guess_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/list_players_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/manage_players_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/record_guesses_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/save_favorite_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/score_guesses_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/settings_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/setup_game_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/cubit/view_favorites_cubit.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/presenters/favorite_presenter.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/presenters/record_guess_presenter.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/bloc/presenters/record_original_presenter.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/color_schemes.g.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/database/drift/database.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/database/drift/database.dart:
+  Could not format generated source. The generated code is probably invalid, and this is most likely a bug in drift_dev.
+W drift_dev on lib/database/nothing/persistence_strategy_impl.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/database/persistence_strategy_factory.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/delegating_grouped_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/favorite_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/game_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/guess_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/key_container_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/local_sample_location_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/persistence_strategy.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/player_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/sample_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/score_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/data_access/task_repository.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/favorite/favorite.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/game/game.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/guess/guess.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/lookup_key.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/player/player.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/sample/sample.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/sample/sample_location.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/score/score.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/displayable_guess.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/has_player.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/key_container.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/record_guess_task.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/record_guesses_composite_task.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/record_original_task.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/review_game_scores_task.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/review_scores_task.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/score_guesses_task.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/models/tasks/task.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/sample/sample_constants.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/sample/sample_reverser.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/task_management/game_tasks_creator.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/task_management/key_container_resolver.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/domain/utility/pair.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/factories/flutter_sound_factory.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/json_mapping/dart_mappable_initializer.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/l10n/app_localizations.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/l10n/app_localizations_en.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/main.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/app_navigator.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/add_new_player_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/add_player_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/current_games_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/favorites_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/in_game_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/main_menu_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/manage_players_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/record_guess_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/record_original_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/review_game_scores_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/review_scores_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/score_guesses_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/settings_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/pages/setup_game_page.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/audio_player.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/audio_player_recorder.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/background.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/complete_task_button.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/displayed_favorite.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/displayed_guess.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/displayed_player.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/global_repository_provider.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/scoreable_guess.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on lib/views/widgets/task_app_bar_builder.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/app_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/add_new_player_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/add_new_player_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/audio_player_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/audio_recorder_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/audio_recorder_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/current_games_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/current_games_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/game_task_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/game_task_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/guess_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/guess_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/list_players_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/list_players_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/manage_players_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/manage_players_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/save_favorite_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/save_favorite_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/score_guesses_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/settings_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/settings_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/setup_game_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/setup_game_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/view_favorites_cubit_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/cubit/view_favorites_state_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/presenters/favorite_presenter_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/presenters/record_guess_presenter_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/bloc/presenters/record_original_presenter_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/data_access/delegating_grouped_repository_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/data_access/favorite_repository_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/data_access/game_repository_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/data_access/local_sample_location_repository_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/data_access/player_repository_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/data_access/sample_repository_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/factories/flutter_sound_factory_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/lookup_key_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/guess/guess_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/sample/sample_location_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/score/score_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/tasks/record_guess_task_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/tasks/record_original_task_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/tasks/review_game_scores_task_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/tasks/review_scores_task_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/models/tasks/score_guesses_task_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/sample/sample_reverser_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+  47s drift_dev on 740 inputs: 154 skipped, 347 output, 178 no-op; spent 26s analyzing, 10s sdk, 5s resolving, 3s building, 2s reading; test/domain/sample/sample_reverser_test.dart.types.temp.dart
+W drift_dev on test/domain/tasks/game_tasks_creator_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/tasks/key_container_resolver_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/domain/utility/streams_predicate_listener_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/test_utilities/mock_storage.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/test_utilities/mocks.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/test_utilities/string_container.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/test_utilities/test_app_navigator.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/test_utilities/test_functional_context_widget.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/test_utilities/test_functions.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/test_utilities/test_on_add_player.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/add_new_player_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/add_player_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/current_games_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/favorites_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/main_menu_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/manage_players_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/record_guess_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/record_original_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/review_game_scores_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/review_scores_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/score_guesses_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/settings_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/pages/setup_game_page_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/widgets/audio_player_recorder_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/widgets/audio_player_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/widgets/complete_task_button_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/widgets/displayed_favorite_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/widgets/displayed_guess_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/views/widgets/scoreable_guess_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+W drift_dev on test/widget_test.dart:
+  The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+  47s drift_dev on 740 inputs: 185 skipped, 347 output, 208 no-op; spent 26s analyzing, 10s sdk, 5s resolving, 3s building, 3s reading
+  0s source_gen:combining_builder on 370 inputs; lib/app.dart
+  0s source_gen:combining_builder on 370 inputs: 185 skipped, 1 output, 184 no-op
+  0s dart_mappable_builder on 740 inputs; lib/app.dart
+W dart_mappable_builder on lib/database/drift/database.dart:
+  An unexpected error occurred.
+  This is probably a bug in dart_mappable.
+  Please report this here: https://github.com/schultek/dart_mappable/issues
+
+  The error was:
+  335:5: This requires the 'records' language feature to be enabled.
+  351:22: This requires the 'records' language feature to be enabled.
+  365:5: This requires the 'records' language feature to be enabled.
+
+  #0      AnalyzerResolver.libraryFor (package:build_runner/src/build/resolver/resolver.dart:305:9)
+  <asynchronous suspension>
+  #1      MappableBuilder.createMapperGroup (package:dart_mappable_builder/src/builders/mappable_builder.dart:58:20)
+  <asynchronous suspension>
+  #2      MappableBuilder.build (package:dart_mappable_builder/src/builders/mappable_builder.dart:36:19)
+  <asynchronous suspension>
+  #3      runBuilder.buildForInput (package:build_runner/src/build/run_builder.dart:85:7)
+  <asynchronous suspension>
+  #4      Future.wait.<anonymous closure> (dart:async/future.dart:546:21)
+  <asynchronous suspension>
+  #5      BuildLogLogger.scopeLogAsync.<anonymous closure> (package:build_runner/src/logging/build_log_logger.dart:58:13)
+  <asynchronous suspension>
+
+E dart_mappable_builder on lib/database/drift/database.dart:
+  335:5: This requires the 'records' language feature to be enabled.
+  351:22: This requires the 'records' language feature to be enabled.
+  365:5: This requires the 'records' language feature to be enabled.
+  0s dart_mappable_builder on 740 inputs: 116 skipped, 41 no-op; lib/database/isar/annotated_models/score.dart.types.temp.dart
+  1s dart_mappable_builder on 740 inputs: 182 skipped, 7 output, 56 no-op; lib/domain/models/sample/sample_location.dart.types.temp.dart
+  2s dart_mappable_builder on 740 inputs: 209 skipped, 15 output, 57 no-op; spent 2s analyzing; lib/domain/models/tasks/review_scores_task.dart.types.temp.dart
+  3s dart_mappable_builder on 740 inputs: 554 skipped, 17 output, 169 no-op; spent 2s analyzing, 1s building
+  Failed to build with build_runner/jit in 60s with warnings; wrote 365 outputs.
+</pre>
+        </article>
+
+        <article class="post">
+            <h3>Can we get Playback to build 2?</h3>
             <p class="meta">Last time, on branch <code>fix-dependencies</code>, Daniel was unable to get a clean build.</p>
             <p class="meta">2026-02-11 14:18 (UTC-8) by Daniel</p>
             <p>Jamie Did some magic. Says I should pull and try building thus:</p>
@@ -558,7 +950,7 @@ kubuntu-jamie-game:~/Desktop/playback></pre>
         </article>
 
         <article class="post">
-            <h3>Can we get Playback to build?</h3>
+            <h3>Can we get Playback to build 1?</h3>
             <p class="meta">Last time, on branch <code>fix-dependencies</code>, Daniel was unable to get a clean build.</p>
             <p class="meta">2026-02-10 15:38 (UTC-8) by Daniel</p>
             <p>Jamie replaced isr with Drift (See <a href="https://github.com/ShirtNerson/playback/issues/15" target="_blank">https://github.com/ShirtNerson/playback/issues/15</a>)</p>
