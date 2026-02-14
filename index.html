@@ -70,10 +70,126 @@
         </article>
 
         <article class="post">
+            <h3>Can we get Playback to build 4?</h3>
+            <p class="meta">This time, on branch <code>15-implement-drift</code>, Daniel did a hard reset and tried <code>dart run build_runner build</code> again.</p>
+            <p class="meta">2026-02-13 19:26 (UTC-8) by Daniel</p>
+            <p>Jamie suggests we try this <code>dart run build_runner build</code></p>
+            <pre>kubuntu-jamie-game:~/Desktop/playback> git reset --hard
+HEAD is now at fe4bcaf Start initial Drift table definitions. WARNING: does not build.
+kubuntu-jamie-game:~/Desktop/playback> git status
+On branch 15-implement-drift
+Your branch is up to date with 'origin/15-implement-drift'.
+
+nothing to commit, working tree clean
+kubuntu-jamie-game:~/Desktop/playback> ls
+README.md              android  build           hooks  l10n.yaml  linux  pubspec.lock  scripts  web
+analysis_options.yaml  assets   game-design.md  ios    lib        macos  pubspec.yaml  test     windows
+kubuntu-jamie-game:~/Desktop/playback> dart run build_runner build^C
+kubuntu-jamie-game:~/Desktop/playback> git pull
+Already up to date.
+kubuntu-jamie-game:~/Desktop/playback> dart run build_runner build
+Resolving dependencies in `/home/oy753c/Desktop/playback`... 
+Downloading packages... 
+Got dependencies in `/home/oy753c/Desktop/playback`.
+Building package executable... (6.0s)
+Built build_runner:build_runner.
+[INFO] Generating build script completed, took 367ms
+[WARNING] Invalidated precompiled build script due to missing asset graph.
+[INFO] Precompiling build script... completed, took 6.4s
+[INFO] Building new asset graph completed, took 1.5s
+[INFO] Found 18 declared outputs which already exist on disk. This is likely because the`.dart_tool/build` folder was deleted, or you are submitting generated files to your source repository.
+Delete these files?
+1 - Delete
+2 - Cancel build
+3 - List conflicts
+1
+[INFO] Checking for unexpected pre-existing outputs. completed, took 9.4s
+[WARNING] drift_dev on test/widget_test.dart:
+Your current `analyzer` version may not fully support your current SDK version.
+
+Analyzer language version: 3.4.0
+SDK language version: 3.10.0
+
+Please update to the latest `analyzer` version (10.0.2) by running
+`flutter packages upgrade`.
+
+If you are not getting the latest version by running the above command, you
+can try adding a constraint like the following to your pubspec to start
+diagnosing why you can't get the latest version:
+
+dev_dependencies:
+  analyzer: ^10.0.2
+
+[INFO] Generating SDK summary completed, took 6.0s
+[WARNING] No actions completed for 15.1s, waiting on:
+  - drift_dev on test/widget_test.dart
+  - drift_dev on test/app_test.dart
+  - drift_dev on test/domain/sample/sample_reverser_test.dart
+  - drift_dev on test/domain/factories/flutter_sound_factory_test.dart
+  - drift_dev on test/domain/models/guess/guess_test.dart
+  .. and 11 more
+
+[WARNING] drift_dev on lib/database/drift/database.dart:
+The language version of this file is Dart 2.17. Drift generates code for Dart 3.0 or later. Please consider raising the minimum SDK version in your pubspec.yaml to at least 3.0, or add a `// @dart=3.0` comment at the top of this file.
+[WARNING] dart_mappable_builder on lib/database/drift/database.dart:
+An unexpected error occurred.
+This is probably a bug in dart_mappable.
+Please report this here: https://github.com/schultek/dart_mappable/issues
+
+The error was:
+This builder requires Dart inputs without syntax errors.
+However, package:playback/database/drift/database.dart (or an existing part) contains the following errors.
+database.g.dart:605:5: This requires the 'records' language feature to be enabled.
+database.g.dart:662:27: This requires the 'records' language feature to be enabled.
+database.g.dart:677:5: This requires the 'records' language feature to be enabled.
+
+Try fixing the errors and re-running the build.
+
+
+#0      AnalyzerResolver.libraryFor (package:build_resolvers/src/resolver.dart:269:9)
+&lt;asynchronous suspension&gt;
+#1      MappableBuilder.createMapperGroup (package:dart_mappable_builder/src/builders/mappable_builder.dart:55:20)
+&lt;asynchronous suspension&gt;
+#2      MappableBuilder.build (package:dart_mappable_builder/src/builders/mappable_builder.dart:33:19)
+&lt;asynchronous suspension&gt;
+#3      runBuilder.buildForInput (package:build/src/generate/run_builder.dart:83:7)
+&lt;asynchronous suspension&gt;
+#4      Future.wait.&lt;anonymous closure&gt; (dart:async/future.dart:546:21)
+&lt;asynchronous suspension&gt;
+#5      scopeLogAsync.&lt;anonymous closure&gt; (package:build/src/builder/logging.dart:32:40)
+&lt;asynchronous suspension&gt;
+
+[SEVERE] dart_mappable_builder on lib/database/drift/database.dart:
+
+This builder requires Dart inputs without syntax errors.
+However, package:playback/database/drift/database.dart (or an existing part) contains the following errors.
+database.g.dart:605:5: This requires the 'records' language feature to be enabled.
+database.g.dart:662:27: This requires the 'records' language feature to be enabled.
+database.g.dart:677:5: This requires the 'records' language feature to be enabled.
+
+Try fixing the errors and re-running the build.
+
+[INFO] Running build completed, took 34.0s
+[INFO] Caching finalized dependency graph completed, took 156ms
+[SEVERE] Failed after 34.2s
+kubuntu-jamie-game:~/Desktop/playback> rev
+fe4bcaf2be5f69c05c6d61947a964275539cbca8
+kubuntu-jamie-game:~/Desktop/playback> git status
+On branch 15-implement-drift
+Your branch is up to date with 'origin/15-implement-drift'.
+
+nothing to commit, working tree clean
+kubuntu-jamie-game:~/Desktop/playback>
+
+                rev: fe4bcaf2be5f69c05c6d61947a964275539cbca8
+</pre>
+        </article>
+
+        <article class="post">
             <h3>Can we get Playback to build 3?</h3>
-            <p class="meta">Last time, on branch <code>fix-dependencies</code>, Daniel was unable to get a clean build.</p>
-            <p class="meta">2026-02-11 14:18 (UTC-8) by Daniel</p>
-            <p>Jamie suggests we try this:</p>
+            <p class="meta">This time, on branch <code>15-implement-drift</code>, Daniel tried <code>dart run build_runner build</code>.</p>
+            <p class="meta">2026-02-13 19:26 (UTC-8) by Daniel</p>
+            <p>Jamie suggests we try this <code>dart run build_runner build</code></p>
             <pre>kubuntu-jamie-game:~/Desktop/playback> dart run build_runner build
 The Dart CLI developer tool uses Google Analytics to report usage and diagnostic
 data along with package dependencies, and crash reporting to send basic crash
