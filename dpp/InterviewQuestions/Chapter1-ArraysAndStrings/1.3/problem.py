@@ -4,7 +4,7 @@ from tkinter.constants import LEFT
 
 def urlify(string: str, length: int) -> str:
     if string is None or not isinstance(string, str) or not string or length is None or not isinstance(length, int) or length < 0:
-        raise ValueError("string and length must be non-Non,  non-negative and of type str and int respectively")
+        raise ValueError("string and length must be non-None, non-negative and of type str and int respectively")
 
     if length == 0:
         return string
@@ -54,7 +54,8 @@ class Urlify(unittest.TestCase):
             urlify(None, None)
 
     def test_5(self):
-        self.assertEqual(urlify("", 13), "")
+        with self.assertRaises(ValueError):
+            urlify("", 13)
 
     def test_6(self):
         with self.assertRaises(ValueError):
