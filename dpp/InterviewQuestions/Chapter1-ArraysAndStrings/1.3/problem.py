@@ -82,6 +82,10 @@ class Urlify(unittest.TestCase):
         with self.assertRaises(ValueError):
             urlify("", 0)
 
+    def test_13(self):
+        self.assertEqual("Mr%20John%20Smith%20", urlify("Mr John Smith       ", 14))
+
+
 
 if __name__ == "__main__":
     unittest.main()
