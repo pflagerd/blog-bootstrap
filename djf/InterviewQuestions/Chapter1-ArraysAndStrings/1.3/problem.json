@@ -16,7 +16,9 @@
         "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
     ],
     "examples": [
-        {"string": "Mr John Smith    ", "length": 13, "output": \"Mr%20John%20Smith\""}
+        {"string": "Mr John Smith    ", "length": 13, "output": "Mr%20John%20Smith"}
     ],
-    "urls": ["http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=90"]
+    "urls": [
+        "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=90"
+    ]
 }
