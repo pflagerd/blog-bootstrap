@@ -2,7 +2,7 @@ import unittest
 from tkinter.constants import LEFT
 
 
-def urlify(string: str, length: int) -> str:
+def urlifyBackwards(string: str, length: int) -> str:
     if string is None or not isinstance(string, str) or not string or length is None or not isinstance(length, int) or length < 0:
         raise ValueError("string and length must be non-None, non-negative and of type str and int respectively")
 
@@ -35,6 +35,27 @@ def urlify(string: str, length: int) -> str:
         left -= 1
 
     return "".join(stringAsList)
+
+
+def urlify(string: str, length: int) -> str:
+    if string is None or not isinstance(string, str) or not string or length is None or not isinstance(length, int) or length < 0:
+        raise ValueError("string and length must be non-None, non-negative and of type str and int respectively")
+
+    # We're requested to do it in place, so I'll need to use a list
+    # Work backwards, Use two pointers. Starting with length - 1'th character copy character by character, replacing spaces with %20, end when we've encountered (len(string) - length)/2 spaces
+    stringAsList = []
+    for char in string:
+        if length != 0:
+            if char == ' ':
+                stringAsList.append('%20')
+            else:
+                stringAsList.append(char)
+            length -= 1
+        else:
+            stringAsList.append(char)
+
+    return "".join(stringAsList)
+
 
 
 class Urlify(unittest.TestCase):
