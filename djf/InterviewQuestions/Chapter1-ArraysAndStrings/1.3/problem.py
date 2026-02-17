@@ -1,46 +1,90 @@
 
 import unittest
 
-def urlify0(string, length, output):
-    chars = list( string )
-    chars2 = [ '%20' if ch == ' ' else ch for ch in chars ]
-    string2 = "".join( chars2 )
-    string3 = string2[ : length ]
+def urlify(string, length ):
+    if string == None or not isinstance( string, str ):
+        raise ValueError( "First argument must be a string." )
+    if not length or not isinstance( length, int ):
+        raise ValueError( "Second argument must be an integer." )
+    if length < 0:
+        raise ValueError( "Length parameter must be non-negative." )
 
-    if string3[ -2 : ] == '%2':
-        string3 = string3[ : length - 2 ] + '  '
-    elif string3[ -1 ] == '%':
-        string3 = string3[ : length - 1 ] + ' '
+    width = len( string )
+    print( '... field width is', width )
+    fore = aft = []
+    
+    # Grab the first 'length' characters.
+    fore = list( string[ : length ] )
 
-    return string3
+    # If there are characters left over, grab them for the back of the string.
+    if length < len( string ):
+        aft = list( string[ length : ] )
 
+    print( f'... fore: "{fore}"; aft: "{aft}"' )
 
-def urlify( string, length ):
-    chars = list( string )
-    chars2 = []
-    count = 0
-    for ch in chars:
-        if ch == ' ' and count + 3 <= length:
-            chars2.append( '%20' )
-            count += 3
-        elif count < length:
-            chars2.append( ch )
-            count += 1
-        if count == length:
-            break
-    string2 = "".join( chars2 )
-    return string2
+    # Determine whether we can 'urlify' the first 'length' characters in-place.
+    n_letters = width - string.count( ' ' )
+    n_spaces_to_convert = fore.count( ' ' )
+    # Each space to be converted need an extra 2 characters: ' ' becomes '%20'.
+    min_width = n_letters + n_spaces_to_convert * 3
+    print( f'... min_width required is {min_width}.' )
+    if min_width > width:
+        print( f'Error: Output will not fit in {width} characters.' )
+        raise( ValueError )
+
+    converted = [ '%20' if ch == ' ' else ch for ch in fore ]
+    print( f'converted: "{converted}"' )
+
+    chars2 = converted + aft
+    str2 = "".join( chars2 )
+    # If we have trailing spaces, truncate to fit the width.
+    str3 = str2[ : width ]
+
+    return str3
 
 
 class Urlify(unittest.TestCase):
     def test_1(self):
-       self.assertEqual( urlify( "Mr John Smith      ", 13 ), "Mr%20John%20Smith" )
+        self.assertEqual( urlify( "Mr John Smith     ", 13 ), "Mr%20John%20Smith " )
 
     def test_2(self):
-       self.assertEqual( urlify( "Mr John Smith      ", 13 ), "Mr%20John Smith" )
-
+        with self.assertRaises( ValueError ):
+            urlify( None, 13 )
+ 
     def test_3(self):
-       self.assertEqual( urlify( "Mr John Smith      ", 29 ), "Mr%20John%20Smith%20%20%20%20" )
+        with self.assertRaises( ValueError ):
+            urlify( "Mr John Smith    ", None )
+
+    def test_4(self):
+        with self.assertRaises( ValueError ):
+            urlify( None, None)
+
+    def test_5(self):
+        self.assertEqual( urlify( "", 13), "" )
+
+    def test_6(self):
+        with self.assertRaises( ValueError ):
+            urlify( "Mr John Smith    ", "" )
+
+    def test_7(self):
+        with self.assertRaises( ValueError ):
+            urlify( "Mr John Smith    ", -1 )
+
+    def test_8(self):
+            self.assertEqual( urlify( "Mr John Smith    ", 3 ), "Mr%20John Smith  " )
+
+    def test_9(self):
+        with self.assertRaises( ValueError ):
+            urlify( "Mr John Smith   ", 11 )
+    def test_10(self):
+            self.assertEqual( urlify( "Mr John Smith    ", 11 ), "Mr%20John%20Smith" )
+
+    def test_10(self):
+        with self.assertRaises( ValueError ):
+            urlify( "Mr John Smith    ", 14 )
+
+    def test_11(self):
+        self.assertEqual( urlify( "Mr John Smith       ", 14 ), "Mr%20John%20Smith%20" )
 
 
 if __name__ == "__main__":
