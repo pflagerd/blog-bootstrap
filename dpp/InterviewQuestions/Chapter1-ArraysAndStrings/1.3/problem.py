@@ -43,16 +43,17 @@ def urlify(string: str, length: int) -> str:
 
     # We're requested to do it in place, so I'll need to use a list
     # Work backwards, Use two pointers. Starting with length - 1'th character copy character by character, replacing spaces with %20, end when we've encountered (len(string) - length)/2 spaces
+    originalLength = len(string)
     stringAsList = []
     for char in string:
         if length != 0:
             if char == ' ':
-                stringAsList.append('%20')
+                stringAsList.extend(list('%20'))
             else:
                 stringAsList.append(char)
+            if len(stringAsList) > originalLength:
+                raise ValueError("Overran the string length")
             length -= 1
-        else:
-            stringAsList.append(char)
 
     return "".join(stringAsList)
 
