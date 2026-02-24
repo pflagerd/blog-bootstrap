@@ -1,0 +1,23 @@
+{
+    "title": "Palindrome Permutation",
+    "statement": "Given a string, write a function to check if it is a permutation of a palindrome. A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.",
+    "hints": [
+        { "#106": "You do not have to-and should not-generate all permutations. This would be very inefficient."},
+        { "#121": "What characteristics would a string that is a permutation of a palindrome have?"},
+        { "#134": "Have you tried a hash table? You should be able to get this down to 0(N) time."},
+        { "#136": "Can you reduce the space usage by using a bit vector?"}
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "tests": [
+        {"string": "Tact Coa", "expectedResult": True, "explanation": "permutations: \"taco cat\", \"atco eta\", etc" )},
+        {"string":  "", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is more than long enough to accommodate SOME of the necessary new characters, so it's impossible to answer the question."}
+    ],
+    "constraints": [
+        "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
+    ],
+    "examples": [
+        {"string":  "Mr John Smith    ", "length": "14", "expectedResult": "Raise <code>ValueError</code>", "explanation": "The integer value in the second argument is more than long enough to accommodate SOME of the necessary new characters, so it's impossible to answer the question."}
+    ],
+    "urls": ["http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=101"]
+}

@@ -1,0 +1,26 @@
+{
+    "title": "Palindrome Permutation",
+    "statement": "Given a string, write a function to check if it is a permutation of a palindrome.  A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.  EXAMPLE Input: 'Tact Coa' Output: True (permutations: \"taco cat\", \"atco eta\", etc.)",
+    "hints": [
+        {"106": "stuff"},
+        {"121": "stuff"},
+        {"134": "stuff"},
+        {"13": "stuff"}
+    ],
+    "timeComplexity": ">= O(n)",
+    "spaceComplexity": ">= O(n)",
+    "tests": [
+        {"string": "Mr John Smith      ", "length": 13, "output": "Mr%20John%20Smith", "expectedResult": "True", "explanation": "All separating spaces have been replaced with \"%20\"."},
+        {"string": "Mr John Smith      ", "length": 13, "output": "Mr%20John Smith", "expectedResult": "False", "explanation": "The space between the names was not handled."},
+        {"string": "Mr John Smith      ", "length": 29, "output": "Mr%20John%20Smith%20%20%20%20", "expectedResult": "True", "explanation": "Trailing spaces were handled because they were within the given string length."}
+    ],
+    "constraints": [
+        "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
+    ],
+    "examples": [
+        {"string": "Mr John Smith    ", "length": 13, "output": "Mr%20John%20Smith"}
+    ],
+    "urls": [
+        "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=90"
+    ]
+}
