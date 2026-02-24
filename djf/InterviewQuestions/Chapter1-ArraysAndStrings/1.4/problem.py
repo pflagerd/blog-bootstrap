@@ -1,7 +1,18 @@
 import unittest
 
-# def is_even( n ):
-#     return 0 == (n % 2)
+def is_even( n ):
+    return 0 == (n % 2)
+
+def isPalindromePermutation0(string : str) -> bool:
+    if not string:
+        raise ValueError( "String must exist and be non-empty" )
+    string = string.lower()
+    alphabet = set( string )
+    # At most one character may have an odd count.
+    evens = [ is_even( string.count( ch ) ) for ch in alphabet ]
+    if evens.count( False ) > 1:
+        return False
+    return True
 
 def is_odd( n ):
     return 1 == (n % 2)
@@ -21,11 +32,6 @@ def isPalindromePermutation(string : str) -> bool:
             return False
 
     return True
-
-#   evens = [ is_even( string.count( ch ) ) for ch in alphabet ]
-#   if evens.count( False ) > 1:
-#       return False
-#   return True
 
 class PalindromePermutation(unittest.TestCase):
     def test_1(self):
