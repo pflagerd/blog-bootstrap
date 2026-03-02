@@ -18,6 +18,13 @@ def hasAnEvenNumberOfEachDifferentCharacterExceptOne(string : str) -> bool:
             odds += 1
     return odds == 1
 
+def numberOfDifferentCharactersHavingAnOddCount(string : str) -> int:
+    odds = 0
+    for c in set(string):
+        if string.count(c) % 2:
+            odds += 1
+    return odds
+
 def removeSpaces(string : str) -> str:
     return string.replace(" ", "")
 
@@ -27,7 +34,7 @@ def removeSpaces(string : str) -> str:
 
 # If a string has an even number of characters, and if there is an even number of each different character, it is always a permutation of a palindrome.
 # If a string has an odd number of characters, and if there is an even number of each different character except for one character which has an odd number, it is always a permutation of a palindrome.
-def isPalindromePermutation(string : str) -> bool:
+def isPalindromePermutation0(string : str) -> bool:
     if string is None or len(string) == 0:
         raise ValueError("string must be non-None and non-empty")
 
@@ -37,8 +44,44 @@ def isPalindromePermutation(string : str) -> bool:
         return True
     if not hasAnEvenNumberOfCharacters(string) and hasAnEvenNumberOfEachDifferentCharacterExceptOne(string):
         return True
+
     return False
 
+
+def isPalindromePermutation1(string : str) -> bool:
+    if string is None or len(string) == 0:
+        raise ValueError("string must be non-None and non-empty")
+
+    string = removeSpaces(string).lower()  # Account for case and space ignorance.
+
+    if hasAnEvenNumberOfCharacters(string):
+        if hasAnEvenNumberOfEachDifferentCharacter(string):
+            return True
+    else:
+        if hasAnEvenNumberOfEachDifferentCharacterExceptOne(string):
+            return True
+
+    return False
+
+
+def isPalindromePermutation2(string : str) -> bool:
+    if string is None or len(string) == 0:
+        raise ValueError("string must be non-None and non-empty")
+
+    string = removeSpaces(string).lower()  # Account for case and space ignorance.
+
+    if hasAnEvenNumberOfCharacters(string):
+        if numberOfDifferentCharactersHavingAnOddCount(string) == 0:
+            return True
+    else:
+        if numberOfDifferentCharactersHavingAnOddCount(string) == 1:
+            return True
+
+    return False
+
+
+
+isPalindromePermutation = isPalindromePermutation2
 
 class PalindromePermutation(unittest.TestCase):
     def test_1(self):
