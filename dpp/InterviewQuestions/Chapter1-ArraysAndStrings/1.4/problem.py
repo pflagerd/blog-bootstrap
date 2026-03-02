@@ -31,6 +31,8 @@ def isPalindromePermutation(string : str) -> bool:
     if string is None or len(string) == 0:
         raise ValueError("string must be non-None and non-empty")
 
+    string = removeSpaces(string).lower()  # Account for case and space ignorance.
+
     if hasAnEvenNumberOfCharacters(string) and hasAnEvenNumberOfEachDifferentCharacter(string):
         return True
     if not hasAnEvenNumberOfCharacters(string) and hasAnEvenNumberOfEachDifferentCharacterExceptOne(string):
@@ -40,7 +42,7 @@ def isPalindromePermutation(string : str) -> bool:
 
 class PalindromePermutation(unittest.TestCase):
     def test_1(self):
-        self.assertEqual(isPalindromePermutation(removeSpaces("Tact Coa".lower())), True)
+        self.assertEqual(isPalindromePermutation("Tact Coa"), True)
 
     def test_2(self):
         with self.assertRaises(ValueError):
@@ -59,8 +61,17 @@ class PalindromePermutation(unittest.TestCase):
     def test_5a(self):
         self.assertEqual(isPalindromePermutation("aba"), True) # an invariant. Inserting a different character between two identical characters always results in a palindrome
 
+    def test_5b(self):
+        self.assertEqual(isPalindromePermutation("a ba"), True) # Two odds would normally fail, except that we particularly ignore spaces.
+
+    def test_5c(self):
+        self.assertEqual(isPalindromePermutation("A ba"), True) # As in test_5b above, and we particulary ignore case.
+
     def test_6(self):
         self.assertEqual(isPalindromePermutation("aaaaaaaaaaaaa"), True) # an invariant. n of the same characters is always a palindrome
+
+    def test_6a(self):
+        self.assertEqual(isPalindromePermutation("aaaaaaaaa aaaa"), True) # an invariant. An odd number of characters AND a single space would normally fail, but is a special case in this problem as illustrated only by "Tact coa" example.
 
     def test_7(self):
         self.assertEqual(isPalindromePermutation("ab"), False) # an invariant. One each of two different characters is never a palindrome.
