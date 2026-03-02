@@ -80,8 +80,28 @@ def isPalindromePermutation2(string : str) -> bool:
     return False
 
 
+def isPalindromePermutation3(string : str) -> bool:
+    if string is None or len(string) == 0:
+        raise ValueError("string must be non-None and non-empty")
 
-isPalindromePermutation = isPalindromePermutation2
+    string = removeSpaces(string).lower()  # Account for case and space ignorance.
+
+    if numberOfDifferentCharactersHavingAnOddCount(string) in (0, 1):
+            return True
+
+    return False
+
+
+def isPalindromePermutation4(string : str) -> bool:
+    if string is None or len(string) == 0:
+        raise ValueError("string must be non-None and non-empty")
+
+    string = removeSpaces(string).lower()  # Account for case and space ignorance.
+
+    return numberOfDifferentCharactersHavingAnOddCount(string) in (0, 1)
+
+
+isPalindromePermutation = isPalindromePermutation4
 
 class PalindromePermutation(unittest.TestCase):
     def test_1(self):
