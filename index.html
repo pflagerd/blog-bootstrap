@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>blog-bootstrap</title>
+    <title>playback</title>
     <link rel="stylesheet" href="blog.css"/>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
@@ -37,7 +37,7 @@
 <body>
 <header>
     <div class="container">
-        <h1>blog-bootstrap</h1>
+        <h1>playback</h1>
         <p>A chromium-centric file-only (server-not-needed) blog</p>
         <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
         <br/>
@@ -67,6 +67,19 @@
 <!--            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">A task</a></p>-->
 <!--            <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subtask</a></p>-->
 <!--            <p style="margin-left: 2rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subsubtask</a></p>-->
+        </article>
+
+        <article class="post">
+            <h3>Can we get Playback to build 5?</h3>
+            <p class="meta">Jamie and Daniel are both going to work on https://github.com/ShirtNerson/playback directly, instead of via a fork as previously.</p>
+            <p class="meta">2026-03-03 08:47 (UTC-8) by Daniel</p>
+            <p>Daniel clones to his desktop: git@github.com:ShirtNerson/playback.git</p>
+            <p>Jamie suggests we try this <code>dart run build_runner build</code></p>
+            <p>That didn't work. Lots of out of date noise.</p>
+            <p>So I upgrade to the latest version: <code>flutter upgrade</code></p>
+            <pre>
+
+            </pre>
         </article>
 
         <article class="post">
@@ -2201,7 +2214,7 @@ sudo apt install google-chrome-stable</pre>
             <p>Then I opened a new console window to make sure the updated scripts worked.</p>
             <p>There were some small errors, which I've forgotten, but the process basically worked.</p>
             <p>I made sure Chromium was also installed.</p>
-            <p>I cloned <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a> to ~/Desktop/blog (AKA ~/desktops/Default/blog)</p>
+            <p>I cloned <a href="https://github.com/pflagerd/playback" target="_blank">https://github.com/pflagerd/playback</a> to ~/Desktop/blog (AKA ~/desktops/Default/blog)</p>
             <p>I then added logic to allow the blog to update when changing it, and committed that.</p>
             <p>Now being pretty confident in the modifications made to /home/oy753c (AKA ~/) by pflagerd-self, I trashed that directory:</p>
             <pre>rm -rf pflagerd-self</pre>
