@@ -17,7 +17,7 @@ def isPalindromePermutation0(string : str) -> bool:
 def is_odd( n ):
     return 1 == (n % 2)
 
-def isPalindromePermutation(string : str) -> bool:
+def isPalindromePermutation1(string : str) -> bool:
     if not string:
         raise ValueError( "String must exist and be non-empty" )
 
@@ -32,6 +32,17 @@ def isPalindromePermutation(string : str) -> bool:
             return False
 
     return True
+
+def isPalindromePermutation(string : str) -> bool:
+    if not string:
+        raise ValueError( "String must exist and be non-empty." )
+
+    standardized = string.lower().replace( ' ', '' )
+    has_odd_count = { ch : False for ch in set( standardized ) }
+    for ch in standardized:
+        has_odd_count[ ch ] = not has_odd_count[ ch ]
+    valid = sum( has_odd_count.values() ) in (0, 1)
+    return valid
 
 class PalindromePermutation(unittest.TestCase):
     def test_1(self):
