@@ -77,9 +77,334 @@
             <p>Jamie suggests we try this <code>dart run build_runner build</code></p>
             <p>That didn't work. Lots of out of date noise.</p>
             <p>So I upgrade to the latest version: <code>flutter upgrade</code></p>
-            <pre>
+            <pre>kubuntu-jamie-game:~/desktops/Default/playback> flutter upgrade
+Upgrading Flutter to 3.41.3 from 3.38.9 in /home/oy753c/snap/flutter/common/flutter...
+Downloading Linux x64 Dart SDK from Flutter engine 327ed814500baca0480a02f8555aa84a9afe32bf...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
 
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ 23  218M   23 51.7M    0     0  60.1M      0  0:00:03 --:--:--  0:00:03 60.0M
+ 56  218M   56  124M    0     0  67.0M      0  0:00:03  0:00:01  0:00:02 67.0M
+ 89  218M   89  195M    0     0  68.3M      0  0:00:03  0:00:02  0:00:01 68.3M
+100  218M  100  218M    0     0  69.8M      0  0:00:03  0:00:03 --:--:-- 69.8M
+Building flutter tool...
+Resolving dependencies...
+Downloading packages...
+Got dependencies.
+
+Upgrading engine...
+Downloading android-arm-profile/linux-x64 tools...                 716ms
+Downloading android-arm-release/linux-x64 tools...                 446ms
+Downloading android-arm64-profile/linux-x64 tools...               513ms
+Downloading android-arm64-release/linux-x64 tools...               360ms
+Downloading android-x64-profile/linux-x64 tools...                 449ms
+Downloading android-x64-release/linux-x64 tools...                 349ms
+Downloading android-x86 tools...                                   13.2s
+Downloading android-x64 tools...                                   14.8s
+Downloading android-arm tools...                                   14.6s
+Downloading android-arm-profile tools...                            5.4s
+Downloading android-arm-release tools...                            4.8s
+Downloading android-arm64 tools...                                 21.9s
+Downloading android-arm64-profile tools...                          5.9s
+Downloading android-arm64-release tools...                          5.2s
+Downloading android-x64-profile tools...                            6.0s
+Downloading android-x64-release tools...                            5.7s
+Downloading Web SDK...                                              5.2s
+Downloading package sky_engine...                                  286ms
+Downloading package flutter_gpu...                                  24ms
+Downloading flutter_patched_sdk tools...                           793ms
+Downloading flutter_patched_sdk_product tools...                   810ms
+Downloading linux-x64 tools...                                      4.7s
+Downloading linux-x64-debug/linux-x64-flutter-gtk tools...          5.1s
+Downloading linux-x64-profile/linux-x64-flutter-gtk tools...      2,363ms
+Downloading linux-x64-release/linux-x64-flutter-gtk tools...      2,040ms
+Downloading linux-x64/font-subset tools...                         370ms
+
+Flutter 3.41.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 48c32af034 (4 days ago) • 2026-02-27 17:09:06 -0500
+Engine • hash 14e407f99287c74c73a9a055680e7c9341773f6e (revision 327ed81450) (4 days ago) • 2026-02-27 15:19:48.000Z
+Tools • Dart 3.11.1 • DevTools 2.54.1
+
+Resolving dependencies...
+Downloading packages...
+  _fe_analyzer_shared 92.0.0 (97.0.0 available)
+  adaptive_breakpoints 0.1.7 (discontinued)
+  analyzer 9.0.0 (11.0.0 available)
+  archive 3.6.1 (4.0.9 available)
+  dart_style 3.1.3 (3.1.6 available)
+  device_info 2.0.3 (discontinued replaced by device_info_plus)
+  ffi 2.1.4 (2.2.0 available)
+  ffigen 20.1.1 (from direct dependency to dev dependency)
+  gcloud 0.8.19 (0.9.0 available)
+  google_fonts 6.3.3 (8.0.2 available)
+  google_mobile_ads 5.1.0 (7.0.0 available)
+  googleapis 14.0.0 (16.0.0 available)
+  googleapis_auth 2.0.0 (2.1.0 available)
+  hooks 1.0.0 (1.0.1 available)
+  isolate 2.1.1 (discontinued)
+  js 0.7.2 (discontinued)
+  json_annotation 4.9.0 (4.11.0 available)
+  lints 6.0.0 (6.1.0 available)
+  matcher 0.12.18 (0.12.19 available)
+  meta 1.17.0 (1.18.1 available)
+  path_provider_foundation 2.5.1 (2.6.0 available)
+  pedantic 1.11.1 (discontinued replaced by lints)
+  petitparser 7.0.1 (7.0.2 available)
+  source_span 1.10.1 (1.10.2 available)
+  test 1.29.0 (1.30.0 available)
+  test_api 0.7.9 (0.7.10 available)
+  test_core 0.6.15 (0.6.16 available)
+  url_launcher_ios 6.3.6 (6.4.1 available)
+  url_launcher_web 2.4.1 (2.4.2 available)
+  video_player 2.10.1 (2.11.0 available)
+  video_player_android 2.9.1 (2.9.4 available)
+  video_player_avfoundation 2.8.8 (2.9.4 available)
+  watcher 1.2.0 (1.2.1 available)
+  webview_flutter 4.9.0 (4.13.1 available)
+  webview_flutter_android 3.16.9 (4.10.13 available)
+  webview_flutter_wkwebview 3.23.5 (3.23.8 available)
+  yaml_edit 2.2.3 (2.2.4 available)
+Changed 1 dependency!
+5 packages are discontinued.
+31 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+
+Running flutter doctor...
+Doctor summary (to see all details, run flutter doctor -v):
+[✓] Flutter (Channel stable, 3.41.3, on Ubuntu 25.10 6.17.0-14-generic, locale en_US.UTF-8)
+[✓] Android toolchain - develop for Android devices (Android SDK version 36.1.0)
+[✓] Chrome - develop for the web
+[✓] Linux toolchain - develop for Linux desktop
+[✓] Connected device (2 available)
+[✓] Network resources
+
+• No issues found!
+Took 5.5m
             </pre>
+            <p>I notice that <code>31 packages have newer versions incompatible with dependency constraints.</code></p>
+            <p>I run the following build attempt:</p>
+            <pre>kubuntu-jamie-game:~/desktops/Default/playback> dart run build_runner build
+Resolving dependencies in `/home/oy753c/Desktop/playback`...
+The current Dart SDK version is 3.11.1.
+
+Because playback requires SDK version >=2.17.6 <=3.10.8, version solving failed.</pre>
+            <p>I also notice that <code>pubspec.yaml</code> has a constraint hardcoded which I update to match the version of the Dart SDK reported above.</p>
+            <img src="img/Screenshot_20260303_100352.png" alt="img/Screenshot_20260303_100352.png">
+            <p>I followed up with this:</p>
+            <pre>kubuntu-jamie-game:~/desktops/Default/playback> flutter --version
+Flutter 3.41.3 • channel stable • https://github.com/flutter/flutter.git
+Framework • revision 48c32af034 (4 days ago) • 2026-02-27 17:09:06 -0500
+Engine • hash 14e407f99287c74c73a9a055680e7c9341773f6e (revision 327ed81450) (4 days ago) • 2026-02-27 15:19:48.000Z
+Tools • Dart 3.11.1 • DevTools 2.54.1
+</pre>
+            <p>This allowed a step further:</p>
+            <pre>kubuntu-jamie-game:~/desktops/Default/playback> flutter pub outdated
+Showing outdated packages.
+[*] indicates versions that are not the latest available.
+
+Package Name                      Current   Upgradable  Resolvable  Latest
+
+direct dependencies:
+audio_session                     *0.1.25   -           -           0.2.2
+dart_mappable                     *3.3.1    -           -           4.6.1
+drift                             *2.21.0   -           -           2.32.0
+drift_flutter                     *0.2.7    -           -           0.3.0
+file                              *6.1.4    -           -           7.0.1
+flutter_sound_platform_interface  *9.30.0   -           -           10.3.8
+uuid                              *3.0.7    -           -           4.5.3
+
+dev_dependencies:
+build_runner                      *2.4.13   -           -           2.11.1
+dart_mappable_builder             *3.3.0    -           -           4.6.4
+drift_dev                         *2.21.2   -           -           2.32.0
+flutter_lints                     *2.0.3    -           -           6.0.0
+
+transitive dependencies:
+characters                        *1.4.0    -           -           1.4.1
+flutter_sound_web                 *9.30.0   -           -           10.3.8
+material_color_utilities          *0.11.1   -           -           0.13.0
+meta                              *1.17.0   -           -           1.18.1
+sqlite3                           *2.9.4    -           -           3.1.6
+sqlite3_flutter_libs              *0.5.41   -           -           0.6.0+eol
+type_plus                         *1.1.0    -           -           2.1.1
+
+transitive dev_dependencies:
+_fe_analyzer_shared               *67.0.0   -           -           97.0.0
+analyzer                          *6.4.1    -           -           11.0.0
+analyzer_plugin                   *0.11.3   -           -           0.14.5
+build                             *2.4.1    -           -           4.0.4
+build_config                      *1.1.2    -           -           1.3.0
+build_resolvers                   *2.4.2    -           -           3.0.4      (discontinued)
+build_runner_core                 *7.3.2    -           -           9.3.2      (discontinued)
+dart_style                        *2.3.6    -           -           3.1.6
+lints                             *2.1.1    -           -           6.1.0
+matcher                           *0.12.17  -           -           0.12.19
+shelf_web_socket                  *2.0.1    -           -           3.0.0
+source_gen                        *1.5.0    -           -           4.2.0
+sqlparser                         *0.39.2   -           -           0.44.1
+test                              *1.26.3   -           -           1.30.0
+test_api                          *0.7.7    -           -           0.7.10
+test_core                         *0.6.12   -           -           0.6.16
+No resolution was found. Try running `flutter pub upgrade --dry-run` to explore why.
+
+build_resolvers
+    Package build_resolvers has been discontinued. See https://dart.dev/go/package-discontinue
+build_runner_core
+    Package build_runner_core has been discontinued. See https://dart.dev/go/package-discontinue
+kubuntu-jamie-game:~/desktops/Default/playback> flutter pub upgrade --dry-run
+Resolving dependencies...
+The current Dart SDK version is 3.11.1.
+
+Because playback requires SDK version >=2.17.6 <=3.10.8, version solving failed.
+Failed to update packages.
+kubuntu-jamie-game:~/desktops/Default/playback> flutter pub upgrade --dry-run
+Resolving dependencies... (2.3s)
+Note: matcher is pinned to version 0.12.18 by flutter_test from the flutter SDK.
+See https://dart.dev/go/sdk-version-pinning for details.
+
+Note: test_api is pinned to version 0.7.9 by flutter_test from the flutter SDK.
+See https://dart.dev/go/sdk-version-pinning for details.
+
+
+    Because bloc_test >=8.0.0-nullsafety.5 depends on test ^1.16.0 and test >=1.29.0 depends on analyzer >=8.0.0 <11.0.0, bloc_test >=8.0.0-nullsafety.5 requires analyzer >=8.0.0 <11.0.0 or test >=1.16.0 <1.29.0.
+(1) So, because test >=1.21.6 <1.24.4 depends on analyzer >=2.0.0 <6.0.0 and test >=1.27.0 <1.29.0 depends on test_api 0.7.8, bloc_test >=8.0.0-nullsafety.5 requires analyzer >=2.0.0 <6.0.0 or >=8.0.0 <11.0.0 or test_api 0.7.8 or test >=1.16.0 <1.21.6-∞ or >=1.24.4
+      <1.27.0-∞.
+
+    Because test >=1.16.6 <1.17.10 depends on analyzer ^1.0.0 and test >=1.17.10 <1.20.0 depends on analyzer >=1.0.0 <3.0.0, test >=1.16.6 <1.20.0 requires analyzer >=1.0.0 <3.0.0.
+    And because test >=1.20.0 <1.21.2 depends on test_api 0.4.9 and test >=1.21.0 <1.21.6 depends on analyzer >=2.0.0 <5.0.0, test >=1.16.6 <1.21.6 requires analyzer >=1.0.0 <5.0.0 or test_api 0.4.9.
+    And because test >=1.25.13 <1.28.0 depends on matcher >=0.12.16 <0.12.18 and test >=1.24.3 <1.25.13 depends on matcher >=0.12.16 <0.12.17, test >=1.16.6 <1.21.6-∞ or >=1.24.3 <1.28.0-∞ requires analyzer >=1.0.0 <5.0.0 or test_api 0.4.9 or matcher >=0.12.16 <0.12.18.
+    And because test >=1.16.0-nullsafety.19 <1.16.6 depends on test_api 0.2.19 and every version of flutter_test from sdk depends on matcher 0.12.18, if test >=1.16.0-nullsafety.19 <1.21.6-∞ or >=1.24.3 <1.28.0-∞ and flutter_test from sdk then analyzer >=1.0.0 <5.0.0 or
+      test_api 0.2.19 or 0.4.9.
+    And because bloc_test >=8.0.0-nullsafety.5 requires analyzer >=2.0.0 <6.0.0 or >=8.0.0 <11.0.0 or test_api 0.7.8 or test >=1.16.0 <1.21.6-∞ or >=1.24.4 <1.27.0-∞ (1), if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk then analyzer >=1.0.0 <6.0.0 or >=8.0.0
+      <11.0.0 or test_api 0.2.19 or 0.4.9 or 0.7.8.
+    And because every version of flutter_test from sdk depends on test_api 0.7.9, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk then analyzer >=1.0.0 <6.0.0 or >=8.0.0 <11.0.0.
+    And because drift_dev >=2.19.0 <2.23.0 depends on analyzer ^6.0.0 and drift_dev >=2.23.0 depends on dart_style >=2.3.7 <4.0.0, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.7 <4.0.0.
+(2) So, because dart_style >=2.3.7 <2.3.8 depends on analyzer ^6.5.0 and analyzer >=6.5.0 <6.5.1 depends on macros >=0.1.0-main.0 <0.1.1, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or macros
+      >=0.1.0-main.0 <0.1.1 or analyzer ^6.5.1.
+
+    Because no versions of macros match >=0.1.0-main.0 <0.1.0-main.0 and macros >=0.1.0-main.0 <0.1.0-main.1 depends on _macros 0.1.0 from sdk, macros >=0.1.0-main.0 <0.1.0-main.1 requires _macros 0.1.0 from sdk.
+    And because macros >=0.1.0-main.1 <0.1.0-main.2 depends on _macros 0.1.1 from sdk, macros >=0.1.0-main.0 <0.1.0-main.2 requires _macros 0.1.0 or 0.1.1 from sdk.
+    And because macros >=0.1.0-main.2 <0.1.0-main.3 depends on _macros 0.1.2 from sdk and macros >=0.1.0-main.3 <0.1.0-main.4 depends on _macros 0.1.3 from sdk, macros >=0.1.0-main.0 <0.1.0-main.4 requires _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 from sdk.
+    And because macros >=0.1.0-main.4 <0.1.0-main.5 depends on _macros 0.1.4 from sdk and macros >=0.1.0-main.5 <0.1.0-main.6 depends on _macros 0.1.5 from sdk, macros >=0.1.0-main.0 <0.1.0-main.6 requires _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 from
+      sdk.
+    And because macros >=0.1.0-main.6 <0.1.0-main.7 depends on _macros 0.1.6 from sdk and macros >=0.1.0-main.7 <0.1.1-main.0 depends on _macros 0.1.7 from sdk, macros >=0.1.0-main.0 <0.1.1-main.0 requires _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or
+      0.1.6 or 0.1.7 from sdk.
+    And because if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or macros >=0.1.0-main.0 <0.1.1 or analyzer ^6.5.1 (2), if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0
+      then dart_style >=2.3.8 <4.0.0 or analyzer ^6.5.1 or _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or 0.1.7 from sdk.
+    And because analyzer >=6.5.1 <6.5.2 depends on macros >=0.1.1-main.0 <0.1.2, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or
+      0.1.7 from sdk or macros >=0.1.1-main.0 <0.1.2 or analyzer ^6.5.2.
+    Because no versions of macros match >=0.1.1-main.0 <0.1.1-main.0 and macros >=0.1.1-main.0 <0.1.2-main.0 depends on _macros 0.2.0 from sdk, macros >=0.1.1-main.0 <0.1.2-main.0 requires _macros 0.2.0 from sdk.
+    Thus, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or 0.1.7 or 0.2.0 from sdk or analyzer ^6.5.2.
+    And because analyzer >=6.5.2 <6.6.0 depends on macros >=0.1.2-main.0 <0.1.3, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or
+      0.1.7 or 0.2.0 from sdk or macros >=0.1.2-main.0 <0.1.3 or analyzer ^6.6.0.
+    Because no versions of macros match >=0.1.2-main.0 <0.1.2-main.0 and macros >=0.1.2-main.0 <0.1.2-main.2 depends on _macros 0.3.0 from sdk, macros >=0.1.2-main.0 <0.1.2-main.2 requires _macros 0.3.0 from sdk.
+    Thus, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or 0.1.7 or 0.2.0 or 0.3.0 from sdk or analyzer ^6.6.0 or macros
+      >=0.1.2-main.2 <0.1.3.
+    And because analyzer >=6.6.0 <6.9.0 depends on macros >=0.1.2-main.3 <0.1.3, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or
+      0.1.7 or 0.2.0 or 0.3.0 from sdk or macros >=0.1.2-main.2 <0.1.3 or analyzer ^6.9.0.
+    Because macros >=0.1.2-main.4 <0.1.3-main.0 depends on _macros 0.3.2 from sdk and macros >=0.1.2-main.2 <0.1.2-main.4 depends on _macros 0.3.1 from sdk, macros >=0.1.2-main.2 <0.1.3-main.0 requires _macros 0.3.1 or 0.3.2 from sdk.
+    Thus, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 then dart_style >=2.3.8 <4.0.0 or _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or 0.1.7 or 0.2.0 or 0.3.0 or 0.3.1 or 0.3.2 from sdk or analyzer ^6.9.0.
+    And because dart_mappable_builder >=2.0.0-dev.7 <4.4.0 depends on dart_style ^2.2.4, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 and dart_mappable_builder >=2.0.0-dev.7 <4.4.0 then _macros 0.1.0 or 0.1.1 or 0.1.2 or 0.1.3 or
+      0.1.4 or 0.1.5 or 0.1.6 or 0.1.7 or 0.2.0 or 0.3.0 or 0.3.1 or 0.3.2 from sdk or analyzer ^6.9.0 or dart_style ^2.3.8.
+    And because dart_style ^2.3.8 depends on analyzer ^6.9.0 which depends on macros >=0.1.3-main.0 <0.1.4, if bloc_test >=8.0.0-nullsafety.5 and flutter_test from sdk and drift_dev >=2.19.0 and dart_mappable_builder >=2.0.0-dev.7 <4.4.0 then _macros 0.1.0 or 0.1.1 or
+      0.1.2 or 0.1.3 or 0.1.4 or 0.1.5 or 0.1.6 or 0.1.7 or 0.2.0 or 0.3.0 or 0.3.1 or 0.3.2 from sdk or macros >=0.1.3-main.0 <0.1.4.
+    And because macros >=0.1.3-main.0 depends on _macros from sdk which doesn't exist (could not find package _macros in the Dart SDK), one of bloc_test >=8.0.0-nullsafety.5 or flutter_test from sdk or drift_dev >=2.19.0 or dart_mappable_builder >=2.0.0-dev.7 <4.4.0
+      must be false.
+    And because playback depends on both flutter_test from sdk and bloc_test ^10.0.0, drift_dev >=2.19.0 is incompatible with dart_mappable_builder >=2.0.0-dev.7 <4.4.0.
+    So, because playback depends on both dart_mappable_builder ^3.0.2 and drift_dev ^2.21.2, version solving failed.
+
+
+You can try the following suggestion to make the pubspec resolve:
+* Try an upgrade of your constraints: flutter pub upgrade --major-versions
+Failed to update packages.</pre>
+            <p>So I try an upgrade of my constraints:</p>
+            <pre>kubuntu-jamie-game:~/desktops/Default/playback> flutter pub upgrade --major-versions
+Resolving dependencies... (1.4s)
+Changed 6 constraints in pubspec.yaml:
+  audio_session: ^0.1.10 -> ^0.2.2
+  dart_mappable: ^3.0.1 -> ^4.6.1
+  file: ^6.1.4 -> ^7.0.1
+  uuid: ^3.0.6 -> ^4.5.3
+  flutter_lints: ^2.0.0 -> ^6.0.0
+  dart_mappable_builder: ^3.0.2 -> ^4.6.4
+Resolving dependencies...
+Downloading packages...
+> _fe_analyzer_shared 92.0.0 (was 67.0.0) (97.0.0 available)
+> analyzer 9.0.0 (was 6.4.1) (11.0.0 available)
+> audio_session 0.2.2 (was 0.1.25)
+> build 4.0.4 (was 2.4.1)
+> build_config 1.2.0 (was 1.1.2) (1.3.0 available)
+> build_runner 2.11.1 (was 2.4.13)
+> characters 1.4.1 (was 1.4.0)
+> dart_mappable 4.6.1 (was 3.3.1)
+> dart_mappable_builder 4.6.4 (was 3.3.0)
+> dart_style 3.1.3 (was 2.3.6) (3.1.6 available)
+> drift 2.31.0 (was 2.21.0) (2.32.0 available)
+> drift_dev 2.31.0 (was 2.21.2) (2.32.0 available)
+> drift_flutter 0.2.8 (was 0.2.7) (0.3.0 available)
+> file 7.0.1 (was 6.1.4)
+> flutter_lints 6.0.0 (was 2.0.3)
+  flutter_sound_platform_interface 9.30.0 (10.3.8 available)
+  flutter_sound_web 9.30.0 (10.3.8 available)
+> lints 6.1.0 (was 2.1.1)
+> matcher 0.12.18 (was 0.12.17) (0.12.19 available)
+> material_color_utilities 0.13.0 (was 0.11.1)
+  meta 1.17.0 (1.18.1 available)
+> shelf_web_socket 3.0.0 (was 2.0.1)
+> source_gen 4.2.0 (was 1.5.0)
+  sqlite3 2.9.4 (3.1.6 available)
+  sqlite3_flutter_libs 0.5.41 (0.6.0+eol available)
+> sqlparser 0.43.1 (was 0.39.2) (0.44.1 available)
+> test 1.29.0 (was 1.26.3) (1.30.0 available)
+> test_api 0.7.9 (was 0.7.7) (0.7.10 available)
+> test_core 0.6.15 (was 0.6.12) (0.6.16 available)
+> type_plus 2.1.1 (was 1.1.0)
+> uuid 4.5.3 (was 3.0.7)
+These packages are no longer being depended on:
+- analyzer_plugin 0.11.3
+- build_resolvers 2.4.2
+- build_runner_core 7.3.2
+- js 0.7.2
+- timing 1.0.2
+Changed 31 dependencies!
+17 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.</pre>
+            <p>This permits another step:</p>
+            <pre>kubuntu-jamie-game:~/desktops/Default/playback> flutter pub outdated
+Showing outdated packages.
+[*] indicates versions that are not the latest available.
+
+Package Name                      Current   Upgradable  Resolvable  Latest
+
+direct dependencies:
+drift                             *2.31.0   *2.31.0     *2.31.0     2.32.0
+drift_flutter                     *0.2.8    *0.2.8      *0.2.8      0.3.0
+flutter_sound_platform_interface  *9.30.0   *9.30.0     *9.30.0     10.3.8
+
+dev_dependencies:
+drift_dev                         *2.31.0   *2.31.0     *2.31.0     2.32.0
+
+transitive dependencies:
+flutter_sound_web                 *9.30.0   *9.30.0     *9.30.0     10.3.8
+meta                              *1.17.0   *1.17.0     *1.17.0     1.18.1
+sqlite3                           *2.9.4    *2.9.4      *2.9.4      3.1.6
+sqlite3_flutter_libs              *0.5.41   *0.5.41     *0.5.41     0.6.0+eol
+
+transitive dev_dependencies:
+_fe_analyzer_shared               *92.0.0   *92.0.0     *92.0.0     97.0.0
+analyzer                          *9.0.0    *9.0.0      *9.0.0      11.0.0
+build_config                      *1.2.0    *1.2.0      *1.2.0      1.3.0
+dart_style                        *3.1.3    *3.1.3      *3.1.3      3.1.6
+matcher                           *0.12.18  *0.12.18    *0.12.18    0.12.19
+sqlparser                         *0.43.1   *0.43.1     *0.43.1     0.44.1
+test                              *1.29.0   *1.29.0     *1.29.0     1.30.0
+test_api                          *0.7.9    *0.7.9      *0.7.9      0.7.10
+test_core                         *0.6.15   *0.6.15     *0.6.15     0.6.16
+You are already using the newest resolvable versions listed in the 'Resolvable' column.
+Newer versions, listed in 'Latest', may not be mutually compatible.</pre>
+            <p>Well, that's about as much disappointment as I can take in one session.</p>
+            <p>Jamie and I decide maybe next time he'll draw up some stuff on a whiteboard to explore the multi-player design.</p>
         </article>
 
         <article class="post">
