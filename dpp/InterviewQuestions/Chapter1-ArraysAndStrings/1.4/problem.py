@@ -11,12 +11,29 @@ def hasAnEvenNumberOfEachDifferentCharacter(string : str) -> bool:
             return False
     return True
 
-def hasAnEvenNumberOfEachDifferentCharacterExceptOne(string : str) -> bool:
+def hasAnEvenNumberOfEachDifferentCharacterExceptOne1(string : str) -> bool:
     odds = 0
     for c in set(string):
         if string.count(c) % 2:
             odds += 1
     return odds == 1
+
+def hasAnEvenNumberOfEachDifferentCharacterExceptOne2(string : str) -> bool:
+    odds = 0
+    counts = {}
+    for c in string:
+        if c in counts:
+            counts[c] += 1
+        else:
+            counts[c] = 1
+
+    for c, count in counts.items:
+        if count % 2:
+            odds += 1
+
+    return odds == 1
+
+hasAnEvenNumberOfEachDifferentCharacterExceptOne = hasAnEvenNumberOfEachDifferentCharacterExceptOne2
 
 def numberOfDifferentCharactersHavingAnOddCount(string : str) -> int:
     odds = 0
