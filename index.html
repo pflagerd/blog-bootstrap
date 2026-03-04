@@ -106,12 +106,59 @@
             <p></p>
         </article>
 
+        <style>blockquote {
+            border-left: 0.5rem solid #6c757d;
+            padding-left: 0.5rem;
+            margin-left: 0;
+        }</style>
+
+
         <article class="post">
-            <style>blockquote {
-                border-left: 0.5rem solid #6c757d;
-                padding-left: 0.5rem;
-                margin-left: 0;
-            }</style>
+            <h3>IX - Interview Questions</h3>
+            <h4>1 - Arrays and Strings</h4>
+            <h5>1.4 Palindrome Permutation</h5>
+            <p class="meta">We continue working on Interview Question 1.4 on <a href="Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=102" target="_blank">p91.</a></p>
+            <p class="meta">2025-03-04 09:00 (UTC-8) by Daniel</p>
+            <p>Last time we defined a function thus:</p>
+            <pre>def hasAnEvenNumberOfEachDifferentCharacterExceptOne1(string : str) -> bool:
+    odds = 0
+    for c in set(string):
+        if string.count(c) % 2:
+            odds += 1
+    return odds == 1</pre>
+            <p>This is O(N<sup>2</sup>), because each call to <code>string.count(c)</code> iterates through <code>string</code> is likely a O(N) operation.</p>
+            <p>We can make the function O(N) thus:</p>
+            <pre>def hasAnEvenNumberOfEachDifferentCharacterExceptOne2(string : str) -> bool:
+    odds = 0
+    counts = {}
+    for c in string:
+        if c in counts:
+            counts[c] += 1
+        else:
+            counts[c] = 1
+
+    for c, count in counts.items():
+        if count % 2:
+            odds += 1
+
+    return odds == 1</pre>
+            <p>ChatGPT proposes an even more compact syntax for the first <code>for</code> loop, which David observed uses a default value for the <code>.get()</code> function:</p>
+            <pre>def hasAnEvenNumberOfEachDifferentCharacterExceptOne3(string : str) -> bool:
+    odds = 0
+    counts = {}
+    for c in string:
+        counts[c] = counts.get(c, 0) + 1
+
+    for c, count in counts.items():
+        if count % 2:
+            odds += 1
+
+    return odds == 1</pre>
+            <p>So this is O(N) for time because it is O(mN), where m is a constant (length of the string plus length of the counts hash table)</p>
+            <p>For space, the <code>count</code> dictionary will contain one entry for each character value (but not each character instance). So at most <code>count</code> could have <code>len(string)</code> entries if every string character were different.  This points to a O(N) space complexity.</p>
+        </article>
+
+        <article class="post">
             <h3>IX - Interview Questions</h3>
             <h4>1 - Arrays and Strings</h4>
             <h5>1.4 Palindrome Permutation</h5>
@@ -149,11 +196,6 @@
         </article>
 
         <article class="post">
-            <style>blockquote {
-                border-left: 0.5rem solid #6c757d;
-                padding-left: 0.5rem;
-                margin-left: 0;
-            }</style>
             <h3>IX - Interview Questions</h3>
             <h4>1 - Arrays and Strings</h4>
             <h5>1.4 Palindrome Permutation</h5>
