@@ -190,7 +190,7 @@ The current Dart SDK version is 3.11.1.
 
 Because playback requires SDK version >=2.17.6 <=3.10.8, version solving failed.</pre>
             <p>I also notice that <code>pubspec.yaml</code> has a constraint hardcoded which I update to match the version of the Dart SDK reported above.</p>
-            <img src="img/Screenshot_20260303_100352.png" alt="img/Screenshot_20260303_100352.png">
+            <img style="width: 30%;" src="img/Screenshot_20260303_100352.png" alt="img/Screenshot_20260303_100352.png">
             <p>I followed up with this:</p>
             <pre>kubuntu-jamie-game:~/desktops/Default/playback> flutter --version
 Flutter 3.41.3 • channel stable • https://github.com/flutter/flutter.git
@@ -318,7 +318,7 @@ See https://dart.dev/go/sdk-version-pinning for details.
 You can try the following suggestion to make the pubspec resolve:
 * Try an upgrade of your constraints: flutter pub upgrade --major-versions
 Failed to update packages.</pre>
-            <p>So I try an upgrade of my constraints:</p>
+            <p>So I try the suggestion and run a pub upgrade:</p>
             <pre>kubuntu-jamie-game:~/desktops/Default/playback> flutter pub upgrade --major-versions
 Resolving dependencies... (1.4s)
 Changed 6 constraints in pubspec.yaml:
@@ -407,6 +407,20 @@ Newer versions, listed in 'Latest', may not be mutually compatible.</pre>
             <p>Jamie and I decide maybe next time he'll draw up some stuff on a whiteboard to explore the multi-player design.</p>
             <p>One last note about the current state of my dev environment:</p>
             <img src="img/Screenshot_20260303_102539.png" alt="img/Screenshot_20260303_102539.png">
+            <p>So I'll commit these:</p>
+            <pre>kubuntu-jamie-game:~/desktops/Default/playback> add-commit-and-push
+[main 7154a2f] progress
+ 3 files changed, 67 insertions(+), 107 deletions(-)
+pushing origin
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 15 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (5/5), 2.08 KiB | 2.08 MiB/s, done.
+Total 5 (delta 4), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (4/4), completed with 4 local objects.
+To github.com:ShirtNerson/playback.git
+   d95735a..7154a2f  main -> main</pre>
         </article>
 
         <article class="post">
