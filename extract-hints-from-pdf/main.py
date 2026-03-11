@@ -57,9 +57,21 @@ def parse_rearrangeable_blocks(text: str) -> tuple[list[str], list[str], list[st
       - labels like #1. .. #12.
       - section refs like 1.2, 3.1, ...
       - hint paragraphs
-    from a text dump similar to the sample you pasted.
+
+    Ignore everything in the PDF before the first '#1.' line.
     """
-    lines = [line.strip() for line in normalize_whitespace(text).splitlines()]
+
+    text = normalize_whitespace(text)
+
+    # ---- NEW STEP: discard everything before '#1.' ----
+    start = re.search(r'(?m)^#1\.', text)
+    if not start:
+        raise ValueError("Could not find '#1.' in extracted text.")
+
+    text = text[start.start():]
+    # ---------------------------------------------------
+
+    lines = [line.strip() for line in text.splitlines()]
     lines = [line for line in lines if line]
 
     label_pattern = re.compile(r"^#\d+\.$")
@@ -77,32 +89,21 @@ def parse_rearrangeable_blocks(text: str) -> tuple[list[str], list[str], list[st
         else:
             remainder.append(line)
 
-    # Remove standalone noise/header lines if present
-    # Adjust this set as needed for your source PDF.
+    # remove common header noise
     noise = {
         "I",
         "Hints for Data Structures",
     }
     remainder = [line for line in remainder if line not in noise]
 
-    # Reconstruct paragraphs:
-    # lines that belong to the same paragraph are joined until we heuristically
-    # detect the next sentence-group beginning with an uppercase letter and the
-    # current one seems complete enough.
-    #
-    # For your sample, a simpler rule works well:
-    # each logical hint is already in sequence, so we accumulate until the
-    # current text looks sentence-complete and long enough.
+    # reconstruct hint paragraphs
     hints: list[str] = []
     current: list[str] = []
 
     for line in remainder:
         current.append(line)
-
         joined = " ".join(current)
 
-        # Heuristic: if we end in punctuation and have a reasonable amount of text,
-        # treat it as one hint.
         if re.search(r'[.?!]["\']?$', joined) and len(joined) > 60:
             hints.append(joined)
             current = []
