@@ -44,14 +44,7 @@ def extract_text_from_pdf(pdf_path: Path) -> str:
     return result.stdout
 
 
-def normalize_whitespace(text: str) -> str:
-    # Normalize line endings and trim trailing spaces
-    text = text.replace("\r\n", "\n").replace("\r", "\n")
-    text = re.sub(r"[ \t]+$", "", text, flags=re.MULTILINE)
-    return text
-
-
-def parse_rearrangeable_blocks(text: str) -> tuple[list[str], list[str], list[str]]:
+def format_text_as_json(text: str) -> str:
     """
     Extract:
       - labels like #1. .. #12.
@@ -61,7 +54,7 @@ def parse_rearrangeable_blocks(text: str) -> tuple[list[str], list[str], list[st
     Ignore everything in the PDF before the first '#1.' line.
     """
 
-    text = normalize_whitespace(text)
+    #text = normalize_whitespace(text)
 
     # ---- NEW STEP: discard everything before '#1.' ----
     start = re.search(r'(?m)^#1\.', text)
@@ -71,66 +64,24 @@ def parse_rearrangeable_blocks(text: str) -> tuple[list[str], list[str], list[st
     text = text[start.start():]
     # ---------------------------------------------------
 
-    lines = [line.strip() for line in text.splitlines()]
-    lines = [line for line in lines if line]
+    text = re.split(r'(?=#\d+\.)', text)[1:]
 
-    label_pattern = re.compile(r"^#\d+\.$")
-    section_pattern = re.compile(r"^\d+\.\d+$")
+    things = [ re.sub(r"\n +", " ", t.strip()).replace('\u00ad', '') for t in text ]
+    things = [ re.sub(r'"', "\\\"", t) for t in things ]
 
-    labels: list[str] = []
-    sections: list[str] = []
-    remainder: list[str] = []
+    # Remove headers and footers.
+    # Greedily remove text containing Hints for Data Structures preceded by one or more newlines and non-newline characters (Should leave the hint text itself alone)
+    things = [ re.sub(r'\n+.+Hints for.*', "", thing, flags=re.DOTALL) for thing in things ]
+    things = [ re.sub(r'\n+.+CrackingThe.*$', "", thing, flags=re.DOTALL | re.MULTILINE) for thing in things ]
 
-    for line in lines:
-        if label_pattern.fullmatch(line):
-            labels.append(line)
-        elif section_pattern.fullmatch(line):
-            sections.append(line)
-        else:
-            remainder.append(line)
+    json = ""
+    for thing in things:
+        triple = re.split(r'  +', thing)
+        if triple[0] == "#255.":
+            print([(c, ord(c)) for c in triple[2]])
+        json += '{ "' + triple[0] + '": "' + triple[2].strip() + '" }\n'
 
-    # remove common header noise
-    noise = {
-        "I",
-        "Hints for Data Structures",
-    }
-    remainder = [line for line in remainder if line not in noise]
-
-    # reconstruct hint paragraphs
-    hints: list[str] = []
-    current: list[str] = []
-
-    for line in remainder:
-        current.append(line)
-        joined = " ".join(current)
-
-        if re.search(r'[.?!]["\']?$', joined) and len(joined) > 60:
-            hints.append(joined)
-            current = []
-
-    if current:
-        hints.append(" ".join(current))
-
-    return labels, sections, hints
-
-
-def rearrange_text(text: str) -> str:
-    labels, sections, hints = parse_rearrangeable_blocks(text)
-
-    if not (len(labels) == len(sections) == len(hints)):
-        raise ValueError(
-            "Could not align extracted data cleanly.\n"
-            f"Found {len(labels)} labels, {len(sections)} section refs, "
-            f"and {len(hints)} hint paragraphs.\n"
-            "You may need to tweak the parsing rules for your particular PDF."
-        )
-
-    width = max(len(label) for label in labels)
-    lines = [
-        f"{label:<{width}}    {section:<6}  {hint}"
-        for label, section, hint in zip(labels, sections, hints)
-    ]
-    return "\n\n".join(lines)
+    return json
 
 
 def main() -> None:
@@ -142,14 +93,14 @@ def main() -> None:
 
     try:
         extracted_text = extract_text_from_pdf(pdf_path)
-        rearranged = rearrange_text(extracted_text)
-        raw_txt_path = pdf_path.with_suffix(".extracted.txt")
-        raw_txt_path.write_text(extracted_text, encoding="utf-8")
+        json_formatted_text = format_text_as_json(extracted_text)
+        json_output_path = pdf_path.with_suffix(".extracted.json")
+        json_output_path.write_text(json_formatted_text, encoding="utf-8")
     except Exception as exc:
         print(f"Error: {exc}", file=sys.stderr)
         sys.exit(2)
 
-    print(rearranged)
+    print("wrote ",len(json_formatted_text.split('\n')), " lines to ", json_output_path)
 
 
 if __name__ == "__main__":
