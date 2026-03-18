@@ -77,7 +77,7 @@
 { "#77.": "If you've designed the algorithm as described thus far, you'll have an O(N log N) algorithm in a balanced tree. This is because there are N nodes, each of which is at depth O(log N) at worst. A node is touched once for each node above it. Therefore, the N nodes will be touched O ( log N) time. There is an optimization that will give us an O(N) algorithm." }
 { "#78.": "Consider having each node know the minimum of its \"substack\" (all the elements beneath it, including itself)." }
 { "#79.": "Think about how an in-order traversal works and try to \"reverse engineer\" it." }
-{ "#80.": "The firstCommonAnc estor function could return the first common ancestor (if p and q are both contained in the tree), p if p is in the tree and not q, q if q is in the tree and not p, and null otherwise." }
+{ "#80.": "The first Common Ancestor function could return the first common ancestor (if p and q are both contained in the tree), p if p is in the tree and not q, q if q is in the tree and not p, and null otherwise." }
 { "#81.": "Popping an element at a specific substack will mean that some stacks aren't at full capacity. Is this an issue? There's no right answer, but you should think about how to handle this." }
 { "#82.": "Break this down into subproblems. Use recursion. If you had all possible sequences for the left subtree and the right subtree, how could you create all possible sequences for the entire tree?" }
 { "#83.": "You can use two pointers, one moving twice as fast as the other. If there is a cycle, the two pointers will collide. They will land at the same location at the same time. Where do they land? Why there?" }
@@ -94,7 +94,7 @@
 { "#94.": "Consider each path that starts from the root (there are N such paths) as an array. What our brute-force algorithm is really doing is taking each array and finding all contiguous subsequences that have a particular sum. We're doing this by computing all subarrays and their sums. It might be useful to just focus on this little subproblem. Given an array, how would you find all contiguous subsequences with a particular sum? Again, think about the duplicated work in the brute-force algorithm." }
 { "#95.": "Does your algorithm work on linked lists like 9->7->8 and 6->8->5? Double check that." }
 { "#96.": "Careful! Does your algorithm handle the case where only one node exists? What will happen? You might need to tweak the return values a bit." }
-{ "#97.": "What is the relationship between the \"insert character\" option and the \"remove char acter\" option? Do these need to be two separate checks?" }
+{ "#97.": "What is the relationship between the \"insert character\" option and the \"remove character\" option? Do these need to be two separate checks?" }
 { "#98.": "The major difference between a queue and a stack is the order of elements. A queue removes the oldest item and a stack removes the newest item. How could you remove the oldest item from a stack if you only had access to the newest item?" }
 { "#99.": "A naive approach that many people come up with is to pick a random number between 1 and 3. If it's 1, return the current node. If it's 2, branch left. If it's 3, branch right. This solution doesn't work. Why not? Is there a way you can adjust it to make it work?" }
 { "#100.": "Rotating a specific layer would just mean swapping the values in four arrays. If you were asked to swap the values in two arrays, could you do this? Can you then extend it to four arrays?" }
@@ -110,7 +110,7 @@
 { "#110.": "Be careful that you aren't repeatedly concatenating strings together. This can be very inefficient." }
 { "#111.": "If the two linked lists were the same length, you could traverse forward in each until you found an element in common. Now, how do you adjust this for lists of different lengths?" }
 { "#112.": "The reason that the earlier solution (picking a random number between 1 and 3) doesn't work is that the probabilities for the nodes won't be equal. For example, the root will be returned with probability" }
-{ "#113.": "Rather than validating the current node's value against leftT ree. max and rightTree. min, can we flip around the logic? Validate the left tree's nodes to ensure that they are smaller than current. value." }
+{ "#113.": "Rather than validating the current node's value against left Tree. max and right Tree. min, can we flip around the logic? Validate the left tree's nodes to ensure that they are smaller than current. value." }
 { "#114.": "We can remove the oldest item from a stack by repeatedly removing the newest item (inserting those into the temporary stack) until we get down to one element. Then, after we've retrieved the newest item, putting all the elements back. The issue with this is that doing several pops in a row will require O ( N) work each time. Can we optimize for scenarios where we might do several pops in a row?" }
 { "#115.": "Once you've solidified the algorithm to find all contiguous subarrays in an array with a given sum, try to apply this to a tree. Remember that as you're traversing and modifying the hash table, you may need to \"reverse the damage\" to the hash table as you traverse back up." }
 { "#116.": "Imagine we had a createMinimalTree method that returns a minimal tree for a given array (but for some strange reason doesn't operate on the root of the tree). Could you use this to operate on the root of the tree? Could you write the base case for the function? Great! Then that's basically the entire function." }
@@ -122,7 +122,7 @@
 { "#122.": "Could a hash table be useful?" }
 { "#123.": "A hash table or array that maps from level number to nodes at that level might also be useful." }
 { "#124.": "Actually, you can just have a single c heckHeight function that does both the height computation and the balance check. An integer return value can be used to indicate both." }
-{ "#125.": "As a totally different approach: Consider doing a depth-first search starting from an arbi trary node. What is the relationship between this depth-first search and a valid build order?" }
+{ "#125.": "As a totally different approach: Consider doing a depth-first search starting from an arbitrary node. What is the relationship between this depth-first search and a valid build order?" }
 { "#126.": "Can you do it iteratively? Imagine if you had two pointers pointing to adjacent nodes and they were moving at the same speed through the linked list. When one hits the end of the linked list, where will the other be?" }
 { "#127.": "Two well-known algorithms can do this. What are the tradeoffs between them?" }
 { "#128.": "Think about the checkBST function as a recursive function that ensures each node is within an allowable (min, max) range. At first, this range is infinite. When we traverse to the left, the min is negative infinity and the max is root. value. Can you implement this recursive function and properly adjust these ranges as you traverse the tree?" }
@@ -170,7 +170,7 @@
 { "#170.": "Start with a brute force algorithm." }
 { "#171.": "You can attempt this mathematically, although the math is pretty difficult. You might find it easier to estimate it up to families of, say, 6 children. This won't give you a good mathematical proof, but it might point you in the right direction of what the answer might be." }
 { "#172.": "In which cases would a door be left open at the end of the process?" }
-{ "#173.": "A number such as • 893 (in base 10) indicates 8 * 10- 1 + 9 * 10-2 + 3 * 10- 3• Translate this system into base 2." }
+{ "#173.": "A number such as • 893 (in base 10) indicates 8 * 10 - 1 + 9 * 10 - 2 + 3 * 10- 3• Translate this system into base 2." }
 { "#174.": "Suppose we had all valid ways of writing two pairs of parentheses. How could we use this to get all valid ways of writing three pairs?" }
 { "#175.": "Get Next: Picture a binary number-something with a bunch of 1s and Os spread out throughout the number. Suppose you flip a 1 to a O and a O to a 1. In what case will the number get bigger? In what case will it get smaller?" }
 { "#176.": "Think about what sort of expectations on freshness and accuracy of data is expected. Does the data always need to be 100% up to date? Is the accuracy of some products more important than others?" }
