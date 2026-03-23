@@ -7,9 +7,12 @@ e.g
     cp -r 1.4 1.5
 ```
    This creates the base artifacts for the problem 1.5 such as problem.json, which we'll modify.
+
 [] Copy the problem title ("One Away") in the case of problem 1.5 to problem.json's "title" value:
 
-[] Copy the problem statment into problem.json's "statement" value:
+[] Copy the problem statement into problem.json's "statement" value:
+
+[] Copy the examples.
 
 [] Copy the hints, including the hint text (found in the Hints section of the book) to the "hints" array.
 
