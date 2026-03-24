@@ -35,8 +35,6 @@ class OneAway(unittest.TestCase):
         print("pale, ple")
         self.assertEqual(oneAway("pale, ple"), "True")
 
--
-
     def test_2(self):
         print("pales, pale")
         self.assertEqual(oneAway("pales, pale"), "True")

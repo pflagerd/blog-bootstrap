@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Palindrome Permutation</title>
+    <title>One Away</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
@@ -72,7 +72,7 @@
 <body>
 
 <h4>Problem Statement</h4>
-<blockquote><div>Given a string, write a function to check if it is a permutation of a palindrome. A palindrome is a word or phrase that is the same forwards and backwards. A permutation is a rearrangement of letters. The palindrome does not need to be limited to just dictionary words.</div></blockquote>
+<blockquote><div>There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away. </div></blockquote>
 
 <h4>Constraints</h4>
 <blockquote>
@@ -86,7 +86,7 @@
 <div><b>Time:</b> O(n)</div>
 
 
-<div><b>Space:</b> O(1)</div>
+<div><b>Space:</b>O(1)</div>
 </blockquote>
 
 
@@ -94,16 +94,59 @@
 
 <h4>Example 1</h4>
 <blockquote>
-    <div>permutations: "taco cat", "atco eta", etc.</div>
-    <pre>string = Tact Coa
+    <div>Removing the "a" is a single edit</div>
+    <pre>string = pale, ple
 expectedResult = True
 
 </pre>
 </blockquote>
 
 
+<h4>Example 2</h4>
+<blockquote>
+    <div>Removing the "s" is a single edit</div>
+    <pre>string = pales, pale
+expectedResult = True
+
+</pre>
+</blockquote>
+
+
+<h4>Example 3</h4>
+<blockquote>
+    <div>Replacing the "p" with the "b" is a single edit</div>
+    <pre>string = pale, bale
+expectedResult = True
+
+</pre>
+</blockquote>
+
+
+<h4>Example 4</h4>
+<blockquote>
+    <div>Replacing the "p" with the "b" is one edit, replacing the "l" with the "k" is another edit</div>
+    <pre>string = pale, bake
+expectedResult = False
+
+</pre>
+</blockquote>
+
+
+<h3>Entities and their definitions</h3>
+<p>string: A sequence of zero or more characters.</p>
+<p>empty string: A sequence of zero characters.</p>
 
 <h3>Thoughts</h3>
+<p>Since a string is a sequence of characters, the order of the characters is important</p>
+<p>Since the only operations allowed on strings are to 1) insert a character, 2) remove a character, or 3) replace a character, the length of the two strings can differ at most by one character.</p>
+<p>If the strings have the same length (their lengths differ by 0 characters), the only possible way to transform one into the other is by changing exactly one character.</p>
+<p>If the strings' lengths differ by 1 character, there are four ways to transform one into the other</p>
+<p style="margin: 1rem;">If the first string is longer than the second string, ...</p>
+<p style="margin: 2rem;">...we can insert one character into the second string.</p>
+<p style="margin: 2rem;">OR ...we can delete one character from the first string.</p>
+<p style="margin: 1rem;">If the first string is shorter than the second string, ...</p>
+<p style="margin: 2rem;">...we can insert one character into the first string.</p>
+<p style="margin: 2rem;">OR ...we can delete one character from the second string.</p>
 <p></p>
 <h3>Videos and articles about this problem, including similar problems.</h3>
 <p></p>
