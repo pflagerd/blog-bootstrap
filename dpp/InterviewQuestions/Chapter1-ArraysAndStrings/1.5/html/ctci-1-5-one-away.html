@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CtCI 1.5 — One Away: LeetCode & GFG Equivalents</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f2eb;
+      --surface: #ffffff;
+      --ink: #1a1a18;
+      --ink-soft: #4a4a44;
+      --ink-muted: #8a8a80;
+      --accent: #c0392b;
+      --accent-pale: #f9e8e6;
+      --border: #e0ddd4;
+      --code-bg: #1e1e1c;
+      --code-fg: #d4d0c4;
+      --green: #1a6b3a;
+      --green-pale: #e8f4ee;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.75;
+      padding: 3rem 1.5rem 6rem;
+    }
+
+    .page {
+      max-width: 720px;
+      margin: 0 0;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .kicker {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.1rem;
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+      font-style: italic;
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    h2 {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      margin-bottom: 1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p {
+      color: var(--ink-soft);
+      margin-bottom: 1rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* Problem statement callout */
+    .problem-box {
+      background: var(--surface);
+      border-left: 4px solid var(--accent);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .problem-box p {
+      color: var(--ink);
+      font-size: 0.97rem;
+      margin: 0;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.4rem 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-number {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .card-title {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .card-badge {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      padding: 0.1rem 0.45rem;
+      border-radius: 3px;
+      font-weight: 600;
+      margin-left: auto;
+    }
+
+    .badge-premium {
+      background: #fff3cd;
+      color: #7d5c00;
+      border: 1px solid #f0d080;
+    }
+
+    .badge-free {
+      background: var(--green-pale);
+      color: var(--green);
+      border: 1px solid #b0dcc0;
+    }
+
+    .badge-hard {
+      background: #fde8e8;
+      color: #9b2020;
+      border: 1px solid #f0b8b8;
+    }
+
+    .card p {
+      font-size: 0.93rem;
+      margin-bottom: 0;
+    }
+
+    .card a {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 0.6rem;
+    }
+
+    .card a:hover { text-decoration: underline; }
+
+    .note {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      background: #f0ede4;
+      border-radius: 4px;
+      padding: 0.6rem 0.9rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Table */
+    .summary-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--surface);
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .summary-table thead {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .summary-table th {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    .summary-table td {
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--ink-soft);
+      vertical-align: top;
+    }
+
+    .summary-table tr:last-child td { border-bottom: none; }
+
+    .summary-table tr:nth-child(even) td { background: #faf9f5; }
+
+    .mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.85em; }
+
+    /* Footer */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      display: flex;
+      justify-content: space-between;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="kicker">Cracking the Coding Interview · Chapter 1 · Arrays &amp; Strings</div>
+    <h1>1.5 — One Away</h1>
+    <p class="subtitle">Equivalent problems on LeetCode and GeeksForGeeks</p>
+  </header>
+
+  <!-- The Problem -->
+  <section>
+    <h2>The Problem</h2>
+    <div class="problem-box">
+      <p>There are three types of edits that can be performed on strings: <strong>insert</strong> a character, <strong>remove</strong> a character, or <strong>replace</strong> a character. Given two strings, write a function to check if they are one edit (or zero edits) away.</p>
+    </div>
+    <p style="font-size:0.88rem; margin-top:0.75rem;">
+      Examples: &nbsp;<span class="mono">pale, ple → true</span> &nbsp;·&nbsp; <span class="mono">pales, pale → true</span> &nbsp;·&nbsp; <span class="mono">pale, bale → true</span> &nbsp;·&nbsp; <span class="mono">pale, bake → false</span>
+    </p>
+  </section>
+
+  <!-- LeetCode -->
+  <section>
+    <h2>LeetCode Equivalents</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">#161</span>
+        <span class="card-title">One Edit Distance</span>
+        <span class="card-badge badge-premium">Premium</span>
+      </div>
+      <p>
+        Given two strings <span class="mono">s</span> and <span class="mono">t</span>, return <span class="mono">true</span> if they are both one edit distance apart — by inserting, deleting, or replacing exactly one character. This is essentially the same problem as CtCI 1.5.
+      </p>
+      <div class="note">
+        ⚠ Subtle difference: LC 161 requires <em>exactly</em> one edit (identical strings return <span class="mono">false</span>), whereas CtCI 1.5 allows zero edits (identical strings return <span class="mono">true</span>).
+      </div>
+      <a href="https://leetcode.com/problems/one-edit-distance/" target="_blank">leetcode.com/problems/one-edit-distance →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <span class="card-number">#72</span>
+        <span class="card-title">Edit Distance</span>
+        <span class="card-badge badge-hard">Hard · Free</span>
+      </div>
+      <p>
+        The more general parent problem: given two strings, return the <em>minimum number</em> of operations (insert, delete, replace) to convert one into the other. Solved with dynamic programming (Levenshtein distance). You could use it to solve CtCI 1.5 by checking if the result is ≤ 1, but the intended CtCI approach is a simpler O(n) single-pass — DP is overkill here. Still excellent background context.
+      </p>
+      <a href="https://leetcode.com/problems/edit-distance/" target="_blank">leetcode.com/problems/edit-distance →</a>
+    </div>
+  </section>
+
+  <!-- GeeksForGeeks -->
+  <section>
+    <h2>GeeksForGeeks</h2>
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Check if two strings are at edit distance one</span>
+        <span class="card-badge badge-free">Free</span>
+      </div>
+      <p>
+        GFG covers it under this title — search that phrase and you'll land right on it. The approach and examples mirror CtCI 1.5 exactly, with write-ups in C++, Java, and Python.
+      </p>
+      <a href="https://www.geeksforgeeks.org/check-if-two-given-strings-are-at-edit-distance-one/" target="_blank">geeksforgeeks.org → Check if strings are edit distance one →</a>
+    </div>
+  </section>
+
+  <!-- Summary Table -->
+  <section>
+    <h2>Summary</h2>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Problem</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>LeetCode #161</strong></td>
+          <td>One Edit Distance</td>
+          <td>Nearly identical; only differs on the zero-edit case</td>
+        </tr>
+        <tr>
+          <td><strong>LeetCode #72</strong></td>
+          <td>Edit Distance</td>
+          <td>General DP version; overkill for 1.5 but good context</td>
+        </tr>
+        <tr>
+          <td><strong>GeeksForGeeks</strong></td>
+          <td>Check if strings are edit distance one</td>
+          <td>Direct equivalent</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <span>CtCI 6th Edition · Problem 1.5</span>
+    <span>Exported from Claude · March 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

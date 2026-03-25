@@ -1,0 +1,77 @@
+I'm working Interview Question 1.5 in Creacking the Coding Interview.  Is this same problem or similar found in leetcode or GeeksForGeeks?
+
+9:23 AM
+
+Assembled necessary context for resource comparison
+Assembled necessary context for resource comparison
+Yes, CtCI 1.5 "One Away" is essentially the same problem as LeetCode #161 "One Edit Distance", and there's also a related but harder problem on LeetCode.
+
+Here's the breakdown:
+
+✅ Direct Match — LeetCode #161: One Edit Distance
+URL: https://leetcode.com/problems/one-edit-distance/
+
+Given two strings s and t, return true if they are exactly one edit distance apart. The three allowed operations are: insert exactly one character into s to get t, delete exactly one character from s to get t, or replace exactly one character of s with a different character to get t.
+LeetCode Wiki
+
+This is virtually identical to CtCI 1.5. Note one subtle difference: if the two strings are the same, LeetCode #161 returns false
+LeetCode Wiki
+ (since zero edits ≠ one edit), whereas CtCI 1.5 asks you to return true for zero or one edits. Just a minor framing distinction worth noting.
+
+LeetCode #161 is a premium problem, so you may need a subscription to access it directly.
+
+🔗 Related — LeetCode #72: Edit Distance
+URL: https://leetcode.com/problems/edit-distance/
+
+Given two strings word1 and word2, return the minimum number of operations (insert, delete, replace) required to convert word1 to word2.
+GitHub
+
+This is the generalized version — a classic dynamic programming problem. Solving CtCI 1.5 first is actually great preparation for this one, since the logic for the one-edit case is a building block for the full DP solution.
+
+GeeksForGeeks
+The equivalent problem on GfG is titled "Check if two strings are k-edit distance apart" with k=1, or simply "One Edit Distance" — you can find it by searching that phrase on the site. The approach and examples match CtCI 1.5 directly.
+
+Summary:
+
+Problem	Source	Notes
+1.5 One Away	CtCI	Returns true for 0 or 1 edits
+#161 One Edit Distance	LeetCode (Premium)	Same problem, returns false for 0 edits
+#72 Edit Distance	LeetCode (Free)	Harder generalized version (DP)
+Is it available on other similar platforms?
+
+9:25 AM
+
+Synthesized cross-platform availability assessment
+Synthesized cross-platform availability assessment
+Yes, the problem shows up across quite a few platforms. Here's a rundown:
+
+Codewars
+The problem is directly titled "CTCI 1.
+Codewars
+5 One Away" and appears as a kata on Codewars, with the exact CtCI framing: given two strings, check if they are one edit (insert, remove, or replace) away. 🔗 https://www.codewars.com/kata/5a095ad0ffe75fb656000021
+
+HackerRank
+HackerRank has the generalized Edit Distance problem (minimum edits to convert one string to another), which is the DP cousin of 1.5. The HackerRank version asks you to determine the minimum number of insertions, deletions, and substitutions to convert from one string to another
+HackerRank
+ — so it's the harder variant, not the exact one-edit boolean check.
+
+InterviewBit
+InterviewBit has an "Edit Distance" problem at interviewbit.com/problems/edit-distance/ which asks for the minimum number of steps to convert word A to word B using insert, delete, or replace operations.
+GitHub
+ Again, the generalized DP version rather than the exact 1.5 boolean.
+
+NeetCode
+NeetCode covers the One Edit Distance problem with in-depth explanations, noting that the key insight is using the length difference between the strings to determine which operation (insert, delete, or replace) is possible, and scanning both strings in parallel to find the first mismatch.
+NeetCode
+ 🔗 https://neetcode.io/solutions/one-edit-distance
+
+Summary Table
+Platform	Problem	Type	Free?
+Codewars	CTCI 1.5 One Away	Exact match ✅	Free
+LeetCode #161	One Edit Distance	Exact match ✅	Premium 💰
+LeetCode #72	Edit Distance	Generalized (DP)	Free
+NeetCode	One Edit Distance	Exact match ✅	Free
+HackerRank	Edit Distance	Generalized (DP)	Free
+InterviewBit	Edit Distance	Generalized (DP)	Free
+GeeksForGeeks	Check if edit distance is one	Exact match ✅	Free
+Bottom line: Codewars is your best free option for practicing the exact 1.5 problem. NeetCode is great if you want the solution walkthrough for LeetCode 161 without a premium subscription.
