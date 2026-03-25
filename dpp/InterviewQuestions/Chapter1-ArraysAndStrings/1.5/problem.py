@@ -13,39 +13,52 @@ statement = "There are three types of edits that can be performed on strings: in
 
 
 def oneAway(string):
-    diff = [0] * 26
-
     strings = string.split(", ")
+    if len(strings[0]) == len(strings[1]):
+        countOfDifferences = 0
+        for i in range(len(strings[0])):
+            if strings[0][i] != strings[1][i]:
+                countOfDifferences += 1
+        if countOfDifferences <= 1:
+            return True
+        return False
+    else:
+        shortstring = strings[1]
+        longstring = strings[0]
+        if len(strings[0]) < len(strings[1]):
+            shortstring = strings[0]
+            longstring = strings[1]
 
-    for c in strings[0]:
-        diff[ord(c) - ord('a')] += 1
+        countOfDifferences = 0
+        i = 0
+        j = 0
+        while i < len(longstring):
+            if j >= len(shortstring) or longstring[i] != shortstring[j]:
+                countOfDifferences += 1
+                if countOfDifferences > 1:
+                    return False
+                i += 1
+            i += 1
+            j += 1
 
-    print(diff)
-
-    for c in strings[1]:
-        diff[ord(c) - ord('a')] -= 1
-
-    print(diff)
-
-    print(sum(diff))
-
+        return True
 
 class OneAway(unittest.TestCase):
     def test_1(self):
         print("pale, ple")
-        self.assertEqual(oneAway("pale, ple"), "True")
+        self.assertEqual(oneAway("pale, ple"), True)
 
     def test_2(self):
         print("pales, pale")
-        self.assertEqual(oneAway("pales, pale"), "True")
+        self.assertEqual(oneAway("pales, pale"), True)
 
     def test_3(self):
         print("pale, bale")
-        self.assertEqual(oneAway("pale, bale"), "True")
+        self.assertEqual(oneAway("pale, bale"), True)
 
     def test_4(self):
         print("pale, bake")
-        self.assertEqual(oneAway("pale, bake"), "False")
+        self.assertEqual(oneAway("pale, bake"), False)
 
 
 if __name__ == "__main__":
