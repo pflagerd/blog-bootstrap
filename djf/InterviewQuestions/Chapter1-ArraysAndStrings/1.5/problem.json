@@ -1,0 +1,27 @@
+{
+    "title": "One Away",
+    "statement": "There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a character. Given two strings, write a function to check if they are one edit (or zero edits) away. ",
+    "hints": [
+        { "#23": "Start with the easy thing. Can you check each of the conditions separately?"},
+        { "#97": "What is the relationship between the \\\"insert character\\\" option and the \\\"remove character\\\" option? Do these need to be two separate checks?"},
+        { "#130": "Can you do all three checks in a single pass?"}
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "tests": [
+        {"string":  "pale, ple", "expectedResult": "True", "explanation": "Removing the \"a\" is a single edit"},
+        {"string":  "pales, pale", "expectedResult": "True", "explanation": "Removing the \"s\" is a single edit"},
+        {"string":  "pale, bale", "expectedResult": "True", "explanation": "Replacing the \"p\" with the \"b\" is a single edit"},
+        {"string":  "pale, bake", "expectedResult": "False", "explanation": "Replacing the \"p\" with the \"b\" is one edit, replacing the \"l\" with the \"k\" is another edit" }
+    ],
+    "constraints": [
+        "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
+    ],
+    "examples": [
+        {"string":  "pale, ple", "expectedResult": "True", "explanation": "Removing the \"a\" is a single edit"},
+        {"string":  "pales, pale", "expectedResult": "True", "explanation": "Removing the \"s\" is a single edit"},
+        {"string":  "pale, bale", "expectedResult": "True", "explanation": "Replacing the \"p\" with the \"b\" is a single edit"},
+        {"string":  "pale, bake", "expectedResult": "False", "explanation": "Replacing the \"p\" with the \"b\" is one edit, replacing the \"l\" with the \"k\" is another edit" }
+    ],
+    "urls": ["http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=102"]
+}
