@@ -1,6 +1,6 @@
-# blog-bootstrap
+# bok blog
 
-This contains a simple blog with collapsible blog entries.
+This contains a simple blog with collapsible blog entries derived from blog-bootstrap.
 
 It is meant to be either `.fork`ed  (read dot-forked) or branched.
 
