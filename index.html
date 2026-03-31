@@ -61,6 +61,9 @@
             <p class="meta">2026-02-03 13:22 (UTC-8) by Daniel</p>
 
             <!-- Get Development environment set up. -->
+            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Clean up and document pflager.net/</a></p>
+            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Make this blog visible on pflager.com/pflager.net/pflager.org</a></p>
+            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Add a task to systems/blog about combining vps servers.</a></p>
             <p title=""><label><input type="checkbox" checked> </label><a href="" target="_blank">Get Playback building.</a></p>
             <p title=""><label><input type="checkbox" checked> </label><a href="" target="_blank">Get Playback building on Kubuntu with Android Studio.</a></p>
             <p title=""><label><input type="checkbox" checked> </label><a href="" target="_blank">Get Playback debugging on Kubuntu with Android Studio.</a></p>
@@ -75,6 +78,46 @@
         </article>
 
         <article class="post">
+            <h3>Make this blog visible on pflager.net/.com/.org</h3>
+            <p class="meta">Not much point in having a shared blog if only I can read it.</p>
+            <p class="meta">2026-03-31 12:16 (UTC-8) by Daniel</p>
+
+            <p>Before I get started on this, I need to confirm that my webstorm session which is launched via <code>/home/oy753c/bin/activity-webstorm</code> is actually preserving separate state for each activity.</p>
+            <p>I did this by checking that <code>/home/oy753c/bin/activity-webstorm</code> contains the code to find the current activity and set up webstorm's configuration paths accordingly. It does as of 9c905681c5d63e763c6b677bf547904ffd76a2bf:</p>
+            <img style="width: 99%;" src="img/Screenshot_20260331_123755.png" alt="img/Screenshot_20260331_123755.png">
+
+            <p>Occurs to me that I should make the playback desktop into a git repo and save it on sourceforge.net</p>
+
+            <p>Did that <code>ssh://pflagerd@git.code.sf.net/p/pflagerd/desktops/playback</code></p>
+
+            <p>Created <code>.gitignore</code> and <code>.gitrepos</code> in <code>playback/.dell7750-samsung-u32r59x/</code></p>
+
+            <p>Now I need a place to publish the blog.  For that I should look in <code>git@github.com:pflagerd/systems.git</code>.</p>
+
+            <p>Looking at this I'm seeing:</p>
+            <img src="img/Screenshot_20260331_131108.png" alt="img/Screenshot_20260331_131108.png">
+
+            <p>That's looking like it might have enough space available to deploy this blog under.</p>
+
+            <p>However, I'm also seeing some extraneous vps servers, which may need to be combined.</p>
+            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Add a task to systems/blog about combining vps servers.</a></p>
+
+            <p>I don't remember a thing about configuring <code>srv447782.hstgr.cloud</code></p>
+            <p>I log into hostinger.com, navigate to VPS:</p>
+            <img style="width: 25%;" src="img/Screenshot_20260331_133719.png" alt="img/Screenshot_20260331_133719.png">
+            <p>Looks like there's plenty of available disk space there:</p>
+            <img style="width: 99%;" src="img/Screenshot_20260331_133517.png" alt="img/Screenshot_20260331_133517.png">
+            <p>That looks like the way to go.</p>
+            <p></p>
+            <p>Thing is that I'll have to remember how I set pflager.net/.com/.org up, and that might be tricky.</p>
+            <p>I wonder if I should have a blog inside pflager.net/ because there's no README or anything describing what's happening over there.</p>
+            <p>I think I'm going to have to clean up and document pflager.net/ before I do anything much else.</p>
+            <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Clean up and document pflager.net/</a></p>
+            <p></p>
+        </article>
+
+
+        <article class="post">
             <h3>Can we get Playback to build 6?  YES!!!</h3>
             <p class="meta">Daniel decides NOT to work in a VM</p>
             <p class="meta">2026-03-26 11:47 (UTC-8) by Daniel</p>
@@ -87,7 +130,6 @@
 
             <p>This <a href="https://www.youtube.com/playlist?list=PLptHs0ZDJKt_T-oNj_6Q98v-tBnVf-S_o">tutorial on Youtube</a> may be useful for leaning flutter/dart generally.-</p>
         </article>
-
 
         <article class="post">
             <h3>Can we get Playback to build 5?</h3>
