@@ -1,4 +1,6 @@
-# blog-bootstrap
+# systems.blog
+
+This is the blog for the repo git@github.com:pflagerd/systems.git.
 
 This contains a simple blog with collapsible blog entries.
 
