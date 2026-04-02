@@ -39,17 +39,17 @@ The names `inline-index.html` and `inline-meta-blog.html` are commonly substitut
 Some branches have interesting things in them:
 
 blog-bootstrap@cracking-the-coding-interview 
-	has a script to load a file into the page. This could probably be moved to blog.js.
-	has a stand-alone version valled file-viewer-hardcoded.html
+	* has a script to load a file into the page. This could probably be moved to blog.js.
+	* has a stand-alone version valled file-viewer-hardcoded.html
 	
 blog-bootstrap@improve-expand-collapse
 	contains some code in blog.js that might be worth understanding.
 
 blog-bootstrap@bok-blog
-	has a RUNME
-	has a SETMEUP
-	has a watcher in index.js
-	index.js also remembers the last browser size
+	# has a RUNME
+	# has a SETMEUP
+	# has a watcher in index.js
+	# index.js also remembers the last browser size
 	
 blog-bootstrap@playback
 	has a RUNME
