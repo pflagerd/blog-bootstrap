@@ -33,3 +33,29 @@ Where `input.html` is either `index.html` or `meta-blog.html`, and `output.html`
 Standalone versions are typically copied into another repository directly and are not dot-forked.
 
 The names `inline-index.html` and `inline-meta-blog.html` are commonly substituted for `output.html`, so they are in `blog-bootstrap/.gitignore`.
+
+
+
+Some branches have interesting things in them:
+
+blog-bootstrap@cracking-the-coding-interview 
+	has a script to load a file into the page. This could probably be moved to blog.js.
+	has a stand-alone version valled file-viewer-hardcoded.html
+	
+blog-bootstrap@improve-expand-collapse
+	contains some code in blog.js that might be worth understanding.
+
+blog-bootstrap@bok-blog
+	has a RUNME
+	has a SETMEUP
+	has a watcher in index.js
+	index.js also remembers the last browser size
+	
+blog-bootstrap@playback
+	has a RUNME
+	has a SETMEUP
+	
+blog-bootstrap@the-intelligent-investor
+	has a RUNME
+	has a SETMEUP
+	
