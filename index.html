@@ -91,11 +91,26 @@
             <p><label><input type="checkbox"> </label><a href=""></a>need to fix bashrc.d/clion, bashrc.d/webstorm, bashrc.d/idea and bashrc.d/webstorm</p>
             <p><label><input type="checkbox"> </label><a href=""></a>need to fix bashrc.d/python and the rest</p>
             <p><label><input type="checkbox"> </label><a href=""></a>check bashrc.d/* for <code>which</code> and other commands generating output not being redirected to <code>/dev/null 2>&1</code></a></p>
+
+            <br>
+            <h3>DONE</h3>
+            <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label>Set up sherri@pflager.com and dan@pflager.com for receive-only email.</p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label><a href=""></a>I want the new KVM switch above the r910a.</p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label><a href=""></a>Ordered a new KVM switch that will use hdmi rather than vga. Want to figure out how to control it with an arduino instead of a manual switch pad. Also ordered some adaptors to convert VGA to hdmi for those computers which only produce vga.</p>
             <p style="margin-left: 1.1rem; text-indent: -1.1rem; text-decoration: line-through; color: gray;"><label><input type="checkbox"> </label>guppy is on Fedora 36. I updated guppy and zax both manually with much fiddling to 42.</p>
         </article>
 
+        <article class="post">
+            <h3>Continue testing dan@pflager.com and sherri@pflager.com</h3>
+            <p class="meta">Implemented them using cloudflare.com following ChatGPT's <a href="html/Email%20Forwarding%20to%20Gmail%20(4_3_2026%2011：17：43%20AM).html" target="_blank">advice.</a></p>
+            <p class="meta">2026-04-31 11:20 (UTC-8) by Daniel</p>
+            <p>Using the <a href="html/Email%20Forwarding%20to%20Gmail%20(4_3_2026%2011：17：43%20AM).html" target="_blank">advice</a> given by ChatGPT basically worked, but getting gmail to allow me to send email as dan@pflager.com was tricky</p>
+            <p>For one thing I had to create an "app password" which I don't think I could do again if I tried.  I saved the password in <code>systems/google-app-password.txt</code>.</p>
+            <p>Also, when I added the additional email I didn't know that I needed to use smtp.gmail.com as the server (I could leave the port unchanged), and that I needed to put dan@pflager.com as the user (not just dan as it suggested), and finally I needed to use the app password for the password.</p>
+            <p>I had Robin send me messages and I sent him one to confirm I could send and receive as dan@pflager.com</p>
+            <p>I only set up sherri@pflager.com to be received by sherripflager@gmail.com.  I've sent her a message and am awaiting a reply.</p>
+            <p>Got a reply. Looks like it worked.</p>
+        </article>
 
         <article class="post">
             <h3>Cancelling as many things as possible.</h3>
