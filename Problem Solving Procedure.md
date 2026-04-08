@@ -18,15 +18,17 @@ e.g
 
 [] Copy the problem statement into problem.json's "statement" value. Can copy this from ctci_problem_statements_utf8_extracted_by_chatgpt.txt, but confirm that file's statement matches the .pdf.
 
+[] Read the problem statement so as to inform the following steps
+
 [] Copy the hints, including the hint text from the file .../extract-hints-from-pdf/ctci_hints.json
 
-[] Based on the problem statement, estimate and update the timeComplexity value.
+[] Based on the problem statement, update the "constraints" value.
 
-[] Based on the problem statement, estimate and update the spaceComplexity value.
+[] Based on the problem statement, estimate and update the best "timeComplexity" value.
+
+[] Based on the problem statement, estimate and update the best "spaceComplexity" value.
 
 [] Copy the examples from the .pdf to problem.json in the "examples" array.
-
-[] Read the problem statement so as to understand the examples
 
 [] Update the "explanation" value with explanatory text of your own concoction.
 
