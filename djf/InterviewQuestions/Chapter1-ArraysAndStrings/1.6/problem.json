@@ -1,0 +1,23 @@
+{
+    "title": "String Compression",
+    "statement": "Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2blc5a3. If the \"compressed\" string would not become smaller than the original string, your method should return the original string. You can assume the string has only uppercase and lowercase letters (a - z).",
+    "hints": [
+        { "#92": "Do the easy thing first. Compress the string, then compare the lengths."},
+        { "#110": "Be careful that you aren't repeatedly concatenating strings together. This can be very inefficient."}
+    ],
+    "timeComplexity": "O(n)",
+    "spaceComplexity": "O(1)",
+    "tests": [
+        {"string":  "aabcccccaaa", "expectedResult": "a2blc5a3", "explanation": "Each letter of the original is copied, with its repetition factor."},
+        {"string":  "aabcdef", "expectedResult": "aabcdef", "explanation": "Our 'compressed' version would have been a2b1c1d1e1f1, which is longer than the original."}
+    ],
+    "constraints": [
+        "You can assume the string has only uppercase and lowercase letters (a - z).",
+        "0 &le; <code>len(string)</code> &le; 10<sup>5</sup>"
+    ],
+    "examples": [
+        {"string":  "aabcccccaaa", "expectedResult": "a2blc5a3", "explanation": "Each letter of the original is copied, with its repetition factor."},
+        {"string":  "aabcdef", "expectedResult": "aabcdef", "explanation": "Our 'compressed' version would have been a2b1c1d1e1f1, which is longer than the original."}
+    ],
+    "urls": ["http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=102"]
+}
