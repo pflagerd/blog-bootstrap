@@ -1,4 +1,4 @@
-[] Find the next problem statement in "Cracking the Coding Interview 189 Programming Questions and Solutions.pdf"
+[] Find the next problem statement in "Cracking the Coding Interview 189 Programming Questions and Solutions.pdf", and compare it with what ChatGPT extracted in the file ctci_problem_statements_utf8_extracted_by_chatgpt.txt.
 
 [] Copy the most recent directory from .../algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings
 e.g 
@@ -8,17 +8,31 @@ e.g
 ```
    This creates the base artifacts for the problem 1.5 such as problem.json, which we'll modify.
 
+* We might improve this step by copying only the problem.json, RUNME, and SETMEUP files (and .idea if using Webstorm)
+
+[] Clean out any extraneous content from the new directory.
+
+[] Update the url in problem.json to navigate to the correct page in the pdf. For problem 1.6, this would be "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=212".
+
 [] Copy the problem title ("One Away") in the case of problem 1.5 to problem.json's "title" value:
 
-[] Copy the problem statement into problem.json's "statement" value:
+[] Copy the problem statement into problem.json's "statement" value. Can copy this from ctci_problem_statements_utf8_extracted_by_chatgpt.txt, but confirm that file's statement matches the .pdf.
 
-[] Copy the examples.
+[] Copy the hints, including the hint text from the file .../extract-hints-from-pdf/ctci_hints.json
 
-[] Copy the hints, including the hint text (found in the Hints section of the book) to the "hints" array.
+[] Based on the problem statement, estimate and update the timeComplexity value.
+
+[] Based on the problem statement, estimate and update the spaceComplexity value.
+
+[] Copy the examples from the .pdf to problem.json in the "examples" array.
 
 [] Read the problem statement so as to understand the examples
 
-[] Copy the examples to the "examples" and "tests" arrays.
+[] Update the "explanation" value with explanatory text of your own concoction.
+
+[] Copy the examples to the "tests" array in problem.json.
+
+[] Generate problem.html and problem.py
 
 [] Construct the ontology.
 
@@ -32,6 +46,20 @@ e.g
 [] State the ontology in the Analysis.
 
 [] Define the constraints.
+
+[] Code the problem.
+
+have had an implicit mental task like "Look closely at the given example for any constraints or gotchas"
+
+optimize our solution until it is the best it can be for space and time
+
+[] Find Gayle's solution and compare with ours
+
+[] Update our solution if necessary.
+
+[] Based on the problem statement, estimate and update the timeComplexity value.
+
+[] Based on the problem statement, estimate and update the spaceComplexity value.
 
 [] Try to identify the "atomic algorithms" or at least "more fundamental algorithms" or "nearest ancestor algorithms" therein.
 
@@ -53,6 +81,8 @@ e.g
     [] Create frequency map of use of related algorithms in this context
 
 [] Execute such problems if found
+
+
 
 [] Create some kind of spaced repetition system
 [] Adapt maxrecall.net?
