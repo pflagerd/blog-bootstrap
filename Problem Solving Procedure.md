@@ -35,9 +35,10 @@ e.g
 [] Copy the examples to the "tests" array in problem.json.
 
 [] Generate problem.html
-```../```
+```../../../../../../practice/python/generate-problem-html-from-problem-json/RUNME ../../../../../../practice/python/generate-problem-html-from-problem-json/template.html problem.json```
 
 [] Generate problem.py
+```../../../../../../practice/python/generate-problem-py-from-problem-json/RUNME ./```
 
 [] Construct the ontology.
 
