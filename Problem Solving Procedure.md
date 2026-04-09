@@ -53,7 +53,11 @@ e.g
 
 [] Define the constraints.
 
-[] Code the problem.
+[] What kind of machine is needed to solve the problem. e.g. state machine, push down automata etc.?
+
+[] Code the problem using the appropriate automata
+
+[] Code the problem a different (organic) way.
 
 have had an implicit mental task like "Look closely at the given example for any constraints or gotchas"
 
