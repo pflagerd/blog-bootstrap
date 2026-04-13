@@ -35,7 +35,7 @@ e.g
 [] Copy the examples to the "tests" array in problem.json.
 
 [] Generate problem.html
-```../../../../../../practice/python/generate-problem-html-from-problem-json/RUNME ../../../../../../practice/python/generate-problem-html-from-problem-json/template.html problem.json```
+```../../../../../../practice/python/generate-problem-html-from-problem-json/RUNME```
 
 [] Generate problem.py
 ```../../../../../../practice/python/generate-problem-py-from-problem-json/RUNME ./```
@@ -63,7 +63,7 @@ have had an implicit mental task like "Look closely at the given example for any
 
 optimize our solution until it is the best it can be for space and time
 
-[] Find Gayle's solution and compare with ours
+[] Compare Gayle's solution with ours
 
 [] Update our solution if necessary.
 
