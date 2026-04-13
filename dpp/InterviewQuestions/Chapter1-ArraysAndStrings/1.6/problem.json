@@ -13,11 +13,11 @@
     "timeComplexity": "O(n)",
     "spaceComplexity": "O(1)",
     "examples": [
-        {"string":  "aabcccccaaa", "expectedResult": "a2blc5a3", "explanation": "repeated characters replaced with a number."},
+        {"string":  "aabcccccaaa", "expectedResult": "a2b1c5a3", "explanation": "repeated characters replaced with a number."},
         {"string":  "abcdef", "expectedResult": "abcdef", "explanation": "Cannot compress it more. Return the same string as original."}
     ],
     "tests": [
-        {"string":  "aabcccccaaa", "expectedResult": "a2blc5a3", "explanation": "repeated characters replaced with a number."},
+        {"string":  "aabcccccaaa", "expectedResult": "a2b1c5a3", "explanation": "repeated characters replaced with a number."},
         {"string":  "abcdef", "expectedResult": "abcdef", "explanation": "Cannot compress it more. Return the same string as original."}
     ]
 }
