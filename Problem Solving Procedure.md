@@ -65,6 +65,8 @@ optimize our solution until it is the best it can be for space and time
 
 [] Compare Gayle's solution with ours
 
+[] How does ChatGPT, ClaudeAI or other LLMs solve the problem?
+
 [] Update our solution if necessary.
 
 [] Based on the problem statement, estimate and update the timeComplexity value.
