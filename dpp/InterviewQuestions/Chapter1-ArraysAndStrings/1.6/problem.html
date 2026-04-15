@@ -99,7 +99,6 @@
     <div>repeated characters replaced with a number</div>
     <pre>string = aabcccccaaa
 expectedResult = a2blc5a3
-
 </pre>
 </blockquote>
 
@@ -109,7 +108,6 @@ expectedResult = a2blc5a3
     <div>Cannot compress it more. Return the same string as original</div>
     <pre>string = abcdef
 expectedResult = abcdef
-
 </pre>
 </blockquote>
 
@@ -117,13 +115,14 @@ expectedResult = abcdef
 
 <h3>Ontology</h3>
 <h4>Entities, Constraints, Relationships</h4>
-<p>A {String} is a sequence of one or more {Characters}.</p>
-<p>A {Python String} is a sequence of one or more {Python Characters}.</p>
-<p>{The Input String} is {a Python String containing only (uppercase or lowercase) alphabetic {Characters}}.</p>
-<p>{The Input String} is {a Python String containing only {uppercase alphabetic {Characters}} or {lowercase alphabetic {Characters}}}.</p>
-<p>{The Output String} is {a Python String containing only uppercase alphabetic characters, lowercase alphabetic characters, or digits}.</p>
-<p>{A sequence of repeated characters} in {The Input String} will appear in {The Output String} as a {Decimal Number} followed by a single instance of the repeated character.</p>
+<p style="margin-left: 1rem;">A {String} is a sequence of one or more {Characters}.</p>
+<p style="margin-left: 1rem;">A {Python String} is a sequence of one or more {Python Characters}.</p>
+<p style="margin-left: 1rem;">{The Input String} is {a {Python String} containing only (uppercase or lowercase) alphabetic {Python Characters}}.</p>
+<p style="margin-left: 1rem; color: gray;" title="This is an algebraic expansion of the line above ">{The Input String} is {a {Python String} containing only {uppercase alphabetic {Python Characters}} or {lowercase alphabetic {Python Characters}}}.</p>
+<p style="margin-left: 1rem;">{The Output String} is {a {Python String} containing only uppercase alphabetic {Python Characters}, lowercase alphabetic {Python Characters}, or {Decimal Digits}}.</p>
+<p style="margin-left: 1rem;">{A sequence of repeated {Python Characters} in {The Input String} will appear in {The Output String} as a single instance of the repeated character followed by a {Decimal Number}.</p>
 <p style="margin-left: 1rem;">The {Decimal Number} will represent a count of the number of identical characters found.</p>
+<p style="margin-left: 1rem;">Should {{The Output String} containing a {Decimal Number}} be longer than {The Input String}, {The Input String} will be used as {The Output String}.</p>
 <!--<div vocab="https://schema.org/" typeof="PropertyValue" resource="#TheInputString">-->
 <!--    <span property="name" title="A Unicode UTF-8 encoded Python String consisting only of uppercase or lowercase alphabetic characters.">The Input String</span>-->
 
