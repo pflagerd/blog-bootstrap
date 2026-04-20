@@ -1,4 +1,4 @@
-[] Find the next problem statement in "Cracking the Coding Interview 189 Programming Questions and Solutions.pdf", and compare it with what ChatGPT extracted in the file ctci_problem_statements_utf8_extracted_by_chatgpt.txt.
+[] Find the next problem statement in "Cracking the Coding Interview 189 Programming Questions and Solutions.pdf", and compare it with what ChatGPT extracted in the file .../ctci_problem_statements_utf8_extracted_by_chatgpt.txt.  They should match.  If not, manually update .../ctci_problem_statements_utf8_extracted_by_chatgpt.txt.
 
 [] Copy the most recent directory from .../algorithms/doc/Cracking the Coding Interview/dpp/InterviewQuestions/Chapter1-ArraysAndStrings
 e.g 
@@ -8,7 +8,7 @@ e.g
 ```
    This creates the base artifacts for the problem 1.5 such as problem.json, which we'll modify.
 
-* We might improve this step by copying only the problem.json, RUNME, and SETMEUP files (and .idea if using Webstorm)
+* We might improve this step by copying only the problem.json, RUNME, and SETMEUP files
 
 [] Clean out any extraneous content from the new directory.
 
