@@ -89,8 +89,36 @@
         </article>
 
         <article class="post">
-            <h3>Coming back to <b>playback</b> after about a month hiatus.</h3>
-            <p class="meta">Another series of miracles occurred to get playback running.</p>
+            <h3>I document how to set a breakpoint and test that it works.</h3>
+            <p class="meta">Now that I've documente how to start up the dev environment, I want to try setting a breakpoint.</p>
+            <p class="meta">2026-04-28 12:46 (UTC-8) by Daniel</p>
+            <p>My starting point is to have executed the procedure in the previous post so that now I have Android Studio running, the Android Studio Device Manager running, the "Medium Phone API 36.1" phone running, Code is running and the ~/desktops/playback/playback folder is open.</p>
+            <p>Then I look for /home/oy753c/desktops/playback/playback/lib/database/nothing/persistence_strategy_impl.dart (in other words I look for lib/database/nothing/persistence_strategy_impl.dart and open it in Code.</p>
+            <p>Then I look for the class <code>GamePersistenceStrategyImpl</code> and set a breakpoint in the <code>watch</code> method:</p>
+            <img src="img/Screenshot_20260428_125142.png" alt="img/Screenshot_20260428_125142.png" style="width: 66%;">
+            <p>Now when I start the Medium Phone API 36.1 in the Device Manager, it already shows Playback.  This is not what I want.</p>
+            <p>So I stop the device (with the stop button) in the Device Manager.</p>
+            <p>Then, using the vertical triple dots in the Device Manager, I choose Wipe Data:</p>
+            <img src="img/Screenshot_20260428_125704.png" alt="img/Screenshot_20260428_125704.png" style="width: 30%;">
+            <p>Now when I re-run the Medium Phone, Playback crashes and the emulator looks normal.</p>
+            <p>Next, I start Code.  It already has the playback folder open, but it also displays a window:</p>
+            <img src="img/Screenshot_20260428_130024.png" alt="img/Screenshot_20260428_130024.png" style="width: 30%;">
+            <p>which I just close, neither previewing or applying the fixes.</p>
+            <p>Then I Run | Start debugging and Playback appears in the emulator.</p>
+            <p>Now I click the "New Game" button, and Code sees the breakpoint is hit:</p>
+            <img src="img/Screenshot_20260428_130345.png" alt="img/Screenshot_20260428_130345.png" style="width: 66%;">
+            <p>Mission accomplished!</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+
+        </article>
+
+        <article class="post">
+            <h3>I document how to start up the dev environment on Linux.</h3>
+            <p class="meta">Coming back to <b>playback</b> after about a month hiatus, another series of miracles occurred to get playback running. This time I write them down.</p>
             <p class="meta">2026-04-28 11:12 (UTC-8) by Daniel</p>
             <p>It appears I must have Android Studio running before I do anything else:</p>
             <pre style="white-space: pre-wrap;">dell7750:~> which studio
