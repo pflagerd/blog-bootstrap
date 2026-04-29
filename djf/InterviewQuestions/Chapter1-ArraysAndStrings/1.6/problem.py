@@ -3,9 +3,9 @@ import unittest
 
 def stringCompression(string):
     # Gayle's example always adds the letter count, even if it's 1
-    REPETITION_THRESHOLD = 0
+    # REPETITION_THRESHOLD = 0
     # Counts of 1 are redundant, so eliminate them for better compression.
-    # REPETITION_THRESHOLD = 1
+    REPETITION_THRESHOLD = 1
     length = len( string )
     if length == 0:
         return ""

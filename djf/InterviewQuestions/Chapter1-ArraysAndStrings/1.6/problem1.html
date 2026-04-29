@@ -76,9 +76,9 @@
 
 <h4>Constraints</h4>
 <blockquote>
-<div>0 &le; <code>len(string)</code> &le; 10<sup>5</sup></div>
-
 <div>You can assume the string has only uppercase and lowercase letters (a - z).</div>
+
+<div>0 &le; <code>len(string)</code> &le; 10<sup>5</sup></div>
 </blockquote>
 
 
@@ -96,7 +96,7 @@
 
 <h4>Example 1</h4>
 <blockquote>
-    <div>repeated characters replaced with a number</div>
+    <div>Each letter of the original is copied, with its repetition factor.</div>
     <pre>string = aabcccccaaa
 expectedResult = a2blc5a3
 
@@ -106,42 +106,20 @@ expectedResult = a2blc5a3
 
 <h4>Example 2</h4>
 <blockquote>
-    <div>Cannot compress it more. Return the same string as original</div>
-    <pre>string = abcdef
-expectedResult = abcdef
+    <div>Our 'compressed' version would have been a2b1c1d1e1f1, which is longer than the original.</div>
+    <pre>string = aabcdef
+expectedResult = aabcdef
 
 </pre>
 </blockquote>
 
 
 
-<h3>Ontology</h3>
-<h4>Entities, Constraints, Relationships</h4>
-<p>A {String} is a sequence of one or more {Characters}.</p>
-<p>A {Python String} is a sequence of one or more {Python Characters}.</p>
-<p>{The Input String} is {a Python String containing only (uppercase or lowercase) alphabetic {Characters}}.</p>
-<p>{The Input String} is {a Python String containing only {uppercase alphabetic {Characters}} or {lowercase alphabetic {Characters}}}.</p>
-<p>{The Output String} is {a Python String containing only uppercase alphabetic characters, lowercase alphabetic characters, or digits}.</p>
-<p>{A sequence of repeated characters} in {The Input String} will appear in {The Output String} as a {Decimal Number} followed by a single instance of the repeated character.</p>
-<p style="margin-left: 1rem;">The {Decimal Number} will represent a count of the number of identical characters found.</p>
-<!--<div vocab="https://schema.org/" typeof="PropertyValue" resource="#TheInputString">-->
-<!--    <span property="name" title="A Unicode UTF-8 encoded Python String consisting only of uppercase or lowercase alphabetic characters.">The Input String</span>-->
-
-<!--    &lt;!&ndash; The constraint: Alphabetic a-z or A-Z only &ndash;&gt;-->
-<!--    <meta property="valuePattern" content="^[a-zA-Z]+$">-->
-<!--</div>-->
-
-
-<p></p>
-<h3>Analysis</h3>
+<h3>Thoughts</h3>
 <p></p>
 <h3>Videos and articles about this problem, including similar problems.</h3>
 <p></p>
-<h3>Similar problems from LeetCode, GeeksForGeeks, etc.</h3>
-<p></p>
-<h3>Videos and articles about this and similar problems</h3>
-<p></p>
-<h3>Nearest Ancestor Problems and Techniques and Atomic Problems</h3>
+<h3>Nearest Ancestor Problems and Techniques upon which this problem depends</h3>
 <p>Ideally transitive problems and techniques CLOSEST to this problem, which may themselves have many other transitive ancestors.</p>
 <p>Furthest Ancestor Techniques exercised by this problem.</p>
 <p>This includes things like counting, looping and so on.</p>
