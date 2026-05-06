@@ -241,7 +241,7 @@
     border-radius: 3px;
   }
 
-  .code-block {
+  pre {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.82rem;
     background: var(--code-bg);
@@ -287,7 +287,7 @@
       <li data-check id="c0"><label><input type="checkbox"></label><span class="task-text">Find the next problem statement in the CtCI PDF and compare it with what ChatGPT extracted in <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>. They should match. If not, manually update that file.</span></li>
       <li data-check id="c1"><label><input type="checkbox"></label><span class="task-text">Copy the most recent directory, e.g.:</span></li>
     </ul>
-    <code class="code-block">cp -r 1.4 1.5</code>
+    <pre>cp -r 1.4 1.5</pre>
     <ul>
       <li data-check id="c2"><label><input type="checkbox"></label><span class="task-text">Clean out any extraneous content from the new directory.</span></li>
       <li data-check id="c3"><label><input type="checkbox"></label><span class="task-text">Update the <code>url</code> in <code>problem.json</code> to navigate to the correct PDF page, e.g. <code>http://localhost:63343/algorithms/doc/...pdf#page=212</code></span></li>
