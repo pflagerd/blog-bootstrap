@@ -38,7 +38,7 @@ e.g
 ```../../../../../../practice/python/generate-problem-html-from-problem-json/RUNME```
 
 [] Generate problem.py
-```../../../../../../practice/python/generate-problem-py-from-problem-json/RUNME ./```
+```../../../../../../practice/python/generate-problem-py-from-problem-json/RUNME```
 
 [] Construct the ontology.
 
