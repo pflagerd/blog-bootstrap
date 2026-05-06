@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CtCI Problem Workflow</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+
+  :root {
+    --bg: #f5f2eb;
+    --surface: #ffffff;
+    --border: #d4c9b0;
+    --accent: #2a5298;
+    --accent-light: #e8eef8;
+    --text: #1a1a1a;
+    --muted: #6b6557;
+    --check: #2e7d32;
+    --check-bg: #e8f5e9;
+    --note: #b45309;
+    --note-bg: #fef3c7;
+    --code-bg: #1e1e2e;
+    --code-text: #cdd6f4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  header {
+    border-left: 4px solid var(--accent);
+    padding: 0.5rem 0 0.5rem 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  header h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  header p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+  }
+
+  .progress-bar {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+    transition: width 0.4s ease;
+    width: 0%;
+  }
+
+  .progress-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: right;
+    margin-top: -1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 1.25rem;
+    overflow: hidden;
+  }
+
+  section h2 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: #f9f6f0;
+    border-bottom: 1px solid var(--border);
+    padding: 0.6rem 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0.5rem 0;
+  }
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.45rem 1rem;
+    transition: background 0.15s;
+    cursor: pointer;
+  }
+
+  li:hover { background: #faf8f4; }
+
+  li.checked {
+    background: var(--check-bg);
+  }
+
+  li.checked .task-text {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  li.note {
+    background: var(--note-bg);
+    cursor: default;
+    border-left: 3px solid var(--note);
+    font-size: 0.85rem;
+    font-style: italic;
+    color: var(--note);
+    align-items: center;
+    padding-left: 0.85rem;
+  }
+
+  li.note:hover { background: var(--note-bg); }
+
+  li.subitem {
+    padding-left: 2.75rem;
+  }
+
+  li.subitem .task-text { font-size: 0.88rem; }
+
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    border: 2px solid var(--border);
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 2px;
+    transition: all 0.15s;
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked {
+    background: var(--check);
+    border-color: var(--check);
+  }
+
+  input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    width: 5px;
+    height: 9px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .task-text {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+  }
+
+  .code-block {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.82rem;
+    background: var(--code-bg);
+    color: var(--code-text);
+    padding: 0.6rem 1rem;
+    margin: 0.25rem 0 0.25rem 2.5rem;
+    border-radius: 4px;
+    display: block;
+  }
+
+  .unsure {
+    opacity: 0.55;
+  }
+
+  .unsure .task-text::before {
+    content: '⚠ ';
+    font-size: 0.75em;
+    color: var(--note);
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>CtCI Problem Workflow</h1>
+    <p>Cracking the Coding Interview — per-problem checklist</p>
+  </header>
+
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div class="progress-label" id="progressLabel">0 / 0 complete</div>
+
+  <!-- SECTION 1 -->
+  <section>
+    <h2>📁 Setup</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Find the next problem statement in the CtCI PDF and compare it with what ChatGPT extracted in <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>. They should match. If not, manually update that file.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Copy the most recent directory, e.g.:</span></li>
+      <li class="note">We might improve this step by copying only the <code>problem.json</code>, <code>RUNME</code>, and <code>SETMEUP</code> files</li>
+    </ul>
+    <code class="code-block">cp -r 1.4 1.5</code>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Clean out any extraneous content from the new directory.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Update the <code>url</code> in <code>problem.json</code> to navigate to the correct PDF page, e.g. <code>http://localhost:63343/algorithms/doc/...pdf#page=212</code></span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section>
+    <h2>📝 problem.json Population</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Copy the problem title (e.g. "One Away" for 1.5) to <code>problem.json</code>'s <code>"title"</code> value.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Copy the problem statement into <code>problem.json</code>'s <code>"statement"</code> value. Can copy from <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>, but confirm it matches the PDF.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Read the problem statement to inform the following steps.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Copy the hints (including hint text) from <code>ctci_hints.json</code>.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Based on the problem statement, update the <code>"constraints"</code> value.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Based on the problem statement, estimate and update the best <code>"timeComplexity"</code> value.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Based on the problem statement, estimate and update the best <code>"spaceComplexity"</code> value.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Copy the examples from the PDF to the <code>"examples"</code> array in <code>problem.json</code>.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Update the <code>"explanation"</code> value with explanatory text of your own concoction.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Copy the examples to the <code>"tests"</code> array in <code>problem.json</code>.</span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section>
+    <h2>⚙️ Code Generation</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Generate <code>problem.html</code> via <code>generate-problem-html-from-problem-json/RUNME</code></span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Generate <code>problem.py</code> via <code>generate-problem-py-from-problem-json/RUNME</code></span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section>
+    <h2>🧠 Analysis &amp; Ontology</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Construct the ontology.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Identify the "Features":</span></li>
+      <li class="subitem" data-check><input type="checkbox"><span class="task-text">Objects</span></li>
+      <li class="subitem" data-check><input type="checkbox"><span class="task-text">Constraints</span></li>
+      <li class="subitem" data-check><input type="checkbox"><span class="task-text">Actions (Functions)</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Can the problem (as opposed to the solution) be expressed symbolically (mathematically)?</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">State the ontology in the Analysis.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">What kind of reference machine is needed to solve the problem? (e.g. state machine, pushdown automaton, etc.)</span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section>
+    <h2>💻 Implementation</h2>
+    <ul>
+      <li class="note">Implicit mental task: Look closely at the given example for any constraints or gotchas.</li>
+      <li data-check><input type="checkbox"><span class="task-text">Code the problem using the appropriate automata.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Code the problem a different (organic) way.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Optimize the solution until it is the best it can be for space and time.</span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section>
+    <h2>🔍 Review &amp; Comparison</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Compare Gayle's solution with ours.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">What does Gayle's problem statement get wrong, and what does Gayle's solution leave unstated (assumptions)?</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">How does ChatGPT, ClaudeAI, or other LLMs solve the problem?</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Update our solution if necessary.</span></li>
+      <li class="unsure" data-check><input type="checkbox"><span class="task-text">Based on the problem statement, estimate and update the <code>timeComplexity</code> value. <em>(unsure about this step)</em></span></li>
+      <li class="unsure" data-check><input type="checkbox"><span class="task-text">Based on the problem statement, estimate and update the <code>spaceComplexity</code> value. <em>(unsure about this step)</em></span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section>
+    <h2>🔬 Algorithm Research</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Try to identify the "atomic algorithms," or at least "more fundamental algorithms" or "nearest ancestor algorithms."</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Label these algorithms.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Research "more fundamental algorithms" in terms of most frequently used code patterns.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Research the problem and similar problems.</span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 8 -->
+  <section>
+    <h2>🌐 Practice Platforms</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">LeetCode</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">HackerRank — "Edit Distance" variants in its Algorithm section</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Codeforces — multiple string distance problems in its problem archive</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">CodeSignal — edit distance problems in its interview prep tracks</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">NeetCode.io — dedicated "1D DP" and "2D DP" roadmap covering these string problems</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">AlgoExpert — curated set that includes edit distance variants with video walkthroughs</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">GeeksforGeeks — extensive write-ups on edit distance and one-edit-distance specifically</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Create frequency map of use of related algorithms in this context.</span></li>
+      <li data-check><input type="checkbox"><span class="task-text">Execute such problems if found.</span></li>
+    </ul>
+  </section>
+
+  <!-- SECTION 9 -->
+  <section>
+    <h2>🔁 Retention</h2>
+    <ul>
+      <li data-check><input type="checkbox"><span class="task-text">Create some kind of spaced repetition system. Adapt <code>maxrecall.net</code>?</span></li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+  const items = document.querySelectorAll('li[data-check]');
+  const fill = document.getElementById('progressFill');
+  const label = document.getElementById('progressLabel');
+  const total = items.length;
+
+  function update() {
+    const done = document.querySelectorAll('li[data-check].checked').length;
+    const pct = total ? Math.round(done / total * 100) : 0;
+    fill.style.width = pct + '%';
+    label.textContent = `${done} / ${total} complete`;
+  }
+
+  items.forEach(li => {
+    const cb = li.querySelector('input[type="checkbox"]');
+    li.addEventListener('click', e => {
+      if (e.target === cb) return; // let the checkbox handle its own click
+      cb.checked = !cb.checked;
+      li.classList.toggle('checked', cb.checked);
+      update();
+    });
+    cb.addEventListener('change', () => {
+      li.classList.toggle('checked', cb.checked);
+      update();
+    });
+  });
+
+  update();
+</script>
+</body>
+</html>
