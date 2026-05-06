@@ -286,13 +286,13 @@
   <section>
     <h2>📁 Setup</h2>
     <ul>
-      <li data-check id="c0"><label><input type="checkbox"></label><span class="task-text">Find the next problem statement in the CtCI PDF and compare it with what ChatGPT extracted in <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>. They should match. If not, manually update that file.</span></li>
-      <li data-check id="c1"><label><input type="checkbox"></label><span class="task-text">Copy the most recent directory, e.g.:</span></li>
+      <li data-check id="c000"><label><input type="checkbox"></label><span class="task-text">Find the next problem statement in the CtCI PDF and compare it with what ChatGPT extracted in <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>. They should match. If not, manually update that file.</span></li>
+      <li data-check id="c001"><label><input type="checkbox"></label><span class="task-text">Copy the most recent directory, e.g.:</span></li>
     </ul>
     <pre>cp -r 1.4 1.5</pre>
     <ul>
-      <li data-check id="c2"><label><input type="checkbox"></label><span class="task-text">Clean out any extraneous content from the new directory.</span></li>
-      <li data-check id="c3"><label><input type="checkbox"></label><span class="task-text">Update the <code>url</code> in <code>problem.json</code> to navigate to the correct PDF page, e.g. <code>http://localhost:63343/algorithms/doc/...pdf#page=212</code></span></li>
+      <li data-check id="c020"><label><input type="checkbox"></label><span class="task-text">Clean out any extraneous content from the new directory.</span></li>
+      <li data-check id="c021"><label><input type="checkbox"></label><span class="task-text">Update the <code>url</code> in <code>problem.json</code> to navigate to the correct PDF page, e.g. <code>http://localhost:63343/algorithms/doc/...pdf#page=212</code></span></li>
     </ul>
   </section>
 
@@ -300,16 +300,16 @@
   <section>
     <h2>📝 problem.json Population</h2>
     <ul>
-      <li data-check id="c4"><label><input type="checkbox"></label><span class="task-text">Copy the problem title (e.g. "One Away" for 1.5) to <code>problem.json</code>'s <code>"title"</code> value.</span></li>
-      <li data-check id="c5"><label><input type="checkbox"></label><span class="task-text">Copy the problem statement into <code>problem.json</code>'s <code>"statement"</code> value. Can copy from <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>, but confirm it matches the PDF.</span></li>
-      <li data-check id="c6"><label><input type="checkbox"></label><span class="task-text">Read the problem statement to inform the following steps.</span></li>
-      <li data-check id="c7"><label><input type="checkbox"></label><span class="task-text">Copy the hints (including hint text) from <code>ctci_hints.json</code>.</span></li>
-      <li data-check id="c8"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, update the <code>"constraints"</code> value.</span></li>
-      <li data-check id="c9"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the best <code>"timeComplexity"</code> value.</span></li>
-      <li data-check id="c10"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the best <code>"spaceComplexity"</code> value.</span></li>
-      <li data-check id="c11"><label><input type="checkbox"></label><span class="task-text">Copy the examples from the PDF to the <code>"examples"</code> array in <code>problem.json</code>.</span></li>
-      <li data-check id="c12"><label><input type="checkbox"></label><span class="task-text">Update the <code>"explanation"</code> value with explanatory text of your own concoction.</span></li>
-      <li data-check id="c13"><label><input type="checkbox"></label><span class="task-text">Copy the examples to the <code>"tests"</code> array in <code>problem.json</code>.</span></li>
+      <li data-check id="c030"><label><input type="checkbox"></label><span class="task-text">Copy the problem title (e.g. "One Away" for 1.5) to <code>problem.json</code>'s <code>"title"</code> value.</span></li>
+      <li data-check id="c031"><label><input type="checkbox"></label><span class="task-text">Copy the problem statement into <code>problem.json</code>'s <code>"statement"</code> value. Can copy from <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>, but confirm it matches the PDF.</span></li>
+      <li data-check id="c032"><label><input type="checkbox"></label><span class="task-text">Read the problem statement to inform the following steps.</span></li>
+      <li data-check id="c033"><label><input type="checkbox"></label><span class="task-text">Copy the hints (including hint text) from <code>ctci_hints.json</code>.</span></li>
+      <li data-check id="c034"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, update the <code>"constraints"</code> value.</span></li>
+      <li data-check id="c035"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the best <code>"timeComplexity"</code> value.</span></li>
+      <li data-check id="c036"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the best <code>"spaceComplexity"</code> value.</span></li>
+      <li data-check id="c037"><label><input type="checkbox"></label><span class="task-text">Copy the examples from the PDF to the <code>"examples"</code> array in <code>problem.json</code>.</span></li>
+      <li data-check id="c038"><label><input type="checkbox"></label><span class="task-text">Update the <code>"explanation"</code> value with explanatory text of your own concoction.</span></li>
+      <li data-check id="c039"><label><input type="checkbox"></label><span class="task-text">Copy the examples to the <code>"tests"</code> array in <code>problem.json</code>.</span></li>
     </ul>
   </section>
 
@@ -317,8 +317,8 @@
   <section>
     <h2>⚙️ Code Generation</h2>
     <ul>
-      <li data-check id="c14"><label><input type="checkbox"></label><span class="task-text">Generate <code>problem.html</code> via <code>generate-problem-html-from-problem-json/RUNME</code></span></li>
-      <li data-check id="c15"><label><input type="checkbox"></label><span class="task-text">Generate <code>problem.py</code> via <code>generate-problem-py-from-problem-json/RUNME</code></span></li>
+      <li data-check id="c040"><label><input type="checkbox"></label><span class="task-text">Generate <code>problem.html</code> via <code>generate-problem-html-from-problem-json/RUNME</code></span></li>
+      <li data-check id="c041"><label><input type="checkbox"></label><span class="task-text">Generate <code>problem.py</code> via <code>generate-problem-py-from-problem-json/RUNME</code></span></li>
     </ul>
   </section>
 
@@ -326,14 +326,16 @@
   <section>
     <h2>🧠 Analysis &amp; Ontology</h2>
     <ul>
-      <li data-check id="c16"><label><input type="checkbox"></label><span class="task-text">Construct the ontology.</span></li>
-      <li data-check id="c17"><label><input type="checkbox"></label><span class="task-text">Identify the "Features":</span></li>
-      <li class="subitem" data-check id="c18"><label><input type="checkbox"></label><span class="task-text">Objects</span></li>
-      <li class="subitem" data-check id="c19"><label><input type="checkbox"></label><span class="task-text">Constraints</span></li>
-      <li class="subitem" data-check id="c20"><label><input type="checkbox"></label><span class="task-text">Actions (Functions)</span></li>
-      <li data-check id="c21"><label><input type="checkbox"></label><span class="task-text">Can the problem (as opposed to the solution) be expressed symbolically (mathematically)?</span></li>
-      <li data-check id="c22"><label><input type="checkbox"></label><span class="task-text">State the ontology in the Analysis.</span></li>
-      <li data-check id="c23"><label><input type="checkbox"></label><span class="task-text">What kind of reference machine is needed to solve the problem? (e.g. state machine, pushdown automaton, etc.)</span></li>
+      <li data-check id="c050"><label><input type="checkbox"></label><span class="task-text">Construct the ontology.</span></li>
+      <li data-check id="c051"><label><input type="checkbox"></label><span class="task-text">Identify the "Features":</span></li>
+      <li class="subitem" data-check id="c052"><label><input type="checkbox"></label><span class="task-text">Objects</span></li>
+      <li class="subitem" data-check id="c053"><label><input type="checkbox"></label><span class="task-text">Constraints</span></li>
+      <li class="subitem" data-check id="c054"><label><input type="checkbox"></label><span class="task-text">Actions (Functions)</span></li>
+      <li data-check id="c055"><label><input type="checkbox"></label><span class="task-text">Can the problem (as opposed to the solution) be expressed symbolically (mathematically)?</span></li>
+      <li data-check id="c056"><label><input type="checkbox"></label><span class="task-text">Can you write a function which generates the code for tests and examples?</span></li>
+      <li data-check id="c057"><label><input type="checkbox"></label><span class="task-text">Can you write a function which generates the code for tests and examples?</span></li>
+      <li data-check id="c058"><label><input type="checkbox"></label><span class="task-text">State the ontology in the Analysis.</span></li>
+      <li data-check id="c059"><label><input type="checkbox"></label><span class="task-text">What kind of reference machine is needed to solve the problem? (e.g. state machine, pushdown automaton, etc.)</span></li>
     </ul>
   </section>
 
@@ -342,9 +344,9 @@
     <h2>💻 Implementation</h2>
     <ul>
       <li class="note">Implicit mental task: Look closely at the given example for any constraints or gotchas.</li>
-      <li data-check id="c24"><label><input type="checkbox"></label><span class="task-text">Code the problem using the appropriate automata.</span></li>
-      <li data-check id="c25"><label><input type="checkbox"></label><span class="task-text">Code the problem a different (organic) way.</span></li>
-      <li data-check id="c26"><label><input type="checkbox"></label><span class="task-text">Optimize the solution until it is the best it can be for space and time.</span></li>
+      <li data-check id="c060"><label><input type="checkbox"></label><span class="task-text">Code the problem using the appropriate automata.</span></li>
+      <li data-check id="c061"><label><input type="checkbox"></label><span class="task-text">Code the problem a different (organic) way.</span></li>
+      <li data-check id="c062"><label><input type="checkbox"></label><span class="task-text">Optimize the solution until it is the best it can be for space and time.</span></li>
     </ul>
   </section>
 
@@ -352,12 +354,12 @@
   <section>
     <h2>🔍 Review &amp; Comparison</h2>
     <ul>
-      <li data-check id="c27"><label><input type="checkbox"></label><span class="task-text">Compare Gayle's solution with ours.</span></li>
-      <li data-check id="c28"><label><input type="checkbox"></label><span class="task-text">What does Gayle's problem statement get wrong, and what does Gayle's solution leave unstated (assumptions)?</span></li>
-      <li data-check id="c29"><label><input type="checkbox"></label><span class="task-text">How does ChatGPT, ClaudeAI, or other LLMs solve the problem?</span></li>
-      <li data-check id="c30"><label><input type="checkbox"></label><span class="task-text">Update our solution if necessary.</span></li>
-      <li class="unsure" data-check id="c31"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the <code>timeComplexity</code> value. <em>(unsure about this step)</em></span></li>
-      <li class="unsure" data-check id="c32"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the <code>spaceComplexity</code> value. <em>(unsure about this step)</em></span></li>
+      <li data-check id="c070"><label><input type="checkbox"></label><span class="task-text">Compare Gayle's solution with ours.</span></li>
+      <li data-check id="c071"><label><input type="checkbox"></label><span class="task-text">What does Gayle's problem statement get wrong, and what does Gayle's solution leave unstated (assumptions)?</span></li>
+      <li data-check id="c072"><label><input type="checkbox"></label><span class="task-text">How does ChatGPT, ClaudeAI, or other LLMs solve the problem?</span></li>
+      <li data-check id="c073"><label><input type="checkbox"></label><span class="task-text">Update our solution if necessary.</span></li>
+      <li class="unsure" data-check id="c074"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the <code>timeComplexity</code> value. <em>(unsure about this step)</em></span></li>
+      <li class="unsure" data-check id="c075"><label><input type="checkbox"></label><span class="task-text">Based on the problem statement, estimate and update the <code>spaceComplexity</code> value. <em>(unsure about this step)</em></span></li>
     </ul>
   </section>
 
@@ -365,10 +367,10 @@
   <section>
     <h2>🔬 Algorithm Research</h2>
     <ul>
-      <li data-check id="c33"><label><input type="checkbox"></label><span class="task-text">Try to identify the "atomic algorithms," or at least "more fundamental algorithms" or "nearest ancestor algorithms."</span></li>
-      <li data-check id="c34"><label><input type="checkbox"></label><span class="task-text">Label these algorithms.</span></li>
-      <li data-check id="c35"><label><input type="checkbox"></label><span class="task-text">Research "more fundamental algorithms" in terms of most frequently used code patterns.</span></li>
-      <li data-check id="c36"><label><input type="checkbox"></label><span class="task-text">Research the problem and similar problems.</span></li>
+      <li data-check id="c080"><label><input type="checkbox"></label><span class="task-text">Try to identify the "atomic algorithms," or at least "more fundamental algorithms" or "nearest ancestor algorithms."</span></li>
+      <li data-check id="c081"><label><input type="checkbox"></label><span class="task-text">Label these algorithms.</span></li>
+      <li data-check id="c082"><label><input type="checkbox"></label><span class="task-text">Research "more fundamental algorithms" in terms of most frequently used code patterns.</span></li>
+      <li data-check id="c083"><label><input type="checkbox"></label><span class="task-text">Research the problem and similar problems.</span></li>
     </ul>
   </section>
 
@@ -376,15 +378,15 @@
   <section>
     <h2>🌐 Practice Platforms</h2>
     <ul>
-      <li data-check id="c37"><label><input type="checkbox"></label><span class="task-text">LeetCode</span></li>
-      <li data-check id="c38"><label><input type="checkbox"></label><span class="task-text">HackerRank — "Edit Distance" variants in its Algorithm section</span></li>
-      <li data-check id="c39"><label><input type="checkbox"></label><span class="task-text">Codeforces — multiple string distance problems in its problem archive</span></li>
-      <li data-check id="c40"><label><input type="checkbox"></label><span class="task-text">CodeSignal — edit distance problems in its interview prep tracks</span></li>
-      <li data-check id="c41"><label><input type="checkbox"></label><span class="task-text">NeetCode.io — dedicated "1D DP" and "2D DP" roadmap covering these string problems</span></li>
-      <li data-check id="c42"><label><input type="checkbox"></label><span class="task-text">AlgoExpert — curated set that includes edit distance variants with video walkthroughs</span></li>
-      <li data-check id="c43"><label><input type="checkbox"></label><span class="task-text">GeeksforGeeks — extensive write-ups on edit distance and one-edit-distance specifically</span></li>
-      <li data-check id="c44"><label><input type="checkbox"></label><span class="task-text">Create frequency map of use of related algorithms in this context.</span></li>
-      <li data-check id="c45"><label><input type="checkbox"></label><span class="task-text">Execute such problems if found.</span></li>
+      <li data-check id="c090"><label><input type="checkbox"></label><span class="task-text">LeetCode</span></li>
+      <li data-check id="c091"><label><input type="checkbox"></label><span class="task-text">HackerRank — "Edit Distance" variants in its Algorithm section</span></li>
+      <li data-check id="c092"><label><input type="checkbox"></label><span class="task-text">Codeforces — multiple string distance problems in its problem archive</span></li>
+      <li data-check id="c093"><label><input type="checkbox"></label><span class="task-text">CodeSignal — edit distance problems in its interview prep tracks</span></li>
+      <li data-check id="c094"><label><input type="checkbox"></label><span class="task-text">NeetCode.io — dedicated "1D DP" and "2D DP" roadmap covering these string problems</span></li>
+      <li data-check id="c095"><label><input type="checkbox"></label><span class="task-text">AlgoExpert — curated set that includes edit distance variants with video walkthroughs</span></li>
+      <li data-check id="c096"><label><input type="checkbox"></label><span class="task-text">GeeksforGeeks — extensive write-ups on edit distance and one-edit-distance specifically</span></li>
+      <li data-check id="c097"><label><input type="checkbox"></label><span class="task-text">Create frequency map of use of related algorithms in this context.</span></li>
+      <li data-check id="c098"><label><input type="checkbox"></label><span class="task-text">Execute such problems if found.</span></li>
     </ul>
   </section>
 
@@ -392,7 +394,7 @@
   <section>
     <h2>🔁 Retention</h2>
     <ul>
-      <li data-check id="c46"><label><input type="checkbox"></label><span class="task-text">Create some kind of spaced repetition system. Adapt <code>maxrecall.net</code>?</span></li>
+      <li data-check id="c100"><label><input type="checkbox"></label><span class="task-text">Create some kind of spaced repetition system. Adapt <code>maxrecall.net</code>?</span></li>
     </ul>
   </section>
 
