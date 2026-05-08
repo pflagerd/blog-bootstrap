@@ -35,12 +35,11 @@
     <script src="blog.js" defer></script>
 </head>
 <body>
-<header>
-    <div class="container">
-        <h1>blog-bootstrap</h1>
+<header style="padding-top: 0;">
+    <div class="container" style="padding-top: 1rem;">
+        <h1 style="font-size: 1.5em;">blog-bootstrap</h1>
         <p>A chromium-centric file-only (server-not-needed) blog</p>
         <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
-        <br/>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -55,15 +54,15 @@
 <main class="container">
     <section class="posts">
 
-        <!-- Copy/Paste this blog and remove the inline <code>style="display: none;"</code> -->
-        <article class="post" style="display: none;">
+        <!-- Copy/Paste this blog, remove the inline style="display: none;", and update the id to match your post's date/time -->
+        <article class="post" id="YYMMDD-HHMM" style="display: none;">
             <h3>My first blog entry</h3>
             <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
             <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
             <p>I did a .fork of <a href="https://github.com/pflagerd/blog-bootstrap" target="_blank">https://github.com/pflagerd/blog-bootstrap</a></p>
         </article>
 
-        <article class="post">
+        <article class="post" id="250914-1140">
             <h3>TODO</h3>
             <p class="meta">What needs doing everywhere ...</p>
             <p class="meta">2025-09-14 11:40 (UTC-7) by Daniel</p>
@@ -74,7 +73,7 @@
             <p style="margin-left: 2rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subsubtask</a></p>
         </article>
 
-        <article class="post">
+        <article class="post" id="250601-2122">
             <h3>My first blog entry</h3>
             <p class="meta">Put a headline/comment/summary of what this blog entry is about here.</p>
             <p class="meta">2025-06-01 21:22 (UTC-7) by Daniel</p>
@@ -84,8 +83,8 @@
     </section>
 </main>
 
-<footer>
-    <div class="container">
+<footer style="padding-bottom: 0;">
+    <div class="container" style="padding-bottom: 1rem;">
         <p>&copy; 2025 Daniel P. Pflager. All rights reserved.</p>
     </div>
 </footer>
