@@ -81,5 +81,21 @@ class ZeroMatrix(unittest.TestCase):
         self.assertEqual([[0, 0, 0], [0, 0, 0]], zeroMatrix([[1, 2, 0], [0, 5, 6]]))
 
 
+    def test_30(self):
+        self.assertEqual([[1, 2, 3], [4, 5, 6], [7, 8, 9]], zeroMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+
+    def test_31(self):
+        self.assertEqual([[0, 0, 0], [0, 5, 6], [0, 8, 9]], zeroMatrix([[0, 2, 3], [4, 5, 6], [7, 8, 9]]))
+
+    def test_32(self):
+        self.assertEqual([[1, 0, 3], [0, 0, 0], [7, 0, 9]], zeroMatrix([[1, 2, 3], [4, 0, 6], [7, 8, 9]]))
+
+    def test_33(self):
+        self.assertEqual([[1, 2, 0], [4, 5, 0], [0, 0, 0]], zeroMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 0]]))
+
+
+    def test_34(self):
+        self.assertEqual([[0, 0, 0], [0, 5, 0], [0, 0, 0]], zeroMatrix([[0, 2, 3], [4, 5, 6], [7, 8, 0]]))
+
     if __name__ == "__main__":
         unittest.main()
