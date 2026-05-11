@@ -1,0 +1,10 @@
+image [is represented by] [an NxN matrix]
+pixel [is] [4 bytes]
+
+We notice that the phrase "each pixel in the image is 4 bytes" is irrelevant to the problem solution" as it turns out. We don't seem to know this until we see the solution.
+
+But we would agree that a candidate who noticed the "pixel issue" would get credit for that (as would one who didn't and spent a lot of time trying to solve the problem with pixels would NOT get as much (oer perhaps negative) "credit")
+
+We agree that someone who stated their assumptions (including that they're ignoring the "pixel issue") would get credit for that.
+
+We agree that if Gayle's example doesn't state the assumptions explicitly, or apologize (explain) why she included the "pixel issue", this would be a "fail" on her part.
