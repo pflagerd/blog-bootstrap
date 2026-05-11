@@ -6,10 +6,19 @@ def rotateMatrix(matrix):
     
 class RotateMatrix(unittest.TestCase):
     def test_1(self):
-       self.assertEqual([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rotateMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+        self.assertEqual(None, rotateMatrix(None))
 
     def test_2(self):
-       self.assertEqual("abcdef", rotateMatrix("abcdef"))
+        self.assertEqual(None, rotateMatrix([]))
+
+    def test_3(self):
+        self.assertEqual(None, rotateMatrix([[]]))
+
+    def test_4(self):
+        self.assertEqual(None, rotateMatrix([[1]]))
+
+    def test_5(self):
+       self.assertEqual(None, rotateMatrix([[1, 2]]))
 
 
 if __name__ == "__main__":
