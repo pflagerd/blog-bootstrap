@@ -27,7 +27,7 @@
         { "input": { "type": "List[List[int]]", "value": "[[1]]" }, "expected output": { "type": "List[List[int]]", "value": "[[1]]"}, "explanation": "Trivial test case"},
         { "input": { "type": "List[List[int]]", "value": "[[1, 2]]" }, "expected output": { "type": "List[List[int]]", "value": "[[1, 2]]"}, "explanation": "Trivial test case"},
         { "input": { "type": "List[List[int]]", "value": "[[1], [2], [3]]" }, "expected output": { "type": "List[List[int]]", "value": "[[1], [2], [3]]"}, "explanation": "Trivial test case"},
-        { "input": { "type": "List[List[int]]", "value": "[[1], [2], [0]]" }, "expected output": { "type": "List[List[int]]", "value": "[[1], [2], [0]]"}, "explanation": "Trivial test case"},
+        { "input": { "type": "List[List[int]]", "value": "[[0], [0], [0]]" }, "expected output": { "type": "List[List[int]]", "value": "[[1], [2], [0]]"}, "explanation": "Trivial test case"},
         { "input": { "type": "List[List[int]]", "value": "[[1, 2], [3, 4]]" }, "expected output": { "type": "List[List[int]]", "value": "[[1, 2], [3, 4]]"}, "explanation": "Trivial test case"},
 
         { "input": { "type": "List[List[int]]", "value": "[[0, 2, 3], [4, 5, 6]]" }, "expected output": { "type": "List[List[int]]", "value": "[[0, 0, 0], [0, 5, 6]]"}, "explanation": "Valid 2x3"},
