@@ -1,7 +1,7 @@
 
 import unittest
 
-def zeroMatrix(matrix):
+def zeroMatrixA(matrix):
     # code to filter out junk inputs
     # TODO: code it
     if matrix is None:
@@ -37,6 +37,78 @@ def zeroMatrix(matrix):
 
     return matrix
 
+
+def zeroMatrixB(matrix):
+    # code to filter out junk inputs
+    # TODO: code it
+    if matrix is None:
+        return None
+
+    if len(matrix) == 0 or len(matrix[0]) == 0:
+        return None
+
+
+
+    # matrix is mostly valid
+    col_width = len(matrix[0])
+    row = 0
+    col = 0
+    for row in range(len(matrix)):
+        if len(matrix[row]) != col_width:
+            return None
+        for col in range(len(matrix[0])):
+            if matrix[row][col] == 0:
+                matrix[0][col] = 0
+                matrix[row][0] = 0
+
+            if matrix[row][0] == 0:
+                matrix[row][col] = 0
+
+            if matrix[0][col] == 0:
+                matrix[row][0] = 0
+
+        if matrix[0][col] == 0:
+            for cell in matrix[row]:
+                cell = 0
+
+    return matrix
+
+def zeroMatrixC(matrix):
+    # code to filter out junk inputs
+    # TODO: code it
+    if matrix is None:
+        return None
+
+    if len(matrix) == 0 or len(matrix[0]) == 0:
+        return None
+
+
+
+    # matrix is mostly valid
+    col_width = len(matrix[0])
+    row = 0
+    col = 0
+    for row in range(len(matrix)):
+        if len(matrix[row]) != col_width:
+            return None
+        for col in range(len(matrix[0])):
+            if matrix[row][col] == 0:
+                matrix[row][0] = matrix[0][col] = 0
+
+    for row in range(len(matrix)):
+        if matrix[row][0] == 0:
+            for col in range(len(matrix[row])):
+                matrix[row][col] = 0
+
+    for col in range(len(matrix[0])):
+        if matrix[0][col] == 0:
+            for row in range(len(matrix)):
+                matrix[row][col] = 0
+
+    return matrix
+
+
+zeroMatrix = zeroMatrixC
     
 class ZeroMatrix(unittest.TestCase):
     def test_1(self):
