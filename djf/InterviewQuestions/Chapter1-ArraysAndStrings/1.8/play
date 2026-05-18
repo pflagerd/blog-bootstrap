@@ -1,0 +1,41 @@
+Gayle's strategy to reduce space complexity to O(1):
+
+Input matrix:
+
+[ [ 1,  2,  3,  4],
+  [ 5,  0,  7,  8],
+  [ 9, 10, 11, 12],
+  [13, 14, 15, 16],
+  [17, 18,  0, 20] 
+]
+
+Visit each cell in the matrix:
+Mark the rows and columns to be nullified:
+(Mark a 0 in the left column and top row for each 0 found)
+
+[ [ 1,  0,  0,  4],
+  [ 0,  0,  7,  8],
+  [ 9, 10, 11, 12],
+  [13, 14, 15, 16],
+  [ 0, 18,  0, 20] 
+]
+
+Nullify the marked rows and columns.
+(Process 0's in the top row downward - marked "Z" here.)
+(Process 0's in the left column rightward - marked "Z" here.)
+
+[ [ 1,  0,  0,  4],
+  [ 0,  Z,  Z,  Z],
+  [ 9,  Z,  Z, 12],
+  [13,  Z,  Z, 16],
+  [ 0,  Z,  Z,  Z] 
+]
+
+Final matrix:
+
+[ [ 1,  0,  0,  4],
+  [ 0,  0,  0,  0],
+  [ 9,  0,  0, 12],
+  [13,  0,  0, 16],
+  [ 0,  0,  0,  0] 
+]
