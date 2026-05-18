@@ -38,6 +38,9 @@ def zeroMatrixA(matrix):
     return matrix
 
 
+#
+# Try to do it in-place in one pass
+#
 def zeroMatrixB(matrix):
     # code to filter out junk inputs
     # TODO: code it
@@ -82,27 +85,35 @@ def zeroMatrixC(matrix):
     if len(matrix) == 0 or len(matrix[0]) == 0:
         return None
 
-
-
     # matrix is mostly valid
     col_width = len(matrix[0])
     row = 0
     col = 0
+
+    # Can use matrix[0] to store zero column data
+    # but can't then use matrix[0][0] to ALSO store zero matrix data
+    # so create a variable just for top_row_zero.
+    top_row_zero = False
+
     for row in range(len(matrix)):
         if len(matrix[row]) != col_width:
             return None
         for col in range(len(matrix[0])):
             if matrix[row][col] == 0:
-                matrix[row][0] = matrix[0][col] = 0
-
-    for row in range(len(matrix)):
-        if matrix[row][0] == 0:
-            for col in range(len(matrix[row])):
-                matrix[row][col] = 0
+                if row == 0:
+                    top_row_zero = True
+                    matrix[0][col] = 0
+                else:
+                    matrix[row][0] = matrix[0][col] = 0
 
     for col in range(len(matrix[0])):
         if matrix[0][col] == 0:
             for row in range(len(matrix)):
+                matrix[row][col] = 0
+
+    for row in range(len(matrix)):
+        if (row == 0 and top_row_zero) or (row != 0 and matrix[row][0]) == 0:
+            for col in range(len(matrix[row])):
                 matrix[row][col] = 0
 
     return matrix
@@ -111,6 +122,9 @@ def zeroMatrixC(matrix):
 zeroMatrix = zeroMatrixC
     
 class ZeroMatrix(unittest.TestCase):
+    def test_0(self):
+        self.assertEqual([[0, 0, 0], [0, 5, 6]], zeroMatrix([[0, 2, 3], [4, 5, 6]]))
+
     def test_1(self):
         self.assertEqual(None, zeroMatrix(None))
 
