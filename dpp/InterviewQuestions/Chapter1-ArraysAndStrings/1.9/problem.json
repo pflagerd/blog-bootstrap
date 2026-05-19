@@ -30,5 +30,6 @@
         { "input": [ { "type": "string", "value": "\"a\"" }, { "type": "string", "value": "\"b\"" }], "expected output": { "type": "int", "value": "-1"}, "explanation": "Valid simple case"},
 
         { "input": [ { "type": "string", "value": "\"waterbottle\"" }, { "type": "string", "value": "\"erbottlewat\"" }], "expected output": { "type": "int", "value": "3"}, "explanation": "Valid simple case"},
+        { "input": [ { "type": "string", "value": "\"The quick brown fox jumps over the lazy dog.\"" }, { "type": "string", "value": "\"The quick brown fox jumps over the lazy dog.\"" }], "expected output": { "type": "int", "value": "0"}, "explanation": "Valid simple case"}
     ]
 }
