@@ -1,200 +1,183 @@
-
 import unittest
 
-def zeroMatrixA(matrix):
-    # code to filter out junk inputs
-    # TODO: code it
-    if matrix is None:
-        return None
-
-    if len(matrix) == 0 or len(matrix[0]) == 0:
-        return None
+def rotationOffsetA(s1: str, s2: str) -> int:
+    return -1
 
 
-
-    # matrix is mostly valid
-    rows_to_zero = [0] * len(matrix)
-    cols_to_zero = [0] * len(matrix[0])
-    col_width = len(matrix[0])
-    row = 0
-    col = 0
-    for row in range(len(matrix)):
-        if len(matrix[row]) != col_width:
-            return None
-        for col in range(len(matrix[0])):
-            if matrix[row][col] == 0:
-                rows_to_zero[row] = cols_to_zero[col] = 1
-
-    for row in range(len(rows_to_zero)):
-        if rows_to_zero[row] == 1:
-            for col in range(len(matrix[row])):
-                matrix[row][col] = 0
-
-    for col in range(len(cols_to_zero)):
-        if cols_to_zero[col] == 1:
-            for row in range(len(matrix)):
-                matrix[row][col] = 0
-
-    return matrix
-
-
-#
-# Try to do it in-place in one pass
-#
-def zeroMatrixB(matrix):
-    # code to filter out junk inputs
-    # TODO: code it
-    if matrix is None:
-        return None
-
-    if len(matrix) == 0 or len(matrix[0]) == 0:
-        return None
-
-
-
-    # matrix is mostly valid
-    col_width = len(matrix[0])
-    row = 0
-    col = 0
-    for row in range(len(matrix)):
-        if len(matrix[row]) != col_width:
-            return None
-        for col in range(len(matrix[0])):
-            if matrix[row][col] == 0:
-                matrix[0][col] = 0
-                matrix[row][0] = 0
-
-            if matrix[row][0] == 0:
-                matrix[row][col] = 0
-
-            if matrix[0][col] == 0:
-                matrix[row][0] = 0
-
-        if matrix[0][col] == 0:
-            for cell in matrix[row]:
-                cell = 0
-
-    return matrix
-
-def zeroMatrixC(matrix):
-    # code to filter out junk inputs
-    # TODO: code it
-    if matrix is None:
-        return None
-
-    if len(matrix) == 0 or len(matrix[0]) == 0:
-        return None
-
-    # matrix is mostly valid
-    col_width = len(matrix[0])
-    row = 0
-    col = 0
-
-    # Can use matrix[0] to store zero column data
-    # but can't then use matrix[0][0] to ALSO store zero matrix data
-    # so create a variable just for top_row_zero.
-    left_col_zero = False
-    top_row_zero = False
-
-    for row in range(len(matrix)):
-        if len(matrix[row]) != col_width:
-            return None
-        for col in range(len(matrix[0])):
-            if matrix[row][col] == 0:
-                if row == 0:
-                    top_row_zero = True
-                # else:
-                #     matrix[row][0] = matrix[0][col] = 0
-
-                if col == 0:
-                    left_col_zero = True
-                else:
-                    matrix[row][0] = matrix[0][col] = 0
-
-    for col in range(1, len(matrix[0])):
-        if matrix[0][col] == 0:
-            for row in range(len(matrix)):
-                matrix[row][col] = 0
-
-    for row in range(1, len(matrix)):
-        if matrix[row][0] == 0:
-            for col in range(len(matrix[row])):
-                matrix[row][col] = 0
-
-    if left_col_zero:
-        for row in range(len(matrix)):
-            matrix[row][0] = 0
-
-    if top_row_zero:
-        for col in range(len(matrix[row])):
-            matrix[0][col] = 0
-
-    return matrix
-
-
-zeroMatrix = zeroMatrixC
+rotationOffset = rotationOffsetA
     
-class ZeroMatrix(unittest.TestCase):
+class StringRotation(unittest.TestCase):
     def test_0(self):
-        self.assertEqual([[1, 2, 0], [0, 0, 0]], zeroMatrix([[1, 2, 3], [4, 5, 0]]))
+        self.assertEqual(0, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "The quick brown fox jumps over the lazy dog"))
 
     def test_1(self):
-        self.assertEqual(None, zeroMatrix(None))
+        self.assertEqual(1, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "he quick brown fox jumps over the lazy dogT"))
 
     def test_2(self):
-        self.assertEqual(None, zeroMatrix([]))
+        self.assertEqual(2, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "e quick brown fox jumps over the lazy dogTh"))
 
     def test_3(self):
-        self.assertEqual(None, zeroMatrix([[]]))
+        self.assertEqual(3, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           " quick brown fox jumps over the lazy dogThe"))
 
     def test_4(self):
-        self.assertEqual([[1]], zeroMatrix([[1]]))
+        self.assertEqual(4, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "quick brown fox jumps over the lazy dogThe "))
 
     def test_5(self):
-       self.assertEqual([[1, 2]], zeroMatrix([[1, 2]]))
+        self.assertEqual(5, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "uick brown fox jumps over the lazy dogThe q"))
 
     def test_6(self):
-       self.assertEqual([[1], [2], [3]], zeroMatrix([[1], [2], [3]]))
+        self.assertEqual(6, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "ick brown fox jumps over the lazy dogThe qu"))
 
     def test_7(self):
-       self.assertEqual([[0], [0], [0]], zeroMatrix([[1], [2], [0]]))
+        self.assertEqual(7, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "ck brown fox jumps over the lazy dogThe qui"))
 
     def test_8(self):
-       self.assertEqual([[1, 2], [3, 4]], zeroMatrix([[1, 2], [3, 4]]))
+        self.assertEqual(8, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           "k brown fox jumps over the lazy dogThe quic"))
 
+    def test_9(self):
+        self.assertEqual(9, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                           " brown fox jumps over the lazy dogThe quick"))
 
     def test_10(self):
-       self.assertEqual([[0, 0]], zeroMatrix([[1, 0]]))
+        self.assertEqual(10, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "brown fox jumps over the lazy dogThe quick "))
 
     def test_11(self):
-       self.assertEqual([[0, 0]], zeroMatrix([[0, 2]]))
+        self.assertEqual(11, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "rown fox jumps over the lazy dogThe quick b"))
 
+    def test_12(self):
+        self.assertEqual(12, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "own fox jumps over the lazy dogThe quick br"))
+
+    def test_13(self):
+        self.assertEqual(13, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "wn fox jumps over the lazy dogThe quick bro"))
+
+    def test_14(self):
+        self.assertEqual(14, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "n fox jumps over the lazy dogThe quick brow"))
+
+    def test_15(self):
+        self.assertEqual(15, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            " fox jumps over the lazy dogThe quick brown"))
+
+    def test_16(self):
+        self.assertEqual(16, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "fox jumps over the lazy dogThe quick brown "))
+
+    def test_17(self):
+        self.assertEqual(17, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "ox jumps over the lazy dogThe quick brown f"))
+
+    def test_18(self):
+        self.assertEqual(18, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "x jumps over the lazy dogThe quick brown fo"))
+
+    def test_19(self):
+        self.assertEqual(19, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            " jumps over the lazy dogThe quick brown fox"))
 
     def test_20(self):
-        self.assertEqual([[0, 0, 0], [0, 5, 6]], zeroMatrix([[0, 2, 3], [4, 5, 6]]))
+        self.assertEqual(20, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "jumps over the lazy dogThe quick brown fox "))
 
     def test_21(self):
-        self.assertEqual([[0, 0, 0], [4, 0, 6]], zeroMatrix([[1, 0, 3], [4, 5, 6]]))
+        self.assertEqual(21, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "umps over the lazy dogThe quick brown fox j"))
 
     def test_22(self):
-        self.assertEqual([[0, 0, 0], [0, 0, 0]], zeroMatrix([[1, 2, 0], [0, 5, 6]]))
+        self.assertEqual(22, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "mps over the lazy dogThe quick brown fox ju"))
 
+    def test_23(self):
+        self.assertEqual(23, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "ps over the lazy dogThe quick brown fox jum"))
+
+    def test_24(self):
+        self.assertEqual(24, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "s over the lazy dogThe quick brown fox jump"))
+
+    def test_25(self):
+        self.assertEqual(25, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            " over the lazy dogThe quick brown fox jumps"))
+
+    def test_26(self):
+        self.assertEqual(26, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "over the lazy dogThe quick brown fox jumps "))
+
+    def test_27(self):
+        self.assertEqual(27, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "ver the lazy dogThe quick brown fox jumps o"))
+
+    def test_28(self):
+        self.assertEqual(28, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "er the lazy dogThe quick brown fox jumps ov"))
+
+    def test_29(self):
+        self.assertEqual(29, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "r the lazy dogThe quick brown fox jumps ove"))
 
     def test_30(self):
-        self.assertEqual([[1, 2, 3], [4, 5, 6], [7, 8, 9]], zeroMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+        self.assertEqual(30, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            " the lazy dogThe quick brown fox jumps over"))
 
     def test_31(self):
-        self.assertEqual([[0, 0, 0], [0, 5, 6], [0, 8, 9]], zeroMatrix([[0, 2, 3], [4, 5, 6], [7, 8, 9]]))
+        self.assertEqual(31, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "the lazy dogThe quick brown fox jumps over "))
 
     def test_32(self):
-        self.assertEqual([[1, 0, 3], [0, 0, 0], [7, 0, 9]], zeroMatrix([[1, 2, 3], [4, 0, 6], [7, 8, 9]]))
+        self.assertEqual(32, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "he lazy dogThe quick brown fox jumps over t"))
 
     def test_33(self):
-        self.assertEqual([[1, 2, 0], [4, 5, 0], [0, 0, 0]], zeroMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 0]]))
-
+        self.assertEqual(33, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "e lazy dogThe quick brown fox jumps over th"))
 
     def test_34(self):
-        self.assertEqual([[0, 0, 0], [0, 5, 0], [0, 0, 0]], zeroMatrix([[0, 2, 3], [4, 5, 6], [7, 8, 0]]))
+        self.assertEqual(34, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            " lazy dogThe quick brown fox jumps over the"))
 
-    if __name__ == "__main__":
-        unittest.main()
+    def test_35(self):
+        self.assertEqual(35, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "lazy dogThe quick brown fox jumps over the "))
+
+    def test_36(self):
+        self.assertEqual(36, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "azy dogThe quick brown fox jumps over the l"))
+
+    def test_37(self):
+        self.assertEqual(37, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "zy dogThe quick brown fox jumps over the la"))
+
+    def test_38(self):
+        self.assertEqual(38, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "y dogThe quick brown fox jumps over the laz"))
+
+    def test_39(self):
+        self.assertEqual(39, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            " dogThe quick brown fox jumps over the lazy"))
+
+    def test_40(self):
+        self.assertEqual(40, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "dogThe quick brown fox jumps over the lazy "))
+
+    def test_41(self):
+        self.assertEqual(41, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "ogThe quick brown fox jumps over the lazy d"))
+
+    def test_42(self):
+        self.assertEqual(42, rotationOffset("The quick brown fox jumps over the lazy dog",
+                                            "gThe quick brown fox jumps over the lazy do"))
+
+if __name__ == "__main__":
+    unittest.main()
