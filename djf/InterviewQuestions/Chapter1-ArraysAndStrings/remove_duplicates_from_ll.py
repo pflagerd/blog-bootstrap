@@ -43,3 +43,5 @@ class Solution:
                 current = current.next
         return head
                 
+## Geeks For Geeks: - "Remove duplicates from a linked list" (Easy)
+## <https://www.geeksforgeeks.org/problems/remove-duplicates-from-an-unsorted-linked-list/1>
