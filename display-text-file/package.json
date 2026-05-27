@@ -1,0 +1,12 @@
+{
+  "name": "display-text-file",
+  "version": "1.0.0",
+  "description": "Display text files with line numbers in a browser",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
