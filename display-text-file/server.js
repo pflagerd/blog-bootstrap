@@ -15,7 +15,8 @@ function escapeHtml(text) {
 
 function generateHtml(filePath, content) {
   const lines = content.split('\n');
-  const lineCount = lines.length;
+  // Files ending with \n produce a trailing empty element; don't count it
+  const lineCount = lines.length - (lines[lines.length - 1] === '' ? 1 : 0);
   const lineNumbers = Array.from({ length: lineCount }, (_, i) => i + 1).join('\n');
   const escapedContent = escapeHtml(content);
   const escapedPath = escapeHtml(filePath);
