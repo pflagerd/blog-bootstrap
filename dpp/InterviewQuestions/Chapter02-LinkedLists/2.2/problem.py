@@ -22,8 +22,15 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertEqual(None, returnKthToLast(None, 0)) # Degenerate test case. Null singly linked list.
 
     def test_2(self):
+        sll = SinglyLinkedListNode(0)
+        sll.next = sll
+        self.assertEqual(None, returnKthToLast(sll, 0)) # Degenerate test case. Self-referential singly linked list.
+
+    def test_3(self):
         self.assertEqual(None, returnKthToLast(SinglyLinkedListNode(1), -1)) # Degenerate test case. Valid single node singly linked list, negative k.
 
+    def test_4(self):
+        self.assertEqual(None, returnKthToLast(SinglyLinkedListNode(1), 1)) # Degenerate test case. Valid single node singly linked list, k > 0.
 
 
 
