@@ -12,7 +12,7 @@
     },
     "constraints-and-assumptions": [
         "\"<code>sll</code>\" stands for a singly linked list",
-        "0 &le; length of <code>sll</code> &le; 10<sup>5</sup>",
+        "1 &le; length of <code>sll</code> &le; 10<sup>5</sup>",
         "assume it is a singly linked list of integers"
     ],
     "insights" : [
@@ -20,19 +20,9 @@
     "timeComplexity": "O(length of <code>sll</code>)",
     "spaceComplexity": "O(1)",
     "examples": [
-        { "input": [ { "type": "string", "value": "\"waterbottle\"" }, { "type": "string", "value": "\"erbottlewat\"" }], "expected output": { "type": "int", "value": "3"}, "explanation": "Valid simple case"}
+        { "input": [ { "type": "SinglyLinkedListNode | None", "value": "None" }, { "type":  "int", "value": 0 } ], "expected output": { "type": "int | None", "value": "None"}, "explanation": "Degenerate test case. Null singly linked list."}
     ],
     "tests": [
-        { "input": [ { "type": "SinglyLinkedList", "value": "None" } ], "expected output": { "type": "int", "value": "-1"}, "explanation": "Degenerate test case"},
-        { "input": [ { "type": "string", "value": "\"waterbottle\"" }, { "type": "string", "value": "None" }], "expected output": { "type": "int", "value": "-1"}, "explanation": "Degenerate test case"},
-        { "input": [ { "type": "string", "value": "\"\"" }, { "type": "string", "value": "\"erbottlewat\"" }], "expected output": { "type": "int", "value": "-1"}, "explanation": "Degenerate test case"},
-        { "input": [ { "type": "string", "value": "\"waterbottle\"" }, { "type": "string", "value": "\"\"" }], "expected output": { "type": "int", "value": "-1"}, "explanation": "Degenerate test case"},
-        { "input": [ { "type": "string", "value": "\"\"" }, { "type": "string", "value": "\"\"" }], "expected output": { "type": "int", "value": "-1"}, "explanation": "Degenerate test case"},
-
-        { "input": [ { "type": "string", "value": "\"a\"" }, { "type": "string", "value": "\"a\"" }], "expected output": { "type": "int", "value": "0"}, "explanation": "Valid simple case"},
-        { "input": [ { "type": "string", "value": "\"a\"" }, { "type": "string", "value": "\"b\"" }], "expected output": { "type": "int", "value": "-1"}, "explanation": "Valid simple case"},
-
-        { "input": [ { "type": "string", "value": "\"waterbottle\"" }, { "type": "string", "value": "\"erbottlewat\"" }], "expected output": { "type": "int", "value": "3"}, "explanation": "Valid simple case"},
-        { "input": [ { "type": "string", "value": "\"The quick brown fox jumps over the lazy dog.\"" }, { "type": "string", "value": "\"The quick brown fox jumps over the lazy dog.\"" }], "expected output": { "type": "int", "value": "0"}, "explanation": "Valid simple case"}
+        { "input": [ { "type": "SinglyLinkedListNode | None", "value": "None" }, { "type":  "int", "value": 0 } ], "expected output": { "type": "int | None", "value": "None"}, "explanation": "Degenerate test case. Null singly linked list."},
     ]
 }

@@ -1,6 +1,8 @@
 import unittest
 
-
+# "<code>sll</code>" stands for a singly linked list
+# 1 &le; length of <code>sll</code> &le; 10<sup>5</sup>
+# "assume it is a singly linked list of integers"
 class SinglyLinkedListNode:
     def __init__(self, value: int) -> None:
         self.value = value
