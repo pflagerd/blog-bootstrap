@@ -10,8 +10,20 @@ import unittest
 class SinglyLinkedListNode:
     # <code>value</code> is passed the integer payload to be contained by the new <code>SinglyLinkedListNode</code>.
     def __init__(self, value: int) -> None:
-        self.value = value
         self.next = None
+        self.value = value
+
+    def dumps(self):
+        s = ""
+        s = "{\"value\": " + str(self.value)
+        s += ", next: "
+        if self.next is None:
+            s += "null"
+        else:
+            s += str(self.next.dumps())
+        s += "}"
+        return s
+
 
     # <code>n</code> is passed the number of nodes to be created in the Singly Linked List. Must be greater than zero.
     @staticmethod
@@ -128,7 +140,6 @@ class SinglyLinkedListNode:
 
 
         return head
-
 
     #
     # David proposed unrolling the loop
@@ -357,7 +368,7 @@ class SinglyLinkedListNode:
     # So we realized that if we insist on having three sections (beginning, middle, and end)
     # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
     @staticmethod
-    def generate_F(n: int):
+    def generate_G(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
         if n <= 0:
             return None
@@ -384,6 +395,11 @@ class SinglyLinkedListNode:
 
 
 
+    @staticmethod
+    def generate(n: int = 0) -> SinglyLinkedListNode | None:
+        return SinglyLinkedListNode.generate_A(n)
+
+
 
 # return integer offset between 0 and len(s1) if s2 is a substring of s1, else return -1
 def returnKthToLastA(head: SinglyLinkedListNode | None, k: int) -> int | None:
@@ -398,6 +414,7 @@ class ReturnKthToLastTests(unittest.TestCase):
 
     def test_lang_00s(self): # AMBIGUOUS!  Can't gell if python is comparing references or values
         self.assertTrue('{"value": 4, "next": null}' == '{"value": 4, "next": null}')
+
 
     def test_lang_01(self):
         self.assertIsNot('{"value": 4, "next": null}',  json.dumps(SinglyLinkedListNode(4).__dict__))
@@ -420,17 +437,29 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertNotEqual(SinglyLinkedListNode(4), SinglyLinkedListNode(4))  # Language test case. Does python compare references?
         # Yes, it compares references
 
+        # class Dummy:
+        #     pass
+        #
+        # print(Dummy.__dict__)
+        #print(json.dumps(SinglyLinkedListNode.__init__()))
+        # print(json.dumps(SinglyLinkedListNode(0).__dict__))
 
-    # def test_0(self):
-    #     self.assertEqual(json.dumps(SinglyLinkedListNode(0).generate_A(0).__dict__), json.dumps(SinglyLinkedListNode(0).generate_A(0).__dict__))
+
+    def test_20(self):
+        self.assertEqual('{"value": 0, "next": null}', json.dumps(SinglyLinkedListNode(0).__dict__))
+
+        # sll = SinglyLinkedListNode(0)
+        # sll.generate = sll.generate_X
+        # print(sll.generate(1))
+
+    def test_100(self):
+        print(SinglyLinkedListNode.generate_A(4).dumps())
+        #self.assertEqual('{value: 0, next: {value: 1, next: {value: 2, next: {value: 3, next: null}}}}', json.dumps(SinglyLinkedListNode.generate_A.__dict__))
 
 
+    # def test_100(self):
+    #     self.assertEqual(None, SinglyLinkedListNode.generate(0)) # Degenerate test case. Null singly linked list.
 
-
-
-    # def test_1(self):
-    #     self.assertEqual(SinglyLinkedListNode(1), SinglyLinkedListNode.generate(1)) # Degenerate test case. Null singly linked list.
-    #
     # def test_2(self):
     #     self.assertEqual(None, SinglyLinkedListNode.generate(2)) # Degenerate test case. Null singly linked list.
     #
