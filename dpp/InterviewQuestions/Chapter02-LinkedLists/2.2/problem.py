@@ -231,7 +231,7 @@ class SinglyLinkedListNode:
 
         # middle
         while True:
-            if i > n - 1: # CHANGED to make it get called one time less.
+            if i >= n - 1: # CHANGED to make it get called one time less.
                 break
             i += 1
             tail.next = SinglyLinkedListNode(i)
@@ -246,10 +246,48 @@ class SinglyLinkedListNode:
 
 
     #
+    # Having added tests for SinglyLinkedListNode.generate_E(1), SinglyLinkedListNode.generate_E(2),
+    # SinglyLinkedListNode.generate_E(3), and SinglyLinkedListNode.generate_E(4) we observed that
+    # the tests for SinglyLinkedListNode.generate_E(1) and SinglyLinkedListNode.generate_E(2) were failing, because they
+    # generating one more node than expected.
+    #
+    # So we figured we could add an <code>if <i>condition</i></code> to the "end".
+    #
+    # So we needed a more complete set of tests. Hence <code>test_generate_E_10()</code>
+    #
+    @staticmethod
+    def generate_F(n: int):
+        # What is this code block and ones like it (intended to inoculate against bad input data) called?
+        if n <= 0:
+            return None
+
+        # beginning
+        ### This will always be called ###
+        i = 0
+        head = tail = SinglyLinkedListNode(i)
+
+        # middle
+        while True:
+            if i > n - 1: # CHANGED to make it get called one time less.
+                break
+            i += 1
+            tail.next = SinglyLinkedListNode(i)
+            tail = tail.next
+
+        # end
+        ### This will ALSO always be called ###
+        if i >= 1:
+            i += 1
+            tail.next = SinglyLinkedListNode(i)
+
+        return head
+
+
+    #
     # So we realized that if we insist on having three sections (beginning, middle, and end)
     # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
     @staticmethod
-    def generate_F(n: int):
+    def generate_G(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
         if n <= 0:
             return None
@@ -428,8 +466,15 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertNotEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_E(1).dumps())
         # The following SHOULD also pass, but doesn't for the same reason.
         self.assertNotEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(2).dumps())
-        self.assertEqual('{"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}', SinglyLinkedListNode.generate_E(3).dumps())
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(3).dumps())
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(4).dumps())
+
+
+    # def test_generate_F_10(self):
+    #     self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_F(1).dumps())
+    #     self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(2).dumps())
+    #     self.assertEqual('{"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}', SinglyLinkedListNode.generate_F(3).dumps())
+    #     self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
 
     # def test_100(self):
