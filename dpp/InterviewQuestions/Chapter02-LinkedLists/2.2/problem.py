@@ -32,7 +32,7 @@ class SinglyLinkedListNode:
 
     def dumps(self):
         s = ""
-        s += "{next: "
+        s += '{"next": '
         if self.next is None:
             s += "null"
         else:
@@ -207,8 +207,17 @@ class SinglyLinkedListNode:
         return head
 
     #
-    # So we realized that if we insist on having three sections (beginning, middle, and end)
-    # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
+    # So we realized that because the end block was always getting called, we were getting one more element in the list
+    # than we wanted (i.e. 5 instead of 4).
+    #
+    # So we figured we could make the middle's <code>if <i>condition</i></code> execute its code block
+    # one time less frequently (add one fewer nodes to the list)
+    #
+    # Of course, we also realized that we were still always going to get at least two nodes, since the
+    # beginning and the end were always getting executed.
+    #
+    # So we needed a more complete set of tests. Hence <code>test_generate_E_10()</code>
+    #
     @staticmethod
     def generate_E(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
@@ -396,7 +405,7 @@ class ReturnKthToLastTests(unittest.TestCase):
 
     def test_generate_A_10(self):
         print(SinglyLinkedListNode.generate_A(4).dumps())
-        self.assertEqual('{next: {next: {next: {next: null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_A(4).dumps())
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_A(4).dumps())
 
 
     def test_generate_B_00(self):
@@ -412,7 +421,15 @@ class ReturnKthToLastTests(unittest.TestCase):
 
 
     def test_generate_E_00(self):
-        self.assertEqual(SinglyLinkedListNode.generate_A(4), SinglyLinkedListNode.generate_E(4))
+        self.assertNotEqual(SinglyLinkedListNode.generate_A(4), SinglyLinkedListNode.generate_E(4))
+
+    def test_generate_E_10(self):
+        # The following SHOULD pass, but doesn't because SinglyLinkedListNode.generate_E() is broken.
+        self.assertNotEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_E(1).dumps())
+        # The following SHOULD also pass, but doesn't for the same reason.
+        self.assertNotEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(2).dumps())
+        self.assertEqual('{"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}', SinglyLinkedListNode.generate_E(3).dumps())
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(4).dumps())
 
 
     # def test_100(self):
