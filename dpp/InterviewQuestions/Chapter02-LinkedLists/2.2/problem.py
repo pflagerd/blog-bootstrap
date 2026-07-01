@@ -345,6 +345,7 @@ class SinglyLinkedListNode:
     #
     # So here's a for loop
     #
+    # We tried torturing a <code>head = tail = SinglyLinkedListNode(0)
     #
     @staticmethod
     def generate_I(n: int):
@@ -354,11 +355,9 @@ class SinglyLinkedListNode:
 
         # beginning
         # middle
-        for i in range(0, n):
-            if i == 0:
-                head = tail = SinglyLinkedListNode(i)
-            else:
-                tail.next = SinglyLinkedListNode(i)
+        head = tail = SinglyLinkedListNode(0)
+        for i in range(1, n):
+            tail.next = SinglyLinkedListNode(i)
             tail = tail.next
 
         # end
@@ -378,7 +377,7 @@ class SinglyLinkedListNode:
         # beginning
         ### This will always be called ###
         i = 0
-        head = tail = SinglyLinkedListNode(i)
+        head = tail = SinglyLinkedListNode(0)
 
         # middle
         while i < n - 1:
