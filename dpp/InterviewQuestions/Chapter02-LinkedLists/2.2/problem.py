@@ -515,13 +515,13 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertNotEqual(SinglyLinkedListNode.generate_A(4), SinglyLinkedListNode.generate_E(4))
 
     def test_generate_E_10(self):
-        print(SinglyLinkedListNode.generate_E(1).dumps())
+        print(f"SinglyLinkedListNode.generate_E(1).dumps() = {SinglyLinkedListNode.generate_E(1).dumps()}")
         self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(1).dumps())
-        print(SinglyLinkedListNode.generate_E(2).dumps())
+        print(f"SinglyLinkedListNode.generate_E(2).dumps() = {SinglyLinkedListNode.generate_E(2).dumps()}")
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(2).dumps())
-        print(SinglyLinkedListNode.generate_E(3).dumps())
+        print(f"SinglyLinkedListNode.generate_E(3).dumps() = {SinglyLinkedListNode.generate_E(3).dumps()}")
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(3).dumps())
-        print(SinglyLinkedListNode.generate_E(4).dumps())
+        print(f"SinglyLinkedListNode.generate_E(4).dumps() = {SinglyLinkedListNode.generate_E(4).dumps()}")
         self.assertEqual('{"next": {"next": {"next": {"next": {"next": null, "value": 4}, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(4).dumps())
 
 
