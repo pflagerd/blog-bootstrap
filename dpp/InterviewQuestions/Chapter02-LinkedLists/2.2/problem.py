@@ -329,7 +329,7 @@ class SinglyLinkedListNode:
     # So we realized that if we insist on having three sections (beginning, middle, and end)
     # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
     @staticmethod
-    def generate_G(n: int):
+    def generate_H(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
         if n <= 0:
             return None
@@ -366,7 +366,7 @@ class SinglyLinkedListNode:
     # So we realized that if we insist on having three sections (beginning, middle, and end)
     # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
     @staticmethod
-    def generate_F(n: int):
+    def generate_I(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
         if n <= 0:
             return None
