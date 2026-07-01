@@ -497,8 +497,14 @@ class ReturnKthToLastTests(unittest.TestCase):
 
 
     def test_generate_D_00(self):
+        # This is what we were hoping would work, but didn't (hence <code>assert<b>NOT</b>Equal</code>)
         self.assertNotEqual('{"next": null, "value": 1}', SinglyLinkedListNode.generate_D(1).dumps())
-        self.assertEqual('{"next": null, "value": 2}, "value": 1}', SinglyLinkedListNode.generate_D(1).dumps())
+        # In fact we got 2 nodes instead of 1.
+        print(SinglyLinkedListNode.generate_D(1).dumps())
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_D(1).dumps())
+        # Try for 2, 3 and 4
+        self.assertEqual('{"next": null, "value": 2}, "value": 1}', SinglyLinkedListNode.generate_D(2).dumps())
+        self.assertEqual('{"next": null, "value": 2}, "value": 1}', SinglyLinkedListNode.generate_D(3).dumps())
         self.assertNotEqual(SinglyLinkedListNode.generate_A(4), SinglyLinkedListNode.generate_D(4))
 
 
