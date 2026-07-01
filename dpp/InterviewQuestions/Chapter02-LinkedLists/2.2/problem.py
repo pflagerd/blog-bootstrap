@@ -482,7 +482,7 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertNotEqual('{"value": 0, "next": null}', json.dumps(SinglyLinkedListNode(0).dumps()))
 
     def test_generate_A_10(self):
-        print(f'SinglyLinkedListNode.generate_A(4).dumps() == {SinglyLinkedListNode.generate_A(4).dumps()}')
+        print(f'SinglyLinkedListNode.generate_A(4).dumps() == "{SinglyLinkedListNode.generate_A(4).dumps()}"')
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_A(4).dumps())
 
 
@@ -498,7 +498,7 @@ class ReturnKthToLastTests(unittest.TestCase):
         # This is what we were hoping would work, but didn't (hence <code>assert<b>NOT</b>Equal</code>)
         self.assertNotEqual('{"next": null, "value": 1}', SinglyLinkedListNode.generate_D(1).dumps())
         # In fact we got 2 nodes instead of 1.
-        print(f'SinglyLinkedListNode.generate_D(1).dumps() == {SinglyLinkedListNode.generate_D(1).dumps()}')
+        print(f'SinglyLinkedListNode.generate_D(1).dumps() == "{SinglyLinkedListNode.generate_D(1).dumps()}"')
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_D(1).dumps())
         # Try for 2, 3 and 4
         # YIKES: 2 gets 4 nodes
@@ -513,13 +513,13 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertNotEqual(SinglyLinkedListNode.generate_A(4), SinglyLinkedListNode.generate_E(4))
 
     def test_generate_E_10(self):
-        print(f"SinglyLinkedListNode.generate_E(1).dumps() = {SinglyLinkedListNode.generate_E(1).dumps()}")
+        print(f'SinglyLinkedListNode.generate_E(1).dumps() == "{SinglyLinkedListNode.generate_E(1).dumps()}"')
         self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(1).dumps())
-        print(f"SinglyLinkedListNode.generate_E(2).dumps() = {SinglyLinkedListNode.generate_E(2).dumps()}")
+        print(f'SinglyLinkedListNode.generate_E(2).dumps() == "{SinglyLinkedListNode.generate_E(2).dumps()}"')
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(2).dumps())
-        print(f"SinglyLinkedListNode.generate_E(3).dumps() = {SinglyLinkedListNode.generate_E(3).dumps()}")
+        print(f'SinglyLinkedListNode.generate_E(3).dumps() == "{SinglyLinkedListNode.generate_E(3).dumps()}"')
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(3).dumps())
-        print(f"SinglyLinkedListNode.generate_E(4).dumps() = {SinglyLinkedListNode.generate_E(4).dumps()}")
+        print(f'SinglyLinkedListNode.generate_E(4).dumps() == "{SinglyLinkedListNode.generate_E(4).dumps()}"')
         self.assertEqual('{"next": {"next": {"next": {"next": {"next": null, "value": 4}, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_E(4).dumps())
 
 
@@ -528,7 +528,7 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_F(1).dumps())
         print(f'SinglyLinkedListNode.generate_F(2).dumps() == {SinglyLinkedListNode.generate_F(2).dumps()}')
         self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(2).dumps())
-        print(f'SinglyLinkedListNode.generate_F(3).dumps()) == {SinglyLinkedListNode.generate_F(3).dumps()}')
+        print(f'SinglyLinkedListNode.generate_F(3).dumps() == {SinglyLinkedListNode.generate_F(3).dumps()}')
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(3).dumps())
         print(f'SinglyLinkedListNode.generate_F(4).dumps() == {SinglyLinkedListNode.generate_F(4).dumps()}')
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
