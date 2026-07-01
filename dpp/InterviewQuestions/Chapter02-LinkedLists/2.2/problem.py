@@ -3,14 +3,33 @@ from __future__ import annotations
 import json
 import unittest
 
+singlyLinkedListNode_str_1 = '{"next": null, "value": 0}'
+singlyLinkedListNode_str_2 = '{"next": {"next": null, "value": 1}, "value": 0}'
+singlyLinkedListNode_str_3 = '{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}'
+singlyLinkedListNode_str_4 = '{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}'
+
+print(f"singlyLinkedListNode_str_1 == '{singlyLinkedListNode_str_1}'")
+print(f"singlyLinkedListNode_str_2 == '{singlyLinkedListNode_str_2}'")
+print(f"singlyLinkedListNode_str_3 == '{singlyLinkedListNode_str_3}'")
+print(f"singlyLinkedListNode_str_4 == '{singlyLinkedListNode_str_4}'")
+
+singlyLinkedListNode__repr__1 = 'SinglyLinkedListNode(0)'
+singlyLinkedListNode__repr__2 = 'SinglyLinkedListNode(0, SinglyLinkedListNode(1))'
+singlyLinkedListNode__repr__3 = 'SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2)))'
+singlyLinkedListNode__repr__4 = 'SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2, SinglyLinkedListNode(3))))'
+
+print(f"singlyLinkedListNode__repr__1 == '{singlyLinkedListNode__repr__1}'")
+print(f"singlyLinkedListNode__repr__2 == '{singlyLinkedListNode__repr__2}'")
+print(f"singlyLinkedListNode__repr__3 == '{singlyLinkedListNode__repr__3}'")
+print(f"singlyLinkedListNode__repr__4 == '{singlyLinkedListNode__repr__4}'")
 
 # "<code>sll</code>" stands for a singly linked list
 # 1 &le; length of <code>sll</code> &le; 10<sup>5</sup>
 # "assume it is a singly linked list of integers"
 class SinglyLinkedListNode:
     # <code>value</code> is passed the integer payload to be contained by the new <code>SinglyLinkedListNode</code>.
-    def __init__(self, value: int) -> None:
-        self.next = None
+    def __init__(self, value: int, next: SinglyLinkedListNode | None = None) -> None:
+        self.next = next
         self.value = value
 
     def __eq__(self, other):
@@ -30,9 +49,17 @@ class SinglyLinkedListNode:
         # If both are None, they are the same length and identical
         return current_self is None and current_other is None
 
-    def dumps(self):
-        s = ""
-        s += '{"next": '
+
+    def __repr__(self) -> str:
+        s = f"SinglyLinkedListNode({self.value}"
+        if self.next is not None:
+            s += ", " + repr(self.next)
+        s += ")"
+        return s
+
+
+    def dumps(self) -> str:
+        s = '{"next": '
         if self.next is None:
             s += "null"
         else:
@@ -345,7 +372,9 @@ class SinglyLinkedListNode:
     #
     # So here's a for loop
     #
-    # We tried torturing a <code>head = tail = SinglyLinkedListNode(0)
+    # We tried torturing a <code>head = tail = SinglyLinkedListNode(0) into the
+    # <code>for</code> loop, but that ended up with all kinds of <code>global</code>
+    # hacks with looked uglier than just separating the beginning again
     #
     @staticmethod
     def generate_I(n: int):
@@ -354,8 +383,8 @@ class SinglyLinkedListNode:
             return None
 
         # beginning
-        # middle
         head = tail = SinglyLinkedListNode(0)
+        # middle
         for i in range(1, n):
             tail.next = SinglyLinkedListNode(i)
             tail = tail.next
@@ -366,7 +395,8 @@ class SinglyLinkedListNode:
 
 
     #
-    # But we could merge the while True and the if.
+    # And in the same general nature, we could just use the while loop
+    # as a kind of for loop as before,
     #
     @staticmethod
     def generate_J(n: int):
@@ -390,6 +420,34 @@ class SinglyLinkedListNode:
         return head
 
 
+    #
+    # Or this slight variant where the i += 1 is further down in the <code>while</code>'s body.
+    #
+    @staticmethod
+    def generate_K(n: int):
+        # What is this code block and ones like it (intended to inoculate against bad input data) called?
+        if n <= 0:
+            return None
+
+        # beginning
+        ### This will always be called ###
+        head = tail = SinglyLinkedListNode(0)
+
+        # middle
+        i = 1
+        while i < n:
+            tail.next = SinglyLinkedListNode(i)
+            tail = tail.next
+            i += 1
+
+        # end
+
+        return head
+
+    #
+    # Added some L tests to check out the new __init__() form, which looks kind of
+    # more natural in the self.assertEqual() tests.
+    #
 
 
     @staticmethod
@@ -539,48 +597,45 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
 
+    def test_generate_J_10(self):
+        print(f"SinglyLinkedListNode.generate_J(1).dumps() == '{SinglyLinkedListNode.generate_J(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_J(1).dumps())
+        print(f"SinglyLinkedListNode.generate_J(2).dumps() == '{SinglyLinkedListNode.generate_J(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_J(2).dumps())
+        print(f"SinglyLinkedListNode.generate_J(3).dumps() == '{SinglyLinkedListNode.generate_J(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_J(3).dumps())
+        print(f"SinglyLinkedListNode.generate_J(4).dumps() == '{SinglyLinkedListNode.generate_J(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
-    # def test_100(self):
-    #     self.assertEqual(None, SinglyLinkedListNode.generate(0)) # Degenerate test case. Null singly linked list.
 
-    # def test_2(self):
-    #     self.assertEqual(None, SinglyLinkedListNode.generate(2)) # Degenerate test case. Null singly linked list.
-    #
-    # def test_3(self):
-    #     self.assertEqual(None, SinglyLinkedListNode.generate(3)) # Degenerate test case. Null singly linked list.
+    def test_generate_K_10(self):
+        print(f"SinglyLinkedListNode.generate_K(1).dumps() == '{SinglyLinkedListNode.generate_K(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_K(1).dumps())
+        print(f"SinglyLinkedListNode.generate_K(2).dumps() == '{SinglyLinkedListNode.generate_K(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_K(2).dumps())
+        print(f"SinglyLinkedListNode.generate_K(3).dumps() == '{SinglyLinkedListNode.generate_K(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_K(3).dumps())
+        print(f"SinglyLinkedListNode.generate_K(4).dumps() == '{SinglyLinkedListNode.generate_K(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
-    # def test_1(self):
-    #     self.assertEqual(None, returnKthToLast(None, 0)) # Degenerate test case. Null singly linked list.
-    #
-    # def test_2(self):
-    #     sll = SinglyLinkedListNode(0)
-    #     sll.next = sll
-    #     self.assertEqual(None, returnKthToLast(sll, 0)) # Degenerate test case. Self-referential singly linked list (has cycle).
-    #
-    # def test_3(self):
-    #     self.assertEqual(None, returnKthToLast(SinglyLinkedListNode(0), -1)) # Degenerate test case. Valid single node singly linked list, negative k.
-    #
-    # def test_4(self):
-    #     self.assertEqual(None, returnKthToLast(SinglyLinkedListNode(0), 1)) # Degenerate test case. Valid single node singly linked list, n = 1, i.e. k > n.
-    #
-    # def test_5(self):
-    #     head = sll = SinglyLinkedListNode.generate(32768)
-    #
-    #     for i in range(0, 32768 - 1):
-    #         sll = sll.next
-    #
-    #     sll.next = head
-    #
-    #     self.assertEqual(None, returnKthToLast(head, 1)) # Degenerate test case. Large singly linked list with cycle.
-    #
-    # def test_6(self):
-    #     head = SinglyLinkedListNode.generate(1)
-    #     self.assertEqual(None, returnKthToLast(head, 0)) # Simple test case. Single node. k = 0
-    #
-    # def test_7(self):
-    #     head = SinglyLinkedListNode.generate(2)
-    #     self.assertEqual(None, returnKthToLast(head, 0))  # Simple test case. Single node. k = 0
 
+    def test__init__(self):
+        self.assertEqual(singlyLinkedListNode_str_1, SinglyLinkedListNode(0).dumps())
+        self.assertEqual(singlyLinkedListNode_str_2, SinglyLinkedListNode(0, SinglyLinkedListNode(1)).dumps())
+        self.assertEqual(singlyLinkedListNode_str_3, SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2))).dumps())
+        self.assertEqual(singlyLinkedListNode_str_4, SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2, SinglyLinkedListNode(3)))).dumps())
+
+
+    def test__repr__(self):
+        self.assertEqual(eval(repr(SinglyLinkedListNode(0))), SinglyLinkedListNode(0))
+        self.assertEqual(eval(repr(SinglyLinkedListNode(0, SinglyLinkedListNode(1)))), SinglyLinkedListNode(0, SinglyLinkedListNode(1)))
+        self.assertEqual(eval(repr(SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2))))), SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2))))
+        self.assertEqual(eval(repr(SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2, SinglyLinkedListNode(3)))))), SinglyLinkedListNode(0, SinglyLinkedListNode(1, SinglyLinkedListNode(2, SinglyLinkedListNode(3)))))
+
+
+    def tests_end(self):
+        self.assertTrue(True)
+        print("Tests all done.")
 
 if __name__ == "__main__":
     unittest.main()
