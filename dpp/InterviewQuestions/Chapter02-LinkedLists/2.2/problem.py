@@ -503,8 +503,11 @@ class ReturnKthToLastTests(unittest.TestCase):
         print(SinglyLinkedListNode.generate_D(1).dumps())
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_D(1).dumps())
         # Try for 2, 3 and 4
+        # YIKES: 2 gets 4 nodes
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_D(2).dumps())
+        # YIKES: 3 gets 5 nodes
         self.assertEqual('{"next": {"next": {"next": {"next": {"next": null, "value": 4}, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_D(3).dumps())
+        # YIKES: 4 gets 6 nodes
         self.assertNotEqual(SinglyLinkedListNode.generate_A(4), SinglyLinkedListNode.generate_D(4))
 
 
