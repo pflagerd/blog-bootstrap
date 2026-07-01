@@ -286,15 +286,9 @@ class SinglyLinkedListNode:
 
 
     #
+    # Yes, it has become clear that the "end" section is deletable.
     #
-    # Having added tests for SinglyLinkedListNode.generate_E(1), SinglyLinkedListNode.generate_E(2),
-    # SinglyLinkedListNode.generate_E(3), and SinglyLinkedListNode.generate_E(4) we observed that
-    # the tests for SinglyLinkedListNode.generate_E(1) and SinglyLinkedListNode.generate_E(2) were failing, because they
-    # were generating one more node than expected.
-    #
-    # So we figured we could add an <code>if <i>condition</i></code> to the "end".
-    #
-    # So we needed a more complete set of tests. Hence <code>test_generate_E_10()</code>
+    # So really, we have now a beginning and a middle and and empty end
     #
     @staticmethod
     def generate_G(n: int):
@@ -316,10 +310,6 @@ class SinglyLinkedListNode:
             tail = tail.next
 
         # end
-        ### This will ALSO always be called ###
-        if i >= 2:
-            i += 1
-            tail.next = SinglyLinkedListNode(i)
 
         return head
 
@@ -532,6 +522,18 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(3).dumps())
         print(f"SinglyLinkedListNode.generate_F(4).dumps() == '{SinglyLinkedListNode.generate_F(4).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
+
+    def test_generate_G_10(self):
+        print(f"SinglyLinkedListNode.generate_G(1).dumps() == '{SinglyLinkedListNode.generate_G(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_G(1).dumps())
+        print(f"SinglyLinkedListNode.generate_G(2).dumps() == '{SinglyLinkedListNode.generate_G(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_G(2).dumps())
+        print(f"SinglyLinkedListNode.generate_G(3).dumps() == '{SinglyLinkedListNode.generate_G(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_G(3).dumps())
+        print(f"SinglyLinkedListNode.generate_G(4).dumps() == '{SinglyLinkedListNode.generate_G(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
 
 
     # def test_100(self):
