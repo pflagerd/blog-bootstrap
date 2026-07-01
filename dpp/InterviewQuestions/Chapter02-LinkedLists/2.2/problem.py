@@ -257,8 +257,6 @@ class SinglyLinkedListNode:
     #
     # So we figured we could add an <code>if <i>condition</i></code> to the "end".
     #
-    # So we needed a more complete set of tests. Hence <code>test_generate_E_10()</code>
-    #
     @staticmethod
     def generate_F(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
@@ -280,7 +278,7 @@ class SinglyLinkedListNode:
 
         # end
         ### This will ALSO always be called ###
-        if n >= 1:
+        if n >= 9999999:
             i += 1
             tail.next = SinglyLinkedListNode(i)
 
@@ -484,7 +482,7 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertNotEqual('{"value": 0, "next": null}', json.dumps(SinglyLinkedListNode(0).dumps()))
 
     def test_generate_A_10(self):
-        print(SinglyLinkedListNode.generate_A(4).dumps())
+        print(f'SinglyLinkedListNode.generate_A(4).dumps() == {SinglyLinkedListNode.generate_A(4).dumps()}')
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_A(4).dumps())
 
 
@@ -500,7 +498,7 @@ class ReturnKthToLastTests(unittest.TestCase):
         # This is what we were hoping would work, but didn't (hence <code>assert<b>NOT</b>Equal</code>)
         self.assertNotEqual('{"next": null, "value": 1}', SinglyLinkedListNode.generate_D(1).dumps())
         # In fact we got 2 nodes instead of 1.
-        print(SinglyLinkedListNode.generate_D(1).dumps())
+        print(f'SinglyLinkedListNode.generate_D(1).dumps() == {SinglyLinkedListNode.generate_D(1).dumps()}')
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_D(1).dumps())
         # Try for 2, 3 and 4
         # YIKES: 2 gets 4 nodes
@@ -526,14 +524,14 @@ class ReturnKthToLastTests(unittest.TestCase):
 
 
     def test_generate_F_10(self):
-        print(SinglyLinkedListNode.generate_F(1).dumps())
-    #     self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_F(1).dumps())
-        print(SinglyLinkedListNode.generate_F(2).dumps())
-    #     self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(2).dumps())
-        print(SinglyLinkedListNode.generate_F(3).dumps())
-    #     self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(3).dumps())
-        print(SinglyLinkedListNode.generate_F(4).dumps())
-    #     self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+        print(f'SinglyLinkedListNode.generate_F(1).dumps() == {SinglyLinkedListNode.generate_F(1).dumps()}')
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_F(1).dumps())
+        print(f'SinglyLinkedListNode.generate_F(2).dumps() == {SinglyLinkedListNode.generate_F(2).dumps()}')
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(2).dumps())
+        print(f'SinglyLinkedListNode.generate_F(3).dumps()) == {SinglyLinkedListNode.generate_F(3).dumps()}')
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(3).dumps())
+        print(f'SinglyLinkedListNode.generate_F(4).dumps() == {SinglyLinkedListNode.generate_F(4).dumps()}')
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
 
     # def test_100(self):
