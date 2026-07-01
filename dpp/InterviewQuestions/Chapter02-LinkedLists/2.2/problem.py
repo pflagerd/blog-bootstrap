@@ -315,6 +315,9 @@ class SinglyLinkedListNode:
     #
     # Is the if condition better if we pre-increment i?
     #
+    # It has the advantage of eliminating the <code>-1</code>, but it makes our
+    # heads go to a <code>for</code> loop.
+    #
     @staticmethod
     def generate_H(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
@@ -340,10 +343,34 @@ class SinglyLinkedListNode:
 
 
     #
-    # But we could merge the while True and the if.
+    # So here's a for loop
+    #
     #
     @staticmethod
     def generate_I(n: int):
+        # What is this code block and ones like it (intended to inoculate against bad input data) called?
+        if n <= 0:
+            return None
+
+        # beginning
+        # middle
+        for i in range(0, n):
+            if i == 0:
+                head = tail = SinglyLinkedListNode(i)
+            else:
+                tail.next = SinglyLinkedListNode(i)
+            tail = tail.next
+
+        # end
+
+        return head
+
+
+    #
+    # But we could merge the while True and the if.
+    #
+    @staticmethod
+    def generate_J(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
         if n <= 0:
             return None
@@ -362,6 +389,8 @@ class SinglyLinkedListNode:
         # end
 
         return head
+
+
 
 
     @staticmethod
@@ -498,6 +527,7 @@ class ReturnKthToLastTests(unittest.TestCase):
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_H(3).dumps())
         print(f"SinglyLinkedListNode.generate_H(4).dumps() == '{SinglyLinkedListNode.generate_H(4).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
 
     def test_generate_I_10(self):
         print(f"SinglyLinkedListNode.generate_I(1).dumps() == '{SinglyLinkedListNode.generate_I(1).dumps()}'")
