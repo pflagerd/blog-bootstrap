@@ -423,6 +423,8 @@ class SinglyLinkedListNode:
     #
     # Or this slight variant where the i += 1 is further down in the <code>while</code>'s body.
     #
+    # It's vaguely nicer because of <code>while i < n:</code> being nicer than <code>while i < n - 1</code>
+    #
     @staticmethod
     def generate_K(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
@@ -445,8 +447,12 @@ class SinglyLinkedListNode:
         return head
 
     #
-    # Added some L tests to check out the new __init__() form, which looks kind of
+    # Added some tests for __init__() args to check out the new __init__() form, which looks kind of
     # more natural in the self.assertEqual() tests.
+    #
+
+    #
+    # Added a __repr__() and some tests for it.
     #
 
 
