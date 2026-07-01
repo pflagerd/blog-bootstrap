@@ -284,7 +284,6 @@ class SinglyLinkedListNode:
 
         return head
 
-
     #
     # Yes, it has become clear that the "end" section is deletable.
     #
@@ -313,9 +312,11 @@ class SinglyLinkedListNode:
 
         return head
 
-
-    # So we realized that if we insist on having three sections (beginning, middle, and end)
-    # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
+    #
+    # Yes, it has become clear that the "end" section is deletable.
+    #
+    # So really, we have now a beginning and a middle and and empty end
+    #
     @staticmethod
     def generate_H(n: int):
         # What is this code block and ones like it (intended to inoculate against bad input data) called?
@@ -330,83 +331,15 @@ class SinglyLinkedListNode:
         # middle
         while True:
             i += 1
-            if i >= n:
-                return head
+            if i > n: # CHANGED to make it get called one time less.
+                break
             tail.next = SinglyLinkedListNode(i)
             tail = tail.next
 
         # end
-        ### This will now NEVER be called ###
-        i += 1
-        tail.next = SinglyLinkedListNode(i)
 
         return head
 
-
-
-
-
-
-
-
-    # if in first loop do something special
-    #
-    # So we realized that if we insist on having three sections (beginning, middle, and end)
-    # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
-    @staticmethod
-    def generate_I(n: int):
-        # What is this code block and ones like it (intended to inoculate against bad input data) called?
-        if n <= 0:
-            return None
-
-        # beginning
-        ### This will always be called ###
-        i = 0
-
-        # middle
-        while True:
-            head = sll = SinglyLinkedListNode(i)
-            i += 1
-            if i >= n:
-                return head
-            sll.next = SinglyLinkedListNode(i)
-            sll = sll.next
-
-        # end
-        ### This will ALSO always be called ###
-        i += 1
-        sll.next = SinglyLinkedListNode(i)
-
-        return head
-
-    #
-    # So we realized that if we insist on having three sections (beginning, middle, and end)
-    # then perhaps we are going to have to ensure that some or all three sections have (exit) conditions to prevent their unwanted execution?
-    @staticmethod
-    def generate_J(n: int):
-        # What is this code block and ones like it (intended to inoculate against bad input data) called?
-        if n <= 0:
-            return None
-
-        # beginning
-        ### This will always be called ###
-        i = 0
-        head = sll = SinglyLinkedListNode(i)
-
-        # middle
-        while True:
-            i += 1
-            sll.next = SinglyLinkedListNode(i)
-            if i > n:
-                break # return?
-            sll = sll.next
-
-        # end
-        ### This will ALSO always be called ###
-        i += 1
-        sll.next = SinglyLinkedListNode(i)
-
-        return head
 
 
 
