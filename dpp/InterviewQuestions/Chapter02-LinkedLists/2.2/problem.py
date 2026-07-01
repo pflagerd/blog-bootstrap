@@ -497,7 +497,8 @@ class ReturnKthToLastTests(unittest.TestCase):
 
 
     def test_generate_D_00(self):
-        self.assertNotEqual('{"next": null, "value": 1}', SinglyLinkedListNode.generate_D(1))
+        self.assertNotEqual('{"next": null, "value": 1}', SinglyLinkedListNode.generate_D(1).dumps())
+        self.assertEqual('{"next": null, "value": 2}, "value": 1}', SinglyLinkedListNode.generate_D(1).dumps())
         self.assertNotEqual(SinglyLinkedListNode.generate_A(4), SinglyLinkedListNode.generate_D(4))
 
 
