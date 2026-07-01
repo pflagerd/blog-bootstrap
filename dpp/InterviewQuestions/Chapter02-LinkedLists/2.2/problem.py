@@ -313,9 +313,7 @@ class SinglyLinkedListNode:
         return head
 
     #
-    # Yes, it has become clear that the "end" section is deletable.
-    #
-    # So really, we have now a beginning and a middle and and empty end
+    # Is the if condition better if we pre-increment i?
     #
     @staticmethod
     def generate_H(n: int):
@@ -331,7 +329,7 @@ class SinglyLinkedListNode:
         # middle
         while True:
             i += 1
-            if i > n: # CHANGED to make it get called one time less.
+            if i >= n: # CHANGED to make it get called one time less.
                 break
             tail.next = SinglyLinkedListNode(i)
             tail = tail.next
@@ -341,6 +339,29 @@ class SinglyLinkedListNode:
         return head
 
 
+    #
+    # But we could merge the while True and the if.
+    #
+    @staticmethod
+    def generate_I(n: int):
+        # What is this code block and ones like it (intended to inoculate against bad input data) called?
+        if n <= 0:
+            return None
+
+        # beginning
+        ### This will always be called ###
+        i = 0
+        head = tail = SinglyLinkedListNode(i)
+
+        # middle
+        while i < n - 1:
+            i += 1
+            tail.next = SinglyLinkedListNode(i)
+            tail = tail.next
+
+        # end
+
+        return head
 
 
     @staticmethod
@@ -465,6 +486,27 @@ class ReturnKthToLastTests(unittest.TestCase):
         print(f"SinglyLinkedListNode.generate_G(3).dumps() == '{SinglyLinkedListNode.generate_G(3).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_G(3).dumps())
         print(f"SinglyLinkedListNode.generate_G(4).dumps() == '{SinglyLinkedListNode.generate_G(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
+
+    def test_generate_H_10(self):
+        print(f"SinglyLinkedListNode.generate_H(1).dumps() == '{SinglyLinkedListNode.generate_H(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_H(1).dumps())
+        print(f"SinglyLinkedListNode.generate_H(2).dumps() == '{SinglyLinkedListNode.generate_H(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_H(2).dumps())
+        print(f"SinglyLinkedListNode.generate_H(3).dumps() == '{SinglyLinkedListNode.generate_H(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_H(3).dumps())
+        print(f"SinglyLinkedListNode.generate_H(4).dumps() == '{SinglyLinkedListNode.generate_H(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
+    def test_generate_I_10(self):
+        print(f"SinglyLinkedListNode.generate_I(1).dumps() == '{SinglyLinkedListNode.generate_I(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_I(1).dumps())
+        print(f"SinglyLinkedListNode.generate_I(2).dumps() == '{SinglyLinkedListNode.generate_I(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_I(2).dumps())
+        print(f"SinglyLinkedListNode.generate_I(3).dumps() == '{SinglyLinkedListNode.generate_I(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_I(3).dumps())
+        print(f"SinglyLinkedListNode.generate_I(4).dumps() == '{SinglyLinkedListNode.generate_I(4).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
 
