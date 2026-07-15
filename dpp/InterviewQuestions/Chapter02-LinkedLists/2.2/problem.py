@@ -113,43 +113,78 @@ class SinglyLinkedListNode:
     # define beginning, middle and end, with the notion that repeated code
     # (in the middle?) would become our looped code.
     #
+    # Let's call the grouped lines of code "code groupings".
+    #
+    # so for example the following two lines are called a "code grouping":
+    #
+    #  <code>i += 1</code>
+    #  <code>head.next = SinglyLinkedListNode(i)</code>
+    #
+    # Therefore, in the following function, each code grouping has a comment in front of it.
+    #
+    # Code groupings can contain any number of contiguous lines of code.
+    #
     @staticmethod
     def generate_B(n: int):
+        # this is a code grouping
         if n != 4: # this is here to make it clear that this produces exactly 4 <code>SinglyLinkedListNode</code>s
             return None
 
+        # this is a code grouping
         i = 0
         head = SinglyLinkedListNode(i)
 
+        # this is a code grouping
         i += 1
         head.next = SinglyLinkedListNode(i)
 
+        # this is a code grouping
         i += 1
         head.next.next = SinglyLinkedListNode(i)
 
+        # this is a code grouping
         i += 1
         head.next.next.next = SinglyLinkedListNode(i)
 
+        # this is a code grouping
         return head
 
     #
     # If we're going to do something about the <code>head.next...</code> syntactic phenomenon, we're
     # going to need to keep track of <code>head</code> and be able to append new nodes to one another.
     #
-    # This sort of sounds like a <code>tail</code> 
+    # This sort of sounds like a <code>tail</code>
     #
-    # We learned that compound assignments like:
+    # IMPORTANT: We are beginning to realize that, since we are using Python, it may be useful for us to use terminology
+    # from the official Python grammar to help us communicate what we're doing and thinking with greater clarity.
+    #
+    # This can be found here: <a href="https://docs.python.org/3/reference/grammar.html">Official Python Grammar</a>
+    #
+    # But other popular tutorial, reference and discusion sites can be useful when a particular grammar construction isn't explicitly named by the Official Python Grammar.
+    #
+    # For example, the following statement in Python has NO particular name in the grammar:
     #   <code>head = tail = SinglyLinkedListNode(i)</code>
-    # are evaluated in Python differently than other programming languages.
     #
-    # Our intuition was based on math and on other C-like programming languages.
+    # <a href="https://docs.python.org/3/reference/simple_stmts.html#assignment-statements">Python Official Grammar</a> shows us that
+    # this construct exists as an <a href="https://docs.python.org/3/reference/simple_stmts.html#assignment-statements:~:text=assignment_stmt%3A%20(target_list%20%22%3D%22)%2B%20(starred_expression%20%7C%20yield_expression)">assignment_stmt</a>
+    # but it is more usefully called a <a href="https://realpython.com/cheatsheets/python/#:~:text=Parallel%20%26-,Chained%20Assignments,-x%2C%20y">chained assignment</a> in the realpython.com site.
     #
-    # Python evaluates the compound assignment above as something like this:
+    # In any case we learned that Python's <i>chained assignments</i> like:
+    #   <code>head = tail = SinglyLinkedListNode(i)</code>
+    # are evaluated differently than other programming languages.
+    #
+    # Our intuition was based on math and on other C-like programming languages, and Python's implementation seemed counter-intuitive.
+    #
+    # Python evaluates the <i>chained assignement</> above as something like this:
     #   <code>x = SinglyLinkedListNode(i) # x is an "invisible" temporary variable.</code>
     #   <code>head = x</code>
     #   <code>tail = x</code>
     #
     # Now some differences in the pattern of the groupings made a beginning, middle and end emerge.
+    #
+    # EXCEPT the designation of the last section being the "end" is purely arbitrary because its identical
+    # to the "middle", except for the <code>tail = tail.next which is not needed - but also not harmful</code>
+    #
     # They are shown as comments in the code below:
     #
     @staticmethod
@@ -174,16 +209,22 @@ class SinglyLinkedListNode:
         # end
         i += 1
         tail.next = SinglyLinkedListNode(i)
+        # tail = tail.next
 
         return head
 
     #
     # Having identified the beginning, middle and end, we focus on the middle to craft our loop.
-    # Proceeding woodenly as if an automaton, I find the repeated block of code in the middle
+    # Proceeding woodenly as if an automaton, I find the repeated block of code in the middle,
     # eliminate repetition and indent it under a <code>while True:</code>. This is as if there were a <code>Loop:</code> statement or something.
+    #
     # Next decision is where and how to exit the loop.
-    # We could put the loop before or after any of the lines of code of the repeated middle, so why not start at the beginning?
-    # We place the exit condition (<code>if [expression]:</code>) and a <code>break</code> at the beginning.
+    # We could put an exit condition (<code>if</code>) before or after any of the lines of code of the repeated middle, so why not start at the beginning?
+    #
+    # David observes that we could put the exit condition at the beginning of the <i>block</i> or the of the <i>block</i>. We could call that "pre" and "post".
+    # This is typical constructs in other languages such as Pascal's <code>repeat <i>block<i> until <i>condition</i> </code> or <code>while <i>condition</i>...</code>.
+    #
+    # We decide to place the <i>condition</i> (<code>if [expression]:</code>) and a <code>break</code> at the beginning.
     # How do we choose what <code><i>[expression]</i></code> will be?
     #
     # We know we're dealing with a count of nodes (<code>n</code>), so we realize we need to compare <code>i</code> with <code>n</code>:
@@ -230,6 +271,7 @@ class SinglyLinkedListNode:
         ### This will ALSO always be called ###
         i += 1
         tail.next = SinglyLinkedListNode(i)
+        # tail = tail.next
 
         return head
 
