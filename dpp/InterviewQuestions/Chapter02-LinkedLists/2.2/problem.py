@@ -72,7 +72,7 @@ class SinglyLinkedListNode:
     #
     # David proposed unrolling the loop
     # We conjectured that there is always a beginning, middle and end to a loop
-    # We therefore thought it wise to have at least 3 iterations in the unrolled loop, one for beginning, one for middle and one for end.
+    # We therefore thought it wise to have at least 3 iterations in the unrolled loop of our example code: one for beginning, one for middle and one for end.
     # We positted that having 4 or 5 might make the choice of which one is the middle more clear, and settled on 4 for this situation.
     # We reckoned this was the most concise representation for 4 items
     #
@@ -182,7 +182,7 @@ class SinglyLinkedListNode:
     #
     # Now some differences in the pattern of the groupings made a beginning, middle and end emerge.
     #
-    # EXCEPT the designation of the last section being the "end" is purely arbitrary because its identical
+    # EXCEPT the designation of the last section being the "end" is purely arbitrary because it's identical
     # to the "middle", except for the <code>tail = tail.next which is not needed - but also not harmful</code>
     #
     # They are shown as comments in the code below:
@@ -221,7 +221,7 @@ class SinglyLinkedListNode:
     # Next decision is where and how to exit the loop.
     # We could put an exit condition (<code>if</code>) before or after any of the lines of code of the repeated middle, so why not start at the beginning?
     #
-    # David observes that we could put the exit condition at the beginning of the <i>block</i> or the of the <i>block</i>. We could call that "pre" and "post".
+    # David observes that we could put the exit condition at the beginning of the <i>block</i> or the end of the <i>block</i>. We could call that "pre" and "post".
     # This is typical constructs in other languages such as Pascal's <code>repeat <i>block<i> until <i>condition</i> </code> or <code>while <i>condition</i>...</code>.
     #
     # We decide to place the <i>condition</i> (<code>if [expression]:</code>) and a <code>break</code> at the beginning.
