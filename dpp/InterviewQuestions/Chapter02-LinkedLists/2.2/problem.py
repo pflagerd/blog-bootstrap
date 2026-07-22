@@ -511,9 +511,7 @@ class SinglyLinkedListNode:
 
 
     #
-    # Or this slight variant where the i += 1 is further down in the <code>while</code>'s body.
-    #
-    # It's vaguely nicer because of <code>while i < n:</code> being nicer than <code>while i < n - 1</code>
+    # Recursive
     #
     @staticmethod
     def generate_BB(n: int):
@@ -529,7 +527,6 @@ class SinglyLinkedListNode:
             return generate_BBx(new_head, n - 1)
 
 
-        head = tail = None
         return generate_BBx(None, n)
 
 
