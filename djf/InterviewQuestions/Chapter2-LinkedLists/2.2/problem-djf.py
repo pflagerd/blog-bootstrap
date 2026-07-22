@@ -70,30 +70,29 @@ class SinglyLinkedListNode:
 
     @staticmethod
     def generate_djf(n: int):
-
-        we need to remember to have pointers to first node,
-            and to the current node we are working with
-
+        # we need to remember to have pointers to first node,
         head = None # we will return None in case n is 0
 
+        # create a current node to work with
+        currentnode = None
+
         for i in range( n ):
-            
-            what do we need to do to set head (probably 1st iteration)?
-                if i = 0:
-                    head will be the node we create here
+            # First node case: create a node for current node to point to,
+            # rather than glueing a new node onto the currentnode
 
-            currentnode points to the node we just made
-            make a new node 
-                t = new node
-                t.value = i
+            # Create a new node with the value (i) in it
+            temp = SinglyLinkedListNode( i )
+            if i == 0:
+                currentnode = temp
+                head = currentnode
+            else:
+                # glue it onto current node
+                currentnode.next = temp
 
-            and stick the new node on the list
+                # move current to the new node
+                currentnode = temp
 
-                currentnode.next = t
-                currentnode = t
-
-            
-
+        # If n is 0, just return None
         return head
 
     #
@@ -693,6 +692,15 @@ class ReturnKthToLastTests(unittest.TestCase):
         print(f"SinglyLinkedListNode.generate_K(4).dumps() == '{SinglyLinkedListNode.generate_K(4).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
+    def test_generate_djf(self):
+        print(f"SinglyLinkedListNode.generate_djf(1).dumps() == '{SinglyLinkedListNode.generate_djf(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_djf(1).dumps())
+        print(f"SinglyLinkedListNode.generate_djf(2).dumps() == '{SinglyLinkedListNode.generate_djf(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_djf(2).dumps())
+        print(f"SinglyLinkedListNode.generate_djf(3).dumps() == '{SinglyLinkedListNode.generate_djf(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_djf(3).dumps())
+        print(f"SinglyLinkedListNode.generate_djf(4).dumps() == '{SinglyLinkedListNode.generate_djf(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
     def test__init__(self):
         self.assertEqual(singlyLinkedListNode_str_1, SinglyLinkedListNode(0).dumps())
