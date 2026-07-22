@@ -519,17 +519,57 @@ class SinglyLinkedListNode:
         if n <= 0:
             return None
 
-        def generate_BBx(head: SinglyLinkedListNode | None, n: int) -> SinglyLinkedListNode:
+        def generateSinglyLinkedList(head: SinglyLinkedListNode | None, n: int) -> SinglyLinkedListNode:
             new_head = SinglyLinkedListNode(n - 1)
             new_head.next = head
             if n == 1:
                 return new_head
-            return generate_BBx(new_head, n - 1)
+            return generateSinglyLinkedList(new_head, n - 1)
 
 
-        return generate_BBx(None, n)
+        return generateSinglyLinkedList(None, n)
 
 
+
+    #
+    # State Machine
+    #
+    @staticmethod
+    def generate_CC(n: int):
+        # What is this code block and ones like it (intended to inoculate against bad input data) called?
+        if n <= 0:
+            return None
+
+        i = 0
+        head = None
+        tail : SinglyLinkedListNode | None = None
+        def state0() -> bool:
+            nonlocal head, tail, i, state
+            if i < 0:
+                return False
+            #else
+            head = tail = SinglyLinkedListNode(i)
+            i += 1
+            state = state1
+            return True
+
+
+        def state1() -> bool:
+            nonlocal head, tail, i, state
+            if i >= n:
+                return False
+
+            tail.next = SinglyLinkedListNode(i)
+            tail = tail.next
+            i += 1
+            # state = state1
+            return True
+
+        state = state0
+        while state():
+            pass
+
+        return head
 
 
 
@@ -555,7 +595,7 @@ def returnKthToLastA(head: SinglyLinkedListNode | None, k: int) -> int | None:
 
 
 returnKthToLast = returnKthToLastA
-    
+
 class ReturnKthToLastTests(unittest.TestCase):
     def test_lang_00(self): # DISSONANCE!  Python will often (but not always) optimize string literals to be the same object (reference)
         self.assertIs('{"value": 4, "next": null}', '{"value": 4, "next": null}')
@@ -731,6 +771,17 @@ class ReturnKthToLastTests(unittest.TestCase):
         print(f"SinglyLinkedListNode.generate_BB(3).dumps() == '{SinglyLinkedListNode.generate_BB(3).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_BB(3).dumps())
         print(f"SinglyLinkedListNode.generate_BB(4).dumps() == '{SinglyLinkedListNode.generate_BB(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
+
+    def test_generate_CC_10(self):
+        print(f"SinglyLinkedListNode.generate_CC(1).dumps() == '{SinglyLinkedListNode.generate_CC(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_CC(1).dumps())
+        print(f"SinglyLinkedListNode.generate_CC(2).dumps() == '{SinglyLinkedListNode.generate_CC(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_CC(2).dumps())
+        print(f"SinglyLinkedListNode.generate_CC(3).dumps() == '{SinglyLinkedListNode.generate_CC(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_CC(3).dumps())
+        print(f"SinglyLinkedListNode.generate_CC(4).dumps() == '{SinglyLinkedListNode.generate_CC(4).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
 
