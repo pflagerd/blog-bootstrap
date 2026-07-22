@@ -488,6 +488,54 @@ class SinglyLinkedListNode:
 
         return head
 
+
+
+
+    #
+    # Or this slight variant where the i += 1 is further down in the <code>while</code>'s body.
+    #
+    # It's vaguely nicer because of <code>while i < n:</code> being nicer than <code>while i < n - 1</code>
+    #
+    @staticmethod
+    def generate_AA(n: int):
+        # What is this code block and ones like it (intended to inoculate against bad input data) called?
+        if n <= 0:
+            return None
+
+        head = current = SinglyLinkedListNode(0)
+        for i in range(1, n):
+            current.next = SinglyLinkedListNode(i)
+            current = current.next
+
+        return head
+
+
+    #
+    # Or this slight variant where the i += 1 is further down in the <code>while</code>'s body.
+    #
+    # It's vaguely nicer because of <code>while i < n:</code> being nicer than <code>while i < n - 1</code>
+    #
+    @staticmethod
+    def generate_BB(n: int):
+        # What is this code block and ones like it (intended to inoculate against bad input data) called?
+        if n <= 0:
+            return None
+
+        def generate_BBx(head: SinglyLinkedListNode | None, n: int) -> SinglyLinkedListNode:
+            new_head = SinglyLinkedListNode(n - 1)
+            new_head.next = head
+            if n == 1:
+                return new_head
+            return generate_BBx(new_head, n - 1)
+
+
+        head = tail = None
+        return generate_BBx(None, n)
+
+
+
+
+
     #
     # Added some tests for __init__() args to check out the new __init__() form, which looks kind of
     # more natural in the self.assertEqual() tests.
@@ -664,6 +712,28 @@ class ReturnKthToLastTests(unittest.TestCase):
         print(f"SinglyLinkedListNode.generate_K(3).dumps() == '{SinglyLinkedListNode.generate_K(3).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_K(3).dumps())
         print(f"SinglyLinkedListNode.generate_K(4).dumps() == '{SinglyLinkedListNode.generate_K(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
+
+    def test_generate_AA_10(self):
+        print(f"SinglyLinkedListNode.generate_AA(1).dumps() == '{SinglyLinkedListNode.generate_AA(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_AA(1).dumps())
+        print(f"SinglyLinkedListNode.generate_AA(2).dumps() == '{SinglyLinkedListNode.generate_AA(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_AA(2).dumps())
+        print(f"SinglyLinkedListNode.generate_AA(3).dumps() == '{SinglyLinkedListNode.generate_AA(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_AA(3).dumps())
+        print(f"SinglyLinkedListNode.generate_AA(4).dumps() == '{SinglyLinkedListNode.generate_AA(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
+
+
+    def test_generate_BB_10(self):
+        print(f"SinglyLinkedListNode.generate_BB(1).dumps() == '{SinglyLinkedListNode.generate_BB(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_BB(1).dumps())
+        print(f"SinglyLinkedListNode.generate_BB(2).dumps() == '{SinglyLinkedListNode.generate_BB(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_BB(2).dumps())
+        print(f"SinglyLinkedListNode.generate_BB(3).dumps() == '{SinglyLinkedListNode.generate_BB(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_BB(3).dumps())
+        print(f"SinglyLinkedListNode.generate_BB(4).dumps() == '{SinglyLinkedListNode.generate_BB(4).dumps()}'")
         self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_F(4).dumps())
 
 
