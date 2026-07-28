@@ -1,0 +1,29 @@
+{
+    "url": "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=105",
+    "title": "Return Kth to Last",
+    "statement": "Implement an algorithm to find the kth to last element of a singly linked list.",
+    "G4G statement": "Given the head of a linked list and an integer k, return the kth node from the end of the linked list. If k is greater than the number of nodes in the list, return -1.",
+    "hints": [
+        { "8": "What if you knew the linked list size? What is the difference between finding the Kth-to last element and finding the Xth element?" },
+        { "25": "If you don't know the linked list size, can you compute it? How does this impact the runtime?" },
+        { "41": "Try implementing it recursively. If you could find the (K-1)th to last element, can you find the Kth element?" },
+        { "67": "You might find it useful to return multiple values. Some languages don't directly support this, but there are workarounds in essentially any language. What are some of those workarounds?" },
+        { "126": "Can you do it iteratively? Imagine if you had two pointers pointing to adjacent nodes and they were moving at the same speed through the linked list. When one hits the end of the linked list, where will the other be?" }
+    ],
+    "constraints": [
+        "For specificity, assume we have a singly-linked list of integers."
+    ],
+    "timeComplexity": "O(n), where n is the length of the list",
+    "spaceComplexity": "O(1)",
+    "examples": [
+    ],
+    "tests": [
+        "inputString": "waterbottle",
+        "inputString": "erbottlewat",
+        "expectedResult": "True",
+        "explanation": "We rotated the first string 3 characters to the left."
+    ]
+}
+
+
+
