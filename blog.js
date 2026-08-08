@@ -14,29 +14,59 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleSpan.className = "toggle-control";
         contentChildren[0].appendChild(toggleSpan);
 
+        const getCollapsedChildCount = () => {
+            // Collapsed preview = the heading (if the first child is an
+            // <h1>-<h6>) plus any immediately-following siblings with
+            // class "meta". Stops at the first non-meta element.
+            let count = 0;
+            if (contentChildren.length > 0 && /^H[1-6]$/.test(contentChildren[0].tagName)) {
+                count = 1;
+            }
+            while (count < contentChildren.length && contentChildren[count].classList.contains('meta')) {
+                count++;
+            }
+            return count;
+        };
+
         const getHeightForFirstN = (n) => {
             article.style.height = 'auto';
             void article.offsetHeight;
 
-            let total = 0;
-            for (let i = 0; i < Math.min(n, contentChildren.length); i++) {
-                const el = contentChildren[i];
-                const style = getComputedStyle(el);
-                total += el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            }
-            return total + parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em of body for artificial final margin.
+            const count = Math.min(n, contentChildren.length);
+            if (count === 0) return 0;
+
+            // Measure the actual rendered bottom edge of the Nth child rather
+            // than summing each child's own height: children can share a
+            // line (e.g. consecutive <img> tags wrap like inline text), so
+            // adding up individual heights overcounts whenever more than one
+            // child ends up on the same row.
+            const articleBox = article.getBoundingClientRect();
+            const lastChildBox = contentChildren[count - 1].getBoundingClientRect();
+            const style = getComputedStyle(article);
+
+            // Trailing space after the cut: if a hidden child follows
+            // immediately, stop in the real (already-collapsed) gap before
+            // it rather than guessing, so we never bleed into its content.
+            // Otherwise this preview shows everything, so end with the
+            // article's own bottom padding like a normal full card.
+            const nextChild = contentChildren[count];
+            const trailingGap = nextChild
+                ? nextChild.getBoundingClientRect().top - lastChildBox.bottom
+                : parseFloat(style.paddingBottom);
+
+            return (lastChildBox.bottom - articleBox.top)
+                + trailingGap
+                + parseFloat(style.borderBottomWidth);
         };
 
         const getFullHeight = () => {
             article.style.height = 'auto';
             void article.offsetHeight;
 
-            let height = contentChildren.reduce((acc, el) => {
-                const style = getComputedStyle(el);
-                return acc + el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            }, 0);
-            height += parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em of body for artificial final margin.
-            return height;
+            // The browser has already laid out all the content correctly
+            // (including wrapped inline elements like <img> and <br>), so
+            // just read the real rendered height instead of re-deriving it.
+            return article.offsetHeight;
         };
 
         const storedState = localStorage.getItem(articleId);
@@ -50,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const applyState = (collapsed) => {
-            const targetHeight = collapsed ? getHeightForFirstN(3) : getFullHeight();
+            const targetHeight = collapsed ? getHeightForFirstN(getCollapsedChildCount()) : getFullHeight();
             article.style.height = targetHeight + "px";
             toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
             localStorage.setItem(articleId, collapsed ? "collapsed" : "expanded");
