@@ -14,6 +14,20 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleSpan.className = "toggle-control";
         contentChildren[0].appendChild(toggleSpan);
 
+        const getCollapsedChildCount = () => {
+            // Collapsed preview = the heading (if the first child is an
+            // <h1>-<h6>) plus any immediately-following siblings with
+            // class "meta". Stops at the first non-meta element.
+            let count = 0;
+            if (contentChildren.length > 0 && /^H[1-6]$/.test(contentChildren[0].tagName)) {
+                count = 1;
+            }
+            while (count < contentChildren.length && contentChildren[count].classList.contains('meta')) {
+                count++;
+            }
+            return count;
+        };
+
         const getHeightForFirstN = (n) => {
             article.style.height = 'auto';
             void article.offsetHeight;
@@ -50,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const applyState = (collapsed) => {
-            const targetHeight = collapsed ? getHeightForFirstN(3) : getFullHeight();
+            const targetHeight = collapsed ? getHeightForFirstN(getCollapsedChildCount()) : getFullHeight();
             article.style.height = targetHeight + "px";
             toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
             localStorage.setItem(articleId, collapsed ? "collapsed" : "expanded");
