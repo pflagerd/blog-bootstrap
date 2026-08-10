@@ -22,7 +22,7 @@
     --note: #b45309;
     --note-bg: #fef3c7;
     --code-bg: #1e1e2e;
-    --code-text: #cdd6f4;
+    --code-text: black;
     --pre-bg: #1e1e2e;
     --pre-text: #cdd6f4;
     --status-ok: #2e7d32;
@@ -307,9 +307,7 @@
   code {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 0.82rem;
-    background: var(--code-bg);
     color: var(--code-text);
-    padding: 0.15em 0.4em;
     border-radius: 3px;
   }
 
@@ -319,7 +317,7 @@
     background: var(--pre-bg);
     color: var(--pre-text);
     padding: 0.6rem 1rem;
-    margin: -1rem 0 0.25rem 2.5rem;
+    margin: -1rem 0.5rem 0.25rem 2.5rem;
     border-radius: 4px;
     display: block;
   }
@@ -401,10 +399,14 @@
   <section>
     <h2>📁 Setup</h2>
     <ul>
-      <li data-check data-state="0" id="c000"><div class="checkbox"></div><span class="task-text">Find the next problem statement in the CtCI PDF and compare it with what ChatGPT extracted in <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>. They should match. If not, manually update that file.</span></li>
-      <li data-check data-state="0" id="c001"><div class="checkbox"></div><span class="task-text">Copy the most recent directory, e.g.:</span></li>
+      <li data-check data-state="0" id="c000"><div class="checkbox"></div><span class="task-text">Do this:</span></li>
     </ul>
-    <pre>cp -r 1.4 1.5</pre>
+    <pre style="margin-left: 8em;">cd .../Cracking the Coding Interview<br>claude --continue</pre>
+    <ul>
+      <li data-check data-state="0" id="c001"><div class="checkbox"></div><span class="task-text">Find the next problem statement in the <a href="../../../../Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf" target="_blank">CtCI PDF</a> and compare it with what ChatGPT extracted in <code><a href="../../../../ctci_problem_statements_utf8_extracted_by_chatgpt.txt" target="_blank">ctci_problem_statements_utf8_extracted_by_chatgpt.txt</a></code>. They should match. If not, manually update that file.</span></li>
+      <li data-check data-state="0" id="c002"><div class="checkbox"></div><span class="task-text">Copy the most recent directory, e.g.:</span></li>
+    </ul>
+    <pre style="margin-left: 8em;">cp -r 1.4 1.5</pre>
     <ul>
       <li data-check data-state="0" id="c020"><div class="checkbox"></div><span class="task-text">Clean out any extraneous content from the new directory.</span></li>
       <p style="margin-left: 7rem; margin-top: -0.65rem;">NOTE: Not sure what is extraneous at this point.</p>
@@ -417,7 +419,7 @@
     <h2>📝 problem.json Population</h2>
     <ul>
       <li data-check data-state="0" id="c030"><div class="checkbox"></div><span class="task-text">Copy the problem title (e.g. "One Away" for 1.5) to <code>problem.json</code>'s <code>"title"</code> value.</span></li>
-      <li data-check data-state="0" id="c031"><div class="checkbox"></div><span class="task-text">Copy the problem statement into <code>problem.json</code>'s <code>"statement"</code> value. Can copy from <code>ctci_problem_statements_utf8_extracted_by_chatgpt.txt</code>, but confirm it matches the PDF.</span></li>
+      <li data-check data-state="0" id="c031"><div class="checkbox"></div><span class="task-text">Copy the problem statement into <code>problem.json</code>'s <code>"statement"</code> value. Can copy from <code><a href="../../../../ctci_problem_statements_utf8_extracted_by_chatgpt.txt" target="_blank">ctci_problem_statements_utf8_extracted_by_chatgpt.txt</a></code>, but confirm it matches the PDF.</span></li>
       <li data-check data-state="0" id="c032"><div class="checkbox"></div><span class="task-text">Read the problem statement to inform the following steps.</span></li>
       <li data-check data-state="0" id="c033"><div class="checkbox"></div><span class="task-text">Copy the hints (including hint text) from <code>ctci_hints.json</code>.</span></li>
       <li data-check data-state="0" id="c034"><div class="checkbox"></div><span class="task-text">Based on the problem statement, update the <code>"constraints"</code> value.</span></li>
