@@ -1,19 +1,16 @@
 {
     "language": "python",
     "url": "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=105",
-    "title": "Return Kth to Last",
-    "statement": "Implement an algorithm to find the kth to last element of a singly linked list.",
+    "title": "Delete Middle Node",
+    "statement": "Implement an algorithm to delete a node in the middle (i.e., any node but\nthe first and last node, not necessarily the exact middle) of a singly linked list, given only access to\nthat node.",
     "hints": {
-        "#8": "What if you knew the linked list size? What is the difference between finding the Kth-to­ last element and finding the Xth element?",
-        "#25": "If you don't know the linked list size, can you compute it? How does this impact the runtime?",
-        "#41": "Try implementing it recursively. If you could find the (K-l)th to last element, can you find the Kth element?",
-        "#67": "You might find it useful to return multiple values. Some languages don't directly support this, but there are workarounds in essentially any language. What are some of those workarounds?",
-        "#126": "Can you do it iteratively? Imagine if you had two pointers pointing to adjacent nodes and they were moving at the same speed through the linked list. When one hits the end of the linked list, where will the other be?"
+        "#72": "Picture the list 1->5->9->12. Removing 9 would make it look like 1->5->12. You only have access to the 9 node. Can you make it look like the correct answer?"
     },
     "constraints-and-assumptions": [
-        "\"<code>sll</code>\" stands for a singly linked list",
+        "\"<code>sll</code>\" stands for \"singly linked list\"",
+        "We don't have access to the <code>ssl.head</code> (the head/first node of the list)",
         "1 &le; length of <code>sll</code> &le; 10<sup>5</sup>",
-        "assume it is a singly linked list of integers"
+        "assume it is a singly linked list of any valid python type (including individual lowercase letters as shown in the example)"
     ],
     "insights" : [
     ],
@@ -23,6 +20,6 @@
         { "input": [ { "type": "SinglyLinkedListNode | None", "value": "None" }, { "type":  "int", "value": 0 } ], "expected output": { "type": "int | None", "value": "None"}, "explanation": "Degenerate test case. Null singly linked list."}
     ],
     "tests": [
-        { "input": [ { "type": "SinglyLinkedListNode | None", "value": "None" }, { "type":  "int", "value": 0 } ], "expected output": { "type": "int | None", "value": "None"}, "explanation": "Degenerate test case. Null singly linked list."},
+        { "input": [ { "type": "SinglyLinkedListNode | None", "value": "None" }, { "type":  "int", "value": 0 } ], "expected output": { "type": "int | None", "value": "None"}, "explanation": "Degenerate test case. Null singly linked list."}
     ]
 }
