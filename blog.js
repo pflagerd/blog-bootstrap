@@ -78,8 +78,8 @@ document.addEventListener("DOMContentLoaded", () => {
         let isCollapsed;
 
         if (storedState === null) {
-            // First-time load: collapse all except the first article
-            isCollapsed = index !== 0;
+            // First-time load: only expand articles explicitly marked as such
+            isCollapsed = !article.hasAttribute('data-default-expanded');
         } else {
             isCollapsed = storedState === "collapsed";
         }
