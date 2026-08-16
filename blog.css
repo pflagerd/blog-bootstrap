@@ -166,6 +166,30 @@ thead {
     background-color: #f2f2f2;
 }
 
+.artifact-table {
+    margin-left: 2em;
+    width: calc(100% - 2em);
+    border: 2px solid #bbb;
+}
+
+.artifact-table th, .artifact-table td {
+    padding: 0.4em 1.5em 0.4em 0.6em;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.artifact-table th:last-child, .artifact-table td:last-child {
+    border-right: none;
+}
+
+.artifact-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.artifact-table tbody tr:nth-child(even) {
+    background-color: #ececec;
+}
+
 .toggle-btn {
     background-color: #007bff;
     color: white;

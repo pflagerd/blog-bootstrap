@@ -84,11 +84,14 @@ document.addEventListener("DOMContentLoaded", () => {
             isCollapsed = storedState === "collapsed";
         }
 
+        let currentlyCollapsed = isCollapsed;
+
         const applyState = (collapsed) => {
             const targetHeight = collapsed ? getHeightForFirstN(getCollapsedChildCount()) : getFullHeight();
             article.style.height = targetHeight + "px";
             toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
             localStorage.setItem(articleId, collapsed ? "collapsed" : "expanded");
+            currentlyCollapsed = collapsed;
 
             if (!collapsed) {
                 article.addEventListener('transitionend', () => {
@@ -98,6 +101,23 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         applyState(isCollapsed);
+
+        // Images finish loading after this initial height is computed, so
+        // an article containing them measures short on first load. Once
+        // every still-loading image has settled, recompute the height for
+        // whatever state the article is in now.
+        const pendingImages = Array.from(article.querySelectorAll('img')).filter(img => !img.complete);
+        if (pendingImages.length > 0) {
+            let remaining = pendingImages.length;
+            const onImageSettled = () => {
+                remaining--;
+                if (remaining === 0) applyState(currentlyCollapsed);
+            };
+            pendingImages.forEach(img => {
+                img.addEventListener('load', onImageSettled, {once: true});
+                img.addEventListener('error', onImageSettled, {once: true});
+            });
+        }
 
         toggleSpan.addEventListener("click", () => {
             const collapsed = toggleSpan.textContent.includes("Expand");
