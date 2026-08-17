@@ -125,6 +125,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+        // Other content can also change after the initial measurement
+        // without ever mutating an <img> (e.g. an embedded <script>'s
+        // fetch() filling in a <pre>). A MutationObserver catches those
+        // DOM changes -- which the image-load listeners above don't, since
+        // an image finishing decode doesn't itself mutate the DOM -- and
+        // recomputes the currently-applied state so late content isn't
+        // clipped by overflow:hidden (if expanded) or left as a stale gap
+        // (if collapsed).
+        let recomputeTimer = null;
+        const observer = new MutationObserver(() => {
+            clearTimeout(recomputeTimer);
+            recomputeTimer = setTimeout(() => {
+                applyState(currentlyCollapsed);
+            }, 50);
+        });
+        observer.observe(article, {childList: true, subtree: true, characterData: true});
+
         toggleSpan.addEventListener("click", () => {
             const collapsed = toggleSpan.textContent.includes("Expand");
             article.style.height = article.offsetHeight + 'px';
