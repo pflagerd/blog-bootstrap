@@ -53,9 +53,14 @@ document.addEventListener("DOMContentLoaded", () => {
             // (e.g. a landscape and a portrait photo side by side): the
             // shorter one's own top gets pushed down by baseline alignment,
             // so it alone would understate where the hidden content starts.
+            // Non-rendering elements (e.g. <script>) are excluded: they
+            // report a zero rect regardless of their position in the
+            // document, which would otherwise poison the Math.min() below
+            // and produce a bogus (often negative) height that the browser
+            // silently refuses to apply, leaving the article stuck open.
             // Otherwise this preview shows everything, so end with the
             // article's own bottom padding like a normal full card.
-            const remainingChildren = contentChildren.slice(count);
+            const remainingChildren = contentChildren.slice(count).filter(el => el.getClientRects().length > 0);
             const trailingGap = remainingChildren.length > 0
                 ? Math.min(...remainingChildren.map(el => el.getBoundingClientRect().top)) - lastChildBox.bottom
                 : parseFloat(style.paddingBottom);
