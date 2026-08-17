@@ -1,6 +1,6 @@
 {
     "language": "python",
-    "url": "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=105",
+    "url": "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=105",
     "title": "Delete Middle Node",
     "statement": "Implement an algorithm to delete a node in the middle (i.e., any node but\nthe first and last node, not necessarily the exact middle) of a singly linked list, given only access to\nthat node.",
     "hints": {
