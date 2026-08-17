@@ -15,12 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
         contentChildren[0].appendChild(toggleSpan);
 
         const getCollapsedChildCount = () => {
-            // Collapsed preview = the heading (if the first child is an
-            // <h1>-<h6>) plus any immediately-following siblings with
-            // class "meta". Stops at the first non-meta element.
+            // Collapsed preview = any leading run of heading tags
+            // (<h1>-<h6>) plus any immediately-following siblings with
+            // class "meta". Stops at the first non-heading, non-meta
+            // element.
             let count = 0;
-            if (contentChildren.length > 0 && /^H[1-6]$/.test(contentChildren[0].tagName)) {
-                count = 1;
+            while (count < contentChildren.length && /^H[1-6]$/.test(contentChildren[count].tagName)) {
+                count++;
             }
             while (count < contentChildren.length && contentChildren[count].classList.contains('meta')) {
                 count++;
