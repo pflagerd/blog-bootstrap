@@ -105,6 +105,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         applyState(isCollapsed);
 
+        // Content that finishes loading after the measurement above (e.g.
+        // an embedded <script>'s fetch() filling in a <pre>, or an image
+        // decoding late) can change the article's true height without any
+        // user interaction. Watching for it and re-measuring whichever
+        // state is currently showing prevents late content from either
+        // being clipped by overflow:hidden (if expanded) or leaving a
+        // stale gap (if collapsed).
+        let recomputeTimer = null;
+        const observer = new MutationObserver(() => {
+            clearTimeout(recomputeTimer);
+            recomputeTimer = setTimeout(() => {
+                const collapsed = toggleSpan.textContent.includes("Expand");
+                applyState(collapsed);
+            }, 50);
+        });
+        observer.observe(article, {childList: true, subtree: true, characterData: true});
+
         toggleSpan.addEventListener("click", () => {
             const collapsed = toggleSpan.textContent.includes("Expand");
             article.style.height = article.offsetHeight + 'px';
