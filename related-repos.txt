@@ -1,0 +1,15 @@
+  Group 1 — 8e2...4df (blog-bootstrap's own root, 36 repos) — this is the shared origin commit for nearly everything: this repo, bc-memorial, master/default/blog-bootstrap, bracket/bracket, and 32 others (branches, forks, and nested clones of blog-bootstrap scattered across sleepz,
+  investing, toadstool, playback, electrolytix, bracket/pflager.net/projects/*, algorithms/algorithms.merge-only/*, algorithms/algorithms/*, systems, default/*, llms-ai-and-machine-learning, the-intelligent-investor, KDE).
+
+  Group 2 — 11d...b94 (3 repos) — scrappy in three places: bracket/pflager.net/projects/scrappy, scrappy/scrappy, default/scrappy. All the same scrappy project, own root commit — not derived from blog-bootstrap.
+
+  Group 3 — 45c...fbb (3 repos) — the outer algorithms monorepo itself, in three copies: algorithms/algorithms.merge-only, algorithms/algorithms (this repo's parent container), maxrecall-net/algorithms. Note this is distinct from Group 1 even though algorithms/algorithms/doc/Cracking
+  the Coding Interview (nested inside it) belongs to Group 1 — the outer monorepo and the nested blog-bootstrap fork are unrelated histories.
+
+  Group 4 — 82c...792 (2 repos) — investing/investing and algorithms/investing, same project, own root.
+
+  Group 5 — fe0...2a1 (2 repos) — psilocybin-magic-mushroom-growers-guide, in toadstool/ and default/.
+
+  Group 6 — d94...66a (1 repo, unique) — seattle-wholesale-growers-market, no siblings in this list.
+
+  Bottom line: the "shares a root commit" question is mostly a proxy for "which of these are the same underlying project checked out/forked/branched in multiple places" — 5 of the 6 groups are exactly that pattern, with blog-bootstrap's descendants dominating (36 of 47 repos).
