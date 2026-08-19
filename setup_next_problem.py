@@ -9,12 +9,12 @@ def main(args):
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", "--verbose", action="store_true")
-    parser.add_argument("filenames", nargs="*")
+    parser.add_argument("problems", nargs="*")
     parsed = parser.parse_args(args[1:])
     verbose = parsed.verbose
 
-    for filename in parsed.filenames:
-        print(filename)
+    for problem in parsed.problems:
+        print(problem)
 
     return 0
 
