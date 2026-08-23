@@ -1,0 +1,5 @@
+[Desktop Entry]
+Icon=utilities-terminal
+Name=Sourceforge Repo
+Type=Link
+URL[$e]=ssh://pflagerd@git.code.sf.net/p/pflagerd/genmitsu-laser
