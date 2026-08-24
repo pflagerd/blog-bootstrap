@@ -1,0 +1,25 @@
+{
+    "language": "python",
+    "url": "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=105",
+    "title": "Delete Middle Node",
+    "statement": "Implement an algorithm to delete a node in the middle (i.e., any node but\nthe first and last node, not necessarily the exact middle) of a singly linked list, given only access to\nthat node.",
+    "hints": {
+        "#72": "Picture the list 1->5->9->12. Removing 9 would make it look like 1->5->12. You only have access to the 9 node. Can you make it look like the correct answer?"
+    },
+    "constraints-and-assumptions": [
+        "\"<code>sll</code>\" stands for \"singly linked list\"",
+        "We don't have access to the <code>ssl.head</code> (the head/first node of the list)",
+        "1 &le; length of <code>sll</code> &le; 10<sup>5</sup>",
+        "assume it is a singly linked list of any valid python type (including individual lowercase letters as shown in the example)"
+    ],
+    "insights" : [
+    ],
+    "timeComplexity": "O(length of <code>sll</code>)",
+    "spaceComplexity": "O(1)",
+    "examples": [
+        { "input": [ { "type": "SinglyLinkedListNode | None", "value": "None" }, { "type":  "int", "value": 0 } ], "expected output": { "type": "int | None", "value": "None"}, "explanation": "Degenerate test case. Null singly linked list."}
+    ],
+    "tests": [
+        { "input": [ { "type": "SinglyLinkedListNode | None", "value": "None" }, { "type":  "int", "value": 0 } ], "expected output": { "type": "int | None", "value": "None"}, "explanation": "Degenerate test case. Null singly linked list."}
+    ]
+}
