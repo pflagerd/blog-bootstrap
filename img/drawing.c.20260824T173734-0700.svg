@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="256mm"
-   height="185mm"
-   viewBox="0 0 256 185"
+   width="250mm"
+   height="179mm"
+   viewBox="0 0 250 179"
    version="1.1"
    id="svg1"
    inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
@@ -25,9 +25,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.98457774"
-     inkscape:cx="355.48234"
+     inkscape:cx="354.46668"
      inkscape:cy="399.66372"
-     inkscape:window-width="1871"
+     inkscape:window-width="2009"
      inkscape:window-height="1226"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -36,8 +36,7 @@
      id="defs1" /><g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     transform="matrix(1.0330555,0,0,1.0357807,-0.27987663,-0.38985457)"><rect
+     id="layer1"><rect
        style="fill:none;stroke:#000000;stroke-width:0.254"
        id="rect1"
        width="102"
@@ -46,7 +45,7 @@
        y="116.48175" /><path
        d="m 184.96354,31.5287 c -5.0813,-8.12371 -13.55009,-13.810304 -23.71267,-13.810304 -14.39699,0 -25.40644,10.560818 -25.40644,24.371124 0,26.808235 15.24387,30.87009 49.11911,61.74017 33.87525,-30.87008 49.11909,-34.931935 49.11909,-61.74017 0,-13.810306 -11.00943,-24.371124 -25.40642,-24.371124 -10.16258,0 -18.63139,5.686594 -23.71267,13.810304 z"
        id="path4"
-       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:0.254;stroke-dasharray:none;stroke-opacity:1" /><image
+       style="fill:#ffffff;stroke-width:0.254;stroke:#000000;stroke-opacity:1;stroke-dasharray:none;fill-opacity:0" /><image
        width="24.829319"
        height="55.081379"
        preserveAspectRatio="none"
