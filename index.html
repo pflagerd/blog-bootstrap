@@ -74,8 +74,57 @@
         <article class="post" id="YYMMDD-HHMM" style="display: none;"> <!-- prototype-post -->
             <h3>My first blog entry</h3>
             <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
+            <p class="meta">Thu Sep  3 03:41:20 PM PDT 2026 by Daniel</p>
+        </article> <!-- prototype-post -->https://claude.ai/share/3031c80e-cb7b-49d7-82c7-2ea0f149a25e
+
+        <article class="post" id="20260903T154120-0700" style=""> <!-- Which laser software -->
+            <h3>Which laser software should I use?</h3>
+            <p class="meta">I ask Claude for some help.</p>
             <p class="meta">Thu Sep  3 01:07:19 PM PDT 2026 by Daniel</p>
-        </article> <!-- prototype-post -->
+            <p>I feel kind of duped, having bought the Genmitsu LC50 Plus, and then finding out later that there is virtually NO support, and the product has already been discontinued:</p>
+            <p><a href="https://www.sainsmart.com/products/jinsoku-lc-50-plus-10w-compressed-fac-laser-engraver-cutter?srsltid=AfmBOop2fZ-i9SW5OIkQks1-JU6cCjRn3zVuuCDsIFHPD3Xwn0k7axY_" target="_blank">sainsmart.com</a></p>
+            <p>After some searching, I was able to find some <a href="https://docs.sainsmart.com/article/6t200ozryy-lc-50-plus" target="_blank">LC50 Plus resources</a>.</p>
+            <p>The sainsmart.com site recommended <a href="https://lightburnsoftware.com/products/lightburn-core" target="_blank">LightBurn Core</a>, which is commercial software which runs on Kubuntu.</p>
+            <p><a href="https://claude.ai/share/3031c80e-cb7b-49d7-82c7-2ea0f149a25e" target="_blank">Claude's recommendation, which will not render in an iframe.</a></p>
+            <p>Claude recommends open source software called <a href="https://github.com/meerk40t/meerk40t" target="_blank">meerk405</a>.</p>
+            <p>Turns out I have an old Dell Windows computer attached to the laser etcher.  It actually has <a href="https://lasergrbl.com/" target="_blank">LaserGRBL</a> already installed.
+                A long time ago, I used this Dell to connect to the Genmitsu Prover 4030 and ran a version of Carveco on it.
+                Now I can use it to run <a href="https://lasergrbl.com/" target="_blank">LaserGRBL</a>:
+            </p>
+            <p><img style="width: 40%;" src="img/20260903_161930.jpg" alt="img/20260903_161930.jpg"></p>
+            <p>One of the most useful things on the <a href="https://docs.sainsmart.com/article/6t200ozryy-lc-50-plus" target="_blank">LC50 Plus resources</a> page is the <a href="https://docs.sainsmart.com/article/3ct3gbpxws-lc-50-plus-engraving-speed-power-reference-charts" target="_blank">Speed-Power Reference Chart.</a></p>
+            <p>Turns out we'll need that.</p>
+            <p>The <a href="LC50-Plus_10W_Laser_Machine_User_Manau_Ver1.0-202210.pdf" target="_blank">manual</a> is also kind of useful. I used it when I assembled the machine in the first place.</p>
+            <p>Contrary to what seems completely obvious, one does not put the distance gauge tool directly under the laser, but on the corner of the laser:</p>
+            <p><img style="width: 40%;" src="img/20260903_164827.jpg" alt="img/20260903_164827.jpg"></p>
+            <p>You can see from the manual that this is correct, but intuition says you should put the tool directly under the laser:</p>
+            <p><img style="width: 50%;" src="img/Screenshot_20260903_172655.png" alt="img/Screenshot_20260903_172655.png"></p>
+            <p>Also contrary to intuition, and other CNC device conventions, <a href="https://lasergrbl.com/" target="_blank">LaserGRBL</a> seems to always start from the upper-right of the workpiece (a bit of partly-used scrap plywood in this case).</p>
+            <p><img style="width: 40%;" src="img/20260903_165550.jpg" alt="img/20260903_165550.jpg"></p>
+            <p>It seems to be good practise to use the "top right" button before attempting any engraving.</p>
+        </article> <!-- Which laser software -->
+
+        <article class="post" id="20260903T152410-0700" style=""> <!-- Laser Etcher Placement -->
+            <h3>How will I place the wood workpiece(s) on the Genmitsu LC50 Plus</h3>
+            <p class="meta">First time I've used the new large laser. Not sure how to locate workpiece.</p>
+            <p class="meta">Thu Sep  3 03:24:10 PM PDT 2026 by Daniel</p>
+            <p>Obviously, the Jinsoku Z3 Galvo Laser's work area is too small:</p>
+            <p><img style="width: 40%;" src="img/20260903_151620.jpg" alt="img/20260903_151620.jpg"></p>
+            <p>The Genmitsu LC50 Plus' work area is certainly large enough:</p>
+            <p><img style="width: 40%;" src="img/20260903_151637.jpg" alt="img/20260903_151637.jpg"></p>
+            <p>But I've no idea how to place the workpiece.
+                In other words, I don't know where 0, 0 on the laser is in space.
+                It's probably lower left, but I don't want to just assume that.
+            </p>
+        </article> <!-- Laser Etcher Placement -->
+
+        <article class="post" id="20260903T152121-0700" style=""> <!-- CNC Placement -->
+            <h3>How will I place the wood workpiece(s) on the Genmitsu Prover 4030XL</h3>
+            <p class="meta">Pretty straight-forward.</p>
+            <p class="meta">Thu Sep  3 03:21:21 PM PDT 2026 by Daniel</p>
+            <p>I'll use double-sided tape to hold it down thus:</p>
+            <p><img style="width: 40%;" src="img/20260903_151654.jpg" alt="img/20260903_151654.jpg"></p>
+        </article> <!-- CNC Placement -->
 
         <article class="post" id="20260903T145342-0700" style=""> <!-- Robin reminds me which plaque he prefers -->
             <h3>Robin reminds me which plaque he prefers</h3>
