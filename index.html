@@ -77,6 +77,36 @@
             <p class="meta">Thu Sep  3 03:41:20 PM PDT 2026 by Daniel</p>
         </article> <!-- prototype-post -->
 
+        <article class="post" id="20260904T191859-0700" style=""> <!-- Figured out a bunch of things -->
+            <h3>Figured out a bunch of things AND did a first attempt at an etching of BC-in-an-ellipse</h3>
+            <p class="meta">Learned a bunch by trial and error and a bit of judicious claude.ai</p>
+            <p class="meta">Fri Sep  4 07:18:59 PM PDT 2026 by Daniel</p>
+            <p>Firstly, I found that I could export from Inkscape as a .png file.</p>
+            <p><img style="width: 40%;" src="img/Screenshot_20260904_192257.png" alt="img/Screenshot_20260904_192257.png"></p>
+            <p>I exported a selection, namely the picture of BC trimmed to an ellipse:</p>
+            <p><img style="width: 40%;" src="img/image1-5.png" alt="img/image1-5.png"></p>
+            <p>Then I learned I could import this into LaserGRBL.</p>
+            <p>claude.ai says I should be able to etch this.</p>
+            <p>Another important thing I learned is how to Home the LC-50's gantry.</p>
+            <p>Turns out that when you power up the LC-50, it'll refuse to Home (or Test) until you send it a <code>$X</code> (unlock) command.</p>
+            <p>So I used Universal GCode Sender (ugsplatform) to connect to the LC-50 and then sent it the <code>$X</code> (unlock)</p>
+            <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
+                <source src="video/.mp4" type="video/mp4">
+            </video></p>
+            <p>Then if I pressed Test/Home, a blue light would illuminate on the laser PCB and the laser itself would turn on (low power).</p>
+            <p>Pressing Test/Home again would cause the laser to turn off, but the blue light remained on.</p>
+            <p>Pressing and holding Home for about 5 seconds would cause the gantry to return to the Home position: the lower left corner of the engraving area.</p>
+            <p>Then I could terminate ugsplatform and connect using LaserGRBL.</p>
+            <p>I used bitblt with the default settings with power set to 10%.</p>
+            <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
+                <source src="video/.mp4" type="video/mp4">
+            </video></p>
+            <p>This was the result:</p>
+            <p><img style="width: 40%;" src="img/20260904_185522.jpg" alt="img/20260904_185522.jpg"></p>
+            <p>Admittedly not great, but it does appear to the correct size at least:</p>
+            <p><img style="width: 40%;" src="img/20260904_185522.jpg" alt="img/.jpg"></p>
+        </article> <!-- prototype-post -->
+
         <article class="post" id="20260904T113228-0700" style=""> <!-- Tried the Home/Test button -->
             <h3>I tried the Home/Test button</h3>
             <p class="meta">That grindy sound when I used LaserGRBL's "Go to top right" button was disconcerting.</p>
