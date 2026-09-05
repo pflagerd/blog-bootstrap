@@ -88,8 +88,9 @@
             <p>Then I learned I could import this into LaserGRBL.</p>
             <p>claude.ai says I should be able to etch this.</p>
             <p>Another important thing I learned is how to Home the LC-50's gantry.</p>
-            <p>Turns out that when you power up the LC-50, it'll refuse to Home (or Test) until you send it a <code>$X</code> (unlock) command.</p>
-            <p>So I used Universal GCode Sender (ugsplatform) to connect to the LC-50 and then sent it the <code>$X</code> (unlock)</p>
+            <p>Turns out that when you power up the LC-50, it'll often refuse to Home (or Test) until you send it a <code>$X</code> (unlock) command.</p>
+            <p>One reason it may refuse is that some error condition, or an E-Stop, occurred.  It will retain the error state and refuse to Home (or Test) until sent a <code>$X</code> (unlock) command.</p>
+            <p>So I used Universal GCode Sender (ugsplatform) to connect to the LC-50 and then sent it the <code>$X</code> (unlock) command.</p>
             <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
                 <source src="video/.mp4" type="video/mp4">
             </video></p>
