@@ -49,10 +49,99 @@ class SinglyLinkedListNode:
         s += "}"
         return s
 
+def partitionA(head: SinglyLinkedListNode | None, value) -> SinglyLinkedListNode | None:
+    sll = head
+    prev = None
+    while True:
+        if sll is None:
+            return head
+        if sll.value < value:
+            prev = sll
+            sll = sll.next
+            continue
+        else:
+            break
+
+    while True:
+        if sll is None:
+            return head
+        if sll.value >= value:
+            prev = sll
+            sll = sll.next
+            continue
+        else:
+            # delete this node
+            prev.next = sll.next
+            # insert this node at the beginning and update head
+            sll.next = head
+            head = sll
+            sll = prev
+
+    return head
+
+
+partition = partitionA
+
+
+#
+# Nested Loops or Sequential Loops
+#
+# State: a) node not found
+#        b) node less than x found
+#        c) node greater than or equal to x found
+#
+#        b is not c.
+#        c is not b. Therefore can us b and not b (or c and not c).
+#
+#        So fail if going from not b to b
+#
+#        while b, then while not b until end of list, ok
+#        while b, then while b, ok
+#        while not b, then if b, not ok
+#        if not b, then if not b until end of list, ok
+#
 class Tests(unittest.TestCase):
+    def isCorrect(self, head: SinglyLinkedListNode | None, value : int):
+        sll = head
+        passes = True
+        while True: # look for nodes less than x
+            if sll is None:
+                return passes
+            if sll.value < value:
+                sll = sll.next
+                continue
+            else:
+                break
+
+        while True: # look for nodes greater than or equal to x
+            if sll is None:
+                return passes
+            if sll.value >= value:
+                sll = sll.next
+                continue
+            else:
+                return False
+
     def test_example(self):
-        SinglyLinkedListNode(3, SinglyLinkedListNode(5, SinglyLinkedListNode(8, SinglyLinkedListNode(5, SinglyLinkedListNode(10, SinglyLinkedListNode(2, SinglyLinkedListNode(1)))))))
-        self.assertXYZ('{"value": 4, "next": null}', '{"value": 4, "next": null}')
+        example = SinglyLinkedListNode(3, SinglyLinkedListNode(5, SinglyLinkedListNode(8, SinglyLinkedListNode(5, SinglyLinkedListNode(10, SinglyLinkedListNode(2, SinglyLinkedListNode(1)))))))
+        self.assertFalse(self.isCorrect(example, 5))
+        self.assertTrue(self.isCorrect(partition(example, 5), 5))
+
+    def test_empty(self):
+        example = None
+        self.assertTrue(self.isCorrect(partition(example, 5), 5))
+
+    def test_all_less_than(self):
+        example = SinglyLinkedListNode(3, SinglyLinkedListNode(5, SinglyLinkedListNode(8, SinglyLinkedListNode(5, SinglyLinkedListNode(10, SinglyLinkedListNode(2, SinglyLinkedListNode(1)))))))
+        self.assertTrue(self.isCorrect(example, 11))
+        self.assertTrue(self.isCorrect(partition(example, 11), 11))
+
+    def test_all_greater_than_or_equal_to(self):
+        example = SinglyLinkedListNode(3, SinglyLinkedListNode(5, SinglyLinkedListNode(8, SinglyLinkedListNode(5, SinglyLinkedListNode(10, SinglyLinkedListNode(2, SinglyLinkedListNode(1)))))))
+        self.assertTrue(self.isCorrect(example, 1))
+        self.assertTrue(self.isCorrect(partition(example, 1), 1))
+
+
 
 if __name__ == "__main__":
     unittest.main()
