@@ -131,16 +131,22 @@ class Tests(unittest.TestCase):
         example = None
         self.assertTrue(self.isCorrect(partition(example, 5), 5))
 
-    def test_all_less_than(self):
+    def test_all_less_than(self): # value is by definition NOT in the list
         example = SinglyLinkedListNode(3, SinglyLinkedListNode(5, SinglyLinkedListNode(8, SinglyLinkedListNode(5, SinglyLinkedListNode(10, SinglyLinkedListNode(2, SinglyLinkedListNode(1)))))))
         self.assertTrue(self.isCorrect(example, 11))
         self.assertTrue(self.isCorrect(partition(example, 11), 11))
 
-    def test_all_greater_than_or_equal_to(self):
+    def test_all_greater_than_or_equal_to_value_in_list(self): #value is in the list
         example = SinglyLinkedListNode(3, SinglyLinkedListNode(5, SinglyLinkedListNode(8, SinglyLinkedListNode(5, SinglyLinkedListNode(10, SinglyLinkedListNode(2, SinglyLinkedListNode(1)))))))
         self.assertTrue(self.isCorrect(example, 1))
         self.assertTrue(self.isCorrect(partition(example, 1), 1))
 
+    def test_all_greater_than_or_equal_to_value_not_in_list(self): #value is in the list
+        example = SinglyLinkedListNode(3, SinglyLinkedListNode(5, SinglyLinkedListNode(8, SinglyLinkedListNode(5, SinglyLinkedListNode(10, SinglyLinkedListNode(2, SinglyLinkedListNode(1)))))))
+        self.assertTrue(self.isCorrect(example, 0))
+        self.assertTrue(self.isCorrect(partition(example, 0), 0))
+
+    # test value not
 
 
 if __name__ == "__main__":
