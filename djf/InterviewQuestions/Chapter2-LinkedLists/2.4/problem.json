@@ -1,0 +1,46 @@
+{
+    "url": "http://localhost:63343/algorithms/doc/Cracking%20the%20Coding%20Interview/Cracking%20the%20Coding%20Interview%20189%20Programming%20Questions%20and%20Solutions.pdf#page=105",
+    "title": "Partition",
+    "statement": "Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x. If x is contained within the list, the values of x only need to be after the elements less than x (see below). The artition element x can appear anywhere in the \"right partition\"; it does not need to appear between the left and right partitions.",
+    "hints": [
+        { "3": "There are many solutions to this problem, most of which are equally optimal in runtime. Some have shorter, cleaner code than others. Can you brainstorm different solutions?",
+        { "24": "Consider that the elements don't have to stay in the same relative order. We only need to ensure that elements less than the pivot must be before elements greater than the pivot. Does that help you come up with more solutions?"
+    ],
+    "constraints": [
+        "Assume we are given a pointer to the head of the list.",
+        "Assume we have a singly-linked list of any sortable Python type, e.g., string, or integer.",
+        "Assume the length of the list, n, is no larger than 10,000."
+    ],
+    "timeComplexity": "O(n), where n is the length of the list",
+    "spaceComplexity": "O(1)",
+    "examples": [
+        "Input: 3, 5, 8, 5, 10, 2, 1, partition = 5",
+        "Output: 3, 1, 2, 10, 5, 5, 8"
+    ],
+    "tests": [
+        "inputString": "waterbottle",
+        "inputString": "erbottlewat",
+        "expectedResult": "True",
+        "explanation": "We rotated the first string 3 characters to the left."
+    ]
+
+
+    "misc":
+    "def test_generate_djf(self):
+        print(f"SinglyLinkedListNode.generate_djf(1).dumps() == '{SinglyLinkedListNode.generate_djf(1).dumps()}'")
+        self.assertEqual('{"next": null, "value": 0}', SinglyLinkedListNode.generate_djf(1).dumps())
+        print(f"SinglyLinkedListNode.generate_djf(2).dumps() == '{SinglyLinkedListNode.generate_djf(2).dumps()}'")
+        self.assertEqual('{"next": {"next": null, "value": 1}, "value": 0}', SinglyLinkedListNode.generate_djf(2).dumps()
+        print(f"SinglyLinkedListNode.generate_djf(3).dumps() == '{SinglyLinkedListNode.generate_djf(3).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": null, "value": 2}, "value": 1}, "value": 0}', SinglyLinkedListNode.g
+        print(f"SinglyLinkedListNode.generate_djf(4).dumps() == '{SinglyLinkedListNode.generate_djf(4).dumps()}'")
+        self.assertEqual('{"next": {"next": {"next": {"next": null, "value": 3}, "value": 2}, "value": 1}, "value": 0}',"
+
+
+
+
+
+}
+
+
+
