@@ -79,12 +79,47 @@ def partitionA(head: SinglyLinkedListNode | None, value) -> SinglyLinkedListNode
 
     return head
 
+def partitionC(head: SinglyLinkedListNode | None, value) -> SinglyLinkedListNode | None:
+
+    def concatenate(a, b):
+        if a is None:
+            return b
+
+        while True:
+            if a.next is None:
+                a.next = b
+                return a
+            a = a.next
+
+    def getFirstNode(a):
+        if a is None:
+            return a
+
+        return SinglyLinkedListNode(a.value, None)
+
+    smalls_head = None
+    bigs_head = None
+
+    current = head
+    while True:
+        if current is None:
+            # return the concatenation
+            return concatenate(smalls_head, bigs_head)
+        if current.value < value:
+            # append current to smalls_head
+            concatenate(smalls_head, getFirstNode(current))
+        else:
+            # append current to bigs_head
+            concatenate(bigs_head, getFirstNode(current))
+        current = current.next
+
+
 def partitionB(head: SinglyLinkedListNode | None, value) -> SinglyLinkedListNode | None:
     smalls_head = None
     smalls_tail = None
     bigs_head = None
     bigs_tail = None
-    
+
     current = head
     while True:
         if current is None:
@@ -123,9 +158,8 @@ def partitionB(head: SinglyLinkedListNode | None, value) -> SinglyLinkedListNode
                     bigs_tail.next.next = None
         current = current.next
 
-                
 
-partition = partitionB
+partition = partitionC
 
 
 #
