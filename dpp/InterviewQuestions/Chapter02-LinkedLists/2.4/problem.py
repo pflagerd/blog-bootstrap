@@ -38,7 +38,6 @@ class SinglyLinkedListNode:
         s += ")"
         return s
 
-
     def dumps(self) -> str:
         s = '{"next": '
         if self.next is None:
@@ -48,6 +47,9 @@ class SinglyLinkedListNode:
         s += ", \"value\": " + str(self.value)
         s += "}"
         return s
+
+    def str(self):
+        return dumps(self)
 
 def partitionA(head: SinglyLinkedListNode | None, value) -> SinglyLinkedListNode | None:
     sll = head
@@ -158,8 +160,78 @@ def partitionB(head: SinglyLinkedListNode | None, value) -> SinglyLinkedListNode
                     bigs_tail.next.next = None
         current = current.next
 
+#
+# loop through the list and for each node determine if it is less than the pivot, or greater than or equal to the pivot.
+# if it is less than the pivot, append it to a list of "smalls".
+# if it is greater than or equal to the pivot, append it to a list of "bigs"
+# append bigs to smalls and return the result.
+#
+# head names the list
+# the list is an ordered set of nodes
+#
+# a singly linked list is an ordered set of nodes such that each node is a set containing a value and a pointer to another node or to None
+# a SinglyLinkedList is an ordered set of nodes such that each node is a class object containing an integer and a pointer to another node or None
+# a SinglyLinkedList may not contain a loop (i.e. may not contain a cycle)
+#
+# How to express "a pointer to another Node" and "the same pointer with value of None" (which is to say a pointer to no node)
+#
+# Can Principia Mathematica be expressed in Python?
+#
+def partitionD(head: SinglyLinkedListNode | None, pivot) -> SinglyLinkedListNode | None:
+    # loop through the list and for each node determine if the node's value is less than the pivot, or greater than or equal to the pivot.
+    # if the node's value is less than the pivot, append the node to a list of "smalls".
+    # if the node's value is greater than or equal to the pivot, append the node to a list of "bigs"
+    # append list of "bigs" to list of "smalls" and return the result.
 
-partition = partitionC
+    def append_node(the_list, the_node):
+        the_node = SinglyLinkedListNode(the_node.value)
+        print(f'the_node == {the_node}')
+
+        if the_list is None:
+            the_list = the_node
+            return
+
+        the_end_of_the_list = the_list
+        while True:
+            if the_end_of_the_list.next is None:
+                the_end_of_the_list.next = the_node
+                return
+            the_end_of_the_list = the_end_of_the_list.next
+
+
+    def append(a_list, another_list):
+        if a_list is None:
+            a_list = another_list
+            return
+
+        the_end_of_the_list = a_list
+        while True:
+            if the_end_of_the_list.next is None:
+                the_end_of_the_list.next = another_list
+                return
+            the_end_of_the_list = the_end_of_the_list.next
+
+
+    list_of_smalls = None
+    list_of_bigs = None
+
+
+    the_node = head
+    while True: # loop
+        if the_node is None:
+            break
+
+        if the_node.value < pivot:
+            append_node(list_of_smalls, the_node)
+        else: # the_node.value >= pivot
+            append_node(list_of_bigs, the_node)
+        the_node = the_node.next
+
+    return append(list_of_smalls, list_of_bigs)
+
+
+
+partition = partitionD
 
 
 #
