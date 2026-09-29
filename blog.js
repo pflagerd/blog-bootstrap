@@ -14,29 +14,70 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleSpan.className = "toggle-control";
         contentChildren[0].appendChild(toggleSpan);
 
+        const getCollapsedChildCount = () => {
+            // Collapsed preview = any leading run of heading tags
+            // (<h1>-<h6>) plus any immediately-following siblings with
+            // class "meta". Stops at the first non-heading, non-meta
+            // element.
+            let count = 0;
+            while (count < contentChildren.length && /^H[1-6]$/.test(contentChildren[count].tagName)) {
+                count++;
+            }
+            while (count < contentChildren.length && contentChildren[count].classList.contains('meta')) {
+                count++;
+            }
+            return count;
+        };
+
         const getHeightForFirstN = (n) => {
             article.style.height = 'auto';
             void article.offsetHeight;
 
-            let total = 0;
-            for (let i = 0; i < Math.min(n, contentChildren.length); i++) {
-                const el = contentChildren[i];
-                const style = getComputedStyle(el);
-                total += el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            }
-            return total + parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em of body for artificial final margin.
+            const count = Math.min(n, contentChildren.length);
+            if (count === 0) return 0;
+
+            // Measure the actual rendered bottom edge of the Nth child rather
+            // than summing each child's own height: children can share a
+            // line (e.g. consecutive <img> tags wrap like inline text), so
+            // adding up individual heights overcounts whenever more than one
+            // child ends up on the same row.
+            const articleBox = article.getBoundingClientRect();
+            const lastChildBox = contentChildren[count - 1].getBoundingClientRect();
+            const style = getComputedStyle(article);
+
+            // Trailing space after the cut: if hidden children follow, stop
+            // in the real (already-rendered) gap before whichever one starts
+            // highest up. Using the topmost of *all* remaining children,
+            // rather than just the next one in DOM order, matters when
+            // hidden inline siblings share a line and differ in height
+            // (e.g. a landscape and a portrait photo side by side): the
+            // shorter one's own top gets pushed down by baseline alignment,
+            // so it alone would understate where the hidden content starts.
+            // Non-rendering elements (e.g. <script>) are excluded: they
+            // report a zero rect regardless of their position in the
+            // document, which would otherwise poison the Math.min() below
+            // and produce a bogus (often negative) height that the browser
+            // silently refuses to apply, leaving the article stuck open.
+            // Otherwise this preview shows everything, so end with the
+            // article's own bottom padding like a normal full card.
+            const remainingChildren = contentChildren.slice(count).filter(el => el.getClientRects().length > 0);
+            const trailingGap = remainingChildren.length > 0
+                ? Math.min(...remainingChildren.map(el => el.getBoundingClientRect().top)) - lastChildBox.bottom
+                : parseFloat(style.paddingBottom);
+
+            return (lastChildBox.bottom - articleBox.top)
+                + trailingGap
+                + parseFloat(style.borderBottomWidth);
         };
 
         const getFullHeight = () => {
             article.style.height = 'auto';
             void article.offsetHeight;
 
-            let height = contentChildren.reduce((acc, el) => {
-                const style = getComputedStyle(el);
-                return acc + el.offsetHeight + parseFloat(style.marginTop) + parseFloat(style.marginBottom);
-            }, 0);
-            height += parseFloat(getComputedStyle(document.body).fontSize); // Add 1 em of body for artificial final margin.
-            return height;
+            // The browser has already laid out all the content correctly
+            // (including wrapped inline elements like <img> and <br>), so
+            // just read the real rendered height instead of re-deriving it.
+            return article.offsetHeight;
         };
 
         const storedState = localStorage.getItem(articleId);
@@ -50,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const applyState = (collapsed) => {
-            const targetHeight = collapsed ? getHeightForFirstN(3) : getFullHeight();
+            const targetHeight = collapsed ? getHeightForFirstN(getCollapsedChildCount()) : getFullHeight();
             article.style.height = targetHeight + "px";
             toggleSpan.textContent = collapsed ? "Expand ▼" : "Collapse ▲";
             localStorage.setItem(articleId, collapsed ? "collapsed" : "expanded");
@@ -63,6 +104,23 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         applyState(isCollapsed);
+
+        // Content that finishes loading after the measurement above (e.g.
+        // an embedded <script>'s fetch() filling in a <pre>, or an image
+        // decoding late) can change the article's true height without any
+        // user interaction. Watching for it and re-measuring whichever
+        // state is currently showing prevents late content from either
+        // being clipped by overflow:hidden (if expanded) or leaving a
+        // stale gap (if collapsed).
+        let recomputeTimer = null;
+        const observer = new MutationObserver(() => {
+            clearTimeout(recomputeTimer);
+            recomputeTimer = setTimeout(() => {
+                const collapsed = toggleSpan.textContent.includes("Expand");
+                applyState(collapsed);
+            }, 50);
+        });
+        observer.observe(article, {childList: true, subtree: true, characterData: true});
 
         toggleSpan.addEventListener("click", () => {
             const collapsed = toggleSpan.textContent.includes("Expand");
