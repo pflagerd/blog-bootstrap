@@ -1,0 +1,133 @@
+Some day, this will host an llm which will locate and display videos and text showing how to do things in KDE.
+
+For now I'm going to create videos showing how to do various things that I'm learning.
+
+I'll also track my progress  in here.
+
+
+
+
+Tue Sep 22 03:51:27 PM PDT 2026
+This answer talks about a terminal with tabs (tabbing) in kdevelop:
+https://claude.ai/share/3ad54025-96d9-4293-8720-1c9531da85cc
+
+In describing the defect in https://bugs.kde.org/show_bug.cgi?id=512993, I had a conversation with claude.ai stored here:
+https://claude.ai/share/fac2fc94-c33d-4491-a6be-b75670ae0eb7
+
+This led to a question about where .qcow2 files (virtual machine image files) are stored, which claude.ai answered here:
+https://claude.ai/share/459b1628-93f4-4fb7-9e99-47a1e0e0869c
+
+Created a few new virtual machines, including KDE Linux.
+
+
+Fri Sep 18 08:48:25 AM PDT 2026
+On Matrix in KDE New Contributors, Andrew Shark and stinb(morg) claim that this issue may be fixed, and that I should try upgrading kde-builder and trying again.
+
+Begs the question "How do I upgrade kde-builder"?
+
+I seem to have found an answer here: https://develop.kde.org/docs/getting-started/building/kde-builder-setup/#updating-kde-builder
+
+I need to be able to interact with kde-contributions/ within the VM, since copying/pasting between guest and host seems broken.
+    Cloning kde-contributions/ seems a decent solution.
+    I should do that in fedora in Virtual Machine Manager.
+
+
+
+Thu Sep 17 06:31:59 PM PDT 2026
+I'm creating another fedora VM, this time using virt-manager from Fedora-KDE-Desktop-Live-44-1.7.x86_64.
+
+Finished creating the other VM in virt-manager. Cloned it as fedora-a, fedora-b.
+
+Also created a kubuntu-26-04-a. VM.
+
+
+
+Thu Sep 17 02:51:24 PM PDT 2026
+Installed virtualbox.
+Used virtualbox to create kubuntu-25.10-desktop-amd64-A, fedora-kde-desktop-live-44-1_7_x86_64, neon-user-desktop-20260903-0454, and neon-unstable-dev-20260831-1139.
+
+Installed kubuntu-25.10-desktop-amd64-A as VM on virtual hard disk.
+I upgraded kubuntu-25.10-desktop-amd64-A to version 26.04 LTS.
+Mounted and installed Guest Additions ()
+
+
+I attempted to install neon-unstable-dev-20260831-1139, but it crashed during installation.  I removed the VM.
+
+I attempted to install neon-user-desktop-20260903-0454.  Seems to have succeeded.
+There was a System upgrade.  I installed it.
+Lost the window. See below for how I was able to get it to be visible again.
+
+
+I attempted to install fedora-kde-desktop-live-44-1_7_x86_64 .  While the install appeared to succeed, the VM wouldn't start from the virtual hard disk.
+I reinstalled.
+I had to unmount the virtual CD.
+There were security updates, which turned out to be a System Upgrade just like kubuntu and neon.
+During the upgrade, I couldn't see the VM window although it showed up in the taskbar, grouped with neon's VM window.
+FOund that if I hovered over the grouped VM windows on the task bar, then moved the mouse over the missing window, then right clicked, selected More and chose "Move", I could move the window into a visible area.
+
+
+Wed Sep 16 03:03:36 PM PDT 2026
+Whizzed through the Qt Promise which was just marketing fluff.
+
+Try not to forget about mentoring page: https://community.kde.org/Mentoring
+
+
+
+Wed Sep 16 02:43:47 PM PDT 2026
+Squish is for manual and automated UI testing.
+Learned that Squish allows testing on an MCU even.
+
+Coco is for code coverage.
+
+Test Center is for test result management.
+
+Axivion is for style and coding violations.
+
+Qt Digital Advertising helps develop advertising for your products.
+
+Qt Insight helps tracks user actions so you can streamline your app's user experience.
+
+
+
+Wed Sep 16 02:38:19 PM PDT 2026
+Learned that Qt Framework is vast and scary.
+
+Learned that Qt Creator is a thing and is already installed on dell7750 (/usr/bin/qtcreator)
+
+I think I'll ignore the fact that Qt is available for Visual Studio and vscode.
+
+Learned that I can code using C++, QML, Python, & JavaScript
+
+
+Wed Sep 16 02:31:05 PM PDT 2026
+Was overwhelmed by Qt Design Studio and learned that Figma is a thing and that I have an account: https://www.figma.com/files/team/1399049037920676108/recents-and-sharing/recently-viewed?fuid=1399049035869986257
+
+Learned that Qt Design Studio can import from Blender which is an overwhelming 3D design tool.
+
+Learned that I could develop web applications with Qt using Qt for WebAssembly.
+
+Can also develop for MCUs (MPUs)
+
+Qt fpr Cloud os a thing apparently, when working with hardware-dependent build-outs allowing development before hardware exists.
+
+
+Wed Sep 16 02:19:51 PM PDT 2026
+I reconnected and confirmed my account (through Google) on https://academy.qt.io/users/sign_in
+
+I found my prior progress on https://academy.qt.io/learner-dashboard
+
+I found an old enrollment "Qt Group Products": https://academy.qt.io/enrollments/214450695 and am working through that.
+
+I found this maxtrix channel (https://go.kde.org/matrix/#/#kde-new-contributors:kde.org) and connected with Element (/snap/bin/element-desktop)
+Turns out I have an ID "PapaFox already."
+I posted this message: https://matrix.to/#/!qzQdMjBmbTeiKynXFz:kde.org/$MbNGsbjK7G6g054w3aj1HNTL49ENx_sdHqHmZ-76dU4?via=kde.org&via=matrix.org&via=tchncs.de
+And received advice from "herz"
+    pointing me to "we recommend at least last non-LTS for building: https://develop.kde.org/docs/getting-started/building/#recommended-linux-distributions"
+
+and also
+    Building KDE software - Developer (https://develop.kde.org/docs/getting-started/building/#recommended-linux-distributions)
+    Learn how to build KDE software in multiple ways.
+
+
+Wed Sep 16 12:09:08 PM PDT 2026
+I create this repo in sourceforce and create this README in it.
