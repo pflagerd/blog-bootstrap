@@ -6,6 +6,11 @@ I am super-skeptical because it has given bad advice now so often.
 
 By "testing Claude's content", I mean doing further Claude (or other) chats to explicate and confirm what Claude means and to detect BS and false positives?
 
+In essence I'm working through the text:
+
+    1. Prep the SVG in Inkscape. Set the document units to mm and make the drawing size match real-world dimensions (File → Document Properties). Convert any strokes or text to paths (Path → Object to Path, Path → Stroke to Path). Combine subpaths only if they’re meant to be a single contour. It’s worth simplifying (Path → Simplify) to reduce node count on curves, but not so aggressively that the shape drifts. Save as plain SVG.
+
+So far, I've done everything up to, but not including "Combine subpaths only if they're ..."
 
 THEN:
 
