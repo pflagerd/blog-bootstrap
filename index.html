@@ -77,6 +77,32 @@
             <p class="meta">Thu Sep  3 03:41:20 PM PDT 2026 by Daniel</p>
         </article> <!-- prototype-post -->
 
+        <article class="post" id="20261012T154918-0700" style=""> <!-- 2. Generate G-Code -->
+            <h3>2. Generate G-Code (part 1)</h3>
+            <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
+            <p class="meta">Mon Oct 12 03:49:18 PM PDT 2026 by Daniel</p>
+            <p>I have a feeling this step (2. Generate G-Code) is going to have a lot of parts.</p>
+            <p>I have included "2. Generate G-code" from <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c#:~:text=2.%20Generate%20G,around%20the%20perimeter." target="_blank">claude.ai's steps.</a></p>
+            <blockquote style="margin-left: 2em; margin-bottom: 1em;"><b>2. Generate G-code.</b> This is the CAM step, and it’s where you specify tool diameter, cut depth, feeds/speeds, stepdown per pass, and whether the toolpath is inside/outside/on the line (offset direction matters — for cutting a shape out, you want an outside offset by the tool radius, plus tabs so the piece doesn’t move mid-cut). Good Linux-native options:<br>
+                <ul style="margin-left: 2em;">
+                <li><b>a.</b> FreeCAD Path workbench — heaviest but most capable. Import the SVG, extrude to a body if needed, then create a Job, Profile operation, and post-process with the grbl post. Best if you’ll be doing this often.</li>
+                <li><b>b.</b> Kiri:Moto (grid.space/kiri) — runs in the browser, no install, has a CNC mode with good SVG import. Fast to learn.</li>
+                <li><b>c.</b> Inkscape gcodetools extension (Extensions → Gcodetools) — stays in Inkscape but the UX is dated and it’s easy to get wrong offsets. Fine for engraving; less pleasant for profile cuts.</li>
+                <li><b>d.</b> Estlcam runs well under Wine if you want something closer to what the Genmitsu community typically uses.</li>
+                </ul>
+                For a first cut in wood with a common 1/8" (3.175 mm) 2-flute endmill, reasonable starting numbers: feed 800–1000 mm/min, plunge 200–300 mm/min, stepdown 1–1.5 mm per pass, spindle at whatever fixed speed your 4030 spindle runs. Add 3–4 tabs (0.5–1 mm thick) around the perimeter.
+            </blockquote>
+            <p>I guess one of the first things I need to do is specify the tool diameter.  That means picking a tool. Here's what I have picked:</p>
+            <img style="width: 40%;" src="img/20261012_160536.jpg" alt="img/20261012_160536.jpg">
+            <p>3.175mm is 0.125in, as in ⅛" (one eighth of an inch). I take this to mean that the tool diameter is one eighth of an inch.</p>
+            <p>This is one of a set of such bits which live in the "lower-right-hand" workbench drawer in the garage. The "left-hand" workbench has the 4030 Prover on it.</p>
+            <p>Here's where the other 4 bits in the set look like:</p>
+            <img style="width: 40%;" src="img/20261012_160608.jpg" alt="img/20261012_160608.jpg">
+            <p>Those live in the same drawer as the singleton, which is in a little plastic baggie:</p>
+            <img style="width: 30%;" src="img/20261012_160315.jpg" alt="img/20261012_160315.jpg">
+            <p>In the image above, you can see the "lower-right-hand" workbench drawer is open, and the bit in its baggie is sitting on the workbench top.</p>
+        </article> <!-- 2. Generate G-Code -->
+
         <article class="post" id="20261012T073439-0700" style=""> <!-- 1. Prep the SVG in InkScape (part b) -->
             <h3>1. Prep the SVG in InkScape (part b)</h3>
             <p class="meta">Working on <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> to apply suggestions from claude.ai's <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c#:~:text=1.%20Prep%20the,as%20plain%20SVG." target="_blank">first step</a>.</p>
@@ -96,7 +122,6 @@
             <p>Annoyingly, the <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">advice</a> refused to share its interactive demo graphic, so I've included a non-interactive snapshot:</p>
             <img style="width: 40%;" src="img/Screenshot_20261012_115852.png" alt="img/Screenshot_20261012_115852.png">
             <p>As the final task in the step, I saved a copy of the .svg as "Plain SVG" <a href="img/memorial.20260903T145342-0700.heart-only.plain.svg" target="_blank">here</a>.</p>
-
         </article> <!-- 1. Prep the SVG in InkScape (part b) -->
 
         <article class="post" id="20261011T130112-0700" style=""> <!-- 1. Prep the SVG in InkScape -->
