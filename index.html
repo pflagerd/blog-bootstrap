@@ -77,6 +77,27 @@
             <p class="meta">Thu Sep  3 03:41:20 PM PDT 2026 by Daniel</p>
         </article> <!-- prototype-post -->
 
+        <article class="post" id="20261012T073439-0700" style=""> <!-- 1. Prep the SVG in InkScape (part b) -->
+            <h3>1. Prep the SVG in InkScape (part b)</h3>
+            <p class="meta">Working on <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> to apply suggestions from claude.ai's <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c#:~:text=1.%20Prep%20the,as%20plain%20SVG." target="_blank">first step</a>.</p>
+            <p class="meta">Mon Oct 12 07:34:39 AM PDT 2026 by Daniel</p>
+            <p>Here's the original text (different formatting than Claude and the parts I've already done are grayed out):</p>
+            <blockquote style="margin-left: 2em; margin-bottom: 1em;">1. <b>Prep the SVG in Inkscape.</b> <span style="color: darkgray;">Set the document units to mm and make the drawing size match real-world dimensions (File → Document Properties). Convert any strokes or text to paths (Path → Object to Path, Path → Stroke to Path).</span> Combine subpaths only if they’re meant to be a single contour. It’s worth simplifying (Path → Simplify) to reduce node count on curves, but not so aggressively that the shape drifts. Save as plain SVG.</blockquote>
+            <p>I open <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> with Kate again to look at the &lt;path&gt; tag's content so I can understand what it's doing, and whether I've got subpaths to worry about because I'm working on "Combine subpaths only if they’re meant to be a single contour."</p>
+            <p>From <a href="https://claude.ai/share/82581f7e-d381-4cbc-971e-af5df41701cc#:~:text=A%20subpath%20is%20one%20continuous%20pen%2Ddown%20run%20inside%20a%20single%20%3Cpath%3E.%20Every%20M/m%20(moveto)%20lifts%20the%20pen%20and%20starts%20a%20new%20subpath%2C%20so%20one%20d%20string%20can%20hold%20several%20separate%20pieces." target="_blank">this</a> I learned how to define a "subpath" as a part of the &lt;part&gt; element's "d" attribute's content.</p>
+            <p>In particular (from <a href="https://claude.ai/share/82581f7e-d381-4cbc-971e-af5df41701cc#:~:text=A%20subpath%20is%20one%20continuous%20pen%2Ddown%20run%20inside%20a%20single%20%3Cpath%3E.%20Every%20M/m%20(moveto)%20lifts%20the%20pen%20and%20starts%20a%20new%20subpath%2C%20so%20one%20d%20string%20can%20hold%20several%20separate%20pieces." target="_blank">this</a>), "Every M/m (moveto) lifts the pen and starts a new subpath, so one d string can hold several separate pieces."</p>
+            <p>I don't understand "moveto", so I got some <a href="https://claude.ai/share/400f96bf-f91f-4c58-889b-98f96ea441b3" target="_blank">advice</a>.</p>
+            <p>That advice assumed I knew what the SVG mental model for the &lt;path&gt;'s d attribute's content was.  I guess partly right, as confirmed by <a href="https://claude.ai/share/af0dcebb-6dc1-4183-a085-89d4cc4e79b9" target="_blank">this.</a></p>
+            <p>The <a href="https://claude.ai/share/af0dcebb-6dc1-4183-a085-89d4cc4e79b9" target="_blank">mental model</a> advice made me curious about the origin of the "d" attribute's name, and I got some clarity on that from <a href="https://claude.ai/share/838bdddb-e346-4332-a288-74bbd0575479" target="_blank">claude.ai</a>. The "d" is short for "data". Ha.</p>
+            <p>Next, I had claude.ai explain the d attribute's content <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">in detail.</a></p>
+            <p>This confirmed that there were no subpaths to combine (there is only one).  It also confirmed that there were no worth-while simplifications possible, let alone necessary.</p>
+            <p>It also pointed to a potential issue with gcode generation from the .svg having to do with "fill:#ffffff;fill-opacity:0;".  The end recommendation is to leave the fill as white, because it's more likely CAD/CAM will interpret that as a pocket than a "profile" cut.</p>
+            <p>That same <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">advice</a> clarified the definition (and types of) "profile" cuts.</p>
+            <p>Annoyingly, the <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">advice</a> refused to share its interactive demo graphic, so I've included a non-interactive snapshot:</p>
+            <img style="width: 40%;" src="img/Screenshot_20261012_115852.png" alt="img/Screenshot_20261012_115852.png">
+
+        </article> <!-- 1. Prep the SVG in InkScape (part b) -->
+
         <article class="post" id="20261011T130112-0700" style=""> <!-- 1. Prep the SVG in InkScape -->
             <h3>1. Prep the SVG in InkScape (part a)</h3>
             <p class="meta">This is the <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c#:~:text=1.%20Prep%20the,as%20plain%20SVG." target="_blank">first step</a> from <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c" target="_blank">the Claude.ai conversation.</a> </p>
@@ -88,9 +109,9 @@
             <p>Editing the file with Kate (editor), I find that there are some elements still present in the .svg OTHER THAN the single &lt;path&gt; element. There were a couple &lt;rect&gt;s and a couple &lt;clipPath&gt; tags.</p>
             <p>There was also an &lt;ellipse&gt; tag! I manually deleted one &lt;rect&gt; and the &lt;ellipse&gt; each of which had its own enclosing &lt;clipPath&gt;. Both of these tags were enclosed in a &lt;defs&gt; tag, which I also deleted.</p>
             <p>Inspecting from InkScape with Layers and Objects, another <code>rect</code> object appeared.  Looking in the .svg with the editor, I could see there was indeed another &lt;rect&gt; tag, which I also deleted.</p>
-            <p>This left just a &lt;path&gt; tag enclosed by a &lt;g&gt; tag.  I left those alone, since the &lt;g&gt; tag also had a transform matrix attribute which I imagine is important.</p>
-            <p>There was also a &lt;sodipodi:namedview&gt; tag, which I learned is a) harmless, b) contains a bunch of InkScape-specific view data not relevant to the actual geometry, and c) SodiPodi was the software from which InkScape was originally forked - which explains the name.</p>
-            <p>Lastly, I can confidently say that there were no strokes or text to convert to paths. According to Claude, a subpath can exist with a &lt;path&gt; object, so I'll work on the "Combine subpaths only if ..." part of Step 1 next time.</p>
+            <p>This left just a &lt;path&gt; tag enclosed by a &lt;g&gt; tag.  I left those alone, since the &lt;g&gt; tag also had a transform matrix attribute which I imagine is important.  I learned <a href="https://claude.ai/share/373a17c6-fb01-45c9-baec-aafacc22db97" target="_blank">this</a> from claude.ai about the &lt;g&gt; tag.</p>
+            <p>There was also a &lt;sodipodi:namedview&gt; tag, which I learned <a href="https://claude.ai/share/c5a95ca2-3762-4502-a84b-547aa3ccacbf" target="_blank">from claude.ai</a> is a) harmless, b) contains a bunch of InkScape-specific view data not relevant to the actual geometry, and c) SodiPodi was the software from which InkScape was originally forked - which explains the name.</p>
+            <p>Lastly, I can confidently say that there were no strokes or text to convert to paths. According to <a href="https://claude.ai/share/82581f7e-d381-4cbc-971e-af5df41701cc" target="_blank">claude.ai</a>, a subpath can exist with a &lt;path&gt; object, so I'll work on the "Combine subpaths only if ..." part of Step 1 next time.</p>
         </article> <!-- 1. Prep the SVG in InkScape -->
 
         <article class="post" id="20261011T110559-0700" style=""> <!-- Rendered the current "full" design in Inkscape -->
