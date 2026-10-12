@@ -83,12 +83,14 @@
             <p class="meta">Mon Oct 12 03:49:18 PM PDT 2026 by Daniel</p>
             <p>I have a feeling this step (2. Generate G-Code) is going to have a lot of parts.</p>
             <p>I have included "2. Generate G-code" from <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c#:~:text=2.%20Generate%20G,around%20the%20perimeter." target="_blank">claude.ai's steps.</a></p>
+            <p>I added lettering a-e to help identify which sub-step I'm working on.  I also added one sub-step for jscut.</p>
             <blockquote style="margin-left: 2em; margin-bottom: 1em;"><b>2. Generate G-code.</b> This is the CAM step, and it’s where you specify tool diameter, cut depth, feeds/speeds, stepdown per pass, and whether the toolpath is inside/outside/on the line (offset direction matters — for cutting a shape out, you want an outside offset by the tool radius, plus tabs so the piece doesn’t move mid-cut). Good Linux-native options:<br>
-                <ul style="margin-left: 2em;">
+                <ul style="margin-left: 2em; margin-bottom: 0.5em;">
                 <li><b>a.</b> FreeCAD Path workbench — heaviest but most capable. Import the SVG, extrude to a body if needed, then create a Job, Profile operation, and post-process with the grbl post. Best if you’ll be doing this often.</li>
                 <li><b>b.</b> Kiri:Moto (grid.space/kiri) — runs in the browser, no install, has a CNC mode with good SVG import. Fast to learn.</li>
                 <li><b>c.</b> Inkscape gcodetools extension (Extensions → Gcodetools) — stays in Inkscape but the UX is dated and it’s easy to get wrong offsets. Fine for engraving; less pleasant for profile cuts.</li>
                 <li><b>d.</b> Estlcam runs well under Wine if you want something closer to what the Genmitsu community typically uses.</li>
+                <li><b>e.</b> jscut was suggested by claude.ai in one of our conversations.</li>
                 </ul>
                 For a first cut in wood with a common 1/8" (3.175 mm) 2-flute endmill, reasonable starting numbers: feed 800–1000 mm/min, plunge 200–300 mm/min, stepdown 1–1.5 mm per pass, spindle at whatever fixed speed your 4030 spindle runs. Add 3–4 tabs (0.5–1 mm thick) around the perimeter.
             </blockquote>
@@ -101,6 +103,8 @@
             <p>Those live in the same drawer as the singleton, which is in a little plastic baggie:</p>
             <img style="width: 30%;" src="img/20261012_160315.jpg" alt="img/20261012_160315.jpg">
             <p>In the image above, you can see the "lower-right-hand" workbench drawer is open, and the bit in its baggie is sitting on the workbench top.</p>
+            <p>A closer look at one of the bits shows that this is a two-flute bit:</p>
+            <img style="width: 40%;" src="img/20261012_163411.jpg" alt="img/20261012_163411.jpg">
         </article> <!-- 2. Generate G-Code -->
 
         <article class="post" id="20261012T073439-0700" style=""> <!-- 1. Prep the SVG in InkScape (part b) -->
