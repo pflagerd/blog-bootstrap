@@ -67,7 +67,7 @@
             <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A laser etching? It'll have to be on the Genmitsu L50.</a></p>
             <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Incorporate Patrick's digital artifacts?</a></p>
             <!--p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subtask</a></p>
-            <p style="margin-left: 2rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subsubtask</a></p-->
+            <p style="margin-left: 2rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A sub-subtask</a></p-->
         </article> <!-- TODO -->
 
         <!-- Copy/Paste this blog, remove the inline style="display: none;", and update the id to match your post's date/time -->
@@ -75,20 +75,59 @@
             <h3>prototype-post</h3>
             <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
             <p class="meta">Thu Sep  3 03:41:20 PM PDT 2026 by Daniel</p>
+            <p></p>
         </article> <!-- prototype-post -->
 
+        <article class="post" id="20261016T171838-0700" style=""> <!-- 2. Generate G-Code (part2e jscut continued B) -->
+            <h3>2. Generate G-Code (part2e jscut continued B)</h3>
+            <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
+            <p class="meta">Fri Oct 16 05:18:38 PM PDT 2026 by Daniel</p>
+            <p>I was not super happy with the curvature of the back of the workpiece with the cut heart.</p>
+            <p>The workpiece does not sit flush on the table (and won't fit flush to the wall):</p>
+            <img style="width: 50%;" src="img/20261016_172958.jpg" alt="picture of workpiece/table gap">
+            <p>So I decided to use a particular bit I have to "face" the wall-side of the work-piece.</p>
+            <img style="width: 30%;" src="img/20261016_174149.jpg" alt="side picture of the cutting bit.">
+            <img style="width: 30%;" src="img/20261016_174216.jpg" alt="oblique picture of the cutting bit.">
+            <img style="width: 30%;" src="img/20261016_174225.jpg" alt="the cutting bit's container.">
+            <p>But before I do that I need to figure out how use this bit.</p>
+            <p>At some point in the past, I wrote some python code to drive the CNC machine directly (as opposed to using Universal Gcode Sender)</p>
+            <p>I'll go on a hunt for that code, but for now I'm going to write a script directly in Python to generate the gcode to feed into Universal Gcode Sender.</p>
+            <p>The code is in the file <a href="cam_scripts/top-level-bottom-to-top-left-to-right.py" target="_blank">cam_scripts/top-level-bottom-to-top-left-to-right.py</a></p>
+            <p>Actually found the python code to drive the CNC machine directly. It's called <a href="https://github.com/pflagerd/grbl.py" target="_blank">grbl.py</a></p>
+        </article> <!-- 2. Generate G-Code (part2e jscut continued B) -->
+
+        <article class="post" id="20261016T171132-0700" style=""> <!-- 2. Generate G-Code (part2e jscut continued) -->
+            <h3>2. Generate G-Code (part2e jscut continued A)</h3>
+            <p class="meta">I was actually able to cut out the heart shape and see if its position was okay and if it looked right with the fur-phial and plaque.</p>
+            <p class="meta">Fri Oct 16 05:11:32 PM PDT 2026 by Daniel</p>
+            <p>I think the heart's position and depth are okay for the fur phial and plaque:</p>
+            <img style="width: 50%;" src="img/20261013_203149.jpg" alt="img/20261013_203149.jpg">
+            <p>This is what the process of cutting out the heart looked like on the CNC machine and its computer:</p>
+
+        </article> <!-- 2. Generate G-Code (part2e jscut continued) -->
+
         <!-- Copy/Paste this blog, remove the inline style="display: none;", and update the id to match your post's date/time -->
-        <article class="post" id="20261012T173404-0700" style="display: none;"> <!-- 2. Generate G-Code (part2e jscut) -->
+        <article class="post" id="20261012T173404-0700" style=""> <!-- 2. Generate G-Code (part2e jscut) -->
             <h3>2. Generate G-Code (part2e jscut)</h3>
-            <p class="meta">A bit wierd to start at the end of the list with <b>e.</b> jscut, but that's what I decided to do.</p>
+            <p class="meta">A bit weird to start at the end of the list with <b>e.</b> <a href="https://jscut.org" target="_blank">jscut.org</a>, but that's what I decided to do.</p>
             <p class="meta">Mon Oct 12 05:34:04 PM PDT 2026 by Daniel</p>
-            <p>Navigated in Google Chrome to jscut.org.</p>
+            <p>Navigated in Google Chrome to <a href="https://jscut.org" target="_blank">jscut.org</a>.</p>
             <p>Open SVG, local file. Uploaded <a href="img/memorial.20260903T145342-0700.heart-only.plain.svg" target="_blank">img/memorial.20260903T145342-0700.heart-only.plain.svg</a>.</p>
             <p>It a bit freaks me out that the heart appears, but the workpiece offset is not visible. Just the heart.</p>
             <p>I picked some settings which I thought were reasonable. They were a little more conservative than suggested by jscut.</p>
             <p>I saved the settings to <a href="gcode/settings.20261012T175448-0700.gcode" target="_blank">gcode/settings.20261012T175448-0700.gcode</a> </p>
             <p>I generated this gcode <a href="gcode/heart.20261012T175431-0700.gcode" target="_blank">gcode/heart.20261012T175431-0700.gcode</a></p>
             <p>I notice there are no Motor On or Motor Off codes.  I'll have to add those manually later, along with speed.  For now, I'll just try the raw gcode to see if it has the right absolute position on the workpiece.</p>
+            <p>I asked claude.ai for help with motor on/off and speed <a href="https://claude.ai/share/1b9b397f-e9d7-4a57-b247-d9bcbc9884aa" target="_blank">before</a>.</p>
+            <p>It recommends manually adding:</p>
+            <pre>
+M3 S12000      ; spindle on CW at 12000 RPM
+G4 P5          ; dwell 5 s so the spindle can spin up
+; ... toolpath (G0/G1/G2/G3) ...
+G0 Z5          ; retract
+M5             ; spindle off
+M30            ; program end</pre>
+            <p>I agree.  Actually, I think I can probably cut the heart pocket on a piece of wood, although the setup will be a little non-standard, because I'll be using an origin on the top left of the workpiece.</p>
         </article> <!-- 2. Generate G-Code (part2e jscut) -->
 
         <article class="post" id="20261012T154918-0700" style=""> <!-- 2. Generate G-Code -->
