@@ -89,7 +89,13 @@
             <p>Also notice that the pitch of the blade drops sharply during the part of the plunge where the blade makes contact with the wood:</p>
             <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
                 <source src="video/20261016_210053.mp4" type="video/mp4">
-            </video></p>        </article> <!-- 2. Generate G-Code (part2e jscut continued C) -->
+            </video></p>
+            <p>So i wrote a new script <a href="cam_scripts/top-level-top-to-bottom-left-to-right.py" target="_blank">cam_scripts/top-level-top-to-bottom-left-to-right.py</a></p>
+            <p>This script should generate gcode which will cause the cutting head not to plunge into the wood at all.</p>
+            <p>Instead the cutting head will plunge to depth well above the top edge of the workpiece before it hits any wood.</p>
+            <p>Then it will cut from top to bottom, lifting after it reaches the bottom edge.</p>
+            <p>I'll test this out tomorrow hopefully.</p>
+        </article> <!-- 2. Generate G-Code (part2e jscut continued C) -->
 
         <article class="post" id="20261016T171838-0700" style=""> <!-- 2. Generate G-Code (part2e jscut continued B) -->
             <h3>2. Generate G-Code (part2e jscut continued B)</h3>
