@@ -39,7 +39,7 @@
     <div class="container" style="padding-top: 1rem;">
         <h1 style="font-size: 1.5em;">bc-memorial</h1>
         <p>A chromium-centric file-only (server-not-needed) blog tracking the project on a long-overdue memorial for a beloved cat named BC (BiColor Cat).</p>
-        <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where I track my progress on modifying/improving this blog's content.</p>
+        <p>There's a meta-blog <a href="meta-blog.html" target="_blank">here</a> where i track my progress on modifying/improving this blog's content.</p>
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
@@ -63,7 +63,7 @@
             <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">Certainly a pocket for the heart.</a></p>
             <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A slight pocket for the oval photo? Or nothing and laser etch?</a></p>
             <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">What to do about the photo?</a></p>
-            <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A new glossy photo? How do I cut it to size?</a></p>
+            <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A new glossy photo? How do i cut it to size?</a></p>
             <p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A laser etching? It'll have to be on the Genmitsu L50.</a></p>
             <p title=""><label><input type="checkbox"> </label><a href="" target="_blank">Incorporate Patrick's digital artifacts?</a></p>
             <!--p style="margin-left: 1rem;" title=""><label><input type="checkbox"> </label><a href="" target="_blank">A subtask</a></p>
@@ -104,13 +104,13 @@
             <p>I was not super happy with the curvature of the back of the workpiece with the cut heart.</p>
             <p>The workpiece does not sit flush on the table (and won't fit flush to the wall):</p>
             <img style="width: 50%;" src="img/20261016_172958.jpg" alt="picture of workpiece/table gap">
-            <p>So I decided to use a particular bit I have to "face" the wall-side of the work-piece.</p>
+            <p>So i decided to use a particular bit i have to "face" the wall-side of the work-piece.</p>
             <img style="width: 30%;" src="img/20261016_174149.jpg" alt="side picture of the cutting bit.">
             <img style="width: 30%;" src="img/20261016_174216.jpg" alt="oblique picture of the cutting bit.">
             <img style="width: 30%;" src="img/20261016_174225.jpg" alt="the cutting bit's container.">
-            <p>But before I do that I need to figure out how use this bit.</p>
-            <p>At some point in the past, I wrote some python code to drive the CNC machine directly (as opposed to using Universal Gcode Sender)</p>
-            <p>I'll go on a hunt for that code, but for now I'm going to write a script directly in Python to generate the gcode to feed into Universal Gcode Sender.</p>
+            <p>But before i do that i need to figure out how use this bit.</p>
+            <p>At some point in the past, i wrote some python code to drive the CNC machine directly (as opposed to using Universal Gcode Sender)</p>
+            <p>I'll go on a hunt for that code, but for now i'm going to write a script directly in Python to generate the gcode to feed into Universal Gcode Sender.</p>
             <p>The code is in the file <a href="cam_scripts/top-level-bottom-to-top-left-to-right.py" target="_blank">cam_scripts/top-level-bottom-to-top-left-to-right.py</a></p>
             <p>Actually found the python code to drive the CNC machine directly. It's called <a href="https://github.com/pflagerd/grbl.py" target="_blank">grbl.py</a></p>
         </article> <!-- 2. Generate G-Code (part2e jscut continued B) -->
@@ -128,15 +128,15 @@
         <!-- Copy/Paste this blog, remove the inline style="display: none;", and update the id to match your post's date/time -->
         <article class="post" id="20261012T173404-0700" style=""> <!-- 2. Generate G-Code (part2e jscut) -->
             <h3>2. Generate G-Code (part2e jscut)</h3>
-            <p class="meta">A bit weird to start at the end of the list with <b>e.</b> <a href="https://jscut.org" target="_blank">jscut.org</a>, but that's what I decided to do.</p>
+            <p class="meta">A bit weird to start at the end of the list with <b>e.</b> <a href="https://jscut.org" target="_blank">jscut.org</a>, but that's what i decided to do.</p>
             <p class="meta">Mon Oct 12 05:34:04 PM PDT 2026 by Daniel</p>
             <p>Navigated in Google Chrome to <a href="https://jscut.org" target="_blank">jscut.org</a>.</p>
             <p>Open SVG, local file. Uploaded <a href="img/memorial.20260903T145342-0700.heart-only.plain.svg" target="_blank">img/memorial.20260903T145342-0700.heart-only.plain.svg</a>.</p>
             <p>It a bit freaks me out that the heart appears, but the workpiece offset is not visible. Just the heart.</p>
-            <p>I picked some settings which I thought were reasonable. They were a little more conservative than suggested by jscut.</p>
+            <p>I picked some settings which i thought were reasonable. They were a little more conservative than suggested by jscut.</p>
             <p>I saved the settings to <a href="gcode/settings.20261012T175448-0700.gcode" target="_blank">gcode/settings.20261012T175448-0700.gcode</a> </p>
             <p>I generated this gcode <a href="gcode/heart.20261012T175431-0700.gcode" target="_blank">gcode/heart.20261012T175431-0700.gcode</a></p>
-            <p>I notice there are no Motor On or Motor Off codes.  I'll have to add those manually later, along with speed.  For now, I'll just try the raw gcode to see if it has the right absolute position on the workpiece.</p>
+            <p>I notice there are no Motor On or Motor Off codes.  I'll have to add those manually later, along with speed.  For now, i'll just try the raw gcode to see if it has the right absolute position on the workpiece.</p>
             <p>I asked claude.ai for help with motor on/off and speed <a href="https://claude.ai/share/1b9b397f-e9d7-4a57-b247-d9bcbc9884aa" target="_blank">before</a>.</p>
             <p>It recommends manually adding:</p>
             <pre>
@@ -146,7 +146,7 @@ G4 P5          ; dwell 5 s so the spindle can spin up
 G0 Z5          ; retract
 M5             ; spindle off
 M30            ; program end</pre>
-            <p>I agree.  Actually, I think I can probably cut the heart pocket on a piece of wood, although the setup will be a little non-standard, because I'll be using an origin on the top left of the workpiece.</p>
+            <p>I agree.  Actually, i think i can probably cut the heart pocket on a piece of wood, although the setup will be a little non-standard, because i'll be using an origin on the top left of the workpiece.</p>
         </article> <!-- 2. Generate G-Code (part2e jscut) -->
 
         <article class="post" id="20261012T154918-0700" style=""> <!-- 2. Generate G-Code -->
@@ -155,7 +155,7 @@ M30            ; program end</pre>
             <p class="meta">Mon Oct 12 03:49:18 PM PDT 2026 by Daniel</p>
             <p>I have a feeling this step (2. Generate G-Code) is going to have a lot of parts.</p>
             <p>I have included "2. Generate G-code" from <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c#:~:text=2.%20Generate%20G,around%20the%20perimeter." target="_blank">claude.ai's steps.</a></p>
-            <p>I added lettering a-e to help identify which sub-step I'm working on.  I also added one sub-step for jscut.</p>
+            <p>I added lettering a-e to help identify which sub-step i'm working on.  i also added one sub-step for jscut.</p>
             <blockquote style="margin-left: 2em; margin-bottom: 1em;"><b>2. Generate G-code.</b> This is the CAM step, and it’s where you specify tool diameter, cut depth, feeds/speeds, stepdown per pass, and whether the toolpath is inside/outside/on the line (offset direction matters — for cutting a shape out, you want an outside offset by the tool radius, plus tabs so the piece doesn’t move mid-cut). Good Linux-native options:<br>
                 <ul style="margin-left: 2em; margin-bottom: 0.5em;">
                 <li><b>a.</b> FreeCAD Path workbench — heaviest but most capable. Import the SVG, extrude to a body if needed, then create a Job, Profile operation, and post-process with the grbl post. Best if you’ll be doing this often.</li>
@@ -166,7 +166,7 @@ M30            ; program end</pre>
                 </ul>
                 For a first cut in wood with a common 1/8" (3.175 mm) 2-flute endmill, reasonable starting numbers: feed 800–1000 mm/min, plunge 200–300 mm/min, stepdown 1–1.5 mm per pass, spindle at whatever fixed speed your 4030 spindle runs. Add 3–4 tabs (0.5–1 mm thick) around the perimeter.
             </blockquote>
-            <p>I guess one of the first things I need to do is specify the tool diameter.  That means picking a tool. Here's what I have picked:</p>
+            <p>I guess one of the first things i need to do is specify the tool diameter.  That means picking a tool. Here's what i have picked:</p>
             <img style="width: 40%;" src="img/20261012_160536.jpg" alt="img/20261012_160536.jpg">
             <p>3.175mm is 0.125in, as in ⅛" (one eighth of an inch). I take this to mean that the tool diameter is one eighth of an inch.</p>
             <p>This is one of a set of such bits which live in the "lower-right-hand" workbench drawer in the garage. The "left-hand" workbench has the 4030 Prover on it.</p>
@@ -177,28 +177,28 @@ M30            ; program end</pre>
             <p>In the image above, you can see the "lower-right-hand" workbench drawer is open, and the bit in its baggie is sitting on the workbench top.</p>
             <p>A closer look at one of the bits shows that this is a two-flute bit:</p>
             <img style="width: 40%;" src="img/20261012_163411.jpg" alt="img/20261012_163411.jpg">
-            <p>I could totally use the suggested starting numbers, but I'd probably go a bit slower/more conservative.</p>
+            <p>I could totally use the suggested starting numbers, but i'd probably go a bit slower/more conservative.</p>
         </article> <!-- 2. Generate G-Code -->
 
         <article class="post" id="20261012T073439-0700" style=""> <!-- 1. Prep the SVG in InkScape (part b) -->
             <h3>1. Prep the SVG in InkScape (part b)</h3>
             <p class="meta">Working on <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> to apply suggestions from claude.ai's <a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c#:~:text=1.%20Prep%20the,as%20plain%20SVG." target="_blank">first step</a>.</p>
             <p class="meta">Mon Oct 12 07:34:39 AM PDT 2026 by Daniel</p>
-            <p>Here's the original text (different formatting than Claude and the parts I've already done are grayed out):</p>
+            <p>Here's the original text (different formatting than Claude and the parts i've already done are grayed out):</p>
             <blockquote style="margin-left: 2em; margin-bottom: 1em;">1. <b>Prep the SVG in Inkscape.</b> <span style="color: darkgray;">Set the document units to mm and make the drawing size match real-world dimensions (File → Document Properties). Convert any strokes or text to paths (Path → Object to Path, Path → Stroke to Path).</span> Combine subpaths only if they’re meant to be a single contour. It’s worth simplifying (Path → Simplify) to reduce node count on curves, but not so aggressively that the shape drifts. Save as plain SVG.</blockquote>
-            <p>I open <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> with Kate again to look at the &lt;path&gt; tag's content so I can understand what it's doing, and whether I've got subpaths to worry about because I'm working on "Combine subpaths only if they’re meant to be a single contour."</p>
+            <p>I open <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> with Kate again to look at the &lt;path&gt; tag's content so i can understand what it's doing, and whether i've got subpaths to worry about because i'm working on "Combine subpaths only if they’re meant to be a single contour."</p>
             <p>From <a href="https://claude.ai/share/82581f7e-d381-4cbc-971e-af5df41701cc#:~:text=A%20subpath%20is%20one%20continuous%20pen%2Ddown%20run%20inside%20a%20single%20%3Cpath%3E.%20Every%20M/m%20(moveto)%20lifts%20the%20pen%20and%20starts%20a%20new%20subpath%2C%20so%20one%20d%20string%20can%20hold%20several%20separate%20pieces." target="_blank">this</a> I learned how to define a "subpath" as a part of the &lt;part&gt; element's "d" attribute's content.</p>
             <p>In particular (from <a href="https://claude.ai/share/82581f7e-d381-4cbc-971e-af5df41701cc#:~:text=A%20subpath%20is%20one%20continuous%20pen%2Ddown%20run%20inside%20a%20single%20%3Cpath%3E.%20Every%20M/m%20(moveto)%20lifts%20the%20pen%20and%20starts%20a%20new%20subpath%2C%20so%20one%20d%20string%20can%20hold%20several%20separate%20pieces." target="_blank">this</a>), "Every M/m (moveto) lifts the pen and starts a new subpath, so one d string can hold several separate pieces."</p>
-            <p>I don't understand "moveto", so I got some <a href="https://claude.ai/share/400f96bf-f91f-4c58-889b-98f96ea441b3" target="_blank">advice</a>.</p>
-            <p>That advice assumed I knew what the SVG mental model for the &lt;path&gt;'s d attribute's content was.  I guess partly right, as confirmed by <a href="https://claude.ai/share/af0dcebb-6dc1-4183-a085-89d4cc4e79b9" target="_blank">this.</a></p>
-            <p>The <a href="https://claude.ai/share/af0dcebb-6dc1-4183-a085-89d4cc4e79b9" target="_blank">mental model</a> advice made me curious about the origin of the "d" attribute's name, and I got some clarity on that from <a href="https://claude.ai/share/838bdddb-e346-4332-a288-74bbd0575479" target="_blank">claude.ai</a>. The "d" is short for "data". Ha.</p>
-            <p>Next, I had claude.ai explain the d attribute's content <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">in detail.</a></p>
+            <p>I don't understand "moveto", so i got some <a href="https://claude.ai/share/400f96bf-f91f-4c58-889b-98f96ea441b3" target="_blank">advice</a>.</p>
+            <p>That advice assumed i knew what the SVG mental model for the &lt;path&gt;'s d attribute's content was.  I guess partly right, as confirmed by <a href="https://claude.ai/share/af0dcebb-6dc1-4183-a085-89d4cc4e79b9" target="_blank">this.</a></p>
+            <p>The <a href="https://claude.ai/share/af0dcebb-6dc1-4183-a085-89d4cc4e79b9" target="_blank">mental model</a> advice made me curious about the origin of the "d" attribute's name, and i got some clarity on that from <a href="https://claude.ai/share/838bdddb-e346-4332-a288-74bbd0575479" target="_blank">claude.ai</a>. The "d" is short for "data". Ha.</p>
+            <p>Next, i had claude.ai explain the d attribute's content <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">in detail.</a></p>
             <p>This confirmed that there were no subpaths to combine (there is only one).  It also confirmed that there were no worth-while simplifications possible, let alone necessary.</p>
             <p>It also pointed to a potential issue with gcode generation from the .svg having to do with "fill:#ffffff;fill-opacity:0;".  The end recommendation is to leave the fill as white, because it's more likely CAD/CAM will interpret that as a pocket than a "profile" cut.</p>
             <p>That same <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">advice</a> clarified the definition (and types of) "profile" cuts.</p>
-            <p>Annoyingly, the <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">advice</a> refused to share its interactive demo graphic, so I've included a non-interactive snapshot:</p>
+            <p>Annoyingly, the <a href="https://claude.ai/share/180d96a8-413d-4cd2-bd8b-049f240bb958" target="_blank">advice</a> refused to share its interactive demo graphic, so i've included a non-interactive snapshot:</p>
             <img style="width: 40%;" src="img/Screenshot_20261012_115852.png" alt="img/Screenshot_20261012_115852.png">
-            <p>As the final task in the step, I saved a copy of the .svg as "Plain SVG" <a href="img/memorial.20260903T145342-0700.heart-only.plain.svg" target="_blank">here</a>.</p>
+            <p>As the final task in the step, i saved a copy of the .svg as "Plain SVG" <a href="img/memorial.20260903T145342-0700.heart-only.plain.svg" target="_blank">here</a>.</p>
         </article> <!-- 1. Prep the SVG in InkScape (part b) -->
 
         <article class="post" id="20261011T130112-0700" style=""> <!-- 1. Prep the SVG in InkScape -->
@@ -207,20 +207,20 @@ M30            ; program end</pre>
             <p class="meta">Sun Oct 11 01:01:12 PM PDT 2026 by Daniel</p>
             <p>Here's the original text (different formatting than Claude):</p>
             <blockquote style="margin-left: 2em; margin-bottom: 1em;">1. <b>Prep the SVG in Inkscape.</b> Set the document units to mm and make the drawing size match real-world dimensions (File → Document Properties). Convert any strokes or text to paths (Path → Object to Path, Path → Stroke to Path). Combine subpaths only if they’re meant to be a single contour. It’s worth simplifying (Path → Simplify) to reduce node count on curves, but not so aggressively that the shape drifts. Save as plain SVG.</blockquote>
-            <p>Since I only want the heart from the .svg, and because I don't want to fuss with the other design elements, I copied <a href="img/memorial.20260903T145342-0700.svg" target="_blank"><code>memorial.20260903T145342-0700.svg</code></a> to <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> and removed everything from <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> except the heart outline.</p>
-            <p>I used Inkscape to open <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> and I removed BC's ellipse-picture, the image of the plaque, the image of the fur-phial and an alignment rectangle.</p>
-            <p>Editing the file with Kate (editor), I find that there are some elements still present in the .svg OTHER THAN the single &lt;path&gt; element. There were a couple &lt;rect&gt;s and a couple &lt;clipPath&gt; tags.</p>
-            <p>There was also an &lt;ellipse&gt; tag! I manually deleted one &lt;rect&gt; and the &lt;ellipse&gt; each of which had its own enclosing &lt;clipPath&gt;. Both of these tags were enclosed in a &lt;defs&gt; tag, which I also deleted.</p>
-            <p>Inspecting from InkScape with Layers and Objects, another <code>rect</code> object appeared.  Looking in the .svg with the editor, I could see there was indeed another &lt;rect&gt; tag, which I also deleted.</p>
-            <p>This left just a &lt;path&gt; tag enclosed by a &lt;g&gt; tag.  I left those alone, since the &lt;g&gt; tag also had a transform matrix attribute which I imagine is important.  I learned <a href="https://claude.ai/share/373a17c6-fb01-45c9-baec-aafacc22db97" target="_blank">this</a> from claude.ai about the &lt;g&gt; tag.</p>
-            <p>There was also a &lt;sodipodi:namedview&gt; tag, which I learned <a href="https://claude.ai/share/c5a95ca2-3762-4502-a84b-547aa3ccacbf" target="_blank">from claude.ai</a> is a) harmless, b) contains a bunch of InkScape-specific view data not relevant to the actual geometry, and c) SodiPodi was the software from which InkScape was originally forked - which explains the name.</p>
-            <p>Lastly, I can confidently say that there were no strokes or text to convert to paths. According to <a href="https://claude.ai/share/82581f7e-d381-4cbc-971e-af5df41701cc" target="_blank">claude.ai</a>, a subpath can exist with a &lt;path&gt; object, so I'll work on the "Combine subpaths only if ..." part of Step 1 next time.</p>
+            <p>Since i only want the heart from the .svg, and because i don't want to fuss with the other design elements, i copied <a href="img/memorial.20260903T145342-0700.svg" target="_blank"><code>memorial.20260903T145342-0700.svg</code></a> to <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> and removed everything from <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> except the heart outline.</p>
+            <p>I used Inkscape to open <a href="img/memorial.20260903T145342-0700.heart-only.svg" target="_blank"><code>memorial.20260903T145342-0700.heart-only.svg</code></a> and i removed BC's ellipse-picture, the image of the plaque, the image of the fur-phial and an alignment rectangle.</p>
+            <p>Editing the file with Kate (editor), i find that there are some elements still present in the .svg OTHER THAN the single &lt;path&gt; element. There were a couple &lt;rect&gt;s and a couple &lt;clipPath&gt; tags.</p>
+            <p>There was also an &lt;ellipse&gt; tag! I manually deleted one &lt;rect&gt; and the &lt;ellipse&gt; each of which had its own enclosing &lt;clipPath&gt;. Both of these tags were enclosed in a &lt;defs&gt; tag, which i also deleted.</p>
+            <p>Inspecting from InkScape with Layers and Objects, another <code>rect</code> object appeared.  Looking in the .svg with the editor, i could see there was indeed another &lt;rect&gt; tag, which i also deleted.</p>
+            <p>This left just a &lt;path&gt; tag enclosed by a &lt;g&gt; tag.  I left those alone, since the &lt;g&gt; tag also had a transform matrix attribute which i imagine is important.  I learned <a href="https://claude.ai/share/373a17c6-fb01-45c9-baec-aafacc22db97" target="_blank">this</a> from claude.ai about the &lt;g&gt; tag.</p>
+            <p>There was also a &lt;sodipodi:namedview&gt; tag, which i learned <a href="https://claude.ai/share/c5a95ca2-3762-4502-a84b-547aa3ccacbf" target="_blank">from claude.ai</a> is a) harmless, b) contains a bunch of InkScape-specific view data not relevant to the actual geometry, and c) SodiPodi was the software from which InkScape was originally forked - which explains the name.</p>
+            <p>Lastly, i can confidently say that there were no strokes or text to convert to paths. According to <a href="https://claude.ai/share/82581f7e-d381-4cbc-971e-af5df41701cc" target="_blank">claude.ai</a>, a subpath can exist with a &lt;path&gt; object, so i'll work on the "Combine subpaths only if ..." part of Step 1 next time.</p>
         </article> <!-- 1. Prep the SVG in InkScape -->
 
         <article class="post" id="20261011T110559-0700" style=""> <!-- Rendered the current "full" design in Inkscape -->
             <h3>Rendered the current "full" design in Inkscape</h3>
             <p class="meta">Sun Oct 11 11:05:59 AM PDT 2026 by Daniel</p>
-            <p>Robin reminded me which plaque he wanted, so I created the following .svg with all the desired features and dimensions:</p>
+            <p>Robin reminded me which plaque he wanted, so i created the following .svg with all the desired features and dimensions:</p>
             <img src="img/memorial.20260903T145342-0700.svg" alt="img/memorial.20260903T145342-0700.svg" style="width: 60%;">
             <p>I was able to print the oval-BC image below from Windows on Sherri's printer on photographic paper with good results:</p>
             <img src="img/image1-5.png" alt="img/image1-5.png" style="width: 30%;"></img>
@@ -228,7 +228,7 @@ M30            ; program end</pre>
 
         <article class="post" id="20260913T153556-0700" style=""> <!-- Try getting advice from claude.ai on how to make the svg heart into a carved pocket -->
             <h3>Try getting advice from claude.ai on how to make the svg heart into a carved pocket</h3>
-            <p class="meta">I'm honestly very skeptical about Claude's (or any other AI's) advice, but I am going to start testing Claude's accuracy.</p>
+            <p class="meta">I'm honestly very skeptical about Claude's (or any other AI's) advice, but i am going to start testing Claude's accuracy.</p>
             <p class="meta">Sun Sep 13 03:35:56 PM PDT 2026 by Daniel</p>
             <p>I asked claude.ai:</p>
             <p><a href="https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c" target="_blank">https://claude.ai/share/809fe671-3b9d-45c6-a49b-4cfd38fa995c</a></p>
@@ -239,23 +239,23 @@ M30            ; program end</pre>
             <h3>Figured out a bunch of things AND did a first attempt at an etching of BC-in-an-ellipse</h3>
             <p class="meta">Learned a bunch by trial and error and a bit of judicious claude.ai</p>
             <p class="meta">Fri Sep  4 07:18:59 PM PDT 2026 by Daniel</p>
-            <p>Firstly, I found that I could export from Inkscape as a .png file.</p>
+            <p>Firstly, i found that i could export from Inkscape as a .png file.</p>
             <p><img style="width: 40%;" src="img/Screenshot_20260904_192257.png" alt="img/Screenshot_20260904_192257.png"></p>
             <p>I exported a selection, namely the picture of BC trimmed to an ellipse:</p>
             <p><img style="width: 40%;" src="img/image1-5.png" alt="img/image1-5.png"></p>
-            <p>Then I learned I could import this into LaserGRBL.</p>
-            <p>claude.ai says I should be able to etch this.</p>
-            <p>Another important thing I learned is how to Home the LC-50's gantry.</p>
+            <p>Then i learned i could import this into LaserGRBL.</p>
+            <p>claude.ai says i should be able to etch this.</p>
+            <p>Another important thing i learned is how to Home the LC-50's gantry.</p>
             <p>Turns out that when you power up the LC-50, it'll often refuse to Home (or Test) until you send it a <code>$X</code> (unlock) command.</p>
             <p>One reason it may refuse is that some error condition, or an E-Stop, occurred.  It will retain the error state and refuse to Home (or Test) until sent a <code>$X</code> (unlock) command.</p>
-            <p>So I used Universal GCode Sender (ugsplatform) to connect to the LC-50 and then sent it the <code>$X</code> (unlock) command.</p>
+            <p>So i used Universal GCode Sender (ugsplatform) to connect to the LC-50 and then sent it the <code>$X</code> (unlock) command.</p>
             <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
                 <source src="video/.mp4" type="video/mp4">
             </video></p>
-            <p>Then if I pressed Test/Home, a blue light would illuminate on the laser PCB and the laser itself would turn on (low power).</p>
+            <p>Then if i pressed Test/Home, a blue light would illuminate on the laser PCB and the laser itself would turn on (low power).</p>
             <p>Pressing Test/Home again would cause the laser to turn off, but the blue light remained on.</p>
             <p>Pressing and holding Home for about 5 seconds would cause the gantry to return to the Home position: the lower left corner of the engraving area.</p>
-            <p>Then I could terminate ugsplatform and connect using LaserGRBL.</p>
+            <p>Then i could terminate ugsplatform and connect using LaserGRBL.</p>
             <p>I used bitblt with the default settings with power set to 10%.</p>
             <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
                 <source src="video/.mp4" type="video/mp4">
@@ -268,7 +268,7 @@ M30            ; program end</pre>
 
         <article class="post" id="20260904T113228-0700" style=""> <!-- Tried the Home/Test button -->
             <h3>I tried the Home/Test button</h3>
-            <p class="meta">That grindy sound when I used LaserGRBL's "Go to top right" button was disconcerting.</p>
+            <p class="meta">That grindy sound when i used LaserGRBL's "Go to top right" button was disconcerting.</p>
             <p class="meta">Fri Sep  4 11:32:28 AM PDT 2026 by Daniel</p>
             <p>Pressing it seems to have no effect:</p>
             <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
@@ -280,23 +280,23 @@ M30            ; program end</pre>
         </article> <!-- Tried the Home/Test button -->
 
         <article class="post" id="20260903T154120-0700" style=""> <!-- Which laser software -->
-            <h3>Which laser software should I use?</h3>
+            <h3>Which laser software should i use?</h3>
             <p class="meta">I ask Claude for some help.</p>
             <p class="meta">Thu Sep  3 01:07:19 PM PDT 2026 by Daniel</p>
             <p>I feel kind of duped, having bought the Genmitsu LC50 Plus, and then finding out later that there is virtually NO support, and the product has already been discontinued:</p>
             <p><a href="https://www.sainsmart.com/products/jinsoku-lc-50-plus-10w-compressed-fac-laser-engraver-cutter?srsltid=AfmBOop2fZ-i9SW5OIkQks1-JU6cCjRn3zVuuCDsIFHPD3Xwn0k7axY_" target="_blank">sainsmart.com</a></p>
-            <p>After some searching, I was able to find some <a href="https://docs.sainsmart.com/article/6t200ozryy-lc-50-plus" target="_blank">LC50 Plus resources</a>.</p>
+            <p>After some searching, i was able to find some <a href="https://docs.sainsmart.com/article/6t200ozryy-lc-50-plus" target="_blank">LC50 Plus resources</a>.</p>
             <p>The sainsmart.com site recommended <a href="https://lightburnsoftware.com/products/lightburn-core" target="_blank">LightBurn Core</a>, which is commercial software which runs on Kubuntu.</p>
             <p><a href="https://claude.ai/share/3031c80e-cb7b-49d7-82c7-2ea0f149a25e" target="_blank">Claude's recommendation, which will not render in an iframe.</a></p>
             <p>Claude recommends open source software called <a href="https://github.com/meerk40t/meerk40t" target="_blank">meerk405</a>.</p>
-            <p>Turns out I have an old Dell Windows computer attached to the laser etcher.  It actually has <a href="https://lasergrbl.com/" target="_blank">LaserGRBL</a> already installed.
-                A long time ago, I used this Dell to connect to the Genmitsu Prover 4030 and ran a version of Carveco on it.
-                Now I can use it to run <a href="https://lasergrbl.com/" target="_blank">LaserGRBL</a>:
+            <p>Turns out i have an old Dell Windows computer attached to the laser etcher.  It actually has <a href="https://lasergrbl.com/" target="_blank">LaserGRBL</a> already installed.
+                A long time ago, i used this Dell to connect to the Genmitsu Prover 4030 and ran a version of Carveco on it.
+                Now i can use it to run <a href="https://lasergrbl.com/" target="_blank">LaserGRBL</a>:
             </p>
             <p><img style="width: 40%;" src="img/20260903_161930.jpg" alt="img/20260903_161930.jpg"></p>
             <p>One of the most useful things on the <a href="https://docs.sainsmart.com/article/6t200ozryy-lc-50-plus" target="_blank">LC50 Plus resources</a> page is the <a href="https://docs.sainsmart.com/article/3ct3gbpxws-lc-50-plus-engraving-speed-power-reference-charts" target="_blank">Speed-Power Reference Chart.</a></p>
             <p>Turns out we'll need that.</p>
-            <p>The <a href="LC50-Plus_10W_Laser_Machine_User_Manau_Ver1.0-202210.pdf" target="_blank">manual</a> is also kind of useful. I used it when I assembled the machine in the first place.</p>
+            <p>The <a href="LC50-Plus_10W_Laser_Machine_User_Manau_Ver1.0-202210.pdf" target="_blank">manual</a> is also kind of useful. i used it when i assembled the machine in the first place.</p>
             <p>Contrary to what seems completely obvious, one does not put the distance gauge tool directly under the laser, but on the corner of the laser:</p>
             <p><img style="width: 40%;" src="img/20260903_164827.jpg" alt="img/20260903_164827.jpg"></p>
             <p>You can see from the manual that this is correct, but intuition says you should put the tool directly under the laser:</p>
@@ -309,25 +309,25 @@ M30            ; program end</pre>
             <p>I'm guessing there is a better way.</p>
             <p>There is a Test/Home button:</p>
             <p><img style="width: 40%;" src="img/20260904_102537.jpg" alt="img/20260904_102537.jpg"></p>
-            <p>I suppose I should experiment with that.</p>
+            <p>I suppose i should experiment with that.</p>
         </article> <!-- Which laser software -->
 
         <article class="post" id="20260903T152410-0700" style=""> <!-- Laser Etcher Placement -->
-            <h3>How will I place the wood workpiece(s) on the Genmitsu LC50 Plus</h3>
-            <p class="meta">First time I've used the new large laser. Not sure how to locate workpiece.</p>
+            <h3>How will i place the wood workpiece(s) on the Genmitsu LC50 Plus</h3>
+            <p class="meta">First time i've used the new large laser. Not sure how to locate workpiece.</p>
             <p class="meta">Thu Sep  3 03:24:10 PM PDT 2026 by Daniel</p>
             <p>Obviously, the Jinsoku Z3 Galvo Laser's work area is too small:</p>
             <p><img style="width: 40%;" src="img/20260903_151620.jpg" alt="img/20260903_151620.jpg"></p>
             <p>The Genmitsu LC50 Plus' work area is certainly large enough:</p>
             <p><img style="width: 40%;" src="img/20260903_151637.jpg" alt="img/20260903_151637.jpg"></p>
-            <p>But I've no idea how to place the workpiece.
-                In other words, I don't know where 0, 0 on the laser is in space.
-                It's probably lower left, but I don't want to just assume that.
+            <p>But i've no idea how to place the workpiece.
+                In other words, i don't know where 0, 0 on the laser is in space.
+                It's probably lower left, but i don't want to just assume that.
             </p>
         </article> <!-- Laser Etcher Placement -->
 
         <article class="post" id="20260903T152121-0700" style=""> <!-- CNC Placement -->
-            <h3>How will I place the wood workpiece(s) on the Genmitsu Prover 4030XL</h3>
+            <h3>How will i place the wood workpiece(s) on the Genmitsu Prover 4030XL</h3>
             <p class="meta">Pretty straight-forward.</p>
             <p class="meta">Thu Sep  3 03:21:21 PM PDT 2026 by Daniel</p>
             <p>I'll use double-sided tape to hold it down thus:</p>
@@ -347,16 +347,16 @@ M30            ; program end</pre>
             <p class="meta">The actual photos we once printed won't fit the ellipse, so we'll need to do something different.</p>
             <p class="meta">Thu Sep  3 01:07:19 PM PDT 2026</p>
             <p>I have been unable to print the .svg design on paper to actually try positioning on the wood,
-                but I could tell by eye-balling it that the actual photo was too small for the ellipse.</p>
+                but i could tell by eye-balling it that the actual photo was too small for the ellipse.</p>
             <p><img style="width: 40%;" src="img/20260903_132327.jpg" alt="img/20260903_132327.jpg"></p>
-            <p>I wish I could print the .svg design on a piece of paper, but for some reason printing on Kubuntu is not working.
+            <p>I wish i could print the .svg design on a piece of paper, but for some reason printing on Kubuntu is not working.
             Getting printing to work is likely to turn into a huge job.
-                The bit of debugging I have done suggests that the ip address getting assigned to the HP printers is unstable.
+                The bit of debugging i have done suggests that the ip address getting assigned to the HP printers is unstable.
                 Print jobs just get stuck in the print queue and never print.
                 I'm afraid that getting printing to work might mean changing the entire lab network's configuration.</p>
             <p>I could get new photos printed by a printing service, which would mean selecting the right photo and making sure it was sized to fit the ellipse.
             Doing that would be some of the same tasks needed to laser etch the photo directly into the plaque or some other material.</p>
-            <p>In the meantime, I have measured the physical photo. It's about 100x151mm.</p>
+            <p>In the meantime, i have measured the physical photo. It's about 100x151mm.</p>
             <p><img style="width: 20%;" src="img/20260903_133302.jpg" alt="img/20260903_133302.jpg"><img style="width: 20%;" src="img/20260903_133316.jpg" alt="img/20260903_133316.jpg"></p>
             <p>Importing the photo into the svg and sizing it confirms what eye-balling suggests:</p>
             <p><img style="width: 40%;" src="img/memorial.20260903T130719-0700.svg" alt="memorial.20260903T130719-0700.svg"></p>
@@ -372,7 +372,7 @@ M30            ; program end</pre>
             <p><img style="width: 40%;" src="img/memorial.20260903T130719-0700.C.svg" alt="img/memorial.20260903T130719-0700.C.svg"></p>
         </article> <!-- Selecting, re-sizing and re-orienting the photo of BC -->
 
-        <article class="post" id="20260903T105258-0700" style=""> <!-- I measure the plaques -->
+        <article class="post" id="20260903T105258-0700" style=""> <!-- i measure the plaques -->
             <h3>I measure the plaques</h3>
             <p class="meta">Thu Sep  3 10:52:58 AM PDT 2026 by Daniel</p>
             <p>Here are the three plaques.
@@ -391,25 +391,25 @@ M30            ; program end</pre>
             <p>The other one is 38mm high:
             </p>
             <p><img style="width: 40%; clip-path: inset(45% 5% 2% 5%); margin: -24% 0 -2% -2%;" src="img/20260902_174306.jpg" alt="img/20260902_174306.jpg"></p>
-            <p>I think I'll make the memorial's .svg reflect the 50mm height.
+            <p>I think i'll make the memorial's .svg reflect the 50mm height.
             </p>
             <p><img style="width: 40%; clip-path: inset(45% 5% 2% 5%); margin: -24% 0 -2% -2%;" src="img/20260902_174306.jpg" alt="img/20260902_174306.jpg"></p>
-            <p>In the memorial .svg, I resized the plaque object, and aligned it horizontally to center with the heart object:</p>
+            <p>In the memorial .svg, i resized the plaque object, and aligned it horizontally to center with the heart object:</p>
             <p><img style="width: 40%;" src="img/memorial.20260903T105258-0700.svg" alt="img/memorial.20260903T105258-0700.svg"></p>
-            <p>Note: I renamed img/drawing.c.svg to img/memorial.20260903T105258-0700.svg.</p>
+            <p>Note: i renamed img/drawing.c.svg to img/memorial.20260903T105258-0700.svg.</p>
         </article> <!-- I measure the plaques -->
 
         <article class="post" id="20260903T101814-0700" style=""> <!-- I remeasure the wood -->
             <h3>I remeasure the wood</h3>
             <p class="meta">Thu Sep  3 10:18:14 AM PDT 2026 by Daniel</p>
-            <p>I remeasured the pieces of wood I'll be using.  There are three identical pieces.</p>
+            <p>I remeasured the pieces of wood i'll be using.  There are three identical pieces.</p>
             <p>Here is the height.
                 It's about 184.3mm.
-                I'll call it 184 when I put it into the .svg file.
+                I'll call it 184 when i put it into the .svg file.
                 Notice that the right side of the wood piece is not visible.
                 That's because the camera is nearly perfectly centered above the right edge and so the measurement is more accurate than had the camera been too far left or right.
-                I started with the camera positioned too far right such that I could clearly see the right side of the piece of wood, then moved the camera left until the edge disappeared.
-                That way I knew the camera was nearly directly above the edge.</p>
+                I started with the camera positioned too far right such that i could clearly see the right side of the piece of wood, then moved the camera left until the edge disappeared.
+                That way i knew the camera was nearly directly above the edge.</p>
             <p><img style="width: 40%;" src="img/20260902_165021.jpg" alt="img/20260902_165021.jpg"></p>
             <p>Here is the width.
                 It's about 256mm.
@@ -428,10 +428,10 @@ M30            ; program end</pre>
         <article class="post" id="20260824T173734-0700" style=""> <!-- I redo the design in an svg mock-up -->
             <h3>I redo the design in an svg mock-up</h3>
             <p class="meta">Mon Aug 24 05:37:34 PM PDT 2026 by Daniel</p>
-            <p>Inkscape hates inches, so I convert to mm.</p>
+            <p>Inkscape hates inches, so i convert to mm.</p>
             <p><img style="width: 40%;" src="img/drawing.c.20260824T173734-0700.svg" alt="img/drawing.c.20260824T173734-0700.svg"></p>
             <p>It's about 250mm x 179mm&nbsp;.&nbsp;&nbsp;&nbsp;(W x H)</p>
-            <p>The oval is way too large for the Genmitsu Jinsoku Z3 to handle, so that means either I need to get a larger photo print, or some other kind of printing (or etching).</p>
+            <p>The oval is way too large for the Genmitsu Jinsoku Z3 to handle, so that means either i need to get a larger photo print, or some other kind of printing (or etching).</p>
         </article> <!-- I redo the design in an svg mock-up -->
 
         <article class="post" id="20260824T153640-0700" style=""> <!-- I inventory the BC Memorial project box -->
@@ -449,7 +449,7 @@ M30            ; program end</pre>
             <p style="margin-bottom: 3em;">It's about 1&ThinSpace;½" long.</p>
             <p>There are some photos of BC. Many copies of the same one. None will quite work.</p>
             <p><img style="width: 30%;" src="img/20260824_155912.jpg" alt="img/20260824_155912.jpg"></p>
-            <p style="margin-bottom: 3em;">So that means I'm back to square 1 as far as the existing photos are concerned.</p>
+            <p style="margin-bottom: 3em;">So that means i'm back to square 1 as far as the existing photos are concerned.</p>
             <p>Thankfully, we've got the original art for that picture (<code>img/20190111_101410.jpg</code>):</p>
             <p><img style="width: 30%;" src="img/20190111_101410.jpg" alt="img/20190111_101410.jpg"></p>
         </article> <!-- I inventory the BC Memorial project box -->
@@ -457,7 +457,7 @@ M30            ; program end</pre>
         <article class="post" id="20260816T121940-0700" data-default-expanded>
             <h3>Patrick designs a decal/sticker and does some shading work towards getting a Bas Relief experiment going.</h3>
             <p class="meta">Sun Aug 16 12:19:40 PM PDT 2026 by Daniel</p>
-            <p>I tried my best to use the limited photos we had of BC to try making something you could etch into something using the CNC or laser. I've attached a PNG - I can try vectorizing it later. I MAY be able to remove the background, but my first attempts looked really choppy and stupid. It's tough because the background and her black fur blend together and make it difficult to see where she ends and shadows begin. I don't know if this is a workable version - but I was wondering if it could work if we do the BLACK deeper than the grey - the grey helps give her more shape to be recognizable as BC and not just catblob.</p>
+            <p>I tried my best to use the limited photos we had of BC to try making something you could etch into something using the CNC or laser. i've attached a PNG - i can try vectorizing it later. I MAY be able to remove the background, but my first attempts looked really choppy and stupid. It's tough because the background and her black fur blend together and make it difficult to see where she ends and shadows begin. I don't know if this is a workable version - but i was wondering if it could work if we do the BLACK deeper than the grey - the grey helps give her more shape to be recognizable as BC and not just catblob.</p>
             <img src="img/BC%20PROJECT%201.png" alt="BC PROJECT 1.png" style="max-width: 40%; height:auto; clip-path: inset(2em 0 0 2em); display: flow-root; overflow: hidden; object-fit:cover; margin-bottom: -2em; margin-top: -2em;" loading="lazy">
             <p style="margin-top: 2em;">Can we do two different depths with the different colors?</p>
             <p>Patrick also put together this wonderful heart-and-cat decal/sticker design, with a matching vector file ready for cutting:</p>
@@ -496,7 +496,7 @@ M30            ; program end</pre>
                 </tr>
                 <tr>
                     <td class="narrow-column"><img src="img/BC3-thumbnail.jpeg" alt="BC3-thumbnail.jpeg" style="max-height: 150px; max-width: 100%;" loading="lazy"></td>
-                    <td class="wide-column">BC asleep on someone's lap at a computer desk (keyboard/mouse visible) &mdash; a "keeping me company while I work" shot.</td>
+                    <td class="wide-column">BC asleep on someone's lap at a computer desk (keyboard/mouse visible) &mdash; a "keeping me company while i work" shot.</td>
                 </tr>
                 <tr>
                     <td class="narrow-column"><img src="img/BC4-thumbnail.jpeg" alt="BC4-thumbnail.jpeg" style="max-height: 150px; max-width: 100%;" loading="lazy"></td>
