@@ -78,6 +78,19 @@
             <p></p>
         </article> <!-- prototype-post -->
 
+        <article class="post" id="20261016T210639-0700" style=""> <!-- 2. Generate G-Code (part2e jscut continued C) -->
+            <h3>2. Generate G-Code (part2e jscut continued C)</h3>
+            <p class="meta">Try out <a href="cam_scripts/top-level-bottom-to-top-left-to-right.py" target="_blank">cam_scripts/top-level-bottom-to-top-left-to-right.py</a></p>
+            <p class="meta">Fri Oct 16 09:06:39 PM PDT 2026 by Daniel</p>
+            <p>I had to make a couple of corrections to the script, but it worked as coded.</p>
+            <p>However, it exposed a problem.  Since I'm cutting from bottom to top, given the size of the bit, there's a plunge into the material which occurs at the bottom (x == 0) of each vertical cut.</p>
+            <p>This plunge, although at only 50mm/min still causes the wood to "burn" as you can see from the video below.</p>
+            <p>Notice that before the gantry covers the bottom edge, the wood has no brown "burn", and after the gantry clears that column, it has a brown "burn" mark.</p>
+            <p>Also notice that the pitch of the blade drops sharply during the part of the plunge where the blade makes contact with the wood:</p>
+            <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
+                <source src="video/20261016_210053.mp4" type="video/mp4">
+            </video></p>        </article> <!-- 2. Generate G-Code (part2e jscut continued C) -->
+
         <article class="post" id="20261016T171838-0700" style=""> <!-- 2. Generate G-Code (part2e jscut continued B) -->
             <h3>2. Generate G-Code (part2e jscut continued B)</h3>
             <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
