@@ -81,9 +81,20 @@
         <article class="post" id="20261017T190046-0700" style=""> <!-- Trying another way to "face" the workpiece -->
             <h3>Trying another way to "face" the workpiece</h3>
             <p class="meta">Bottom to top burned the wood where the blade plunged.  Trying top to bottom.</p>
-            <p></p>
             <p class="meta">Sat Oct 17 07:00:46 PM PDT 2026 by Daniel</p>
-            <p></p>
+            <p>The updated script is <a href="cam_scripts/top-level-top-to-bottom-left-to-right.py" target="_blank">cam_scripts/top-level-top-to-bottom-left-to-right.py</a></p>
+            <p>Tragically, it introduced a new problem. It seems cutting from top to bottom burns the surface all the way along wherever the cutting head makes contact with the wood:</p>
+            <img style="width: 50%;" src="img/20261017_161714.jpg" alt="burning happens all along the cutting path">
+            <p>Here you can see where the second cut has burned:</p>
+            <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
+                <source src="video/20261017_161758.mp4" type="video/mp4">
+            </video></p>
+            <p>I decided to turn up the cutting speed to 800mm/minute. This improved matters, burning the surface less, but it's still visible.</p>
+            <p>This picture is from part-way through a second pass. You can see the entire surface is slightly burned, but not as much as the first three cutting on the left:</p>
+            <img style="width: 50%;" src="img/20261017_165932.jpg" alt="At 800mm/m the entire surface got a little burnt.">
+            <p>It then occurred to me that the amount of cutting path overlap might play a role, so I reduced the overlap to 40%, meaning that each cut will be 40% of 25.4mm, or about 10mm.</p>
+            <p>After two passes, you can still see the burn marks, but they are much lighter.  Interestingly the burns along the bottom of the workpiece (closest to camera) are still darker than the rest of each cut:</p>
+            <img style="width: 50%;" src="img/20261017_182006.jpg" alt="With 10mm cuts, the burning is much less.">
         </article> <!-- Trying another way to "face" the workpiece -->
 
         <article class="post" id="20261016T210639-0700" style=""> <!-- 2. Generate G-Code (part2e jscut continued C) -->
@@ -98,6 +109,8 @@
             <p><video style="width: 40%; height: auto; aspect-ratio: 9 / 16;" controls>
                 <source src="video/20261016_210053.mp4" type="video/mp4">
             </video></p>
+            <p>Here's another view of the damage:</p>
+            <img style="width: 50%;" src="img/20261016_205641.jpg" alt="picture of burnt edge due to plunging">
             <p>So i wrote a new script <a href="cam_scripts/top-level-top-to-bottom-left-to-right.py" target="_blank">cam_scripts/top-level-top-to-bottom-left-to-right.py</a></p>
             <p>This script should generate gcode which will cause the cutting head not to plunge into the wood at all.</p>
             <p>Instead the cutting head will plunge to depth well above the top edge of the workpiece before it hits any wood.</p>
@@ -110,7 +123,7 @@
             <p class="meta">A headline/comment/summary of what this blog entry is about.</p>
             <p class="meta">Fri Oct 16 05:18:38 PM PDT 2026 by Daniel</p>
             <p>I was not super happy with the curvature of the back of the workpiece with the cut heart.</p>
-            <p>The workpiece does not sit flush on the table (and won't fit flush to the wall):</p>
+            <p>The workpiece does not sit flush on the table (and won't fit flush to the wall when hung):</p>
             <img style="width: 50%;" src="img/20261016_172958.jpg" alt="picture of workpiece/table gap">
             <p>So i decided to use a particular bit i have to "face" the wall-side of the work-piece.</p>
             <img style="width: 30%;" src="img/20261016_174149.jpg" alt="side picture of the cutting bit.">
