@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="256mm" height="185mm" viewBox="0 0 256 185">
+  <!-- Pocket outline: ellipse centre (69.9556, 92.5767) mm, rx 61.3521 mm, ry 81.5545 mm
+       (122.7043 x 163.1090 mm), 4-segment cubic Bezier, no transforms. -->
+  <path id="pocket-ellipse" d="M 131.3078,92.5767 C 131.3078,137.6180 103.8395,174.1312 69.9556,174.1312 C 36.0718,174.1312 8.6035,137.6180 8.6035,92.5767 C 8.6035,47.5354 36.0718,11.0222 69.9556,11.0222 C 103.8395,11.0222 131.3078,47.5354 131.3078,92.5767 Z" style="fill:#000000;stroke:none"/>
+</svg>
