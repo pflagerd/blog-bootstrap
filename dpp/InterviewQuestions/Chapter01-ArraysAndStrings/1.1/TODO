@@ -1,0 +1,39 @@
+Unittest incantation
+How do create lines in markdown with double space and end of line.
+How to bold text in markdown
+sorted(string) returns a list of strings of size
+
+How to tell the type of an object in python is type()
+
+Must remember def for functions
+
+Must remember self for member functions
+
+I dont' know what
+	if __name__ == "__main__":
+	
+means
+
+The if __name__ != "__main__": statement checks if a Python file is being imported as a module into another script, rather than being run directly.
+
+How it works:
+
+• __name__ is a special built-in variable in Python.
+• When you run a script directly (e.g., python my_script.py), Python sets __name__ to "__main__".
+• When you import the script into another file (e.g., import my_script), Python sets __name__ to the actual name of the module (e.g., "my_script")
+
+
+• Therefore, if __name__ != "__main__": means: "Run the code inside this block only if this file is being imported by another program, not if it is being run directly."
+This is the exact opposite of the very common if __name__ == "__main__": idiom, which runs code only when the file is executed directly.
+
+test cases must start with lowercase "test"
+
+Filling a list is * not **
+
+Remember to have an assertX in the test.
+
+Syntax:
+
+self.assertFalse(isUnique("The quick brown fox jumps over the lazy dog."))
+self.assertTrue
+self.?
